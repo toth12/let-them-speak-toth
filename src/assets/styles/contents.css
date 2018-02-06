@@ -1,0 +1,33 @@
+/**
+* Contents
+**/
+
+.toc-table {
+  padding: 50px;
+  background: #fff;
+  border: 2px solid #ddd;
+}
+
+.toc-row {
+  padding: 15px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.toc-row:hover .text {
+  color: #ca8a17;
+}
+
+.toc-row span {
+  float: left;
+}
+
+.toc-row .text {
+  padding-left: 30px;
+}
+
+.toc-row .meta {
+  padding-top: 8px;
+  font-size: .8em;
+  color: #888;
+}

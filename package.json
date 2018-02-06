@@ -24,6 +24,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "connected-react-router": "^4.2.3",
+    "d3": "^4.13.0",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
@@ -72,5 +73,11 @@
       "env",
       "react"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/src/tests/__mocks__/styleMock.js"
+    }
   }
 }

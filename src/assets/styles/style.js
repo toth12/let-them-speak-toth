@@ -1,1 +1,11 @@
+import './reset.css';
 import './main.css';
+import './hero.css';
+import './nav.css';
+import './home.css';
+import './search.css';
+import './methods.css';
+import './essays.css';
+import './tree.css';
+import './diagram.css';
+import './contents.css';

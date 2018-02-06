@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  className="tree"
+>
+  <div
+    className="left"
+  >
+    <div
+      className="text"
+    >
+      <h2>
+        Anthology
+      </h2>
+      <h1>
+        Select a word to explore stories of survivors
+      </h1>
+    </div>
+  </div>
+  <div
+    className="right"
+  >
+    <div
+      className="diagram"
+    >
+      <div
+        id="hidden"
+      />
+      <div
+        id="target"
+      />
+    </div>
+  </div>
+</div>
+`;

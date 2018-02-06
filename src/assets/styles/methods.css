@@ -1,0 +1,11 @@
+/**
+* Methods
+**/
+
+.methods .image-trio div {
+  background: url('../images/memorial-sepia.jpg');
+}
+
+.methods .image-trio a {
+  color: #222;
+}

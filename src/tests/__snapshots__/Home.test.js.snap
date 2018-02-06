@@ -2,8 +2,36 @@
 
 exports[`renders 1`] = `
 <div
-  className="home"
+  className="home background-image"
 >
-  Home
+  <div
+    className="top"
+  >
+    <div
+      className="brand"
+    />
+    <div>
+      <div
+        className="welcome"
+      >
+        A data-driven anthology of oral history interviews with Holocaust survivors
+      </div>
+    </div>
+    <a
+      className="button gold"
+      href="/about"
+      onClick={[Function]}
+    >
+      Let's explore
+    </a>
+  </div>
+  <div
+    className="bottom"
+  >
+    <hr />
+    <div>
+      A project by Gabor Mihaly Toth in collaboration with the Yale Digital Humanities Lab
+    </div>
+  </div>
 </div>
 `;

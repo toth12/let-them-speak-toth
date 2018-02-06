@@ -26,6 +26,12 @@ const htmlConfig = {
   }
 }
 
+const cssConfig = {
+  cssProcessorOptions: {
+    safe: true,
+  }
+}
+
 const common = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
@@ -78,6 +84,7 @@ const common = {
   plugins: [
     new CleanWebpackPlugin([paths.build]),
     new HtmlWebpackPlugin(htmlConfig),
+    new OptimizeCssAssetsPlugin(cssConfig),
     new ExtractTextPlugin('styles.[contenthash].css'),
   ]
 };
@@ -110,7 +117,6 @@ const prodSettings = {
       NODE_ENV: JSON.stringify('production')
     }}),
     new webpack.optimize.UglifyJsPlugin(uglifyConfig),
-    new OptimizeCssAssetsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
   ]
 }
