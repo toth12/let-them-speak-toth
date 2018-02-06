@@ -1,23 +1,16 @@
 # Flask React Boilerplate
 
-[![Build Status](https://travis-ci.org/YaleDHLab/flask-react-boilerplate.svg?branch=master)](https://travis-ci.org/YaleDHLab/flask-react-boilerplate)
+> A database of Holocaust survivor testimonies.
 
-Simple boilerplate for a Flask backend and React client including:
-
-* ES6 transpiling via Webpack
-* Hot module reloading via Webpack Dev Server
-* State management via Redux
-* Tests via Pytest and Jest
-* Linting via Pylint and Eslint
-* Travis CI for automatic testing and linting
+[![Build Status](https://travis-ci.org/YaleDHLab/let-them-speak.svg?branch=master)](https://travis-ci.org/YaleDHLab/let-them-speak)
 
 ## Dependencies
 
-To install the boilerplate dependencies, you can run:
+To install the app dependencies, you can run:
 
 ```bash
-git clone https://github.com/YaleDHLab/flask-react-boilerplate
-cd flask-react-boilerplate
+git clone https://github.com/YaleDHLab/let-them-speak
+cd let-them-speak
 npm install --no-optional
 pip install -r requirements.txt
 ```

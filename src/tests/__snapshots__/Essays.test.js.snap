@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div>
+  <div
+    className="hero background-image"
+  >
+    <h1>
+      Essays
+    </h1>
+  </div>
+  <div
+    className="container"
+  >
+    <blockquote>
+      "Lorem ipsum dolor sit amet, arcu vulputate egestas dolor wisi, fugiat vestibulum etiam mattis sit, curabitur elit nulla vel, mus quis elit porttitor nulla."
+    </blockquote>
+    <p
+      className="center-text"
+    >
+      —Source Attribution
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, arcu vulputate egestas dolor wisi, fugiat vestibulum etiam mattis sit, curabitur elit nulla vel, mus quis elit porttitor nulla. Amet elit in convallis, metus nam at sed, ipsum phasellus a dapibus, ornare in massa pharetra. Montes elementum pede integer ac, pulvinar aliquam non in augue, orci nulla eros nulla. Vulputate ut sed eget eu, dolor aliquam velit quisque a. Fermentum venenatis rhoncus vitae congue, suspendisse potenti pellentesque vestibulum.
+    </p>
+    <p>
+      Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse. A sit, vehicula eleifend, per massa vitae. Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse.
+    </p>
+    <div
+      className="essay-titles"
+    >
+      <h2>
+        Table of Contents
+      </h2>
+      <a
+        className="essay-title"
+        href="#0"
+        onClick={[Function]}
+      >
+        1
+        . 
+        Lorem ipsum dolor sit amet, arcu vulputate
+      </a>
+      <a
+        className="essay-title"
+        href="#1"
+        onClick={[Function]}
+      >
+        2
+        . 
+        Ipsum dolor sit amet, arcu vulputate
+      </a>
+      <a
+        className="essay-title"
+        href="#2"
+        onClick={[Function]}
+      >
+        3
+        . 
+        Dolor sit amet, arcu vulputate
+      </a>
+      <a
+        className="essay-title"
+        href="#3"
+        onClick={[Function]}
+      >
+        4
+        . 
+        Amet a. Tempor eu. Dignissim nunc. Morbi faucibus
+      </a>
+      <a
+        className="essay-title"
+        href="#4"
+        onClick={[Function]}
+      >
+        5
+        . 
+        A. Tempor eu. Dignissim nunc. Morbi faucibus
+      </a>
+      <a
+        className="essay-title"
+        href="#5"
+        onClick={[Function]}
+      >
+        6
+        . 
+        Tempor eu. Dignissim nunc. Morbi faucibus
+      </a>
+      <a
+        className="essay-title"
+        href="#6"
+        onClick={[Function]}
+      >
+        7
+        . 
+        Lorem ipsum dolor sit amet, arcu vulputate
+      </a>
+      <a
+        className="essay-title"
+        href="#7"
+        onClick={[Function]}
+      >
+        8
+        . 
+        Ipsum dolor sit amet, arcu vulputate
+      </a>
+      <a
+        className="essay-title"
+        href="#8"
+        onClick={[Function]}
+      >
+        9
+        . 
+        Dolor sit amet, arcu vulputate
+      </a>
+      <a
+        className="essay-title"
+        href="#9"
+        onClick={[Function]}
+      >
+        10
+        . 
+        Amet a. Tempor eu. Dignissim nunc. Morbi faucibus
+      </a>
+      <a
+        className="essay-title"
+        href="#10"
+        onClick={[Function]}
+      >
+        11
+        . 
+        A. Tempor eu. Dignissim nunc. Morbi faucibus
+      </a>
+      <a
+        className="essay-title"
+        href="#11"
+        onClick={[Function]}
+      >
+        12
+        . 
+        Tempor eu. Dignissim nunc. Morbi faucibus
+      </a>
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet, arcu vulputate egestas dolor wisi, fugiat vestibulum etiam mattis sit, curabitur elit nulla vel, mus quis elit porttitor nulla. Amet elit in convallis, metus nam at sed, ipsum phasellus a dapibus, ornare in massa pharetra. Montes elementum pede integer ac, pulvinar aliquam non in augue, orci nulla eros nulla. Vulputate ut sed eget eu, dolor aliquam velit quisque a. Fermentum venenatis rhoncus vitae congue, suspendisse potenti pellentesque vestibulum.
+    </p>
+    <p>
+      Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse. A sit, vehicula eleifend, per massa vitae. Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse.
+    </p>
+  </div>
+</div>
+`;

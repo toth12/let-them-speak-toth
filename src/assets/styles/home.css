@@ -1,0 +1,39 @@
+/**
+* Home
+**/
+
+.home {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  background: url(../images/memorial-sepia.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.home .top {
+  margin-top: 30%;
+}
+
+.home .top .welcome {
+  max-width: 70%;
+  display: inline-block;
+  font-size: 2em;
+}
+
+.home .top .button {
+  display: inline-block;
+  margin-top: 40px;
+}
+
+.home .bottom {
+  width: 400px;
+  display: inline-block;
+  margin-top: 25%;
+}

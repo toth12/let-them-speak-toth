@@ -1,0 +1,39 @@
+/**
+* Nav
+**/
+
+nav {
+  background: #000;
+  opacity: 1;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  max-height: 75px;
+  overflow: hidden;
+}
+
+nav ul {
+  display: inline-block;
+}
+
+nav li {
+  display: inline-block;
+  padding: 30px 20px;
+  vertical-align: top;
+}
+
+nav li.brand {
+  padding: 10px 20px;
+}
+
+nav a {
+  color: #eee;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #ca8a17;
+}

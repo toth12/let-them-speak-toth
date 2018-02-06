@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<nav>
+  <ul>
+    <li>
+      <a
+        href="/about"
+        onClick={[Function]}
+      >
+        ABOUT
+      </a>
+    </li>
+    <li>
+      <a
+        href="/essays"
+        onClick={[Function]}
+      >
+        ESSAYS
+      </a>
+    </li>
+    <li>
+      <a
+        href="/explore"
+        onClick={[Function]}
+      >
+        EXPLORE
+      </a>
+    </li>
+    <li
+      className="brand"
+    >
+      <a
+        href="/#"
+        onClick={[Function]}
+      >
+        <img
+          src="test-file-stub"
+        />
+      </a>
+    </li>
+    <li>
+      <a
+        href="/anthology"
+        onClick={[Function]}
+      >
+        ANTHOLOGY
+      </a>
+    </li>
+    <li>
+      <a
+        href="/methods"
+        onClick={[Function]}
+      >
+        METHODOLOGY
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

@@ -1,9 +1,5 @@
+@import url('https://use.typekit.net/pnj8quo.css');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans')
-
-body, html {
-  height: 100%;
-  width: 100%;
-}
 
 * {
   margin: 0;
@@ -11,6 +7,180 @@ body, html {
   box-sizing: border-box;
 }
 
+body, html {
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: url('../images/paper-texture.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 body {
-  font-family: Open Sans;
+  font-family: 'Open Sans';
+}
+
+/**
+* Containers
+**/
+
+#app,
+.app-container {
+  min-height: 100%;
+}
+
+.container {
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/**
+* Footer
+**/
+
+.app-wrap {
+  min-height: 100%;
+}
+
+/**
+* Text
+**/
+
+h1 {
+  font-family: 'arno-pro', serif;
+  font-size: 3em;
+  margin: 0;
+  font-weight: 300;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'arno-pro', serif;
+  font-size: 1.125em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 30px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #A56A24;
+}
+
+p {
+  font-family: 'arno-pro', serif;
+  font-size: 1.125em;
+  margin: 1em 0;
+  line-height: 26px;
+  font-weight: 400;
+  color: #222222;
+}
+
+blockquote {
+  font-family: 'arno-pro', serif;
+  font-size: 2em;
+  font-style: italic;
+  line-height: 40px;
+  text-align: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/**
+* Buttons
+**/
+
+button,
+.button {
+  padding: 11px 34px;
+  font-size: 1em;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  color: #222;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+button:hover,
+.button:hover,
+button.gold,
+.button.gold {
+  color: #fff;
+  background: #ca8a17;
+  border: 1px solid #ca8a17;
+}
+
+button.gold a,
+.button.gold a {
+  color: #fff;
+}
+
+.button-trio {
+  padding: 40px;
+  text-align: center;
+}
+
+.button-trio a.button {
+  margin: 7px;
+}
+
+/**
+* Form elements
+**/
+
+select {
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+}
+
+/**
+* Images
+**/
+
+.background-image {
+  background-image: none;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/**
+* Image trio
+**/
+
+.image-trio {
+  width: 100%;
+}
+
+.image-trio td {
+  text-align: center;
+  padding: 0 20px;
+  font-size: 1.1em;
+  font-weight: 300;
+  width: 33.3%;
+}
+
+.image-trio tr:nth-of-type(2) td {
+  padding-top: 15px;
+}
+
+.image-trio .background-image {
+  padding-bottom: 100%;
 }
