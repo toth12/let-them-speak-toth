@@ -10,25 +10,45 @@ module.exports = {
       "env": "development"
     }
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+  ],
   "rules": {
+    "import/extensions": ["error", "always", {
+      "js": "never",
+      "jsx": "never",
+      "mjs": "never"
+    }],
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
-    "no-console": [ 0 ],
-    "no-empty": [ 0 ],
+    "max-len": [1, 80, { "ignoreComments": true, "ignoreTrailingComments": true, "ignoreUrls": true }],
+    "no-console": ["error", { allow: ["warn"] }],
+    "no-empty": ["error", { "allowEmptyCatch": true }],
     "no-undef": ["error", { "typeof": false }],
     "no-unused-vars": ["error", { "varsIgnorePattern": "React" }],
+    "no-trailing-spaces": 2,
     "quotes": ["error", "single"],
-    "react/jsx-uses-vars": [ 2 ],
+    "react/jsx-uses-vars": 2,
   },
   "plugins": [
-    "react"
+    "react",
+    "import",
   ],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
       "modules": true
+    }
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
     }
   }
 };
