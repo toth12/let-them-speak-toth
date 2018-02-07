@@ -12,11 +12,13 @@ nav {
   left: 0;
   z-index: 2;
   max-height: 75px;
-  overflow: hidden;
+  max-width: 100%;
+  overflow: auto;
 }
 
 nav ul {
   display: inline-block;
+  white-space: nowrap;
 }
 
 nav li {
@@ -26,7 +28,7 @@ nav li {
 }
 
 nav li.brand {
-  padding: 10px 20px;
+  padding: 10px 20px 0;
 }
 
 nav a {
