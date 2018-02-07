@@ -16,7 +16,7 @@
     "production": "npm run build && npm run serve",
     "serve": "FLASK_APP=server/app.py flask run --port=7082",
     "lint-js": "./node_modules/eslint/bin/eslint.js -c './src/config/.eslintrc.js' src/",
-    "lint-py": "pylint server/app.py",
+    "lint-py": "pylint server",
     "lint": "npm run lint-js && npm run lint-py",
     "jest": "./node_modules/jest/bin/jest.js",
     "test": "npm run build && npm run lint && npm run jest && pytest"
