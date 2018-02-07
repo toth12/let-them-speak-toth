@@ -51,30 +51,39 @@ def get_node(is_parent=False):
     'children': []
   }
 
-records = []
-for c, i in enumerate(range(10)):
-  record = {
-    'label': fake.word(ext_word_list=None), #pylint: disable=no-member
-    'essay_id': c,
-    'tree': {}
-  }
+def get_testimony_id(testimony_ids):
+  '''Get a random testimony id'''
+  idx = random.randint(0, len(testimony_ids) - 1)
+  return testimony_ids[idx]
 
-  # build the tree
-  for j in range(random.randint(7, 10)):
-    parent = True
-    node = get_node(is_parent=parent)
-    if parent:
-      for k in range(8, 12):
-        _parent = random.random() > 0.3
-        child = get_node(is_parent=_parent)
-        if _parent:
-          for l in range(4, 8):
-            grandchild = get_node()
-            child['children'].append(grandchild)
-        node['children'].append(child)
-    record['tree'] = node
-  records.append(record)
+def get_children():
+  '''Get the children value for a top-level node'''
+  children = []
+  for _ in range(8, 12):
+    _parent = random.random() > 0.3
+    child = get_node(is_parent=_parent)
+    if _parent:
+      for _ in range(4, 8):
+        grandchild = get_node()
+        child['children'].append(grandchild)
+    children.append(child)
+  return children
 
-# remove all records and add seed records
-db.fragments.remove({})
-db.fragments.insert_many(records)
+def get_fragments(testimony_ids):
+  '''Return a list of objects for the fragments table'''
+  fragments = []
+  for _ in range(10):
+    fragment = {
+      'label': fake.word(ext_word_list=None), #pylint: disable=no-member
+      'essay_id': get_testimony_id(testimony_ids),
+      'tree': {}
+    }
+    # build the tree
+    for _ in range(random.randint(7, 10)):
+      parent = True
+      node = get_node(is_parent=parent)
+      if parent:
+        node['children'] = get_children()
+      fragment['tree'] = node
+    fragments.append(fragment)
+  return fragments

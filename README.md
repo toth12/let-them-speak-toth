@@ -13,6 +13,7 @@ git clone https://github.com/YaleDHLab/let-them-speak
 cd let-them-speak
 npm install --no-optional
 pip install -r requirements.txt
+npm run seed
 ```
 
 ## Quickstart
