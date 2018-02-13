@@ -29,9 +29,9 @@ exports[`renders 1`] = `
     className="bottom"
   >
     <hr />
-    <div>
+    <p>
       A project by Gabor Mihaly Toth in collaboration with the Yale Digital Humanities Lab
-    </div>
+    </p>
   </div>
 </div>
 `;

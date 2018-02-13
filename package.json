@@ -10,6 +10,7 @@
     "url": "git+https://github.com/duhaime/react-boilerplate.git"
   },
   "scripts": {
+    "heroku-postbuild": "npm run build",
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 7081 --history-api-fallback",
     "seed": "python server/seeds/seed_testimonies.py",
     "build": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
