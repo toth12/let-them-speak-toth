@@ -35,12 +35,17 @@ def get_int():
   '''Generate a random int between 0 and 9999999'''
   return random.randint(0, 9999999)
 
+def get_testimony_id(testimony_ids):
+  '''Get a random testimony id'''
+  idx = random.randint(0, len(testimony_ids) - 1)
+  return testimony_ids[idx]
+
 def get_node(is_parent=False):
   '''Generate a parent or leaf node for a tree structure'''
   if is_parent:
     label = fake.word(ext_word_list=None) #pylint: disable=no-member
   else:
-    label = fake.sentence(nb_words=6, variable_nb_words=True) #pylint: disable=no-member
+    label = fake.sentence(nb_words=12, variable_nb_words=True) #pylint: disable=no-member
 
   return {
     'label': label,
@@ -51,39 +56,38 @@ def get_node(is_parent=False):
     'children': []
   }
 
-def get_testimony_id(testimony_ids):
-  '''Get a random testimony id'''
-  idx = random.randint(0, len(testimony_ids) - 1)
-  return testimony_ids[idx]
-
 def get_children():
-  '''Get the children value for a top-level node'''
+  '''Get the second-gen children for a first-gen node'''
   children = []
-  for _ in range(8, 12):
-    _parent = random.random() > 0.3
-    child = get_node(is_parent=_parent)
-    if _parent:
-      for _ in range(4, 8):
-        grandchild = get_node()
-        child['children'].append(grandchild)
-    children.append(child)
+  for _ in range(random.randint(4, 9)):
+    children.append(get_node(is_parent=False))
   return children
 
 def get_fragments(testimony_ids):
   '''Return a list of objects for the fragments table'''
   fragments = []
   for _ in range(10):
+    label = fake.word(ext_word_list=None) #pylint: disable=no-member
     fragment = {
-      'label': fake.word(ext_word_list=None), #pylint: disable=no-member
+      'label': label,
       'essay_id': get_testimony_id(testimony_ids),
-      'tree': {}
+      'tree': get_node(is_parent=True)
     }
-    # build the tree
-    for _ in range(random.randint(7, 10)):
-      parent = True
+    fragment['tree']['label'] = label
+    # first-generation children
+    children = []
+    n_parents = 0
+    for _ in range(random.randint(8, 16)):
+      parent = random.random() > 0.8
+      if n_parents == 0:
+        parent = True
+      if n_parents == 3:
+        parent = False
       node = get_node(is_parent=parent)
       if parent:
         node['children'] = get_children()
-      fragment['tree'] = node
+        n_parents += 1
+      children.append(node)
+    fragment['tree']['children'] = children
     fragments.append(fragment)
   return fragments

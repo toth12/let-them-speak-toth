@@ -16,8 +16,8 @@ app = app.test_client()
 
 def test_api_data():
   '''Validate the server sends data in the expected shape'''
-  data = app.get('/api/items').get_data(as_text=True)
-  assert 'title' in json.loads(data)[0]
+  data = app.get('/api/tree').get_data(as_text=True)
+  assert 'tree' in json.loads(data)[0]
 
 def test_index_response():
   '''Validate the index route returns a 200 response'''
