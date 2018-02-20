@@ -7,6 +7,6 @@ import './search.styl';
 import './methods.styl';
 import './essays.styl';
 import './tree.styl';
-import './diagram.styl';
+import './tree-chart.styl';
 import './contents.styl';
 import './anthology.styl';

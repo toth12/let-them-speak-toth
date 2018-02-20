@@ -1,0 +1,67 @@
+/**
+* Tree chart
+**/
+
+#target {
+  overflow-y: hidden;
+  padding-bottom: 70px;
+}
+
+.tree-container {
+  margin-top: 40px;
+  position: relative;
+}
+
+.tree-chart {
+  max-width: 100%;
+  overflow: auto;
+}
+
+/**
+* Geoms
+**/
+
+path {
+  fill: none;
+  stroke: #c7c7c7;
+}
+
+text {
+  cursor: pointer;
+}
+
+text:hover {
+  fill: #a77417;
+}
+
+/**
+* Hidden element for sizing
+**/
+
+#hidden {
+  position: absolute;
+  top: -500%;
+  left: -500%;
+}
+
+/**
+* Reset button
+**/
+
+#reset {
+  font-size: 29px;
+  color: #fff;
+  background: #a77417;
+  display: inline-block;
+  padding: 0px 10px 8px 9px;
+  vertical-align: top;
+  position: absolute;
+  left: -16px;
+  top: 238px;
+  transition: transform .2s;
+  transform: rotate(180deg);
+}
+
+#reset img {
+  width: 14px;
+}

@@ -5,8 +5,7 @@ import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import { rootReducer } from './reducers/index';
 import freeze from 'redux-freeze';
-import { fetchItems } from './actions/items';
-import config from './config/client';
+import { fetchTreeData } from './actions/tree';
 
 const history = createBrowserHistory();
 const loggerMiddleware = createLogger()
@@ -44,6 +43,6 @@ const store = createStore(
 );
 
 // initialize app state
-store.dispatch(fetchItems(config.endpoint + 'items'))
+store.dispatch(fetchTreeData())
 
 export { store, history };
