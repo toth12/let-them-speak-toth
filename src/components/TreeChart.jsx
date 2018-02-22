@@ -2,15 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { setActiveIndex } from '../actions/tree';
 import tree from '../lib/tree.js';
 import src from '../assets/images/arrows.png';
+import { fetchTestimony } from '../actions/testimony';
+import {
+  setActiveIndex,
+  fetchTreeData
+} from '../actions/tree';
 
 class TreeChart extends React.Component {
   constructor(props) {
     super(props)
     this.drawTree = this.drawTree.bind(this)
     this.resetTree = this.resetTree.bind(this) 
+  }
+
+  componentWillMount() {
+    this.props.fetchTreeData();
   }
 
   componentDidMount() {
@@ -31,7 +39,9 @@ class TreeChart extends React.Component {
     } else {
       tree.draw({
         data: this.props.data[this.props.selected].tree,
-        onClick: ((d, idx) => console.log(d, idx)),
+        onClick: ((d, idx) => {
+          this.props.fetchTestimony(d.data.testimony_id)
+        }),
       })
     }
   }
@@ -65,6 +75,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setActiveIndex: (d, idx) => dispatch(setActiveIndex(idx)),
+  fetchTreeData: () => dispatch(fetchTreeData()),
+  fetchTestimony: (id) => dispatch(fetchTestimony(id)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TreeChart));

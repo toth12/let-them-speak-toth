@@ -5,7 +5,6 @@ import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import { rootReducer } from './reducers/index';
 import freeze from 'redux-freeze';
-import { fetchTreeData } from './actions/tree';
 
 const history = createBrowserHistory();
 const loggerMiddleware = createLogger()
@@ -41,8 +40,5 @@ const store = createStore(
   connectRouter(history)(rootReducer),
   middleware
 );
-
-// initialize app state
-store.dispatch(fetchTreeData())
 
 export { store, history };

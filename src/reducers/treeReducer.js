@@ -6,7 +6,7 @@ const initialState = {
 
 const treeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'DATA_REQUEST_FAILED':
+    case 'TREE_DATA_REQUEST_FAILED':
       return Object.assign({}, state, {
         err: true,
       })
@@ -14,6 +14,7 @@ const treeReducer = (state = initialState, action) => {
     case 'RECEIVE_TREE_DATA':
       return Object.assign({}, state, {
         data: action.data,
+        err: false,
       })
 
     case 'SET_ACTIVE_TREE_INDEX':

@@ -22,9 +22,8 @@ tree.init = (props) => {
     d3.select('#target').select('svg')
     : d3.select('#target').append('svg');
 
-  svg
-    .attr('width', width)
-    .attr('height', (props.data.length * 50) + margin.top + margin.bottom);
+  svg.attr('width', width)
+    .attr('height', (props.data.length * 70) + margin.top + margin.bottom);
 
   svg.selectAll('.root-node').data(props.data).enter()
     .append('text')
@@ -38,13 +37,26 @@ tree.init = (props) => {
         d3.select(this).attr('class', 'root-node active');
         props.onClick(d, i);
       })
+
+  // add links from the reset button to root nodes
+  let links = [],
+      reset = document.querySelector('#reset');
+  // d3 tree internals reverse x and y
+  props.data.map((d, i) => links.push({
+    source: { y: 15, x: reset.offsetTop + (reset.clientHeight / 2) },
+    target: { y: margin.left - 5, x: tree.getRootY(d, i) - 8}
+  }))
+
+  // append the links and transition into the dom
+  const linkEnter = svg.selectAll('.root-link').data(links).enter()
+    .append('path')
+    .attr('class', 'root-link')
+    .attr('d', (d) => tree.path(d.source, d.source, 'root-link'))
+
+  linkEnter.transition()
+    .delay((d, i) => (i+3) * 50)
+    .attr('d', (d) => tree.path(d.source, d.target, 'root-link'))
 }
-
-/**
-* Helpers shared by init and reset methods
-**/
-
-tree.getRootY = (d, i) => ((i+1) * 50) + margin.top;
 
 /**
 * Draw the tree for one particular root node
@@ -56,13 +68,19 @@ tree.draw = (props) => {
   * Tree structure data
   **/
 
-  const tree = d3.tree().size([height, width]);
+  const graph = d3.tree().size([height, width]);
   const root = d3.hierarchy(props.data, (d) => d.children);
   let nodes = root.descendants();
-  const links = tree(root).links();
+  const links = graph(root).links();
 
   // add ids to all nodes
   nodes.map((d, idx) => d._id = idx);
+
+  /**
+  * Remove root links
+  **/
+
+  d3.selectAll('.root-link').remove()
 
   /**
   * Render invisible text labels
@@ -103,12 +121,12 @@ tree.draw = (props) => {
     if (isParent(d)) {
       // root node
       if (d.depth === 0) {
-        rootX = getBB('#node-' + d._id).width + margin.left;
+        rootX = tree.getBB('#node-' + d._id).width + margin.left;
         d.y = 0;
       }
       // non-root parent
       else {
-        d.y = rootX + getBB('#node-' + d._id).width + linksWidth + 15;
+        d.y = rootX + tree.getBB('#node-' + d._id).width + linksWidth + 15;
       }
     // children
     } else {
@@ -117,7 +135,7 @@ tree.draw = (props) => {
       let node = d;
       while (node) {
         if (node.parent && node.parent._id !== 0) {
-          parentsX += getBB('#node-' + node.parent._id).width;
+          parentsX += tree.getBB('#node-' + node.parent._id).width;
           node = node.parent;
         } else {
           node = false;
@@ -159,7 +177,7 @@ tree.draw = (props) => {
     .attr('height', height);
 
   /**
-  * Transition root node list
+  * Transition root nodes out of scene
   **/
 
   d3.selectAll('.root-node').each(function(d, i) {
@@ -195,14 +213,14 @@ tree.draw = (props) => {
         // parent to parent link
         if (d.source.children && d.source.children.length &&
             d.target.children && d.target.children.length) {
-          return path(d.source, d.target, 'root-to-parent')
+          return tree.path(d.source, d.target, 'root-to-parent')
         };
         // root to non-parent link
         if (d.source.depth === 0) {
-          return path(d.source, d.target, 'root-to-child')
+          return tree.path(d.source, d.target, 'root-to-child')
         };
         // parent to child link
-        return path(d.source, d.target, 'parent-to-child');
+        return tree.path(d.source, d.target, 'parent-to-child');
       })
 
   /**
@@ -217,6 +235,7 @@ tree.draw = (props) => {
         return 'translate(' + d.y + ',' + d.x + ')';
       })
       .attr('font-size', getFontSize)
+      .on('click', props.onClick)
 
   /**
   * Text
@@ -241,27 +260,6 @@ tree.draw = (props) => {
 
   function isParent(d) {
     return d.children && d.children.length;
-  }
-
-  function getBB(selector) {
-    const elem = document.querySelector(selector);
-    return elem ? elem.getBoundingClientRect() : {width: 0};
-  }
-
-  function path(s, d, type) {
-    let endY = d.y;
-    let startY = s.y;
-    if (type === 'root-to-parent') {
-      startY += getBB('#node-' + s._id).width;
-      endY -= getBB('#node-' + d._id).width + 12;
-    }
-    if (type === 'root-to-child') {
-      startY += getBB('#node-' + s._id).width;
-    }
-    return `M ${startY} ${s.x}
-            C ${(startY + endY) / 2} ${s.x},
-              ${(startY + endY) / 2} ${d.x},
-              ${endY} ${d.x}`
   }
 
   function getDy(d) {
@@ -305,6 +303,34 @@ tree.reset = (props) => {
     .attr('y', tree.getRootY)
     .attr('x', margin.left);
   d3.select('#reset').style('transform', 'rotate(180deg)');
+}
+
+
+/**
+* Helpers shared by init and reset methods
+**/
+
+tree.getRootY = (d, i) => ((i+1) * 60) + margin.top;
+
+tree.path = (s, d, type) => {
+  let endY = d.y;
+  let startY = s.y;
+  if (type === 'root-to-parent') {
+    startY += tree.getBB('#node-' + s._id).width;
+    endY -= tree.getBB('#node-' + d._id).width + 12;
+  }
+  if (type === 'root-to-child') {
+    startY += tree.getBB('#node-' + s._id).width;
+  }
+  return `M ${startY} ${s.x}
+          C ${(startY + endY) / 2} ${s.x},
+            ${(startY + endY) / 2} ${d.x},
+            ${endY} ${d.x}`
+}
+
+tree.getBB = (selector) => {
+  const elem = document.querySelector(selector);
+  return elem ? elem.getBoundingClientRect() : {width: 0};
 }
 
 export default tree;

@@ -10,3 +10,4 @@ import './tree.styl';
 import './tree-chart.styl';
 import './contents.styl';
 import './anthology.styl';
+import './testimony.styl';
