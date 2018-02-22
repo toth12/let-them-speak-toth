@@ -9,9 +9,10 @@ Generate seed data for the testimonies collection. Schema:
   ghetto_names: [str]
   gender: string {male | female}
   collection: str
-  cleaned_full_text: str
-  video_url: str
-  thumbnai_url: str
+  full_text: str
+  media_url: str
+  media_caption: str
+  thumbnail_url: str
   testimony_title: str
   interview_summary: str
   provenance: str
@@ -84,12 +85,13 @@ for _ in range(100):
     'gender': gender,
     'interviewee_name': get_interviewee_name(gender),
     'collection': get_collection(),
-    'cleaned_full_text': get_full_text(),
-    'video_url': get_media(),
-    'thumbnai_url': thumb_url,
+    'full_text': get_full_text(),
+    'media_url': get_media(),
+    'media_caption': fake.paragraph(nb_sentences=4), #pylint: disable=no-member
+    'thumbnail_url': thumb_url,
     'testimony_title': fake.sentence(nb_words=6), #pylint: disable=no-member
     'interview_summary': fake.text(max_nb_chars=500), #pylint: disable=no-member
-    'provenance': fake.words(nb=3), #pylint: disable=no-member
+    'provenance': ' '.join(fake.words(nb=3)), #pylint: disable=no-member
     'accession_number': str(get_int()),
     'rg_number': str(get_int()),
   })

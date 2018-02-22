@@ -23,7 +23,7 @@ tree.init = (props) => {
     : d3.select('#target').append('svg');
 
   svg.attr('width', width)
-    .attr('height', (props.data.length * 50) + margin.top + margin.bottom);
+    .attr('height', (props.data.length * 70) + margin.top + margin.bottom);
 
   svg.selectAll('.root-node').data(props.data).enter()
     .append('text')
@@ -177,7 +177,7 @@ tree.draw = (props) => {
     .attr('height', height);
 
   /**
-  * Transition root node list
+  * Transition root nodes out of scene
   **/
 
   d3.selectAll('.root-node').each(function(d, i) {
@@ -235,6 +235,7 @@ tree.draw = (props) => {
         return 'translate(' + d.y + ',' + d.x + ')';
       })
       .attr('font-size', getFontSize)
+      .on('click', props.onClick)
 
   /**
   * Text
@@ -309,7 +310,7 @@ tree.reset = (props) => {
 * Helpers shared by init and reset methods
 **/
 
-tree.getRootY = (d, i) => ((i+1) * 50) + margin.top;
+tree.getRootY = (d, i) => ((i+1) * 60) + margin.top;
 
 tree.path = (s, d, type) => {
   let endY = d.y;
