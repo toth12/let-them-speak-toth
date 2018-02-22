@@ -76,7 +76,7 @@ testimonies = []
 for _ in range(100):
   gender = get_gender()
   testimonies.append({
-    'unique_id': str(get_int()),
+    'testimony_id': str(get_int()),
     'shelf_mark': str(get_int()),
     'recording_year': random.randint(1970, 1990),
     'camp_names': ['camp_a', 'camp_b'],
@@ -94,7 +94,7 @@ for _ in range(100):
     'rg_number': str(get_int()),
   })
 
-testimony_ids = [i['unique_id'] for i in testimonies]
+testimony_ids = [i['testimony_id'] for i in testimonies]
 fragments = get_fragments(testimony_ids)
 
 # remove all fragments and add seed fragments
