@@ -22,11 +22,17 @@ node_schema = {
   'children': list,
 }
 
+def validate_length(obj, _type):
+  '''Validate that strings and ints have length'''
+  if _type in [str, int]:
+    assert obj
+
 def validate_node(_id, node):
   '''Validate that a fragment's node has the required structure'''
   for node_key in node.keys():
     print(' * validating', node_key, 'in', _id, 'tree')
     assert isinstance(node[node_key], node_schema[node_key])
+    validate_length(node[node_key], node_schema[node_key])
     for child in node['children']:
       print(' * validating', child, 'in', _id, 'tree children')
       validate_node(_id, child)
@@ -36,6 +42,7 @@ def validate_fragment(fragment):
   for fragment_key in fragment.keys():
     print(' * validating', fragment_key, 'in', fragment['_id'])
     assert isinstance(fragment[fragment_key], root_schema[fragment_key])
+    validate_length(fragment[fragment_key], root_schema[fragment_key])
     validate_node(fragment['_id'], fragment['tree'])
 
 db = MongoClient('localhost', 27017)['lts']
