@@ -3,7 +3,7 @@
 **/
 
 .search-container {
-  padding-top: 150px;
+  padding-top: 160px;
   text-align: center;
 }
 
@@ -40,7 +40,7 @@
   border-radius: 3px;
   background-color: #FFFFFF;
   display: inline-block;
-  border: 1px solid #ebebeb;
+  border: none;
   padding: 10px;
   box-sizing: border-box;
   font-size: .9em;
@@ -54,4 +54,138 @@
   left: 12px;
   background-image: url('../images/magnifying-glass.png');
   background-size: cover;
+}
+
+/**
+* Results
+**/
+
+div.results-label {
+  margin-bottom: 24px;
+}
+
+span.results-count {
+  margin-left: 30px;
+}
+
+/**
+* Result Table
+**/
+
+.results-table {
+  width: 100%;
+  background: #fff;
+  padding-bottom: 8px;
+}
+
+.results-table .row {
+  padding: 5px 20px;
+  cursor: pointer;
+  font-family: courier;
+  font-size: 0.925em;
+}
+
+.results-table .row.headers {
+  background: #fff;
+  font-weight: 600;
+  color: #8e8d8d;
+  font-size: 14px;
+  padding: 10px 20px;
+  box-shadow: 1px 1px 3px #aaa;
+  margin-bottom: 10px;
+  cursor: default;
+}
+
+.results-table .exerpt {
+  margin-left: 35px;
+}
+
+.results-table .row:nth-of-type(2n) {
+  background: rgba(247, 242, 227, 0.3);
+}
+
+.results-table .row:hover {
+  background: rgba(247, 242, 227, 1);
+}
+
+.results-table .row.header:hover {
+  background: #fff;
+}
+
+.results-table .row div {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.results-table .rows .idx,
+.results-table .rows .id {
+  color: #767676;
+  font-weight: 300;
+}
+
+.results-table .row .idx {
+  width: 50px;
+}
+
+.results-table .row .id {
+  width: 90px;
+}
+
+.results-table .row .hit-left {
+  width: 220px;
+  text-align: right;
+  direction: rtl;
+}
+
+.results-table .hit-highlight {
+  color: brown;
+  padding: 0 6px;
+}
+
+.results-table .hit-left,
+.results-table .hit-highlight,
+.results-table .hit-right {
+  font-family: courier;
+}
+
+/**
+* Pagination buttons
+**/
+
+.pages {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.pages .arrow {
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('../images/arrow.png');
+  padding: 16px 20px;
+  background-color: #fff;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.pages .left-arrow {
+  transform: rotate(180deg);
+  margin-right: 7px;
+}
+
+.pages .right-arrow {
+  margin-left: 7px;
+}
+
+.pages .page-button {
+  display: inline-block;
+  padding: 8px 13px;
+  background: #fff;
+  vertical-align: top;
+  border: 1px solid #ddd;
+  border-right: 0;
+  cursor: pointer;
 }
