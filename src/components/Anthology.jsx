@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from './Hero';
 import { Link } from 'react-router-dom';
 
-const Anthology = (props) => (
+const Anthology = props => (
   <div className='anthology'>
     <Hero text='Anthology of Fragments' />
     <div className='container'>

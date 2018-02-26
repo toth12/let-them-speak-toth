@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from './Hero';
 import { Link } from 'react-router-dom';
 
-const Methods = (props) => (
+const Methods = props => (
   <div className='methods'>
     <Hero text='Methodology' />
     <div className='container'>

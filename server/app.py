@@ -27,6 +27,19 @@ def testimony():
   query = {'testimony_id': request.args.get('testimony_id')}
   return jsonify(list(db.testimonies.find(query, {'_id': 0}))[0])
 
+@app.route('/api/search')
+def search():
+  '''Fetch search results'''
+  limit = 20
+  start = request.args.get('start') or 0
+  query = {}
+  total = db.testimonies.find(query).count()
+  results = db.testimonies.find(query, {'_id': 0}).skip(start).limit(limit)
+  return jsonify({
+    'total': int(total),
+    'results': list(results),
+  })
+
 ##
 # View route
 ##

@@ -8,8 +8,8 @@ const margin = {top: 10, right: 30, bottom: 30, left: 60},
   width = w - margin.left - margin.right;
 
 const fonts = {
-  parent: 30,
-  child: 18,
+  parent: 26,
+  child: 14,
 }
 
 /**
@@ -106,7 +106,7 @@ tree.draw = (props) => {
   nodes.forEach((d) => isParent(d) ? parents.push(d) : children.push(d));
 
   // set node positions
-  const childHeight = 30;
+  const childHeight = 25;
   const linksWidth = 46;
   let childCount = 0;
   let rootX;
