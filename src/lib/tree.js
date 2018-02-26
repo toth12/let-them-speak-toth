@@ -155,7 +155,14 @@ tree.draw = (props) => {
         if (child.x < min) min = child.x;
         if (child.x > max) max = child.x;
       })
-      d.x = (min + max) / 2;
+      // only occurs for root node with parent-only children
+      if (min === Number.POSITIVE_INFINITY &&
+          max === Number.NEGATIVE_INFINITY) {
+        d.x = margin.left;
+      // non-root nodes have children with positions
+      } else {
+        d.x = (min + max) / 2;
+      }
     }
   })
 
