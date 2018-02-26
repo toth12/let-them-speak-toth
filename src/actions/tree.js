@@ -1,15 +1,15 @@
 import fetch from 'isomorphic-fetch';
 import config from '../config/client';
 
-export const dataRequestFailed = () => ({
+export const treeRequestFailed = () => ({
   type: 'TREE_DATA_REQUEST_FAILED',
 })
 
-export const receiveTreeData = (data) => ({
+export const receiveTreeData = data => ({
   type: 'RECEIVE_TREE_DATA', data,
 })
 
-export const setActiveIndex = (idx) => ({
+export const setActiveIndex = idx => ({
   type: 'SET_ACTIVE_TREE_INDEX', idx,
 })
 
@@ -22,8 +22,8 @@ export const fetchTreeData = () => {
           json
         })))
       .then(({ status, json }) => {
-        if (status >= 400) dispatch(dataRequestFailed())
+        if (status >= 400) dispatch(treeRequestFailed())
         else dispatch(receiveTreeData(json))
-      }, err => { dispatch(dataRequestFailed(err)) })
+      }, err => { dispatch(treeRequestFailed(err)) })
   }
 }

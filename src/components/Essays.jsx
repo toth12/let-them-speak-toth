@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from './Hero';
 import { Link } from 'react-router-dom';
 
-const Essays = (props) => (
+const Essays = props => (
   <div>
     <Hero text='Essays' />
     <div className='container'>

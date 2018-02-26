@@ -5,20 +5,13 @@ import { withRouter } from 'react-router';
 import tree from '../lib/tree.js';
 import src from '../assets/images/arrows.png';
 import { fetchTestimony } from '../actions/testimony';
-import {
-  setActiveIndex,
-  fetchTreeData
-} from '../actions/tree';
+import { setActiveIndex } from '../actions/tree';
 
 class TreeChart extends React.Component {
   constructor(props) {
     super(props)
     this.drawTree = this.drawTree.bind(this)
-    this.resetTree = this.resetTree.bind(this) 
-  }
-
-  componentWillMount() {
-    this.props.fetchTreeData();
+    this.resetTree = this.resetTree.bind(this)
   }
 
   componentDidMount() {

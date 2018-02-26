@@ -1,7 +1,7 @@
 import React from 'react';
 import TreeChart from './TreeChart';
 
-const Tree = (props) => (
+const Tree = props => (
   <div className='tree'>
     <div className='left background-image'>
       <div className='text'>

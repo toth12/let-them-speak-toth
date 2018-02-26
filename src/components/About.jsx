@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from './Hero';
 
-const About = (props) => (
+const About = props => (
   <div className='about'>
     <Hero text='About' />
     <div className='container'>
