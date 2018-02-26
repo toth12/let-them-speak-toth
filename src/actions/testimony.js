@@ -13,6 +13,10 @@ export const hideTestimony = () => ({
   type: 'HIDE_TESTIMONY',
 })
 
+export const setTestimonyTab = (tab) => ({
+  type: 'SET_TESTIMONY_TAB', tab,
+})
+
 export const fetchTestimony = (id) => {
   return function(dispatch) {
     return fetch(config.endpoint + 'testimony?testimony_id=' + id)

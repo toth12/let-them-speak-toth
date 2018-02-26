@@ -1,23 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { hideTestimony } from '../actions/testimony';
+import {
+  hideTestimony,
+  setTestimonyTab
+} from '../actions/testimony';
 
 class Testimony extends React.Component {
   
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this);
-    this.getText = this.getText.bind(this);
   }
 
   handleClick(e) {
     const modal = document.querySelector('.testimony');
     if (modal.contains(e.target)) return;
     this.props.hideTestimony();
-  }
-
-  getText() {
-    return {__html: breakLines(this.props.testimony.full_text)}
   }
 
   render() {
@@ -27,36 +25,11 @@ class Testimony extends React.Component {
         <div className='testimony-inner'>
           <div className='testimony'>
             <div className='content'>
-              <div className='right'>
-                <div className='tabs'>
-                  <div className='tab'>Video</div>
-                  <div className='tab'>History</div>
-                </div>
-                <div className='right-content'>
-                  {isVideo(testimony.media_url) ? 
-                    <Video url={testimony.media_url} />
-                    : <Audio url={testimony.media_url} />
-                  }
-                  <History />
-                  <div className='media-caption'>{testimony.media_caption}</div>
-                </div>
-              </div>
-              <div className='left'>
-                <div className='title'>
-                  {'Transcript Title: ' + testimony.testimony_title}
-                </div>
-                <div className='body'
-                  dangerouslySetInnerHTML={this.getText()}>
-                </div>
-              </div>
-              <div className='footer'>
-                <div>{'Courtesy of ' + testimony.collection}</div>
-                <div>
-                  <span>{'Copyright ' + (testimony.recording_year || '2018') + ' |'}</span>
-                  <span>{'Accession number: ' + (testimony.accession_number || 'NA') + ' |'}</span>
-                  <span>{'RG Number ' + testimony.rg_number || 'NA'}</span>
-                </div>
-              </div>
+              <Right testimony={testimony}
+                tab={this.props.tab}
+                setTab={this.props.setTab} />
+              <Left testimony={testimony} />
+              <Footer testimony={testimony} />
             </div>
             <div className='clear-both' />
           </div>
@@ -66,9 +39,61 @@ class Testimony extends React.Component {
   }
 }
 
-const isVideo = str => str.indexOf('.mp4') > -1;
+const Right = props => (
+  <div className='right'>
+    <div className='tabs'>
+      <Tab val='video' label='Video' {...props} />
+      <Tab val='history' label='History' {...props} />
+    </div>
+    <div className='right-content'>
+      {props.tab === 'history' ?
+        <div className='history'>{props.testimony.interview_summary}</div>
+        : <Media testimony={props.testimony} />
+      }
+    </div>
+  </div>
+)
 
-const breakLines = str => str.replace(/(?:\r\n|\r|\n)/g, '<br/><br/>');
+const Left = props => (
+  <div className='left'>
+    <div className='title'>
+      {'Transcript Title: ' + props.testimony.testimony_title}
+    </div>
+    <div className='body'
+      dangerouslySetInnerHTML={{__html: breakLines(props.testimony.full_text)}}>
+    </div>
+  </div>
+)
+
+const Footer = props => (
+  <div className='footer'>
+    <div>{'Courtesy of ' + props.testimony.collection}</div>
+    <div>
+      <span>Copyright </span>
+      <span>{(props.testimony.recording_year || '2018') + ' |'}</span>
+      <span>Accession number: </span>
+      <span>{(props.testimony.accession_number || 'NA') + ' |'}</span>
+      <span>RG Number </span>
+      <span>{props.testimony.rg_number || 'NA'}</span>
+    </div>
+  </div>
+)
+
+const Tab = props => (
+  <div className={props.tab.toLowerCase() === props.label.toLowerCase() ?
+      'tab active' : 'tab'}
+    onClick={props.setTab.bind(null, props.val)}>{props.label}</div>
+)
+
+const Media = props => (
+  <div className='media'>
+    {isVideo(props.testimony.media_url) ?
+      <Video url={props.testimony.media_url} />
+      : <Audio url={props.testimony.media_url} />
+    }
+    <div className='media-caption'>{props.testimony.media_caption}</div>
+  </div>
+)
 
 const Video = props => (
   <video width='320' height='240' controls>
@@ -87,17 +112,19 @@ const Audio = props => (
   </div>
 )
 
-const History = props => (
-  <div className='history'>{props.text}</div>
-)
+const isVideo = str => str.indexOf('.mp4') > -1;
+
+const breakLines = str => str.replace(/(?:\r\n|\r|\n)/g, '<br/><br/>');
 
 const mapStateToProps = state => ({
   testimony: state.testimony.testimony,
   err: state.testimony.err,
+  tab: state.testimony.tab,
 })
 
 const mapDispatchToProps = dispatch => ({
   hideTestimony: () => dispatch(hideTestimony()),
+  setTab: (tab) => dispatch(setTestimonyTab(tab)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Testimony);
