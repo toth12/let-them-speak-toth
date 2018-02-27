@@ -1,6 +1,5 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
-import { fetchTreeData } from './actions/tree';
 import { createBrowserHistory } from 'history';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
@@ -29,7 +28,5 @@ const store = createStore(
   connectRouter(history)(rootReducer),
   middleware,
 );
-
-store.dispatch(fetchTreeData());
 
 export { store, history };

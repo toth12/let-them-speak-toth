@@ -64,6 +64,8 @@ tree.init = (props) => {
 
 tree.draw = (props) => {
 
+  console.log('drawing', Date.now(), props)
+
   /**
   * Tree structure data
   **/
