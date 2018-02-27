@@ -8,11 +8,11 @@ import { rootReducer } from './reducers/index';
 import freeze from 'redux-freeze';
 
 const history = createBrowserHistory();
-const loggerMiddleware = createLogger()
+const loggerMiddleware = createLogger();
 
 let middlewares = [
   routerMiddleware(history),
-  thunkMiddleware
+  thunkMiddleware,
 ]
 
 // add the freeze dev middleware
@@ -24,22 +24,10 @@ if (process.env.NODE_ENV !== 'production') {
 // apply the middleware
 let middleware = applyMiddleware(...middlewares);
 
-// fetch compose enhancer
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-// add the redux dev tools
-if (process.env.NODE_ENV !== 'production') {
-  if (window.devToolsExtension) {
-    middleware = compose(middleware, window.devToolsExtension())
-  } else if (composeEnhancer) {
-    middleware = composeEnhancer( applyMiddleware(middleware) )
-  }
-}
-
 // create the store
 const store = createStore(
   connectRouter(history)(rootReducer),
-  middleware
+  middleware,
 );
 
 store.dispatch(fetchTreeData());
