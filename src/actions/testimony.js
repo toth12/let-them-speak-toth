@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import { get } from './get';
 import config from '../config/client';
 
 export const testimonyRequestFailed = () => ({
@@ -19,15 +19,8 @@ export const setTestimonyTab = tab => ({
 
 export const fetchTestimony = id => {
   return function(dispatch) {
-    return fetch(config.endpoint + 'testimony?testimony_id=' + id)
-      .then(response => response.json()
-        .then(json => ({
-          status: response.status,
-          json
-        })))
-      .then(({ status, json }) => {
-        if (status >= 400) dispatch(testimonyRequestFailed())
-        else dispatch(receiveTestimonyData(json))
-      }, err => { dispatch(testimonyRequestFailed(err)) })
+    get(config.endpoint + 'testimony?testimony_id=' + id,
+      (data) => dispatch(receiveTestimonyData(JSON.parse(data))),
+      (err) => dispatch(testimonyRequestFailed(err)))
   }
 }

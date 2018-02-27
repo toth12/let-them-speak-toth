@@ -31,6 +31,7 @@ const searchReducer = (state = initialState, action) => {
         results: action.results.results,
         resultCount: action.results.total,
         err: null,
+        initialized: true,
       })
 
     default:

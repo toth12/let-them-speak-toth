@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import { get } from './get';
 import config from '../config/client';
 
 export const setSearchMode = mode => ({
@@ -19,16 +19,8 @@ export const searchInitialized = () => ({
 
 export const fetchSearchResults = () => {
   return function(dispatch) {
-    dispatch(searchInitialized());
-    return fetch(config.endpoint + 'search')
-      .then(response => response.json()
-        .then(json => ({
-          status: response.status,
-          json
-        })))
-      .then(({ status, json }) => {
-        if (status >= 400) dispatch(searchError())
-        else dispatch(receiveSearchResults(json))
-      }, err => { dispatch(searchError(err)) })
+    get(config.endpoint + 'search',
+      (data) => dispatch(receiveSearchResults(JSON.parse(data))),
+      (err) => dispatch(searchError(err)))
   }
 }

@@ -14,12 +14,17 @@ Generate seed data for the fragments collection. Schema:
 }
 '''
 
+import os
 import random
+import sys
 from faker import Faker
 from pymongo import MongoClient
 
 fake = Faker()
-client = MongoClient()
+if len(sys.argv) > 1:
+  client = MongoClient(sys.argv[1])
+else:
+  client = MongoClient()
 db = client.lts
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
 video_url = url + '/videos/dev/shoah-sample.mp4'
