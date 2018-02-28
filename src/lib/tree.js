@@ -8,8 +8,8 @@ const margin = {top: 10, right: 30, bottom: 30, left: 60},
   width = w - margin.left - margin.right;
 
 const fonts = {
-  parent: 30,
-  child: 18,
+  parent: 26,
+  child: 14,
 }
 
 /**
@@ -23,7 +23,7 @@ tree.init = (props) => {
     : d3.select('#target').append('svg');
 
   svg.attr('width', width)
-    .attr('height', (props.data.length * 50) + margin.top + margin.bottom);
+    .attr('height', (props.data.length * 70) + margin.top + margin.bottom);
 
   svg.selectAll('.root-node').data(props.data).enter()
     .append('text')
@@ -63,6 +63,8 @@ tree.init = (props) => {
 **/
 
 tree.draw = (props) => {
+
+  console.log('drawing', Date.now(), props)
 
   /**
   * Tree structure data
@@ -106,7 +108,7 @@ tree.draw = (props) => {
   nodes.forEach((d) => isParent(d) ? parents.push(d) : children.push(d));
 
   // set node positions
-  const childHeight = 30;
+  const childHeight = 25;
   const linksWidth = 46;
   let childCount = 0;
   let rootX;
@@ -155,7 +157,14 @@ tree.draw = (props) => {
         if (child.x < min) min = child.x;
         if (child.x > max) max = child.x;
       })
-      d.x = (min + max) / 2;
+      // only occurs for root node with parent-only children
+      if (min === Number.POSITIVE_INFINITY &&
+          max === Number.NEGATIVE_INFINITY) {
+        d.x = margin.left;
+      // non-root nodes have children with positions
+      } else {
+        d.x = (min + max) / 2;
+      }
     }
   })
 
@@ -177,7 +186,7 @@ tree.draw = (props) => {
     .attr('height', height);
 
   /**
-  * Transition root node list
+  * Transition root nodes out of scene
   **/
 
   d3.selectAll('.root-node').each(function(d, i) {
@@ -235,6 +244,7 @@ tree.draw = (props) => {
         return 'translate(' + d.y + ',' + d.x + ')';
       })
       .attr('font-size', getFontSize)
+      .on('click', props.onClick)
 
   /**
   * Text
@@ -309,7 +319,7 @@ tree.reset = (props) => {
 * Helpers shared by init and reset methods
 **/
 
-tree.getRootY = (d, i) => ((i+1) * 50) + margin.top;
+tree.getRootY = (d, i) => ((i+1) * 60) + margin.top;
 
 tree.path = (s, d, type) => {
   let endY = d.y;

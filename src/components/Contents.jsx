@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from './Hero';
 
-const Contents = (props) => (
+const Contents = props => (
   <div>
     <Hero text='Table of Contents' />
     <div className='container'>
@@ -11,7 +11,7 @@ const Contents = (props) => (
   </div>
 )
 
-const Table = (props) => (
+const Table = props => (
   <div className='toc-table'>
     {items.map((i, idx) => (
       <div key={idx} className='toc-row'>

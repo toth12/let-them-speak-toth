@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = (props) => (
+const Home = props => (
   <div className='home background-image'>
     <div className='top'>
       <div className='brand' />

@@ -1,5 +1,5 @@
 '''server/app.py - main api app declaration'''
-from flask import Flask, jsonify, send_from_directory
+from flask import Flask, jsonify, send_from_directory, request
 from flask_cors import CORS
 from pymongo import MongoClient
 
@@ -21,6 +21,25 @@ def items():
   '''Fetch tree data'''
   return jsonify(list(db.fragments.find({}, {'_id': 0})))
 
+@app.route('/api/testimony')
+def testimony():
+  '''Fetch a transcript'''
+  query = {'testimony_id': request.args.get('testimony_id')}
+  return jsonify(list(db.testimonies.find(query, {'_id': 0}))[0])
+
+@app.route('/api/search')
+def search():
+  '''Fetch search results'''
+  limit = 20
+  start = request.args.get('start') or 0
+  query = {}
+  total = db.testimonies.find(query).count()
+  results = db.testimonies.find(query, {'_id': 0}).skip(start).limit(limit)
+  return jsonify({
+    'total': int(total),
+    'results': list(results),
+  })
+
 ##
 # View route
 ##
@@ -31,3 +50,6 @@ def index(path):
   '''Return index.html for all non-api routes'''
   #pylint: disable=unused-argument
   return send_from_directory(app.static_folder, 'index.html')
+
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', port=7082)

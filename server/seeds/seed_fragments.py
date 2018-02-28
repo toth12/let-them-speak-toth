@@ -14,12 +14,17 @@ Generate seed data for the fragments collection. Schema:
 }
 '''
 
+import os
 import random
+import sys
 from faker import Faker
 from pymongo import MongoClient
 
 fake = Faker()
-client = MongoClient()
+if len(sys.argv) > 1:
+  client = MongoClient(sys.argv[1])
+else:
+  client = MongoClient()
 db = client.lts
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
 video_url = url + '/videos/dev/shoah-sample.mp4'
@@ -40,7 +45,7 @@ def get_testimony_id(testimony_ids):
   idx = random.randint(0, len(testimony_ids) - 1)
   return testimony_ids[idx]
 
-def get_node(is_parent=False):
+def get_node(testimony_id, is_parent=False):
   '''Generate a parent or leaf node for a tree structure'''
   if is_parent:
     label = fake.word(ext_word_list=None) #pylint: disable=no-member
@@ -49,18 +54,19 @@ def get_node(is_parent=False):
 
   return {
     'label': label,
-    'testimony_id': get_int(),
+    'testimony_id': testimony_id,
     'testimony_position': get_int(),
     'media_url': get_media(),
     'media_offset': random.randint(1, 20),
     'children': []
   }
 
-def get_children():
+def get_children(testimony_ids):
   '''Get the second-gen children for a first-gen node'''
   children = []
   for _ in range(random.randint(4, 9)):
-    children.append(get_node(is_parent=False))
+    testimony_id = get_testimony_id(testimony_ids)
+    children.append(get_node(testimony_id, is_parent=False))
   return children
 
 def get_fragments(testimony_ids):
@@ -68,10 +74,11 @@ def get_fragments(testimony_ids):
   fragments = []
   for _ in range(10):
     label = fake.word(ext_word_list=None) #pylint: disable=no-member
+    testimony_id = get_testimony_id(testimony_ids)
     fragment = {
       'label': label,
       'essay_id': get_testimony_id(testimony_ids),
-      'tree': get_node(is_parent=True)
+      'tree': get_node(testimony_id, is_parent=True)
     }
     fragment['tree']['label'] = label
     # first-generation children
@@ -83,9 +90,10 @@ def get_fragments(testimony_ids):
         parent = True
       if n_parents == 3:
         parent = False
-      node = get_node(is_parent=parent)
+      testimony_id = get_testimony_id(testimony_ids)
+      node = get_node(testimony_id, is_parent=parent)
       if parent:
-        node['children'] = get_children()
+        node['children'] = get_children(testimony_ids)
         n_parents += 1
       children.append(node)
     fragment['tree']['children'] = children

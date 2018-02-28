@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import img from '../assets/images/brand.png';
 
-const Nav = (props) => (
+const Nav = props => (
   <nav>
     <ul>
       <li><Link to={'/about'}>ABOUT</Link></li>
