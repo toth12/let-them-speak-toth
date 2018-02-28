@@ -32,6 +32,38 @@ npm run start
 
 That will start the webpack dev server on port 7081.
 
+## Docker Usage
+
+Install Docker and Docker Compose, then in the root directory, start the Mongo service and app with `docker-compose up`
+
+## Tests
+
+To run the Javascript tests (located in `src/tests/`), run:
+
+```bash
+npm run jest
+```
+
+To run the Python tests (located in `server/tests/`), run:
+
+```bash
+pytest
+```
+
+## Linting
+
+To lint the Javascript files (located in `src`), run:
+
+```bash
+npm run lint-js
+```
+
+To lint the Python files (located in `server`), run:
+
+```bash
+npm run lint-py
+```
+
 ## Deployment on Amazon Linux
 
 ```
@@ -132,36 +164,4 @@ iptables -t nat -L --line-numbers
 
 # delete rules from PREROUTING if necessary
 iptables -t nat -D PREROUTING 1
-```
-
-## Docker Usage
-
-Install Docker and Docker Compose, then in the root directory, start the Mongo service and app with `docker-compose up`
-
-## Tests
-
-To run the Javascript tests (located in `src/tests/`), run:
-
-```bash
-npm run jest
-```
-
-To run the Python tests (located in `server/tests/`), run:
-
-```bash
-pytest
-```
-
-## Linting
-
-To lint the Javascript files (located in `src`), run:
-
-```bash
-npm run lint-js
-```
-
-To lint the Python files (located in `server`), run:
-
-```bash
-npm run lint-py
 ```
