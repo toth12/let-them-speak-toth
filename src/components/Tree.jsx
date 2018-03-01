@@ -6,7 +6,7 @@ const Tree = props => (
     <div className='left background-image'>
       <div className='text'>
         <h2>Anthology</h2>
-        <h1>Select a word to explore stories of survivors</h1>
+        <div className='welcome'>Select a word to explore stories of survivors</div>
       </div>
     </div>
     <div className='right'>
