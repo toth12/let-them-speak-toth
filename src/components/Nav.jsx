@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img from '../assets/images/brand.png';
+import img from '../assets/images/brand.svg';
 
 const Nav = props => (
   <nav>
