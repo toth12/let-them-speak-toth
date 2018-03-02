@@ -64,8 +64,6 @@ tree.init = (props) => {
 
 tree.draw = (props) => {
 
-  console.log('drawing', Date.now(), props)
-
   /**
   * Tree structure data
   **/
@@ -89,8 +87,8 @@ tree.draw = (props) => {
   **/
 
   const hiddenSvg = d3.select('#hidden').append('svg')
-    .attr('width', 0)
-    .attr('height', 0)
+    .attr('width', 1000)
+    .attr('height', 100)
 
   hiddenSvg.selectAll('text').data(nodes).enter()
     .append('text')
@@ -105,17 +103,31 @@ tree.draw = (props) => {
   // find all children and parent nodes
   let parents = [];
   let children = [];
-  nodes.forEach((d) => isParent(d) ? parents.push(d) : children.push(d));
+  // store the idx of each parent
+  let parentIdToIdx = {};
+  let parentIdx = 0;
+  nodes.forEach((d) => {
+    if (isParent(d)) {
+      parents.push(d);
+      parentIdToIdx[d._id] = parentIdx++;
+    } else {
+      children.push(d)
+    }
+  });
 
   // set node positions
-  const childHeight = 24;
-  const linksWidth = 36;
+  const childHeight = 25;
+  const linksWidth = 46;
+  const groupPadding = 20;
   let childCount = 0;
   let rootX;
 
   // set the chart height according to the child count
-  let h = childHeight * children.length + 60,
-    height = h - margin.top - margin.bottom;
+  let h = childHeight * children.length + 60;
+  // add height for the spacing between child blocks
+  h += groupPadding * Object.keys(parentIdToIdx).length;
+  // set the height given the total height and margins
+  let height = h - margin.top - margin.bottom;
 
   // set node positions
   nodes.forEach(function(d) {
@@ -145,6 +157,8 @@ tree.draw = (props) => {
       }
       d.y = rootX + (d.depth * linksWidth) + parentsX;
       d.x = ++childCount * childHeight;
+      // add space between each block of children
+      d.x += parentIdToIdx[d.parent._id] * groupPadding;
     }
   })
 
@@ -198,7 +212,7 @@ tree.draw = (props) => {
         .duration(500)
         .attr('y', rootNode.x + 20)
         .attr('x', margin.left)
-        .style('text-anchor', getTextAnchor(rootNode))
+        .attr('text-anchor', getTextAnchor(rootNode))
         .attr('font-size', getFontSize(rootNode))
         .text(getLabel(rootNode));
     // all non-root nodes
