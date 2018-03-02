@@ -8,8 +8,8 @@ const margin = {top: 10, right: 30, bottom: 30, left: 60},
   width = w - margin.left - margin.right;
 
 const fonts = {
-  parent: 26,
-  child: 14,
+  parent: 25,
+  child: 16,
 }
 
 /**
@@ -64,6 +64,8 @@ tree.init = (props) => {
 
 tree.draw = (props) => {
 
+  console.log('drawing', Date.now(), props)
+
   /**
   * Tree structure data
   **/
@@ -87,8 +89,8 @@ tree.draw = (props) => {
   **/
 
   const hiddenSvg = d3.select('#hidden').append('svg')
-    .attr('width', 1000)
-    .attr('height', 1000)
+    .attr('width', 0)
+    .attr('height', 0)
 
   hiddenSvg.selectAll('text').data(nodes).enter()
     .append('text')
@@ -106,8 +108,8 @@ tree.draw = (props) => {
   nodes.forEach((d) => isParent(d) ? parents.push(d) : children.push(d));
 
   // set node positions
-  const childHeight = 25;
-  const linksWidth = 46;
+  const childHeight = 24;
+  const linksWidth = 36;
   let childCount = 0;
   let rootX;
 
@@ -251,7 +253,7 @@ tree.draw = (props) => {
   node.append('text')
     .attr('dy', getDy)
     .attr('x', getX)
-    .attr('text-anchor', getTextAnchor)
+    .style('text-anchor', getTextAnchor)
     .attr('font-size', getFontSize)
     .text(getLabel);
 
