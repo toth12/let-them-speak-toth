@@ -2,10 +2,13 @@
 from flask import Flask, jsonify, send_from_directory, request
 from flask_cors import CORS
 from pymongo import MongoClient
+from search import format_search_results
 
 '''Main wrapper for app creation'''
 app = Flask(__name__, static_folder='../build')
 CORS(app)
+
+app.debug = True
 
 # initialize db connection
 host = 'localhost'
@@ -24,20 +27,24 @@ def items():
 @app.route('/api/testimony')
 def testimony():
   '''Fetch a transcript'''
-  query = {'testimony_id': request.args.get('testimony_id')}
-  return jsonify(list(db.testimonies.find(query, {'_id': 0}))[0])
+  args = {'testimony_id': request.args.get('testimony_id')}
+  result = list(db.testimonies.find(args, {'_id': 0}))
+  if result:
+    return jsonify(result[0])
+  return []
 
 @app.route('/api/search')
 def search():
   '''Fetch search results'''
   limit = 20
   start = request.args.get('start') or 0
-  query = {}
-  total = db.testimonies.find(query).count()
-  results = db.testimonies.find(query, {'_id': 0}).skip(start).limit(limit)
+  query = request.args.get('query')
+  args = {'full_text': {'$regex': query, '$options': 'i'}}
+  total = db.testimonies.find(args).count()
+  results = db.testimonies.find(args, {'_id': 0}).skip(start).limit(limit)
   return jsonify({
     'total': int(total),
-    'results': list(results),
+    'results': format_search_results(query, list(results)),
   })
 
 ##
