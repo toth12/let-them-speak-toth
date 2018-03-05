@@ -70,9 +70,9 @@ const Footer = props => (
     <div>{'Courtesy of ' + props.testimony.collection}</div>
     <div>
       <span>Copyright </span>
-      <span>{(props.testimony.recording_year || '2018') + ' |'}</span>
+      <span>{(props.testimony.recording_year || '2018') + ' | '}</span>
       <span>Accession number: </span>
-      <span>{(props.testimony.accession_number || 'NA') + ' |'}</span>
+      <span>{(props.testimony.accession_number || 'NA') + ' | '}</span>
       <span>RG Number </span>
       <span>{props.testimony.rg_number || 'NA'}</span>
     </div>
