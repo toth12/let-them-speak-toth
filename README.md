@@ -32,37 +32,122 @@ npm run start
 
 That will start the webpack dev server on port 7081.
 
-## Docker Usage
+## Working with BlackLab Indices
 
-Install Docker and Docker Compose, then in the root directory, start the Mongo service and app with `docker-compose up`
+This application uses BlackLab for running searches against input documents. To use BlackLab, you'll need to create a BlackLab index then set up a web service to query the index.
 
-## Tests
+### Building a Blacklab Index
 
-To run the Javascript tests (located in `src/tests/`), run:
+To build a Blacklab index, you'll need to install maven and tomcat:
 
-```bash
-npm run jest
+```
+brew install maven tomcat
 ```
 
-To run the Python tests (located in `server/tests/`), run:
+Then you'll need to clone and compile the BlackLab source:
 
-```bash
-pytest
+```
+# acquire and build source
+git clone git://github.com/INL/BlackLab.git
+cd Blacklab
+mvn install
 ```
 
-## Linting
+Next you'll need to convert your documents into the folia XML format [[sample folia files](https://gist.github.com/duhaime/15bfe72412bc9decc309c941d523957e)]. Place those files in `../inputs`, then run the following command to generate an index named `output-index`
 
-To lint the Javascript files (located in `src`), run:
-
-```bash
-npm run lint-js
+```
+java -cp "core/target/blacklab-1.6.0.jar:core/target/lib/*" \
+nl.inl.blacklab.tools.IndexTool create ../output-index ../inputs/ folia
 ```
 
-To lint the Python files (located in `server`), run:
+To test the generated index using BlackLab's built-in CLI, you can run:
 
-```bash
-npm run lint-py
 ```
+java -cp core/target/blacklab-1.6.0.jar nl.inl.blacklab.tools.QueryTool \
+../output-index/
+```
+
+### Configuring the Blacklab Server
+
+To configure a Tomcat server to query your BlackLab index, you need to create a JSON file that identifies the name of your index and the path to the index file. The following JSON file names the generated index `output-index`, and it specifies the fully-qualified path to that index on the filesystem:
+
+```
+{
+  "indices": {
+    "output-index": {
+      "dir": "/usr/local/Cellar/tomcat/9.0.5/libexec/webapps/output-index/"
+    }
+  }
+}
+```
+
+That JSON file should be written to your Tomcat's `webapps` directory (which should be created when you install Tomcat). If you installed Tomcat with Homebrew, the path will be:
+
+```
+/usr/local/Cellar/tomcat/{{ TOMCAT_VERSION }}/libexec/webapps
+```
+
+Next copy the blacklab-server.war file from the BlackLab source to the Tomcat webapps directory:
+
+```
+cp BlackLab/server/target/blacklab-server-1.6.0.war \
+/usr/local/Cellar/tomcat/{{ TOMCAT_VERSION }}/libexec/webapps/
+```
+
+Then you can restart the Tomcat server:
+
+```
+brew services restart tomcat
+```
+
+### Querying the Tomcat Server
+
+By default Tomcat runs on 8080, and serves the content of its `webapps` directory. When you copied your `blacklab-server.war` file to the webapps directory, that process should have copied a directory with the same name as the .war file into the `webapps` directory. So your `webapps` directory should look something like this:
+
+
+```
+cd webapps && tree
+
+.
+├── ROOT
+│   ├── RELEASE-NOTES.txt
+│   └── ...
+├── blacklab-server-1.6.0
+│   ├── META-INF
+│   └── WEB-INF
+├── blacklab-server-1.6.0.war
+├── blacklab-server.json
+├── host-manager
+│   ├── META-INF
+│   └── ...
+├── manager
+│   ├── META-INF
+│   └── ...
+└── output-index
+    ├── _0.cfe
+    └── ...
+```
+
+Given that setup, you should be able to query BlackLab on the default Tomcat port:
+
+```
+curl http://localhost:8080/BlackLab-server-1.6.0/
+```
+
+In the returned output, you should see the name of the index you provided above in your `blacklab-server.json` file:
+
+```
+<blacklabResponse>
+  <blacklabBuildTime>2018-01-20 20:19:56</blacklabBuildTime>
+  <blacklabVersion>1.6.0</blacklabVersion>
+  <indices>
+    <index name="folia_index">
+    ...
+  </indices
+</blacklabResponse>
+```
+
+If you see your index in there, you should be all set to run queries against the server, using [BlackLab's query syntax](http://inl.github.io/BlackLab/blacklab-server-overview.html#installation).
 
 ## Deployment on Amazon Linux
 
@@ -164,4 +249,36 @@ iptables -t nat -L --line-numbers
 
 # delete rules from PREROUTING if necessary
 iptables -t nat -D PREROUTING 1
+```
+
+## Docker Usage
+
+Install Docker and Docker Compose, then in the root directory, start the Mongo service and app with `docker-compose up`
+
+## Tests
+
+To run the Javascript tests (located in `src/tests/`), run:
+
+```bash
+npm run jest
+```
+
+To run the Python tests (located in `server/tests/`), run:
+
+```bash
+pytest
+```
+
+## Linting
+
+To lint the Javascript files (located in `src`), run:
+
+```bash
+npm run lint-js
+```
+
+To lint the Python files (located in `server`), run:
+
+```bash
+npm run lint-py
 ```
