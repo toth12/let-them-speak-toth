@@ -11,3 +11,4 @@ import './tree-chart.styl';
 import './contents.styl';
 import './anthology.styl';
 import './testimony.styl';
+import './loader.styl';

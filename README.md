@@ -40,13 +40,13 @@ This application uses BlackLab for running searches against input documents. To 
 
 To build a Blacklab index, you'll need to install maven and tomcat:
 
-```
+```bash
 brew install maven tomcat
 ```
 
 Then you'll need to clone and compile the BlackLab source:
 
-```
+```bash
 # acquire and build source
 git clone git://github.com/INL/BlackLab.git
 cd Blacklab
@@ -55,14 +55,14 @@ mvn install
 
 Next you'll need to convert your documents into the folia XML format [[sample folia files](https://gist.github.com/duhaime/15bfe72412bc9decc309c941d523957e)]. Place those files in `../inputs`, then run the following command to generate an index named `output-index`
 
-```
+```bash
 java -cp "core/target/blacklab-1.6.0.jar:core/target/lib/*" \
 nl.inl.blacklab.tools.IndexTool create ../output-index ../inputs/ folia
 ```
 
 To test the generated index using BlackLab's built-in CLI, you can run:
 
-```
+```bash
 java -cp core/target/blacklab-1.6.0.jar nl.inl.blacklab.tools.QueryTool \
 ../output-index/
 ```
@@ -71,7 +71,7 @@ java -cp core/target/blacklab-1.6.0.jar nl.inl.blacklab.tools.QueryTool \
 
 To configure a Tomcat server to query your BlackLab index, you need to create a JSON file that identifies the name of your index and the path to the index file. The following JSON file names the generated index `output-index`, and it specifies the fully-qualified path to that index on the filesystem:
 
-```
+```bash
 {
   "indices": {
     "output-index": {
@@ -83,20 +83,20 @@ To configure a Tomcat server to query your BlackLab index, you need to create a 
 
 That JSON file should be written to your Tomcat's `webapps` directory (which should be created when you install Tomcat). If you installed Tomcat with Homebrew, the path will be:
 
-```
+```bash
 /usr/local/Cellar/tomcat/{{ TOMCAT_VERSION }}/libexec/webapps
 ```
 
 Next copy the blacklab-server.war file from the BlackLab source to the Tomcat webapps directory:
 
-```
+```bash
 cp BlackLab/server/target/blacklab-server-1.6.0.war \
 /usr/local/Cellar/tomcat/{{ TOMCAT_VERSION }}/libexec/webapps/
 ```
 
 Then you can restart the Tomcat server:
 
-```
+```bash
 brew services restart tomcat
 ```
 
@@ -105,7 +105,7 @@ brew services restart tomcat
 By default Tomcat runs on 8080, and serves the content of its `webapps` directory. When you copied your `blacklab-server.war` file to the webapps directory, that process should have copied a directory with the same name as the .war file into the `webapps` directory. So your `webapps` directory should look something like this:
 
 
-```
+```bash
 cd webapps && tree
 
 .
@@ -130,13 +130,13 @@ cd webapps && tree
 
 Given that setup, you should be able to query BlackLab on the default Tomcat port:
 
-```
+```bash
 curl http://localhost:8080/BlackLab-server-1.6.0/
 ```
 
 In the returned output, you should see the name of the index you provided above in your `blacklab-server.json` file:
 
-```
+```bash
 <blacklabResponse>
   <blacklabBuildTime>2018-01-20 20:19:56</blacklabBuildTime>
   <blacklabVersion>1.6.0</blacklabVersion>
@@ -151,7 +151,7 @@ If you see your index in there, you should be all set to run queries against the
 
 ## Deployment on Amazon Linux
 
-```
+```bash
 # update server
 sudo yum udpdate -y
 

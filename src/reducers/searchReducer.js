@@ -1,22 +1,35 @@
 const initialState = {
+  searching: false,
+  query: null,
   results: [],
   resultCount: null,
   err: null,
   mode: 'simple',
-  initialized: false,
+  instructions: true,
 }
 
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case 'SEARCH_INITIALIZED':
-      return Object.assign({}, state, {
-        initialized: true,
-      })
-
     case 'SET_SEARCH_MODE':
       return Object.assign({}, state, {
         mode: action.mode,
+      })
+
+    case 'SEARCHING':
+      return Object.assign({}, state, {
+        searching: true,
+        instructions: false,
+      })
+
+    case 'RECEIVE_SEARCH_RESULTS':
+      return Object.assign({}, state, {
+        searching: false,
+        query: action.obj.query,
+        results: action.obj.result.results,
+        resultCount: action.obj.result.total,
+        err: null,
+        initialized: true,
       })
 
     case 'SEARCH_ERROR':
@@ -24,14 +37,6 @@ const searchReducer = (state = initialState, action) => {
         err: true,
         results: [],
         resultCount: null,
-      })
-
-    case 'RECEIVE_SEARCH_RESULTS':
-      return Object.assign({}, state, {
-        results: action.results.results,
-        resultCount: action.results.total,
-        err: null,
-        initialized: true,
       })
 
     default:
