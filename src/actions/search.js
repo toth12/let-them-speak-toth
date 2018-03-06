@@ -9,18 +9,26 @@ export const searchError = () => ({
   type: 'SEARCH_ERROR',
 })
 
-export const receiveSearchResults = results => ({
-  type: 'RECEIVE_SEARCH_RESULTS', results,
+export const receiveSearchResults = obj => ({
+  type: 'RECEIVE_SEARCH_RESULTS', obj,
 })
 
 export const searchInitialized = () => ({
   type: 'SEARCH_INITIALIZED',
 })
 
-export const fetchSearchResults = () => {
+export const searching = () => ({
+  type: 'SEARCHING',
+})
+
+export const fetchSearchResults = query => {
   return function(dispatch) {
-    get(config.endpoint + 'search',
-      (data) => dispatch(receiveSearchResults(JSON.parse(data))),
+    dispatch(searching())
+    get(config.endpoint + 'search?query=' + query,
+      (data) => dispatch(receiveSearchResults({
+        result: JSON.parse(data),
+        query: query,
+      })),
       (err) => dispatch(searchError(err)))
   }
 }

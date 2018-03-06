@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Hero from './Hero';
 import { connect } from 'react-redux';
 import { fetchSearchResults } from '../actions/search';
+import Hero from './Hero';
+import Loader from './Loader';
 
 const Search = props => (
   <div>
@@ -10,11 +11,11 @@ const Search = props => (
       <Input search={props.search} />
     </Hero>
     <div className='container'>
-      {props.initialized ?
-        <Results
-          resultCount={props.resultCount}
-          results={props.results} />
-        : <Instructions />
+      {props.instructions ?
+        <Instructions />
+      : <Content searching={props.searching}
+          results={props.results}
+          resultCount={props.resultCount} />
       }
     </div>
   </div>
@@ -57,23 +58,41 @@ const Instructions = props => (
   </div>
 )
 
+const Content = props => (
+  <div>
+    {props.searching ?
+     <Loader />
+    : <Results {...props} />
+    }
+  </div>
+)
+
 const Results = props => (
   <section className='results'>
     <Label resultCount={props.resultCount} />
-    <div className='results-table'>
-      <div className='row headers'>
-        <div className='idx'>No.</div>
-        <div className='id'>ID</div>
-        <div className='exerpt'>Excerpt</div>
+    {props.resultCount ?
+      <div>
+        <ResultTable results={props.results} />
+        <Pagination pages={getPages(props.resultCount)} />
       </div>
-      <div className='rows'>
-        {props.results.map((r, i) => (
-          <Result key={i} idx={i+1} result={r} />
-        ))}
-      </div>
-    </div>
-    <Pagination pages={getPages(props.resultCount)} />
+    : null
+    }
   </section>
+)
+
+const ResultTable = props => (
+  <div className='results-table'>
+    <div className='row headers'>
+      <div className='idx'>No.</div>
+      <div className='id'>ID</div>
+      <div className='exerpt'>Excerpt</div>
+    </div>
+    <div className='rows'>
+      {props.results.map((r, i) => (
+        <Result key={i} idx={i+1} result={r} />
+      ))}
+    </div>
+  </div>
 )
 
 const Result = props => (
@@ -108,7 +127,7 @@ const Pagination = props => (
 )
 
 const getPages = total => {
-  return Array.from(new Array(total/10), (i, idx) => idx + 1);
+  return Array.from(new Array(parseInt(total/10)), (i, idx) => idx + 1);
 }
 
 const getHit = (str, start, side) => {
@@ -119,10 +138,11 @@ const getHit = (str, start, side) => {
 }
 
 const mapStateToProps = state => ({
+  searching: state.search.searching,
+  instructions: state.search.instructions,
   results: state.search.results,
   resultCount: state.search.resultCount,
   err: state.search.err,
-  initialized: state.search.initialized,
 })
 
 const mapDispatchToProps = dispatch => ({
