@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import img from '../assets/images/x-close.svg';
 import {
   hideTestimony,
   setTestimonyTab
 } from '../actions/testimony';
 
 class Testimony extends React.Component {
-  
+
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this);
@@ -14,7 +15,7 @@ class Testimony extends React.Component {
 
   handleClick(e) {
     const modal = document.querySelector('.testimony');
-    if (modal.contains(e.target)) return;
+    if (modal.contains(e.target) && e.target.className != 'close') return;
     this.props.hideTestimony();
   }
 
@@ -41,6 +42,7 @@ class Testimony extends React.Component {
 
 const Right = props => (
   <div className='right'>
+    <img className='close'src={img} />
     <div className='tabs'>
       <Tab val='video' label='Video' {...props} />
       <Tab val='history' label='History' {...props} />
@@ -124,7 +126,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   hideTestimony: () => dispatch(hideTestimony()),
-  setTab: (tab) => dispatch(setTestimonyTab(tab)),
+  setTab: tab => dispatch(setTestimonyTab(tab)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Testimony);

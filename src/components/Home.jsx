@@ -8,7 +8,7 @@ const Home = props => (
       <div>
         <div className='welcome'>A data-driven anthology of oral history interviews with Holocaust survivors</div>
       </div>
-      <Link className='button gold' to='/about'>Let's explore</Link>
+      <Link className='button brown' to='/about'>Let's explore</Link>
     </div>
     <div className='bottom'>
       <hr/>

@@ -6,6 +6,7 @@ const initialState = {
   err: null,
   mode: 'simple',
   instructions: true,
+  page: 0,
 }
 
 const searchReducer = (state = initialState, action) => {
@@ -37,6 +38,21 @@ const searchReducer = (state = initialState, action) => {
         err: true,
         results: [],
         resultCount: null,
+      })
+
+    case 'NEXT_SEARCH_PAGE':
+      return Object.assign({}, state, {
+        page: state.page + 1,
+      })
+
+    case 'PREVIOUS_SEARCH_PAGE':
+      return Object.assign({}, state, {
+        page: Math.max(0, state.page - 1),
+      })
+
+    case 'GET_SEARCH_PAGE':
+      return Object.assign({}, state, {
+        page: action.page,
       })
 
     default:

@@ -1,39 +1,83 @@
 import React from 'react';
 import Hero from './Hero';
+import Pagination from './Pagination';
+import { connect } from 'react-redux';
+import {
+  fetchTableOfContents,
+  previousPage,
+  nextPage,
+  getPage,
+  pageSize,
+  perPage,
+} from '../actions/contents';
 
-const Contents = props => (
-  <div>
-    <Hero text='Table of Contents' />
-    <div className='container'>
-      <h2>The Holocaust Testimonials of the Name Collection</h2>
-      <Table />
-    </div>
-  </div>
-)
+class Contents extends React.Component {
+  constructor(props) {
+    super(props)
+    this.nextPage = this.nextPage.bind(this);
+  }
+
+  nextPage() {
+    // Don't let users request beyond the final page
+    if (this.props.page * perPage < this.props.total) this.props.nextPage()
+  }
+
+  componentWillMount() {
+    this.props.getPage(0);
+    this.props.fetchTableOfContents();
+  }
+
+  render() {
+    return (
+      <div>
+        <Hero text='Table of Contents' />
+        <div className='container'>
+          <h2>The Holocaust Testimonials of the Name Collection</h2>
+          <Table {...this.props} />
+          <Pagination
+            items={this.props.total}
+            activePage={this.props.page}
+            perPage={perPage}
+            pageClick={this.props.getPage}
+            leftArrowClick={this.props.previousPage}
+            rightArrowClick={this.nextPage}
+          />
+        </div>
+      </div>
+    )
+  }
+}
 
 const Table = props => (
   <div className='toc-table'>
-    {items.map((i, idx) => (
+    {props.testimonies.map((t, idx) => (
       <div key={idx} className='toc-row'>
-        <span className='number'>{idx + 1}.</span>
+        <span className='number'>{(props.page * perPage) + idx + 1}.</span>
         <div className='text'>
-          <div>{ 'Oral history interview with ' + i }</div>
-          <div className='meta'>Accession Number: 1234. Courtesy of the Fortunoff Archive. Other metadata as needed.</div>
+          <div>{ 'Oral history interview with ' + t.testimony_title }</div>
+          <div className='meta'>
+            <span>Accession Number:</span>
+            <span>{ t.accession_number }.</span>
+            <span>Courtesy of the</span>
+            <span>{ t.collection } Archive.</span>
+          </div>
         </div>
       </div>
     ))}
   </div>
 )
 
-const items = [
-  'Mario Speedwagon',
-  'Petey Cruiser',
-  'Anna Sthesia',
-  'Paul Molive',
-  'Anna Mull',
-  'Gail Forcewind',
-  'Paige Turner',
-  'Bob Frapples',
-]
+const mapStateToProps = state => ({
+  testimonies: state.contents.testimonies,
+  page: state.contents.page,
+  total: state.contents.total,
+})
 
-export default Contents;
+const mapDispatchToProps = dispatch => ({
+  fetchTableOfContents: () => dispatch(fetchTableOfContents()),
+  nextPage: () => dispatch(nextPage()),
+  previousPage: () => dispatch(previousPage()),
+  getPage: page => dispatch(getPage(page)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contents);

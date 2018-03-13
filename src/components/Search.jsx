@@ -1,25 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchSearchResults } from '../actions/search';
 import Hero from './Hero';
 import Loader from './Loader';
+import Pagination from './Pagination';
+import {
+  fetchSearchResults,
+  previousPage,
+  nextPage,
+  getPage,
+  perPage,
+} from '../actions/search';
 
-const Search = props => (
-  <div>
-    <Hero>
-      <Input search={props.search} />
-    </Hero>
-    <div className='container'>
-      {props.instructions ?
-        <Instructions />
-      : <Content searching={props.searching}
-          results={props.results}
-          resultCount={props.resultCount} />
-      }
-    </div>
-  </div>
-)
+class Search extends React.Component {
+  constructor(props) {
+    super(props)
+    this.nextPage = this.nextPage.bind(this)
+  }
+
+  nextPage() {
+    if (this.props.page < this.props.total / perPage) this.props.nextPage()
+  }
+
+  render() {
+    return (
+      <div>
+        <Hero>
+          <Input search={this.props.search} />
+        </Hero>
+        <div className='container'>
+          {this.props.instructions ?
+            <Instructions />
+          : <Content fetchNextPage={this.nextPage} {...this.props} />
+          }
+        </div>
+      </div>
+    )
+  }
+}
 
 class Input extends React.Component {
   constructor(props) {
@@ -72,8 +90,14 @@ const Results = props => (
     <Label resultCount={props.resultCount} />
     {props.resultCount ?
       <div>
-        <ResultTable results={props.results} />
-        <Pagination pages={getPages(props.resultCount)} />
+        <ResultTable page={props.page} results={props.results} />
+        <Pagination
+          items={props.resultCount}
+          activePage={props.page}
+          perPage={perPage}
+          pageClick={props.getPage}
+          leftArrowClick={props.previousPage}
+          rightArrowClick={props.fetchNextPage} />
       </div>
     : null
     }
@@ -89,7 +113,7 @@ const ResultTable = props => (
     </div>
     <div className='rows'>
       {props.results.map((r, i) => (
-        <Result key={i} idx={i+1} result={r} />
+        <Result key={i} idx={(props.page * perPage) + i+1} result={r} />
       ))}
     </div>
   </div>
@@ -116,20 +140,6 @@ const Label = props => (
   </div>
 )
 
-const Pagination = props => (
-  <div className='pages'>
-    <div className='arrow left-arrow' />
-    {props.pages.map((p, idx) => (
-      <div className='page-button' key={idx}>{p}</div>
-    ))}
-    <div className='arrow right-arrow' />
-  </div>
-)
-
-const getPages = total => {
-  return Array.from(new Array(parseInt(total/10)), (i, idx) => idx + 1);
-}
-
 const getHit = (str, start, side) => {
   const length = 20;
   return side === 'left' ?
@@ -142,11 +152,15 @@ const mapStateToProps = state => ({
   instructions: state.search.instructions,
   results: state.search.results,
   resultCount: state.search.resultCount,
+  page: state.search.page,
   err: state.search.err,
 })
 
 const mapDispatchToProps = dispatch => ({
-  search: (phrase) => dispatch(fetchSearchResults(phrase)),
+  search: phrase => dispatch(fetchSearchResults(phrase)),
+  previousPage: () => dispatch(previousPage()),
+  nextPage: () => dispatch(nextPage()),
+  getPage: page => dispatch(getPage(page)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

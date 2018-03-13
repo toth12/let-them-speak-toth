@@ -18,7 +18,7 @@ exports[`renders 1`] = `
       </div>
     </div>
     <a
-      className="button gold"
+      className="button brown"
       href="/about"
       onClick={[Function]}
     >

@@ -12,3 +12,4 @@ import './contents.styl';
 import './anthology.styl';
 import './testimony.styl';
 import './loader.styl';
+import './pagination.styl';

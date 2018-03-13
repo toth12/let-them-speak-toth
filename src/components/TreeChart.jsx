@@ -73,7 +73,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setActiveIndex: (d, idx) => dispatch(setActiveIndex(idx)),
   fetchTreeData: () => dispatch(fetchTreeData()),
-  fetchTestimony: (id) => dispatch(fetchTestimony(id)),
+  fetchTestimony: id => dispatch(fetchTestimony(id)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TreeChart));
