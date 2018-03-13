@@ -1,6 +1,8 @@
 import { get } from './get';
 import config from '../config/client';
 
+export const perPage = 20;
+
 export const setSearchMode = mode => ({
   type: 'SET_SEARCH_MODE', mode,
 })
@@ -19,10 +21,6 @@ export const searchInitialized = () => ({
 
 export const searching = () => ({
   type: 'SEARCHING',
-})
-
-export const resetPagination = () => ({
-  type: 'RESET_SEARCH_PAGINATION',
 })
 
 /**
@@ -69,9 +67,9 @@ const search = (query, showLoader, resetPages) => {
   return function(dispatch, getState) {
     const _state = getState();
     if (showLoader) dispatch(searching());
-    if (resetPages) dispatch(resetPagination());
+    if (resetPages) dispatch(getPage(0));
     let url = config.endpoint + 'search?query=' + query;
-    url += '&start=' + _state.search.start;
+    url += '&start=' + _state.search.page * perPage;
     get(url,
       (data) => dispatch(receiveSearchResults({
         result: JSON.parse(data),

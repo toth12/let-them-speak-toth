@@ -1,16 +1,16 @@
-import { pageSize } from '../actions/contents';
-
 const initialState = {
-  'testimonies': [],
-  'err': null,
-  'start': 0,
+  testimonies: [],
+  err: null,
+  page: 0,
+  total: 0,
 };
 
 const contentsReducer = (state = initialState, action) => {
   switch(action.type) {
     case 'RECEIVE_TABLE_OF_CONTENTS':
       return Object.assign({}, state, {
-        testimonies: action.data,
+        testimonies: action.data.results,
+        total: action.data.total,
         err: null,
       })
 
@@ -21,21 +21,19 @@ const contentsReducer = (state = initialState, action) => {
 
     case 'NEXT_TABLE_OF_CONTENTS_PAGE': {
       return Object.assign({}, state, {
-        start: state.start + pageSize < state.testimonies.length ?
-          (state.start + pageSize) : state.start
+        page: state.page + 1,
       })
     }
 
     case 'PREVIOUS_TABLE_OF_CONTENTS_PAGE': {
       return Object.assign({}, state, {
-        start: state.start - pageSize > 0 ?
-          (state.start - pageSize) : 0
+        page: Math.max(0, state.page - 1),
       })
     }
 
     case 'GET_TABLE_OF_CONTENTS_PAGE': {
       return Object.assign({}, state, {
-        start: action.page,
+        page: action.page,
       })
     }
 

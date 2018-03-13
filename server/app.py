@@ -44,8 +44,15 @@ def table_of_contents():
     'testimony_title': 1,
     'testimony_id': 1,
   }
+  limit = 10
   start = int(request.args.get('start', 0))
-  return jsonify(list(db.testimonies.find({}, projection).skip(start)))
+  args = {}
+  total = db.testimonies.find(args).count()
+  results = db.testimonies.find(args, projection).skip(start).limit(limit)
+  return jsonify({
+    'total': int(total),
+    'results': list(results),
+  })
 
 @app.route('/api/search')
 def search():

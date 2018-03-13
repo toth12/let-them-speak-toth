@@ -9,21 +9,35 @@ import {
   previousPage,
   nextPage,
   getPage,
+  perPage,
 } from '../actions/search';
 
-const Search = props => (
-  <div>
-    <Hero>
-      <Input search={props.search} />
-    </Hero>
-    <div className='container'>
-      {props.instructions ?
-        <Instructions />
-      : <Content {...props} />
-      }
-    </div>
-  </div>
-)
+class Search extends React.Component {
+  constructor(props) {
+    super(props)
+    this.nextPage = this.nextPage.bind(this)
+  }
+
+  nextPage() {
+    if (this.props.page < this.props.total / perPage) this.props.nextPage()
+  }
+
+  render() {
+    return (
+      <div>
+        <Hero>
+          <Input search={this.props.search} />
+        </Hero>
+        <div className='container'>
+          {this.props.instructions ?
+            <Instructions />
+          : <Content fetchNextPage={this.nextPage} {...this.props} />
+          }
+        </div>
+      </div>
+    )
+  }
+}
 
 class Input extends React.Component {
   constructor(props) {
@@ -76,14 +90,14 @@ const Results = props => (
     <Label resultCount={props.resultCount} />
     {props.resultCount ?
       <div>
-        <ResultTable results={props.results} />
+        <ResultTable page={props.page} results={props.results} />
         <Pagination
           items={props.resultCount}
-          start={props.start}
-          perPage={20}
+          activePage={props.page}
+          perPage={perPage}
           pageClick={props.getPage}
           leftArrowClick={props.previousPage}
-          rightArrowClick={props.nextPage} />
+          rightArrowClick={props.fetchNextPage} />
       </div>
     : null
     }
@@ -99,7 +113,7 @@ const ResultTable = props => (
     </div>
     <div className='rows'>
       {props.results.map((r, i) => (
-        <Result key={i} idx={i+1} result={r} />
+        <Result key={i} idx={(props.page * perPage) + i+1} result={r} />
       ))}
     </div>
   </div>
@@ -138,7 +152,7 @@ const mapStateToProps = state => ({
   instructions: state.search.instructions,
   results: state.search.results,
   resultCount: state.search.resultCount,
-  start: state.search.start,
+  page: state.search.page,
   err: state.search.err,
 })
 

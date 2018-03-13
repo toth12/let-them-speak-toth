@@ -8,15 +8,23 @@ import {
   nextPage,
   getPage,
   pageSize,
+  perPage,
 } from '../actions/contents';
 
 class Contents extends React.Component {
   constructor(props) {
     super(props)
+    this.nextPage = this.nextPage.bind(this);
+  }
+
+  nextPage() {
+    // Don't let users request beyond the final page
+    if (this.props.page * perPage < this.props.total) this.props.nextPage()
   }
 
   componentWillMount() {
-    this.props.fetchTableOfContents()
+    this.props.getPage(0);
+    this.props.fetchTableOfContents();
   }
 
   render() {
@@ -27,12 +35,12 @@ class Contents extends React.Component {
           <h2>The Holocaust Testimonials of the Name Collection</h2>
           <Table {...this.props} />
           <Pagination
-            items={this.props.testimonies.length}
-            start={this.props.start}
-            perPage={10}
+            items={this.props.total}
+            activePage={this.props.page}
+            perPage={perPage}
             pageClick={this.props.getPage}
             leftArrowClick={this.props.previousPage}
-            rightArrowClick={this.props.nextPage}
+            rightArrowClick={this.nextPage}
           />
         </div>
       </div>
@@ -42,9 +50,9 @@ class Contents extends React.Component {
 
 const Table = props => (
   <div className='toc-table'>
-    {props.testimonies.slice(props.start, props.start + pageSize).map((t, idx) => (
+    {props.testimonies.map((t, idx) => (
       <div key={idx} className='toc-row'>
-        <span className='number'>{props.start + idx + 1}.</span>
+        <span className='number'>{(props.page * perPage) + idx + 1}.</span>
         <div className='text'>
           <div>{ 'Oral history interview with ' + t.testimony_title }</div>
           <div className='meta'>
@@ -61,7 +69,8 @@ const Table = props => (
 
 const mapStateToProps = state => ({
   testimonies: state.contents.testimonies,
-  start: state.contents.start,
+  page: state.contents.page,
+  total: state.contents.total,
 })
 
 const mapDispatchToProps = dispatch => ({

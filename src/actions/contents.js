@@ -1,7 +1,7 @@
 import { get } from './get';
 import config from '../config/client';
 
-export const pageSize = 10;
+export const perPage = 10;
 
 const receiveData = data => ({
   type: 'RECEIVE_TABLE_OF_CONTENTS', data: data,
@@ -35,7 +35,8 @@ export const getPage = page => {
 export const fetchTableOfContents = () => {
   return function(dispatch, getState) {
     const _state = getState();
-    get(config.endpoint + 'table_of_contents?start=' + _state.contents.start,
+    const start = _state.contents.page * perPage;
+    get(config.endpoint + 'table_of_contents?start=' + start,
       (data) => dispatch(receiveData(JSON.parse(data))),
       (err) => dispatch(requestError(err)))
   }
