@@ -31,7 +31,7 @@ def testimony():
   result = list(db.testimonies.find(args, {'_id': 0}))
   if result:
     return jsonify(result[0])
-  return []
+  return jsonify([])
 
 @app.route('/api/table_of_contents')
 def table_of_contents():
@@ -57,7 +57,7 @@ def table_of_contents():
 @app.route('/api/search')
 def search():
   '''Fetch testimonies that match a query'''
-  limit = 20
+  limit = int(request.args.get('limit', 20))
   start = int(request.args.get('start', 0))
   query = request.args.get('query', '')
   args = {'full_text': {'$regex': query, '$options': 'i'}}
