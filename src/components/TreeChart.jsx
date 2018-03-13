@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import tree from '../lib/tree.js';
-import src from '../assets/images/arrows.png';
+import src from '../assets/images/double-arrow.svg';
 import { fetchTestimony } from '../actions/testimony';
 import { setActiveIndex, fetchTreeData } from '../actions/tree';
 
