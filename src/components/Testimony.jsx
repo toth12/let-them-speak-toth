@@ -126,7 +126,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   hideTestimony: () => dispatch(hideTestimony()),
-  setTab: (tab) => dispatch(setTestimonyTab(tab)),
+  setTab: tab => dispatch(setTestimonyTab(tab)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Testimony);

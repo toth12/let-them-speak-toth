@@ -1,0 +1,58 @@
+@require './variables';
+
+/**
+* Pagination buttons
+**/
+
+.pagination {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.pagination .arrow {
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('../images/dark-arrow.png');
+  padding: 16px 26px;
+  background-color: #fff;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.pagination .left-arrow {
+  transform: rotate(180deg);
+  margin-right: 7px;
+}
+
+.pagination .right-arrow {
+  margin-left: 7px;
+}
+
+.pagination .page-button {
+  display: inline-block;
+  padding: 8px 13px;
+  background: #fff;
+  vertical-align: top;
+  border: 1px solid #ddd;
+  border-left: 0;
+  cursor: pointer;
+  width: 54px;
+  text-align: center;
+}
+
+.pagination .page-button:nth-of-type(2) {
+  border-left: 1px solid #ddd;
+}
+
+.pagination .arrow:hover,
+.pagination .page-button:hover {
+  background-color: $beige;
+}
+
+.pagination .page-button.active {
+  background-color: $brown;
+  color: #fff;
+}

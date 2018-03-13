@@ -74,7 +74,7 @@ def get_interviewee_name(_gender):
   return fake.name_male() #pylint: disable=no-member
 
 testimonies = []
-for _ in range(100):
+for _ in range(1000):
   gender = get_gender()
   testimonies.append({
     'testimony_id': str(get_int()),

@@ -33,12 +33,26 @@ def testimony():
     return jsonify(result[0])
   return []
 
+@app.route('/api/table_of_contents')
+def table_of_contents():
+  '''Fetch all testimonies for the table of contents'''
+  projection = {
+    '_id': 0,
+    'rg_number': 1,
+    'accession_number': 1,
+    'collection': 1,
+    'testimony_title': 1,
+    'testimony_id': 1,
+  }
+  start = int(request.args.get('start', 0))
+  return jsonify(list(db.testimonies.find({}, projection).skip(start)))
+
 @app.route('/api/search')
 def search():
-  '''Fetch search results'''
+  '''Fetch testimonies that match a query'''
   limit = 20
-  start = request.args.get('start') or 0
-  query = request.args.get('query')
+  start = int(request.args.get('start', 0))
+  query = request.args.get('query', '')
   args = {'full_text': {'$regex': query, '$options': 'i'}}
   total = db.testimonies.find(args).count()
   results = db.testimonies.find(args, {'_id': 0}).skip(start).limit(limit)

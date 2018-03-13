@@ -6,7 +6,10 @@ const initialState = {
   err: null,
   mode: 'simple',
   instructions: true,
+  start: 0,
 }
+
+const pageSize = 20;
 
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -37,6 +40,28 @@ const searchReducer = (state = initialState, action) => {
         err: true,
         results: [],
         resultCount: null,
+      })
+
+    case 'NEXT_SEARCH_PAGE':
+      return Object.assign({}, state, {
+        start: state.start + pageSize <= state.resultCount ?
+          (state.start + pageSize) : state.start
+      })
+
+    case 'PREVIOUS_SEARCH_PAGE':
+      return Object.assign({}, state, {
+        start: state.start - pageSize >= 0 ?
+          (state.start - pageSize) : 0
+      })
+
+    case 'GET_SEARCH_PAGE':
+      return Object.assign({}, state, {
+        start: action.page * pageSize,
+      })
+
+    case 'RESET_SEARCH_PAGINATION':
+      return Object.assign({}, state, {
+        start: 0,
       })
 
     default:

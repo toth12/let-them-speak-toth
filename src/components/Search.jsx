@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchSearchResults } from '../actions/search';
 import Hero from './Hero';
 import Loader from './Loader';
+import Pagination from './Pagination';
+import {
+  fetchSearchResults,
+  previousPage,
+  nextPage,
+  getPage,
+} from '../actions/search';
 
 const Search = props => (
   <div>
@@ -13,9 +19,7 @@ const Search = props => (
     <div className='container'>
       {props.instructions ?
         <Instructions />
-      : <Content searching={props.searching}
-          results={props.results}
-          resultCount={props.resultCount} />
+      : <Content {...props} />
       }
     </div>
   </div>
@@ -73,7 +77,13 @@ const Results = props => (
     {props.resultCount ?
       <div>
         <ResultTable results={props.results} />
-        <Pagination pages={getPages(props.resultCount)} />
+        <Pagination
+          items={props.resultCount}
+          start={props.start}
+          perPage={20}
+          pageClick={props.getPage}
+          leftArrowClick={props.previousPage}
+          rightArrowClick={props.nextPage} />
       </div>
     : null
     }
@@ -116,20 +126,6 @@ const Label = props => (
   </div>
 )
 
-const Pagination = props => (
-  <div className='pages'>
-    <div className='arrow left-arrow' />
-    {props.pages.map((p, idx) => (
-      <div className='page-button' key={idx}>{p}</div>
-    ))}
-    <div className='arrow right-arrow' />
-  </div>
-)
-
-const getPages = total => {
-  return Array.from(new Array(parseInt(total/10)), (i, idx) => idx + 1);
-}
-
 const getHit = (str, start, side) => {
   const length = 20;
   return side === 'left' ?
@@ -142,11 +138,15 @@ const mapStateToProps = state => ({
   instructions: state.search.instructions,
   results: state.search.results,
   resultCount: state.search.resultCount,
+  start: state.search.start,
   err: state.search.err,
 })
 
 const mapDispatchToProps = dispatch => ({
-  search: (phrase) => dispatch(fetchSearchResults(phrase)),
+  search: phrase => dispatch(fetchSearchResults(phrase)),
+  previousPage: () => dispatch(previousPage()),
+  nextPage: () => dispatch(nextPage()),
+  getPage: page => dispatch(getPage(page)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

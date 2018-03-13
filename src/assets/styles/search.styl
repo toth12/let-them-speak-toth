@@ -1,3 +1,5 @@
+@require './variables';
+
 /**
 * Search
 **/
@@ -105,7 +107,7 @@ span.results-count {
 }
 
 .results-table .row:hover {
-  background: rgba(247, 242, 227, 1);
+  background: $beige;
 }
 
 .results-table .row.header:hover {
@@ -139,7 +141,7 @@ span.results-count {
 }
 
 .results-table .hit-highlight {
-  color: brown;
+  color: $brown;
   padding: 0 6px;
 }
 
@@ -147,49 +149,4 @@ span.results-count {
 .results-table .hit-highlight,
 .results-table .hit-right {
   font-family: courier;
-}
-
-/**
-* Pagination buttons
-**/
-
-.pages {
-  text-align: center;
-  margin-top: 25px;
-}
-
-.pages .arrow {
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url('../images/arrow.png');
-  padding: 16px 20px;
-  background-color: #fff;
-  display: inline-block;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-.pages .left-arrow {
-  transform: rotate(180deg);
-  margin-right: 7px;
-}
-
-.pages .right-arrow {
-  margin-left: 7px;
-}
-
-.pages .page-button {
-  display: inline-block;
-  padding: 8px 13px;
-  background: #fff;
-  vertical-align: top;
-  border: 1px solid #ddd;
-  border-right: 0;
-  cursor: pointer;
-}
-
-.pages .page-button:last-of-type {
-  border-right: 1px solid #ddd;
 }
