@@ -45,6 +45,21 @@ def validate_fragment(fragment):
     validate_length(fragment[fragment_key], root_schema[fragment_key])
     validate_node(fragment['_id'], fragment['tree'])
 
+
+def validate_testimony_id_keys_exist(fragment):
+  '''Validate that each testimony linked to a fragment is present in the db'''
+  for child in fragment['tree']['children']:
+    assert_testimony_exists(child['testimony_id'])
+    for grandchild in child['children']:
+      assert_testimony_exists(child['testimony_id'])
+
+def assert_testimony_exists(testimony_id):
+  '''Validate that a given testimony exists in the db'''
+  result = list(db['testimonies'].find({'testimony_id': testimony_id}))
+  print(' * validating testimony_id', testimony_id, 'exists')
+  assert len(list(result)) > 0
+
 db = MongoClient('localhost', 27017)['lts']
 for doc in db['fragments'].find():
   validate_fragment(doc)
+  validate_testimony_id_keys_exist(doc)

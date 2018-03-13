@@ -2,7 +2,7 @@
 
 > A database of Holocaust survivor testimonies.
 
-[![Build Status](https://travis-ci.org/YaleDHLab/let-them-speak.svg?branch=master)](https://travis-ci.org/YaleDHLab/let-them-speak)
+[![Build Status](https://travis-ci.com/YaleDHLab/let-them-speak.svg?branch=master)](https://travis-ci.com/YaleDHLab/let-them-speak)
 
 ## Dependencies
 
