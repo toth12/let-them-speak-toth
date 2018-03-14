@@ -21,38 +21,122 @@ Generate seed data for the testimonies collection. Schema:
 }
 '''
 
-import random
+from random import random, randint
 from faker import Faker
-from pymongo import MongoClient
 from seed_fragments import get_fragments
+from utils import make_dir, get_db, write_text
+import os
 
 fake = Faker()
-client = MongoClient()
-db = client.lts
+db = get_db()
+n_testimonies = 300
+folia_dir = os.path.join('server', 'seeds', 'folia')
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
 video_url = url + '/videos/dev/shoah-sample.mp4'
 audio_url = url + '/videos/dev/ushmm-sample.mp3'
 thumb_url = url + '/thumbnails/dev/preview.png'
 
+make_dir(folia_dir)
+
+##
+# Folia helpers
+##
+
+def write_folia(title, full_text, testimony_id):
+  '''
+  Write the folia content of a text file to disk
+  @args:
+    {str} title: the title of a testimony
+    {str} full_text: the full text content of a testimony
+    {str} testimony_id: the unique identifier for a testimony
+  '''
+  xml = get_top(testimony_id)
+  xml += get_metadata(testimony_id, title)
+  xml += '<text><div>'
+
+  # tokenize paragraphs and sentences and add each to the xml
+  for p_idx, paragraph in enumerate(full_text.split('\n')):
+    for s_idx, sentence in enumerate(paragraph.split('.')):
+      xml += '<s id=s"' + str(s_idx) + '">'
+      xml += '<t>' + sentence + '</t>'
+
+      # tokenize each word in the sentence and add to the xml
+      for word in sentence.split():
+        xml += '<w>'
+        xml += '<t>' + word + '</t>'
+        xml += '<pos class="' + get_pos() + '"/>'
+        xml += '<lemma class="' + word + '"/>'
+        xml += '</w>'
+      xml += '</s>'
+
+  # close the open tags
+  xml += '</div></text></FoLiA>'
+
+  # write the outfile
+  outfile = os.path.join(folia_dir, testimony_id + '.xml')
+  write_text(outfile, xml.strip())
+
+def get_top(testimony_id):
+  '''
+  Get the top of a folia document given a testimony
+  @args:
+    {str} testimony_id: the unique identifier for a testimony
+  '''
+  return '''
+  <?xml version='1.0' encoding='utf-8'?>
+  <FoLiA xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://ilk.uvt.nl/folia"
+    xml:id="{0}"
+    version="1.5.1"
+    generator="seed_folia_util">
+  '''.format(testimony_id)
+
+def get_metadata(testimony_id, title):
+  '''
+  Get the metadata tags for a folia document given a testimony
+  @args:
+    {str} testimony_id: the unique identifier for a testimony
+    {str} title: the title of a testimony
+  '''
+  return '''
+  <metadata type="native">
+    <annotations>
+      <pos-annotation set="brown-tagset"/>
+      <lemma-annotation set="treetagger"/>
+    </annotations>
+    <meta id="testimony_id">{0}</meta>
+    <meta id="titleField">{1}</meta>
+  </metadata>
+  '''.format(testimony_id, title)
+
+def get_pos():
+  '''Get a random POS from the list of available pos vals'''
+  pos = ['NP', 'CD', ',', 'VBZ', 'NN', 'IN']
+  return pos[int(random())]
+
+##
+# Testimony helpers
+##
+
 def get_media():
   '''Return either an audio or video url'''
-  if random.random() > 0.5:
+  if random() > 0.5:
     return video_url
   return audio_url
 
 def get_int():
   '''Generate a random int between 0 and 9999999'''
-  return random.randint(0, 9999999)
+  return randint(0, 9999999)
 
 def get_gender():
   '''Return a fake gender'''
-  if random.random() > 0.5:
+  if random() > 0.5:
     return 'female'
   return 'male'
 
 def get_collection():
   '''Return a fake collection'''
-  val = random.random()
+  val = random()
   if val < 0.3:
     return 'USHMM'
   if (val >= 0.3) and (val <= 0.6):
@@ -63,9 +147,19 @@ def get_full_text():
   '''Return fake full text content'''
   text = ''
   for _ in range(100):
-    sentences = random.randint(5, 10)
+    sentences = randint(5, 10)
     text += fake.paragraph(nb_sentences=sentences) + '\n' #pylint: disable=no-member
   return text
+
+def get_html(full_text):
+  '''Return the full text in html with unique sentence ids'''
+  html = ''
+  for paragraph in full_text.split('\n'):
+    html += '<p>'
+    for s_idx, sentence in enumerate(paragraph.split('.')):
+      html += '<span ' + 'id=s' + str(s_idx) + '>' + sentence.strip() + '. </span>'
+    html += '</p>'
+  return html
 
 def get_interviewee_name(_gender):
   '''Return a fake first + last name'''
@@ -73,36 +167,47 @@ def get_interviewee_name(_gender):
     return fake.name_female() #pylint: disable=no-member
   return fake.name_male() #pylint: disable=no-member
 
-testimonies = []
-for _ in range(1000):
-  gender = get_gender()
-  testimonies.append({
-    'testimony_id': str(get_int()),
-    'shelf_mark': str(get_int()),
-    'recording_year': random.randint(1970, 1990),
-    'camp_names': ['camp_a', 'camp_b'],
-    'ghetto_names': ['ghetto_a', 'ghetto_b'],
-    'gender': gender,
-    'interviewee_name': get_interviewee_name(gender),
-    'collection': get_collection(),
-    'full_text': get_full_text(),
-    'media_url': get_media(),
-    'media_caption': fake.paragraph(nb_sentences=4), #pylint: disable=no-member
-    'thumbnail_url': thumb_url,
-    'testimony_title': fake.sentence(nb_words=6), #pylint: disable=no-member
-    'interview_summary': fake.text(max_nb_chars=500), #pylint: disable=no-member
-    'provenance': ' '.join(fake.words(nb=3)), #pylint: disable=no-member
-    'accession_number': str(get_int()),
-    'rg_number': str(get_int()),
-  })
+def seed_testimonies():
+  '''Seed all testimonies and linked fragments'''
+  testimonies = []
+  for testimony_idx, _ in enumerate(range(n_testimonies)):
+    print(' * seeding testimony number', testimony_idx)
+    gender = get_gender()
+    title = fake.sentence(nb_words=5), #pylint: disable=no-member
+    full_text = get_full_text()
+    testimony_id = str(get_int())
+    write_folia(title, full_text, testimony_id)
+    testimonies.append({
+      'testimony_id': testimony_id,
+      'shelf_mark': str(get_int()),
+      'recording_year': randint(1970, 1990),
+      'camp_names': ['camp_a', 'camp_b'],
+      'ghetto_names': ['ghetto_a', 'ghetto_b'],
+      'gender': gender,
+      'interviewee_name': get_interviewee_name(gender),
+      'collection': get_collection(),
+      'full_text': full_text,
+      'html_text': get_html(full_text),
+      'media_url': get_media(),
+      'media_caption': fake.paragraph(nb_sentences=4), #pylint: disable=no-member
+      'thumbnail_url': thumb_url,
+      'testimony_title': title,
+      'interview_summary': fake.text(max_nb_chars=500), #pylint: disable=no-member
+      'provenance': ' '.join(fake.words(nb=3)), #pylint: disable=no-member
+      'accession_number': str(get_int()),
+      'rg_number': str(get_int()),
+    })
 
-testimony_ids = [i['testimony_id'] for i in testimonies]
-fragments = get_fragments(testimony_ids)
+  testimony_ids = [i['testimony_id'] for i in testimonies]
+  fragments = get_fragments(testimony_ids)
 
-# remove all fragments and add seed fragments
-db.fragments.remove({})
-db.fragments.insert_many(fragments)
+  # remove all fragments and add seed fragments
+  db.fragments.remove({})
+  db.fragments.insert_many(fragments)
 
-# remove all testimonies and add seed testimonies
-db.testimonies.remove({})
-db.testimonies.insert_many(testimonies)
+  # remove all testimonies and add seed testimonies
+  db.testimonies.remove({})
+  db.testimonies.insert_many(testimonies)
+
+if __name__ == '__main__':
+  seed_testimonies()
