@@ -45,7 +45,6 @@ def validate_fragment(fragment):
     validate_length(fragment[fragment_key], root_schema[fragment_key])
     validate_node(fragment['_id'], fragment['tree'])
 
-
 def validate_testimony_id_keys_exist(fragment):
   '''Validate that each testimony linked to a fragment is present in the db'''
   for child in fragment['tree']['children']:
