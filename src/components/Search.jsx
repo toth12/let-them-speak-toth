@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Hero from './Hero';
 import Loader from './Loader';
 import Pagination from './Pagination';
+import { fetchTestimony } from '../actions/testimony';
 import {
   fetchSearchResults,
   previousPage,
@@ -19,7 +20,9 @@ class Search extends React.Component {
   }
 
   nextPage() {
-    if (this.props.page < this.props.total / perPage) this.props.nextPage()
+    if (this.props.page < this.props.resultCount / perPage) {
+      this.props.nextPage()
+    }
   }
 
   render() {
@@ -90,7 +93,7 @@ const Results = props => (
     <Label resultCount={props.resultCount} />
     {props.resultCount ?
       <div>
-        <ResultTable page={props.page} results={props.results} />
+        <ResultTable {...props} />
         <Pagination
           items={props.resultCount}
           activePage={props.page}
@@ -108,24 +111,29 @@ const ResultTable = props => (
   <div className='results-table'>
     <div className='row headers'>
       <div className='idx'>No.</div>
-      <div className='id'>ID</div>
+      <div className='id'>Shelfmark</div>
       <div className='exerpt'>Excerpt</div>
     </div>
     <div className='rows'>
       {props.results.map((r, i) => (
-        <Result key={i} idx={(props.page * perPage) + i+1} result={r} />
+        <Result key={i}
+          idx={(props.page * perPage) + i+1}
+          result={r}
+          fetchTestimony={props.fetchTestimony} />
       ))}
     </div>
   </div>
 )
 
 const Result = props => (
-  <div className='row'>
+  <div className='row' onClick={
+      () => props.fetchTestimony(props.result.testimony_id)
+    }>
     <div className='idx'>{props.idx}</div>
-    <div className='id'>{props.result.testimony_id}</div>
-    <div className='hit-left'>{getHit(props.result.full_text, 50, 'left')}</div>
-    <div className='hit-highlight'>search term</div>
-    <div className='hit-right'>{getHit(props.result.full_text, 80, 'right')}</div>
+    <div className='id'>{props.result.shelfmark}</div>
+    <div className='hit-left'>{getHit(props.result.left, 'left')}</div>
+    <div className='hit-highlight'>{props.result.match}</div>
+    <div className='hit-right'>{getHit(props.result.right, 'right')}</div>
   </div>
 )
 
@@ -140,11 +148,11 @@ const Label = props => (
   </div>
 )
 
-const getHit = (str, start, side) => {
+const getHit = (str, side) => {
   const length = 20;
   return side === 'left' ?
-      str.substring(start - length, start) + '...'
-    : str.substring(start, start + length) + '...'
+      str.substring(str.length - length, str.length) + '...'
+    : str.substring(0, Math.min(length, str.length)) + '...';
 }
 
 const mapStateToProps = state => ({
@@ -161,6 +169,7 @@ const mapDispatchToProps = dispatch => ({
   previousPage: () => dispatch(previousPage()),
   nextPage: () => dispatch(nextPage()),
   getPage: page => dispatch(getPage(page)),
+  fetchTestimony: testimonyId => dispatch(fetchTestimony(testimonyId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

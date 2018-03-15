@@ -2,7 +2,7 @@
 from flask import Flask, jsonify, send_from_directory, request
 from flask_cors import CORS
 from pymongo import MongoClient
-from search import format_search_results
+from blacklab import search_blacklab
 
 '''Main wrapper for app creation'''
 app = Flask(__name__, static_folder='../build')
@@ -60,13 +60,8 @@ def search():
   limit = int(request.args.get('limit', 20))
   start = int(request.args.get('start', 0))
   query = request.args.get('query', '')
-  args = {'full_text': {'$regex': query, '$options': 'i'}}
-  total = db.testimonies.find(args).count()
-  results = db.testimonies.find(args, {'_id': 0}).skip(start).limit(limit)
-  return jsonify({
-    'total': int(total),
-    'results': format_search_results(query, list(results)),
-  })
+  results = search_blacklab(offset=start, limit=limit, query=query)
+  return jsonify(results)
 
 ##
 # View route

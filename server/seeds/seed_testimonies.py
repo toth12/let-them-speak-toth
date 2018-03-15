@@ -24,18 +24,22 @@ Generate seed data for the testimonies collection. Schema:
 from random import random, randint
 from faker import Faker
 from seed_fragments import get_fragments
-from utils import make_dir, get_db, write_text
+from utils import rm_dir, make_dir, get_db, write_text, write_json
 import os
+import json
 
 fake = Faker()
 db = get_db()
-n_testimonies = 300
+n_testimonies = 100
+paragraph_boundary = '\n'
 folia_dir = os.path.join('server', 'seeds', 'folia')
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
 video_url = url + '/videos/dev/shoah-sample.mp4'
 audio_url = url + '/videos/dev/ushmm-sample.mp3'
 thumb_url = url + '/thumbnails/dev/preview.png'
+token_ids = []
 
+rm_dir(folia_dir)
 make_dir(folia_dir)
 
 ##
@@ -55,9 +59,9 @@ def write_folia(title, full_text, testimony_id):
   xml += '<text><div>'
 
   # tokenize paragraphs and sentences and add each to the xml
-  for p_idx, paragraph in enumerate(full_text.split('\n')):
+  for p_idx, paragraph in enumerate(full_text.split(paragraph_boundary)):
     for s_idx, sentence in enumerate(paragraph.split('.')):
-      xml += '<s id=s"' + str(s_idx) + '">'
+      xml += '<s id="s' + str(s_idx) + '">'
       xml += '<t>' + sentence + '</t>'
 
       # tokenize each word in the sentence and add to the xml
@@ -91,7 +95,7 @@ def get_top(testimony_id):
     generator="seed_folia_util">
   '''.format(testimony_id)
 
-def get_metadata(testimony_id, title):
+def get_metadata(testimony_id, shelfmark):
   '''
   Get the metadata tags for a folia document given a testimony
   @args:
@@ -105,14 +109,32 @@ def get_metadata(testimony_id, title):
       <lemma-annotation set="treetagger"/>
     </annotations>
     <meta id="testimony_id">{0}</meta>
-    <meta id="titleField">{1}</meta>
+    <meta id="shelfmark">{1}</meta>
   </metadata>
-  '''.format(testimony_id, title)
+  '''.format(testimony_id, shelfmark)
 
 def get_pos():
   '''Get a random POS from the list of available pos vals'''
   pos = ['NP', 'CD', ',', 'VBZ', 'NN', 'IN']
   return pos[int(random())]
+
+##
+# Token helpers
+##
+
+def store_token_ids(testimony_id, full_text):
+  '''
+  Store a mapping from each token's index position to the idx of
+  the sentence in which that token occurs
+  '''
+  for paragraph in full_text.split(paragraph_boundary):
+    for s_idx, sentence in enumerate(paragraph.split('.')):
+      for t_idx, token in enumerate(sentence.split()):
+        token_ids.append({
+          'testimony_id': testimony_id,
+          'token_idx': t_idx,
+          'sentence_idx': s_idx,
+        })
 
 ##
 # Testimony helpers
@@ -154,7 +176,7 @@ def get_full_text():
 def get_html(full_text):
   '''Return the full text in html with unique sentence ids'''
   html = ''
-  for paragraph in full_text.split('\n'):
+  for paragraph in full_text.split(paragraph_boundary):
     html += '<p>'
     for s_idx, sentence in enumerate(paragraph.split('.')):
       html += '<span ' + 'id=s' + str(s_idx) + '>' + sentence.strip() + '. </span>'
@@ -173,13 +195,14 @@ def seed_testimonies():
   for testimony_idx, _ in enumerate(range(n_testimonies)):
     print(' * seeding testimony number', testimony_idx)
     gender = get_gender()
-    title = fake.sentence(nb_words=5), #pylint: disable=no-member
+    shelfmark = str(get_int())
     full_text = get_full_text()
     testimony_id = str(get_int())
-    write_folia(title, full_text, testimony_id)
+    store_token_ids(testimony_id, full_text)
+    write_folia(shelfmark, full_text, testimony_id)
     testimonies.append({
       'testimony_id': testimony_id,
-      'shelf_mark': str(get_int()),
+      'shelf_mark': shelfmark,
       'recording_year': randint(1970, 1990),
       'camp_names': ['camp_a', 'camp_b'],
       'ghetto_names': ['ghetto_a', 'ghetto_b'],
@@ -191,7 +214,7 @@ def seed_testimonies():
       'media_url': get_media(),
       'media_caption': fake.paragraph(nb_sentences=4), #pylint: disable=no-member
       'thumbnail_url': thumb_url,
-      'testimony_title': title,
+      'testimony_title': fake.sentence(nb_words=5), #pylint: disable=no-member,
       'interview_summary': fake.text(max_nb_chars=500), #pylint: disable=no-member
       'provenance': ' '.join(fake.words(nb=3)), #pylint: disable=no-member
       'accession_number': str(get_int()),
@@ -208,6 +231,10 @@ def seed_testimonies():
   # remove all testimonies and add seed testimonies
   db.testimonies.remove({})
   db.testimonies.insert_many(testimonies)
+
+  # save the mappings from tokens to their sentence indices
+  db.tokens.remove({})
+  db.tokens.insert_many(token_ids)
 
 if __name__ == '__main__':
   seed_testimonies()

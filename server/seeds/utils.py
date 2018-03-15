@@ -1,6 +1,8 @@
 '''Shared utilities for server seeding'''
 
 import os
+import json
+from shutil import rmtree
 from pymongo import MongoClient
 
 def get_db():
@@ -12,7 +14,6 @@ def get_db():
   db = MongoClient(host, port)['lts']
   return db
 
-
 def write_text(path, text):
   '''
   Write a given text to the out_dir location
@@ -23,6 +24,16 @@ def write_text(path, text):
   with open(path, 'w') as out:
     out.write(text)
 
+def write_json(path, obj):
+  '''
+  Write `obj` to `path`
+  @args:
+    {str} path: the path where the object should be written
+    {obj} obj: a JSON-serializable object
+  '''
+  with open(path, 'w') as out:
+    json.dump(obj, out)
+
 def make_dir(path):
   '''
   Ensure a directory exists
@@ -31,5 +42,16 @@ def make_dir(path):
   '''
   try:
     os.makedirs(path)
+  except Exception:
+    pass
+
+def rm_dir(path):
+  '''
+  Remove a directory and its contents
+  @args:
+    {str} path: the path to the directory to remove
+  '''
+  try:
+    rmtree(path)
   except Exception:
     pass
