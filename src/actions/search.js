@@ -23,6 +23,10 @@ export const searching = () => ({
   type: 'SEARCHING',
 })
 
+export const setSearchPage = page => ({
+  type: 'SET_SEARCH_PAGE', page,
+})
+
 /**
 * Pagination Helpers
 **/
@@ -46,7 +50,7 @@ export const previousPage = () => {
 export const getPage = page => {
   return function(dispatch, getState) {
     const _state = getState();
-    dispatch({type: 'GET_SEARCH_PAGE', page});
+    dispatch(setSearchPage(page));
     dispatch(fetchPageResults(_state.search.query));
   }
 }
@@ -67,7 +71,7 @@ const search = (query, showLoader, resetPages) => {
   return function(dispatch, getState) {
     const _state = getState();
     if (showLoader) dispatch(searching());
-    if (resetPages) dispatch(getPage(0));
+    if (resetPages) dispatch(dispatch(setSearchPage(0)));
     let url = config.endpoint + 'search?query=' + query;
     url += '&start=' + _state.search.page * perPage;
     get(url,

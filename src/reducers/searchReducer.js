@@ -50,7 +50,7 @@ const searchReducer = (state = initialState, action) => {
         page: Math.max(0, state.page - 1),
       })
 
-    case 'GET_SEARCH_PAGE':
+    case 'SET_SEARCH_PAGE':
       return Object.assign({}, state, {
         page: action.page,
       })

@@ -13,6 +13,8 @@ before_script:
   - npm run seed
 
 script:
+  - npm run build
+  - npm run production &
   - npm run test
 
 services:

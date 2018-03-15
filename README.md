@@ -30,7 +30,7 @@ That will start the server on port 7082. To run the development server with hot 
 npm run start
 ```
 
-That will start the webpack dev server on port 7081.
+That will start the webpack dev server on port 7081. Note that you will need to have a BlackLab server running to generate the seed data or run text queries. See below for getting started with BlackLab.
 
 ## Working with BlackLab Indices
 
@@ -131,7 +131,7 @@ cd webapps && tree
 Given that setup, you should be able to query BlackLab on the default Tomcat port:
 
 ```bash
-curl http://localhost:8080/BlackLab-server-1.6.0/
+curl http://localhost:8080/blacklab-server-1.6.0
 ```
 
 In the returned output, you should see the name of the index you provided above in your `blacklab-server.json` file:
@@ -148,6 +148,8 @@ In the returned output, you should see the name of the index you provided above 
 ```
 
 If you see your index in there, you should be all set to run queries against the server, using [BlackLab's query syntax](http://inl.github.io/BlackLab/blacklab-server-overview.html#installation).
+
+For documentation on supported query features, see the [official BlackLab documentation](http://inl.github.io/BlackLab/blacklab-server-overview.html).
 
 ## Deployment on Amazon Linux
 
