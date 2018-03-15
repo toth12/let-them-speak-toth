@@ -18,7 +18,7 @@ def search_blacklab(*args, **kwargs):
   args = {
     'first': kwargs.get('offset', 0),
     'limit': kwargs.get('limit', 20),
-    'patt': '"' + kwargs.get('query', 'test').strip('"') + '"',
+    'patt': get_query_pattern(kwargs.get('query', 'test')),
     'waitfortotal': 'true',
     'outputformat': 'json',
     'prettyprint': 'no',
@@ -31,6 +31,20 @@ def search_blacklab(*args, **kwargs):
     query += arg + '=' + quote(str(args[arg]))
   result = request_url(query)
   return parse_response(result)
+
+
+def get_query_pattern(query):
+  '''
+  Curate a search query from a user-provided query expression
+  @args:
+    {str} query: the raw, user-provided query
+  @returns:
+    {str} the user's query in curated form
+  '''
+  query = query.strip('"')
+  if all(i.isalpha() for i in query):
+    return '"' + query + '"'
+  return query
 
 
 def request_url(url):
