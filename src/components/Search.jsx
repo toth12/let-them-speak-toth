@@ -79,14 +79,24 @@ const Instructions = props => (
   </div>
 )
 
-const Content = props => (
-  <div>
-    {props.searching ?
-     <Loader />
-    : <Results {...props} />
+class Content extends React.Component {
+  render() {
+    let content;
+    if (this.props.err) {
+      content = <Err />;
+    } else if (this.props.searching) {
+      content = <Loader />
+    } else {
+      content = <Results {...this.props} />
     }
-  </div>
-)
+
+    return (
+      <div>
+        {content}
+      </div>
+    )
+  }
+}
 
 const Results = props => (
   <section className='results'>
@@ -145,6 +155,15 @@ const Label = props => (
       <span><b>{props.resultCount}</b> </span>
       <span>results for your search</span>
     </span>
+  </div>
+)
+
+const Err = props => (
+  <div className='center-text'>
+    <div className='error'>
+      <span>Sorry, an error occurred. </span>
+      <span>Please contact an administrator: dhlab@yale.edu</span>
+    </div>
   </div>
 )
 

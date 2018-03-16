@@ -60,8 +60,11 @@ def search():
   limit = int(request.args.get('limit', 20))
   start = int(request.args.get('start', 0))
   query = request.args.get('query', '')
-  results = search_blacklab(offset=start, limit=limit, query=query)
-  return jsonify(results)
+  try:
+    results = search_blacklab(offset=start, limit=limit, query=query)
+    return jsonify(results)
+  except Exception as exc:
+    return jsonify({'err': exc})
 
 ##
 # View route
