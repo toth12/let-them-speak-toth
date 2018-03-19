@@ -151,7 +151,7 @@ const Result = props => (
     <div className='idx'>{props.idx}</div>
     <div className='id'>{props.result.shelfmark}</div>
     <div className='hit-left'>{getHit(props.result.left, 'left')}</div>
-    <div className='hit-highlight'>{props.result.match}</div>
+    <div className='hit-highlight'>{getHit(props.result.match, 'match')}</div>
     <div className='hit-right'>{getHit(props.result.right, 'right')}</div>
   </div>
 )
@@ -169,9 +169,17 @@ const Label = props => (
 
 const getHit = (str, side) => {
   const length = 20;
-  return side === 'left' ?
-      str.substring(str.length - length, str.length) + '...'
-    : str.substring(0, Math.min(length, str.length)) + '...';
+  const matchLen = 16;
+  str = str.trim();
+  switch (side) {
+    case 'left':
+      return str.substring(str.length - length, str.length) + '...';
+    case 'match':
+      return str.length < matchLen ? str : str.substring(0, matchLen/2) + '...' +
+        str.substring(str.length-matchLen/2, str.length);
+    case 'right':
+      return str.substring(0, Math.min(length, str.length)) + '...';
+  }
 }
 
 const mapStateToProps = state => ({
