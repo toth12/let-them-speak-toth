@@ -43,7 +43,7 @@ def get_query_pattern(query):
   '''
   query = query.strip().strip('"')
   # case of CQL query
-  if (query[0] == '[') and (query[-1] == ']'):
+  if (query) and (query[0] == '[') and (query[-1] == ']'):
     return query
   # case of multiword query
   elif ' ' in query:

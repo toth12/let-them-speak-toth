@@ -63,8 +63,8 @@ def search():
   try:
     results = search_blacklab(offset=start, limit=limit, query=query)
     return jsonify(results)
-  except Exception as exc:
-    return jsonify({'err': exc})
+  except Exception: #pylint: disable=broad-except
+    return jsonify({'err': 'search error'})
 
 ##
 # View route

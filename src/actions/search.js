@@ -82,7 +82,7 @@ const search = (query, showLoader, resetPages) => {
 
 const handleData = (dispatch, data, query) => {
   if (data.err) {
-    dispatch(searchError(err))
+    dispatch(searchError(data.err))
   } else {
     dispatch(receiveSearchResults({
       result: JSON.parse(data),
