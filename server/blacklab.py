@@ -41,10 +41,18 @@ def get_query_pattern(query):
   @returns:
     {str} the user's query in curated form
   '''
-  query = query.strip('"')
-  if all(i.isalpha() for i in query):
-    return '"' + query + '"'
-  return query
+  query = query.strip().strip('"')
+  # case of CQL query
+  if (query[0] == '[') and (query[-1] == ']'):
+    return query
+  # case of multiword query
+  elif ' ' in query:
+    formatted = ''
+    for i in query.split():
+      formatted += '[word="' + i + '"]'
+    return formatted
+  # case of simple query
+  return '"' + query + '"'
 
 
 def request_url(url):

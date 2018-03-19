@@ -27,7 +27,7 @@ const Pagination = props => (
 **/
 
 const getPages = (total, activePage, perPage) => {
-  const allPages = Array.from(new Array(parseInt(total/perPage)), (i, idx) => idx + 1);
+  const allPages = Array.from(new Array(Math.ceil(total/perPage)), (i, idx) => idx + 1);
   const firstPage = activePage <= (maxPages - 1)/2 ? 0 : activePage - 3;
   return allPages.slice(firstPage, firstPage + maxPages);
 }
