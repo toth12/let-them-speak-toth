@@ -13,3 +13,4 @@ import './anthology.styl';
 import './testimony.styl';
 import './loader.styl';
 import './pagination.styl';
+import './error.styl';

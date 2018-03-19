@@ -22,7 +22,10 @@ db = MongoClient(host, port, connect=False)['lts']
 @app.route('/api/tree')
 def items():
   '''Fetch tree data'''
-  return jsonify(list(db.fragments.find({}, {'_id': 0})))
+  try:
+    return jsonify(list(db.fragments.find({}, {'_id': 0})))
+  except Exception: #pylint disable=broad-except
+    return jsonify({'err': 'tree fragment fetch error'})
 
 @app.route('/api/testimony')
 def testimony():

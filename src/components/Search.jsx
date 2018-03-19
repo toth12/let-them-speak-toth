@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Hero from './Hero';
 import Loader from './Loader';
 import Pagination from './Pagination';
+import Err from './Error';
 import { fetchTestimony } from '../actions/testimony';
 import {
   fetchSearchResults,
@@ -98,24 +99,32 @@ class Content extends React.Component {
   }
 }
 
-const Results = props => (
-  <section className='results'>
-    <Label resultCount={props.resultCount} />
-    {props.resultCount ?
-      <div>
-        <ResultTable {...props} />
+class Results extends React.Component {
+  render() {
+    let content = null;
+    if (this.props.resultCount && this.props.resultCount > perPage) {
+      content = <div>
+        <ResultTable {...this.props} />
         <Pagination
-          items={props.resultCount}
-          activePage={props.page}
+          items={this.props.resultCount}
+          activePage={this.props.page}
           perPage={perPage}
-          pageClick={props.getPage}
-          leftArrowClick={props.previousPage}
-          rightArrowClick={props.fetchNextPage} />
+          pageClick={this.props.getPage}
+          leftArrowClick={this.props.previousPage}
+          rightArrowClick={this.props.fetchNextPage} />
       </div>
-    : null
+    } else if (this.props.resultCount) {
+      content = <ResultTable {...this.props} />
     }
-  </section>
-)
+
+    return (
+      <section className='results'>
+        <Label resultCount={this.props.resultCount} />
+        {content}
+      </section>
+    )
+  }
+}
 
 const ResultTable = props => (
   <div className='results-table'>
@@ -155,15 +164,6 @@ const Label = props => (
       <span><b>{props.resultCount}</b> </span>
       <span>results for your search</span>
     </span>
-  </div>
-)
-
-const Err = props => (
-  <div className='center-text'>
-    <div className='error'>
-      <span>Sorry, an error occurred. </span>
-      <span>Please contact an administrator: dhlab@yale.edu</span>
-    </div>
   </div>
 )
 

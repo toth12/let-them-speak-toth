@@ -16,7 +16,15 @@ export const setActiveIndex = idx => ({
 export const fetchTreeData = () => {
   return function(dispatch) {
     get(config.endpoint + 'tree',
-      (data) => dispatch(receiveTreeData(JSON.parse(data))),
+      (data) => handleData(dispatch, JSON.parse(data)),
       (err) => dispatch(treeRequestFailed(err)))
+  }
+}
+
+const handleData = (dispatch, data) => {
+  if (data.err) {
+    dispatch(treeRequestFailed(data.err))
+  } else {
+    dispatch(receiveTreeData(data))
   }
 }
