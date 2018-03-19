@@ -5,7 +5,10 @@ import Hero from './Hero';
 import Loader from './Loader';
 import Pagination from './Pagination';
 import Err from './Error';
-import { fetchTestimony } from '../actions/testimony';
+import {
+  fetchTestimony,
+  highlightSentences,
+} from '../actions/testimony';
 import {
   fetchSearchResults,
   previousPage,
@@ -138,7 +141,8 @@ const ResultTable = props => (
         <Result key={i}
           idx={(props.page * perPage) + i+1}
           result={r}
-          fetchTestimony={props.fetchTestimony} />
+          fetchTestimony={props.fetchTestimony}
+          highlightSentences={props.highlightSentences} />
       ))}
     </div>
   </div>
@@ -146,7 +150,14 @@ const ResultTable = props => (
 
 const Result = props => (
   <div className='row' onClick={
-      () => props.fetchTestimony(props.result.testimony_id)
+      () => {
+        props.highlightSentences({
+          start: props.result.token_start,
+          end: props.result.token_end,
+          testimonyId: props.result.testimony_id,
+        })
+        props.fetchTestimony(props.result.testimony_id)
+      }
     }>
     <div className='idx'>{props.idx}</div>
     <div className='id'>{props.result.shelfmark}</div>
@@ -175,8 +186,9 @@ const getHit = (str, side) => {
     case 'left':
       return str.substring(str.length - length, str.length) + '...';
     case 'match':
-      return str.length < matchLen ? str : str.substring(0, matchLen/2) + '...' +
-        str.substring(str.length-matchLen/2, str.length);
+      return str.length <= matchLen ? str :
+        str.substring(0, matchLen/2).trim() + '...' +
+        str.substring(str.length-matchLen/2, str.length).trim();
     case 'right':
       return str.substring(0, Math.min(length, str.length)) + '...';
   }
@@ -196,7 +208,8 @@ const mapDispatchToProps = dispatch => ({
   previousPage: () => dispatch(previousPage()),
   nextPage: () => dispatch(nextPage()),
   getPage: page => dispatch(getPage(page)),
-  fetchTestimony: testimonyId => dispatch(fetchTestimony(testimonyId))
+  fetchTestimony: testimonyId => dispatch(fetchTestimony(testimonyId)),
+  highlightSentences: obj => dispatch(highlightSentences(obj)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

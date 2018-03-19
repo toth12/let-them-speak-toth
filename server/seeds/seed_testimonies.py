@@ -59,8 +59,9 @@ def write_folia(title, full_text, testimony_id):
   xml += '<text><div>'
 
   # tokenize paragraphs and sentences and add each to the xml
+  s_idx = 0
   for p_idx, paragraph in enumerate(full_text.split(paragraph_boundary)):
-    for s_idx, sentence in enumerate(paragraph.split('.')):
+    for sentence in paragraph.split('.'):
       xml += '<s id="s' + str(s_idx) + '">'
       xml += '<t>' + sentence + '</t>'
 
@@ -72,6 +73,7 @@ def write_folia(title, full_text, testimony_id):
         xml += '<lemma class="' + word + '"/>'
         xml += '</w>'
       xml += '</s>'
+      s_idx += 1
 
   # close the open tags
   xml += '</div></text></FoLiA>'
@@ -127,14 +129,19 @@ def store_token_ids(testimony_id, full_text):
   Store a mapping from each token's index position to the idx of
   the sentence in which that token occurs
   '''
+  t_idx = 0
+  s_idx = 0
   for paragraph in full_text.split(paragraph_boundary):
-    for s_idx, sentence in enumerate(paragraph.split('.')):
-      for t_idx, token in enumerate(sentence.split()):
-        token_ids.append({
-          'testimony_id': testimony_id,
-          'token_idx': t_idx,
-          'sentence_idx': s_idx,
-        })
+    for sentence in paragraph.split('.'):
+      if sentence.split():
+        for token in sentence.split():
+          token_ids.append({
+            'testimony_id': testimony_id,
+            'token_index': t_idx,
+            'sentence_index': s_idx,
+          })
+          t_idx += 1
+        s_idx += 1
 
 ##
 # Testimony helpers
@@ -176,11 +183,13 @@ def get_full_text():
 def get_html(full_text):
   '''Return the full text in html with unique sentence ids'''
   html = ''
+  s_idx = 0
   for paragraph in full_text.split(paragraph_boundary):
     html += '<p>'
-    for s_idx, sentence in enumerate(paragraph.split('.')):
+    for sentence in paragraph.split('.'):
       if sentence.split():
         html += '<span ' + 'id=s' + str(s_idx) + '>' + sentence.strip() + '. </span>'
+        s_idx += 1
     html += '</p>'
   return html
 

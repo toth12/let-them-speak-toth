@@ -69,6 +69,24 @@ def search():
   except Exception: #pylint: disable=broad-except
     return jsonify({'err': 'search error'})
 
+@app.route('/api/sentences')
+def sentences():
+  '''Fetch sentence indices given a testimony id and token indices'''
+  query = {'testimony_id': request.args.get('testimony_id', None), '$or': [
+    {
+      'token_index': int(request.args.get('token_start', 0)),
+    },
+    {
+      'token_index': int(request.args.get('token_end', 0)),
+    },
+  ]}
+  results = db.tokens.find(query, {'_id': 0})
+  sentence_indices = [i['sentence_index'] for i in results]
+  return jsonify({
+    'sentenceStart': min(sentence_indices),
+    'sentenceEnd': max(sentence_indices)
+  })
+
 ##
 # View route
 ##
