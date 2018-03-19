@@ -1,6 +1,6 @@
 '''Test that all server-level dependencies are met'''
-import sys
-import json
+from subprocess import check_output
+from urllib.request import urlopen
 from pymongo import MongoClient
 from py4j.java_gateway import JavaGateway, Py4JNetworkError
 
@@ -9,11 +9,12 @@ def test_mongo_is_running():
   db = MongoClient('localhost', 27017)['lts']
   assert db
 
-def validate_java_present():
+def test_mvn_present():
   '''Validate JVM is present'''
-  java_gateway = JavaGateway(eager_load=True)
-  assert java_gateway
+  mvn_path = check_output(['which', 'mvn'])
+  assert len(mvn_path)
 
-def validate_blacklab_running():
+def test_blacklab_running():
   '''Validate Blacklab server is running'''
-  assert True
+  response = urlopen('http://localhost:8080')
+  assert 'tomcat' in response.read().decode('utf8').lower()
