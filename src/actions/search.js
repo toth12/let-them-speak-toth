@@ -75,12 +75,12 @@ const search = (query, showLoader, resetPages) => {
     let url = config.endpoint + 'search?query=' + query;
     url += '&start=' + _state.search.page * perPage;
     get(url,
-      (data) => handleData(dispatch, data),
+      (data) => handleData(dispatch, data, query),
       (err) => dispatch(searchError(err)))
   }
 }
 
-const handleData = (dispatch, data) => {
+const handleData = (dispatch, data, query) => {
   if (data.err) {
     dispatch(searchError(err))
   } else {

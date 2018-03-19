@@ -20,7 +20,7 @@ class Search extends React.Component {
   }
 
   nextPage() {
-    if (this.props.page < this.props.resultCount / perPage) {
+    if (this.props.page + 1 < this.props.resultCount / perPage) {
       this.props.nextPage()
     }
   }

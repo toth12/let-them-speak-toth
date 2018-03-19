@@ -19,7 +19,9 @@ class Contents extends React.Component {
 
   nextPage() {
     // Don't let users request beyond the final page
-    if (this.props.page * perPage < this.props.total) this.props.nextPage()
+    if ((this.props.page + 1) * perPage < this.props.total) {
+      this.props.nextPage()
+    }
   }
 
   componentWillMount() {
