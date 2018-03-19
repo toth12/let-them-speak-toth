@@ -179,7 +179,8 @@ def get_html(full_text):
   for paragraph in full_text.split(paragraph_boundary):
     html += '<p>'
     for s_idx, sentence in enumerate(paragraph.split('.')):
-      html += '<span ' + 'id=s' + str(s_idx) + '>' + sentence.strip() + '. </span>'
+      if sentence.split():
+        html += '<span ' + 'id=s' + str(s_idx) + '>' + sentence.strip() + '. </span>'
     html += '</p>'
   return html
 

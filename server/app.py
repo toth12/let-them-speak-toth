@@ -24,7 +24,7 @@ def items():
   '''Fetch tree data'''
   try:
     return jsonify(list(db.fragments.find({}, {'_id': 0})))
-  except Exception: #pylint disable=broad-except
+  except Exception: #pylint: disable=broad-except
     return jsonify({'err': 'tree fragment fetch error'})
 
 @app.route('/api/testimony')

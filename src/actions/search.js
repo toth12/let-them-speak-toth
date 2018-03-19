@@ -1,4 +1,5 @@
 import { get } from './get';
+import { parse } from './parse';
 import config from '../config/client';
 
 export const perPage = 20;
@@ -75,17 +76,18 @@ const search = (query, showLoader, resetPages) => {
     let url = config.endpoint + 'search?query=' + query;
     url += '&start=' + _state.search.page * perPage;
     get(url,
-      (data) => handleData(dispatch, data, query),
+      (data) => handleSearchData(dispatch, data, query),
       (err) => dispatch(searchError(err)))
   }
 }
 
-const handleData = (dispatch, data, query) => {
+const handleSearchData = (dispatch, data, query) => {
+  data = parse(data, dispatch, searchError('unparseable JSON'));
   if (data.err) {
     dispatch(searchError(data.err))
   } else {
     dispatch(receiveSearchResults({
-      result: JSON.parse(data),
+      result: data,
       query: query,
     }))
   }

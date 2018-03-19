@@ -11,12 +11,30 @@ class Testimony extends React.Component {
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this);
+    this.scrollToSentence = this.scrollToSentence.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.setenceIdx) {
+      this.scrollToSentence();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.setenceIdx &&
+        this.props.sentenceIdx !== prevProps.sentenceIdx) {
+        this.scrollToSentence();
+    }
   }
 
   handleClick(e) {
     const modal = document.querySelector('.testimony');
     if (modal.contains(e.target) && e.target.className != 'close') return;
     this.props.hideTestimony();
+  }
+
+  scrollToSentence() {
+    console.log('scrolling')
   }
 
   render() {
@@ -58,11 +76,9 @@ const Right = props => (
 
 const Left = props => (
   <div className='left'>
-    <div className='title'>
-      {'Transcript Title: ' + props.testimony.testimony_title}
-    </div>
+    <div className='title'>{props.testimony.testimony_title}</div>
     <div className='body'
-      dangerouslySetInnerHTML={{__html: breakLines(props.testimony.full_text)}}>
+      dangerouslySetInnerHTML={{__html: props.testimony.html_text}}>
     </div>
   </div>
 )
