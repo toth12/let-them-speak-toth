@@ -2,9 +2,8 @@
 
 import os
 import sys
-from glob import glob
-[sys.path.append(i) for i in ['.', '..', 'server']]
-from seeds.utils import write_json
+[sys.path.append(i) for i in ['.', '..', 'server']] #pylint: disable=expression-not-assigned
+from seeds.utils import write_json #pylint: disable=wrong-import-position, import-error
 
 ##
 # Config
@@ -47,10 +46,10 @@ def index_folia_files(dir_to_index, index_name):
     dir_to_index += '/'
 
   # blacklab classpath config
-  classpath =  'BlackLab/core/target/blacklab-1.6.0.jar'
+  classpath = 'BlackLab/core/target/blacklab-1.6.0.jar'
   classpath += ':Blacklab/core/target/lib/*'
 
-  cmd =  'java -cp "' + classpath + '" '
+  cmd = 'java -cp "' + classpath + '" '
   cmd += 'nl.inl.blacklab.tools.IndexTool ' # blacklab tool to run
   cmd += 'create ' # command to blacklab
   cmd += index_name + ' ' # name for the generated index
@@ -90,18 +89,18 @@ def run_cmd(cmd):
   print(' * running', cmd)
   os.system(cmd)
 
-def create_folia_index(*args, **kwargs):
+def create_folia_index(**kwargs):
   '''
   Main script that handles all folia index business
   @kwargs:
     {str} folia_dir: the path to the folia infiles
     {str} index_name: the name of the blacklab index to create
   '''
-  folia_dir = kwargs.get('folia_dir', None)
+  folia_path = kwargs.get('folia_dir', folia_dir)
   index_name = kwargs.get('index_name', 'lts')
 
   validate_blacklab_present()
-  index_folia_files(folia_dir, index_name)
+  index_folia_files(folia_path, index_name)
   generate_config_file(index_name)
   copy_war_files()
   print(' * Indices successfully created. Please restart tomcat!')
@@ -110,27 +109,27 @@ def create_folia_index(*args, **kwargs):
 # Main DB builder
 ##
 
-def build_db(folia_dir, mongo_archive_path):
+def build_db(folia_path, archive_path):
   '''
   Build the app db using input folia files and mongo dump
   @args:
-    {str} folia_dir: directory that contains the folia XML files
-    {str} mongo_archive_path: the path to a mongo archive file
+    {str} folia_path: directory that contains the folia XML files
+    {str} archive_path: the path to a mongo archive file
   '''
 
   # drop the extant db
-  cmd =  'mongo ' + db_name + ' '
+  cmd = 'mongo ' + db_name + ' '
   cmd += '--eval "db.dropDatabase()" '
   run_cmd(cmd)
 
   # build the mongo tables
-  cmd =  'mongorestore '
+  cmd = 'mongorestore '
   cmd += '--db=' + db_name + ' '
-  cmd += '--archive=' + mongo_archive_path + ' '
+  cmd += '--archive=' + archive_path + ' '
   run_cmd(cmd)
 
   # index the folia files
-  create_folia_index(folia_dir=folia_dir)
+  create_folia_index(folia_dir=folia_path)
 
 if __name__ == '__main__':
   build_db(folia_dir, mongo_archive_path)

@@ -86,7 +86,7 @@ const Instructions = props => (
 class Content extends React.Component {
   render() {
     let content;
-    if (this.props.err) {
+    if (this.props.searchErr || this.props.testimonyErr) {
       content = <Err />;
     } else if (this.props.searching) {
       content = <Loader />
@@ -200,7 +200,8 @@ const mapStateToProps = state => ({
   results: state.search.results,
   resultCount: state.search.resultCount,
   page: state.search.page,
-  err: state.search.err,
+  searchErr: state.search.err,
+  testimonyErr: state.testimony.err,
 })
 
 const mapDispatchToProps = dispatch => ({
