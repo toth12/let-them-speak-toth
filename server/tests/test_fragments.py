@@ -14,15 +14,16 @@ root_schema = {
 node_schema = {
   'label': str,
   'testimony_id': str,
-  'testimony_position': int,
-  'media_url': str,
+  'media_index': int,
   'media_offset': int,
+  'start_sentence_index': int,
+  'end_sentence_index': int,
   'children': list,
 }
 
 def validate_length(obj, _type):
   '''Validate that strings and ints have length'''
-  if _type in [str, int]:
+  if _type in [str, int] and obj != 0:
     assert obj
 
 def validate_node(_id, node):

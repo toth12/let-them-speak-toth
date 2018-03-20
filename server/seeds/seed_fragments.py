@@ -36,9 +36,9 @@ def get_media():
     return video_url
   return audio_url
 
-def get_int():
-  '''Generate a random int between 0 and 9999999'''
-  return random.randint(0, 9999999)
+def get_int(min_val=0, max_val=9999999):
+  '''Generate a random int between `min_val` and `max_val`'''
+  return random.randint(min_val, max_val)
 
 def get_testimony_id(testimony_ids):
   '''Get a random testimony id'''
@@ -52,13 +52,16 @@ def get_node(testimony_id, is_parent=False):
   else:
     label = fake.sentence(nb_words=12, variable_nb_words=True) #pylint: disable=no-member
 
+  start_sentence = random.randint(1, 20)
+
   return {
     'label': label,
     'testimony_id': testimony_id,
-    'testimony_position': get_int(),
-    'media_url': get_media(),
+    'media_index': 0,
     'media_offset': random.randint(1, 20),
-    'children': []
+    'start_sentence_index': start_sentence,
+    'end_sentence_index': start_sentence + 1,
+    'children': [],
   }
 
 def get_children(testimony_ids):

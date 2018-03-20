@@ -26,6 +26,7 @@ routes = [
 def test_response_codes():
   '''Validate major routes yield 200 response codes'''
   for route in routes:
+    print(' * testing route', route)
     response = app.get(route)
     assert response.status_code == 200
 
