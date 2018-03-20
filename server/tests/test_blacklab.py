@@ -1,9 +1,7 @@
 '''Test that BlackLab queries return correct results'''
 
 import sys
-sys.path.insert(0, 'server')
-sys.path.insert(0, '..')
-sys.path.insert(0, '.')
+[sys.path.append(i) for i in ['server', '..', '.']]
 from blacklab import search_blacklab
 
 def test_multiple_word_queries():

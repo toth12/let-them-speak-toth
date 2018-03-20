@@ -1,12 +1,14 @@
 '''Test that all server-level dependencies are met'''
 from subprocess import check_output
 from urllib.request import urlopen
-from pymongo import MongoClient
 from py4j.java_gateway import JavaGateway, Py4JNetworkError
+import sys
+[sys.path.append(i) for i in ['server', '..', '.']]
+from helpers import get_db
 
 def test_mongo_is_running():
   '''Validate mongo is running'''
-  db = MongoClient('localhost', 27017)['lts']
+  db = get_db()
   assert db
 
 def test_mvn_present():

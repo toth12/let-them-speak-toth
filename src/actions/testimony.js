@@ -1,4 +1,5 @@
 import { get } from './get';
+import { parse } from './parse';
 import config from '../config/client';
 
 export const testimonyRequestFailed = () => ({
@@ -26,18 +27,29 @@ export const highlightSentences = obj => {
     const testimonyId = obj.testimonyId;
     const start = obj.start;
     const end = obj.end;
+    dispatch({type: 'HIGHLIGHT_SENTENCES', obj});
     get(config.endpoint + 'sentences?testimony_id=' + testimonyId +
       '&token_start=' + start + '&token_end=' + end,
       (data) => dispatch(setActiveSentences(JSON.parse(data))), // eslint-disable-line indent
       (err) => dispatch(testimonyRequestFailed(err))) // eslint-disable-line indent
-    dispatch({type: 'HIGHLIGHT_SENTENCES', obj})
   }
 }
 
 export const fetchTestimony = id => {
   return function(dispatch) {
     get(config.endpoint + 'testimony?testimony_id=' + id,
-      (data) => dispatch(receiveTestimonyData(JSON.parse(data))),
+      (data) => handleTestimonyData(dispatch, data),
       (err) => dispatch(testimonyRequestFailed(err)))
+  }
+}
+
+const handleTestimonyData = (dispatch, data) => {
+  data = parse(data, dispatch, testimonyRequestFailed());
+  if (data.err) {
+    dispatch(testimonyRequestFailed());
+  } else if (data) {
+    dispatch(receiveTestimonyData(data));
+  } else {
+    dispatch(testimonyRequestFailed());
   }
 }

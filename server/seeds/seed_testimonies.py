@@ -203,7 +203,7 @@ def seed_testimonies():
   '''Seed all testimonies and linked fragments'''
   testimonies = []
   for testimony_idx, _ in enumerate(range(n_testimonies)):
-    print(' * seeding testimony number', testimony_idx)
+    print(' * seeding testimony number', testimony_idx + 1)
     gender = get_gender()
     shelfmark = str(get_int())
     full_text = get_full_text()

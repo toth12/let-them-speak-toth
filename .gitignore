@@ -8,5 +8,6 @@ build
 lts
 docker-data
 __pycache__
-server/seeds/folia/
 BlackLab
+server/seeds/folia/
+server/inputs/

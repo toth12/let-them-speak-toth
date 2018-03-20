@@ -2,9 +2,7 @@
 import sys
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-sys.path.insert(0, 'server')
-sys.path.insert(0, '..')
-sys.path.insert(0, '.')
+[sys.path.append(i) for i in ['server', '..', '.']]
 
 root_schema = {
   '_id': ObjectId,
