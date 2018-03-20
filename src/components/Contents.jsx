@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from './Hero';
 import Pagination from './Pagination';
 import { connect } from 'react-redux';
+import { fetchTestimony } from '../actions/testimony';
 import {
   fetchTableOfContents,
   previousPage,
@@ -35,15 +36,20 @@ class Contents extends React.Component {
         <Hero text='Table of Contents' />
         <div className='container'>
           <h2>The Holocaust Testimonials of the Name Collection</h2>
-          <Table {...this.props} />
-          <Pagination
-            items={this.props.total}
-            activePage={this.props.page}
-            perPage={perPage}
-            pageClick={this.props.getPage}
-            leftArrowClick={this.props.previousPage}
-            rightArrowClick={this.nextPage}
-          />
+          {this.props.total ?
+            <div>
+              <Table {...this.props} />
+              <Pagination
+                items={this.props.total}
+                activePage={this.props.page}
+                perPage={perPage}
+                pageClick={this.props.getPage}
+                leftArrowClick={this.props.previousPage}
+                rightArrowClick={this.nextPage}
+              />
+            </div>
+            : null
+          }
         </div>
       </div>
     )
@@ -53,7 +59,9 @@ class Contents extends React.Component {
 const Table = props => (
   <div className='toc-table'>
     {props.testimonies.map((t, idx) => (
-      <div key={idx} className='toc-row'>
+      <div key={idx} className='toc-row' onClick={
+        () => props.fetchTestimony(t.testimony_id)
+        }>
         <span className='number'>{(props.page * perPage) + idx + 1}.</span>
         <div className='text'>
           <div>{ 'Oral history interview with ' + t.testimony_title }</div>
@@ -80,6 +88,7 @@ const mapDispatchToProps = dispatch => ({
   nextPage: () => dispatch(nextPage()),
   previousPage: () => dispatch(previousPage()),
   getPage: page => dispatch(getPage(page)),
+  fetchTestimony: testimonyId => dispatch(fetchTestimony(testimonyId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contents);

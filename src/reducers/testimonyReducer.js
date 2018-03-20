@@ -2,6 +2,8 @@ const initialState = {
   testimony: null,
   err: false,
   tab: 'video',
+  sentenceStart: null,
+  sentenceEnd: null,
 }
 
 const testimonyReducer = (state = initialState, action) => {
@@ -26,6 +28,12 @@ const testimonyReducer = (state = initialState, action) => {
     case 'SET_TESTIMONY_TAB':
       return Object.assign({}, state, {
         tab: action.tab,
+      })
+
+    case 'SET_ACTIVE_SENTENCES':
+      return Object.assign({}, state, {
+        sentenceStart: action.obj.sentenceStart,
+        sentenceEnd: action.obj.sentenceEnd,
       })
 
     default:

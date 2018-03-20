@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 import Hero from './Hero';
 import Loader from './Loader';
 import Pagination from './Pagination';
-import { fetchTestimony } from '../actions/testimony';
+import Err from './Error';
+import {
+  fetchTestimony,
+  highlightSentences,
+} from '../actions/testimony';
 import {
   fetchSearchResults,
   previousPage,
@@ -98,24 +102,32 @@ class Content extends React.Component {
   }
 }
 
-const Results = props => (
-  <section className='results'>
-    <Label resultCount={props.resultCount} />
-    {props.resultCount ?
-      <div>
-        <ResultTable {...props} />
+class Results extends React.Component {
+  render() {
+    let content = null;
+    if (this.props.resultCount && this.props.resultCount > perPage) {
+      content = <div>
+        <ResultTable {...this.props} />
         <Pagination
-          items={props.resultCount}
-          activePage={props.page}
+          items={this.props.resultCount}
+          activePage={this.props.page}
           perPage={perPage}
-          pageClick={props.getPage}
-          leftArrowClick={props.previousPage}
-          rightArrowClick={props.fetchNextPage} />
+          pageClick={this.props.getPage}
+          leftArrowClick={this.props.previousPage}
+          rightArrowClick={this.props.fetchNextPage} />
       </div>
-    : null
+    } else if (this.props.resultCount) {
+      content = <ResultTable {...this.props} />
     }
-  </section>
-)
+
+    return (
+      <section className='results'>
+        <Label resultCount={this.props.resultCount} />
+        {content}
+      </section>
+    )
+  }
+}
 
 const ResultTable = props => (
   <div className='results-table'>
@@ -129,7 +141,8 @@ const ResultTable = props => (
         <Result key={i}
           idx={(props.page * perPage) + i+1}
           result={r}
-          fetchTestimony={props.fetchTestimony} />
+          fetchTestimony={props.fetchTestimony}
+          highlightSentences={props.highlightSentences} />
       ))}
     </div>
   </div>
@@ -137,12 +150,19 @@ const ResultTable = props => (
 
 const Result = props => (
   <div className='row' onClick={
-      () => props.fetchTestimony(props.result.testimony_id)
+      () => {
+        props.highlightSentences({
+          start: props.result.token_start,
+          end: props.result.token_end,
+          testimonyId: props.result.testimony_id,
+        })
+        props.fetchTestimony(props.result.testimony_id)
+      }
     }>
     <div className='idx'>{props.idx}</div>
     <div className='id'>{props.result.shelfmark}</div>
     <div className='hit-left'>{getHit(props.result.left, 'left')}</div>
-    <div className='hit-highlight'>{props.result.match}</div>
+    <div className='hit-highlight'>{getHit(props.result.match, 'match')}</div>
     <div className='hit-right'>{getHit(props.result.right, 'right')}</div>
   </div>
 )
@@ -158,20 +178,20 @@ const Label = props => (
   </div>
 )
 
-const Err = props => (
-  <div className='center-text'>
-    <div className='error'>
-      <span>Sorry, an error occurred. </span>
-      <span>Please contact an administrator: dhlab@yale.edu</span>
-    </div>
-  </div>
-)
-
 const getHit = (str, side) => {
   const length = 20;
-  return side === 'left' ?
-      str.substring(str.length - length, str.length) + '...'
-    : str.substring(0, Math.min(length, str.length)) + '...';
+  const matchLen = 16;
+  str = str.trim();
+  switch (side) {
+    case 'left':
+      return str.substring(str.length - length, str.length) + '...';
+    case 'match':
+      return str.length <= matchLen ? str :
+        str.substring(0, matchLen/2).trim() + '...' +
+        str.substring(str.length-matchLen/2, str.length).trim();
+    case 'right':
+      return str.substring(0, Math.min(length, str.length)) + '...';
+  }
 }
 
 const mapStateToProps = state => ({
@@ -188,7 +208,8 @@ const mapDispatchToProps = dispatch => ({
   previousPage: () => dispatch(previousPage()),
   nextPage: () => dispatch(nextPage()),
   getPage: page => dispatch(getPage(page)),
-  fetchTestimony: testimonyId => dispatch(fetchTestimony(testimonyId))
+  fetchTestimony: testimonyId => dispatch(fetchTestimony(testimonyId)),
+  highlightSentences: obj => dispatch(highlightSentences(obj)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

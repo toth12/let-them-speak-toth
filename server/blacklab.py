@@ -85,7 +85,9 @@ def parse_response(obj):
       'match': get_match_string(i['match']),
       'right': get_match_string(i['right']),
       'testimony_id': get_testimony_meta(i, 'testimony_id', doc_infos),
-      'shelfmark': get_testimony_meta(i, 'shelfmark', doc_infos)
+      'shelfmark': get_testimony_meta(i, 'shelfmark', doc_infos),
+      'token_start': i['start'],
+      'token_end': i['end']
     })
 
   return {

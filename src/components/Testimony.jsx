@@ -11,12 +11,43 @@ class Testimony extends React.Component {
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this);
+    this.activateSentences = this.activateSentences.bind(this);
+    this.state = {timerId: null};
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!this.props.sentenceStart || !this.props.sentenceEnd) return;
+    if (this.props.sentenceStart !== prevProps.sentenceStart ||
+        this.props.sentenceEnd !== prevProps.sentenceEnd) {
+      this.activateSentences();
+    }
   }
 
   handleClick(e) {
     const modal = document.querySelector('.testimony');
     if (modal.contains(e.target) && e.target.className != 'close') return;
     this.props.hideTestimony();
+  }
+
+  activateSentences() {
+    const container = document.querySelector('.testimony .content .left .body');
+    if (!container) {
+      this.setState({timerId: setTimeout(this.activateSentences, 200)});
+      return;
+    };
+    // remove active class from any extant sentences
+    const elems = container.querySelectorAll('span');
+    for (let i=0; i<elems.length; i++) {
+      elems[i].className = elems[i].className.replace(' active', '');
+    }
+    // highlight the active sentence(s)
+    for (let i=this.props.sentenceStart; i<this.props.sentenceEnd+1; i++) {
+      const elem = document.querySelector('#s' + i);
+      elem.className += ' active';
+    }
+    // scroll the first sentence into view
+    const elem = document.querySelector('#s' + this.props.sentenceStart);
+    container.scrollTop = elem.offsetTop - 200;
   }
 
   render() {
@@ -58,11 +89,9 @@ const Right = props => (
 
 const Left = props => (
   <div className='left'>
-    <div className='title'>
-      {'Transcript Title: ' + props.testimony.testimony_title}
-    </div>
+    <div className='title'>{props.testimony.testimony_title}</div>
     <div className='body'
-      dangerouslySetInnerHTML={{__html: breakLines(props.testimony.full_text)}}>
+      dangerouslySetInnerHTML={{__html: props.testimony.html_text}}>
     </div>
   </div>
 )
@@ -122,6 +151,8 @@ const mapStateToProps = state => ({
   testimony: state.testimony.testimony,
   err: state.testimony.err,
   tab: state.testimony.tab,
+  sentenceStart: state.testimony.sentenceStart,
+  sentenceEnd: state.testimony.sentenceEnd,
 })
 
 const mapDispatchToProps = dispatch => ({

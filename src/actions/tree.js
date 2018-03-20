@@ -1,4 +1,5 @@
 import { get } from './get';
+import { parse } from './parse';
 import config from '../config/client';
 
 export const treeRequestFailed = (err) => ({
@@ -16,7 +17,16 @@ export const setActiveIndex = idx => ({
 export const fetchTreeData = () => {
   return function(dispatch) {
     get(config.endpoint + 'tree',
-      (data) => dispatch(receiveTreeData(JSON.parse(data))),
+      (data) => handleTreeData(dispatch, data),
       (err) => dispatch(treeRequestFailed(err)))
+  }
+}
+
+const handleTreeData = (dispatch, data) => {
+  data = parse(data, dispatch, treeRequestFailed('unparseable JSON'));
+  if (data.err) {
+    dispatch(treeRequestFailed(data.err))
+  } else {
+    dispatch(receiveTreeData(data))
   }
 }

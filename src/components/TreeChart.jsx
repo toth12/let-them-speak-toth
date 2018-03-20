@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import Err from './Error';
 import tree from '../lib/tree.js';
 import src from '../assets/images/double-arrow.svg';
 import { fetchTestimony } from '../actions/testimony';
@@ -49,15 +50,22 @@ class TreeChart extends React.Component {
   }
 
   render() {
+    let content = null;
+    if (this.props.err) {
+      content = <Err />
+    } else {
+      content = <div className='tree-chart'>
+        <div id='hidden'></div>
+        <div id='target'></div>
+      </div>
+    }
+
     return (
       <div className='tree-container'>
         <div id='reset' onClick={this.resetTree}>
           <img src={src} />
         </div>
-        <div className='tree-chart'>
-          <div id='hidden'></div>
-          <div id='target'></div>
-        </div>
+        {content}
       </div>
     )
   }
