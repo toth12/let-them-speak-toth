@@ -13,10 +13,11 @@ git clone https://github.com/YaleDHLab/let-them-speak
 cd let-them-speak
 npm install --no-optional
 pip install -r requirements.txt
-npm run seed
 ```
 
-## Quickstart
+You'll then need to [install the BlackLab server](#working-with-blacklab-indices).
+
+## Running the Server
 
 Once the dependencies are installed, you can start the api with the following command:
 
@@ -81,10 +82,16 @@ To configure a Tomcat server to query your BlackLab index, you need to create a 
 }
 ```
 
-That JSON file should be written to your Tomcat's `webapps` directory (which should be created when you install Tomcat). If you installed Tomcat with Homebrew, the path will be:
+That JSON file should be written to your Tomcat's `webapps` directory (which should be created when you install Tomcat). If you installed Tomcat with Homebrew, the path to Tomcat's webapps directory will be:
 
 ```bash
-/usr/local/Cellar/tomcat/{{ TOMCAT_VERSION }}/libexec/webapps
+/usr/local/Cellar/tomcat/{{ TOMCAT_VERSION }}/libexec/webapps/
+```
+
+Store the path to tomcat's webapps directory as an environment variable named `TOMCAT_WEBAPPS`, e.g. your `.bash_profile` should contain the path above:
+
+```bash
+export TOMCAT_WEBAPPS='/usr/local/Cellar/tomcat/9.0.5/libexec/webapps/'
 ```
 
 Next copy the blacklab-server.war file from the BlackLab source to the Tomcat webapps directory:

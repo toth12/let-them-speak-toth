@@ -1,16 +1,26 @@
+'''Build a BlackLab index from a directory of folia files'''
+
 import os
 import sys
-from utils import write_json
+from glob import glob
+[sys.path.append(i) for i in ['.', '..', 'server']]
+from seeds.utils import write_json
 
 ##
 # Config
 ##
 
-# files to index
-seed_folia_dir = os.path.join('server', 'seeds', 'folia')
-
 # location of tomcat webapps directory
-seed_apps_path = '/usr/local/Cellar/tomcat/9.0.5/libexec/webapps'
+tomcat_apps_path = os.environ['TOMCAT_WEBAPPS']
+
+# location of directory with folia files to use when building db
+folia_dir = os.path.join('server', 'inputs', 'folia')
+
+# location of mongo dump to use when building db
+mongo_archive_path = os.path.join('server', 'inputs', 'lts.archive')
+
+# name of the database to use when building db
+db_name = 'lts'
 
 ##
 # Functions
@@ -23,7 +33,6 @@ def validate_blacklab_present():
   if not os.path.exists('BlackLab'):
     print(' ! BlackLab server not found - exiting.')
     sys.exit()
-
 
 def index_folia_files(dir_to_index, index_name):
   '''
@@ -49,14 +58,11 @@ def index_folia_files(dir_to_index, index_name):
   cmd += 'folia ' # format of input files
   run_cmd(cmd)
 
-
-def generate_config_file(apps_path, index_name):
+def generate_config_file(index_name):
   '''
   Write the config files required by BlackLab
-  @args:
-    {str} apps_path: path to the tomcat /webapps/ dir
   '''
-  out_path = os.path.join(apps_path, 'blacklab-server.json')
+  out_path = os.path.join(tomcat_apps_path, 'blacklab-server.json')
   write_json(out_path, {
     'indices': {
       index_name: {
@@ -65,19 +71,15 @@ def generate_config_file(apps_path, index_name):
     }
   })
 
-
-def copy_war_files(apps_path):
+def copy_war_files():
   '''
   Copy war files from BlackLab server dir to the apps_path
-  @args:
-    {str} apps_path: path to the tomcat /webapps/ dir
   '''
   war_path = 'BlackLab/server/target/blacklab-server-1.6.0.war'
   war_file = os.path.basename(war_path)
-  out_path = os.path.join(apps_path, war_file)
+  out_path = os.path.join(tomcat_apps_path, war_file)
   cmd = 'cp ' + war_path + ' ' + out_path
   run_cmd(cmd)
-
 
 def run_cmd(cmd):
   '''
@@ -88,27 +90,47 @@ def run_cmd(cmd):
   print(' * running', cmd)
   os.system(cmd)
 
-
 def create_folia_index(*args, **kwargs):
   '''
   Main script that handles all folia index business
   @kwargs:
     {str} folia_dir: the path to the folia infiles
-    {str} apps_path: the path to the tomcat webapps dir
     {str} index_name: the name of the blacklab index to create
   '''
-  apps_path = kwargs.get('apps_path', seed_apps_path)
-  folia_dir = kwargs.get('folia_dir', seed_folia_dir)
+  folia_dir = kwargs.get('folia_dir', None)
   index_name = kwargs.get('index_name', 'lts')
 
   validate_blacklab_present()
   index_folia_files(folia_dir, index_name)
-  generate_config_file(apps_path, index_name)
-  copy_war_files(apps_path)
+  generate_config_file(index_name)
+  copy_war_files()
   print(' * Indices successfully created. Please restart tomcat!')
 
+##
+# Main DB builder
+##
+
+def build_db(folia_dir, mongo_archive_path):
+  '''
+  Build the app db using input folia files and mongo dump
+  @args:
+    {str} folia_dir: directory that contains the folia XML files
+    {str} mongo_archive_path: the path to a mongo archive file
+  '''
+
+  # drop the extant db
+  cmd =  'mongo ' + db_name + ' '
+  cmd += '--eval "db.dropDatabase()" '
+  run_cmd(cmd)
+
+  # build the mongo tables
+  cmd =  'mongorestore '
+  cmd += '--db=' + db_name + ' '
+  cmd += '--archive=' + mongo_archive_path + ' '
+  run_cmd(cmd)
+
+  # index the folia files
+  create_folia_index(folia_dir=folia_dir)
 
 if __name__ == '__main__':
-
-  # run main process
-  create_folia_index(folia_dir, apps_path)
+  build_db(folia_dir, mongo_archive_path)
