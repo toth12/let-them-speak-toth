@@ -64,7 +64,7 @@ const Table = props => (
         }>
         <span className='number'>{(props.page * perPage) + idx + 1}.</span>
         <div className='text'>
-          <div>{ 'Oral history interview with ' + t.testimony_title }</div>
+          <div>{ t.testimony_title }</div>
           <div className='meta'>
             <span>Accession Number:</span>
             <span>{ t.accession_number }.</span>

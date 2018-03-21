@@ -24,14 +24,18 @@ export const setActiveSentences = obj => ({
 
 export const highlightSentences = obj => {
   return function(dispatch) {
-    const testimonyId = obj.testimonyId;
-    const start = obj.start;
-    const end = obj.end;
     dispatch({type: 'HIGHLIGHT_SENTENCES', obj});
-    get(config.endpoint + 'sentences?testimony_id=' + testimonyId +
-      '&token_start=' + start + '&token_end=' + end,
-      (data) => dispatch(setActiveSentences(JSON.parse(data))), // eslint-disable-line indent
-      (err) => dispatch(testimonyRequestFailed(err))) // eslint-disable-line indent
+    if (obj.lookupSentences) {
+      get(config.endpoint + 'sentences?testimony_id=' + obj.testimonyId +
+        '&token_start=' + obj.start + '&token_end=' + obj.end,
+        (data) => dispatch(setActiveSentences(JSON.parse(data))), // eslint-disable-line indent
+        (err) => dispatch(testimonyRequestFailed(err))) // eslint-disable-line indent
+    } else {
+      dispatch(setActiveSentences({
+        sentenceStart: obj.start,
+        sentenceEnd: obj.end,
+      }))
+    }
   }
 }
 

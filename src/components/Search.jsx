@@ -155,6 +155,7 @@ const Result = props => (
           start: props.result.token_start,
           end: props.result.token_end,
           testimonyId: props.result.testimony_id,
+          lookupSentences: true,
         })
         props.fetchTestimony(props.result.testimony_id)
       }
