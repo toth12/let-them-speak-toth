@@ -5,8 +5,14 @@ import { withRouter } from 'react-router';
 import Err from './Error';
 import tree from '../lib/tree.js';
 import src from '../assets/images/double-arrow.svg';
-import { fetchTestimony } from '../actions/testimony';
-import { setActiveIndex, fetchTreeData } from '../actions/tree';
+import {
+  fetchTestimony,
+  highlightSentences
+} from '../actions/testimony';
+import {
+  setActiveIndex,
+  fetchTreeData
+} from '../actions/tree';
 
 class TreeChart extends React.Component {
   constructor(props) {
@@ -27,6 +33,10 @@ class TreeChart extends React.Component {
     this.drawTree();
   }
 
+  componentWillUnmount() {
+    this.resetTree();
+  }
+
   drawTree() {
     if (!this.props.data) return;
     if (this.props.selected == null) {
@@ -38,6 +48,12 @@ class TreeChart extends React.Component {
       tree.draw({
         data: this.props.data[this.props.selected].tree,
         onClick: ((d, idx) => {
+          this.props.highlightSentences({
+            start: d.data.start_sentence_index,
+            end: d.data.end_sentence_index,
+            testimonyId: d.data.testimony_id,
+            lookupSentences: false,
+          })
           this.props.fetchTestimony(d.data.testimony_id)
         }),
       })
@@ -77,11 +93,11 @@ const mapStateToProps = state => ({
   err: state.tree.err,
 })
 
-
 const mapDispatchToProps = dispatch => ({
   setActiveIndex: (d, idx) => dispatch(setActiveIndex(idx)),
   fetchTreeData: () => dispatch(fetchTreeData()),
   fetchTestimony: id => dispatch(fetchTestimony(id)),
+  highlightSentences: obj => dispatch(highlightSentences(obj))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TreeChart));
