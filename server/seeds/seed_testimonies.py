@@ -22,11 +22,10 @@ Generate seed data for the testimonies collection. Schema:
 '''
 
 from random import random, randint
+import os
 from faker import Faker
 from seed_fragments import get_fragments
-from utils import rm_dir, make_dir, get_db, write_text, write_json
-import os
-import json
+from utils import rm_dir, make_dir, get_db, write_text #pylint: disable=no-name-in-module
 
 fake = Faker()
 db = get_db()
@@ -60,7 +59,7 @@ def write_folia(title, full_text, testimony_id):
 
   # tokenize paragraphs and sentences and add each to the xml
   s_idx = 0
-  for p_idx, paragraph in enumerate(full_text.split(paragraph_boundary)):
+  for paragraph in full_text.split(paragraph_boundary):
     for sentence in paragraph.split('.'):
       xml += '<s id="s' + str(s_idx) + '">'
       xml += '<t>' + sentence + '</t>'
@@ -134,7 +133,7 @@ def store_token_ids(testimony_id, full_text):
   for paragraph in full_text.split(paragraph_boundary):
     for sentence in paragraph.split('.'):
       if sentence.split():
-        for token in sentence.split():
+        for _ in sentence.split():
           token_ids.append({
             'testimony_id': testimony_id,
             'token_index': t_idx,
@@ -188,7 +187,10 @@ def get_html(full_text):
     html += '<p>'
     for sentence in paragraph.split('.'):
       if sentence.split():
-        html += '<span ' + 'id=s' + str(s_idx) + '>' + sentence.strip() + '. </span>'
+        tag = '<span ' + 'id=s' + str(s_idx) + '>'
+        tag += sentence.strip()
+        tag += '. </span>'
+        html += tag
         s_idx += 1
     html += '</p>'
   return html
@@ -212,23 +214,20 @@ def seed_testimonies():
     write_folia(shelfmark, full_text, testimony_id)
     testimonies.append({
       'testimony_id': testimony_id,
-      'shelf_mark': shelfmark,
+      'interviewee_name': get_interviewee_name(gender),
+      'gender': gender,
+      'collection': get_collection(),
+      'shelfmark': shelfmark,
       'recording_year': randint(1970, 1990),
       'camp_names': ['camp_a', 'camp_b'],
       'ghetto_names': ['ghetto_a', 'ghetto_b'],
-      'gender': gender,
-      'interviewee_name': get_interviewee_name(gender),
-      'collection': get_collection(),
-      'full_text': full_text,
-      'html_text': get_html(full_text),
-      'media_url': get_media(),
-      'media_caption': fake.paragraph(nb_sentences=4), #pylint: disable=no-member
+      'full_text': full_text, # not required
+      'html_transcript': get_html(full_text),
+      'media_url': [get_media()],
       'thumbnail_url': thumb_url,
       'testimony_title': fake.sentence(nb_words=5), #pylint: disable=no-member,
       'interview_summary': fake.text(max_nb_chars=500), #pylint: disable=no-member
       'provenance': ' '.join(fake.words(nb=3)), #pylint: disable=no-member
-      'accession_number': str(get_int()),
-      'rg_number': str(get_int()),
     })
 
   testimony_ids = [i['testimony_id'] for i in testimonies]

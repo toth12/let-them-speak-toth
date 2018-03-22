@@ -3,6 +3,7 @@
 from urllib.request import urlopen
 from urllib.parse import quote
 import json
+import os
 
 def search_blacklab(*args, **kwargs):
   '''
@@ -14,7 +15,8 @@ def search_blacklab(*args, **kwargs):
     {int} limit: the number of results to return
     {str} query: the raw query from a user
   '''
-  root = 'http://localhost:8080/blacklab-server-1.6.0/lts/hits'
+  root = 'http://' + os.environ['TOMCAT_HOST']
+  root += ':8080/blacklab-server-1.6.0/lts/hits'
   args = {
     'first': kwargs.get('offset', 0),
     'limit': kwargs.get('limit', 20),

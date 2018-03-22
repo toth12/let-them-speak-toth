@@ -91,7 +91,7 @@ const Left = props => (
   <div className='left'>
     <div className='title'>{props.testimony.testimony_title}</div>
     <div className='body'
-      dangerouslySetInnerHTML={{__html: props.testimony.html_text}}>
+      dangerouslySetInnerHTML={{__html: props.testimony.html_transcript}}>
     </div>
   </div>
 )
@@ -102,10 +102,8 @@ const Footer = props => (
     <div>
       <span>Copyright </span>
       <span>{(props.testimony.recording_year || '2018') + ' | '}</span>
-      <span>Accession number: </span>
-      <span>{(props.testimony.accession_number || 'NA') + ' | '}</span>
-      <span>RG Number </span>
-      <span>{props.testimony.rg_number || 'NA'}</span>
+      <span>Provenance: </span>
+      <span>{(props.testimony.provenance || 'NA')}</span>
     </div>
   </div>
 )
@@ -118,11 +116,10 @@ const Tab = props => (
 
 const Media = props => (
   <div className='media'>
-    {isVideo(props.testimony.media_url) ?
-      <Video url={props.testimony.media_url} />
-      : <Audio url={props.testimony.media_url} />
+    {isVideo(props.testimony.media_url[0]) ?
+      <Video url={props.testimony.media_url[0]} />
+      : <Audio url={props.testimony.media_url[0]} />
     }
-    <div className='media-caption'>{props.testimony.media_caption}</div>
   </div>
 )
 

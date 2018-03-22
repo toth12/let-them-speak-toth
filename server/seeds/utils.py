@@ -9,10 +9,9 @@ def get_db():
   '''
   Return a connection to the db
   '''
-  host = 'localhost'
+  host = os.environ['MONGO_HOST']
   port = 27017
-  db = MongoClient(host, port)['lts']
-  return db
+  return MongoClient(host, port)['lts']
 
 def write_text(path, text):
   '''
@@ -42,7 +41,7 @@ def make_dir(path):
   '''
   try:
     os.makedirs(path)
-  except Exception:
+  except Exception: #pylint: disable=broad-except
     pass
 
 def rm_dir(path):
@@ -53,5 +52,5 @@ def rm_dir(path):
   '''
   try:
     rmtree(path)
-  except Exception:
+  except Exception: #pylint: disable=broad-except
     pass
