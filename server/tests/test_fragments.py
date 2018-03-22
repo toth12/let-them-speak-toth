@@ -22,6 +22,14 @@ node_schema = {
   'children': list,
 }
 
+optional_for_parents = [
+  'testimony_id',
+  'media_index',
+  'media_offset',
+  'start_sentence_index',
+  'end_sentence_index'
+]
+
 def validate_length(obj, _type):
   '''Validate that strings and ints have length'''
   if _type in [str, int] and obj != 0:
@@ -29,10 +37,13 @@ def validate_length(obj, _type):
 
 def validate_node(_id, node):
   '''Validate that a fragment's node has the required structure'''
-  for node_key in node.keys():
-    print(' * validating', node_key, 'in', _id, 'tree')
-    assert isinstance(node[node_key], node_schema[node_key])
-    validate_length(node[node_key], node_schema[node_key])
+  for field in node_schema.keys():
+    if (node['children']) and (field in optional_for_parents):
+      continue
+    val = node[field]
+    expected_type = node_schema[field]
+    print(' * validating', _id, 'tree field', field, 'has type', expected_type)
+    assert isinstance(val, expected_type)
     for child in node['children']:
       print(' * validating', child, 'in', _id, 'tree children')
       validate_node(_id, child)
@@ -48,6 +59,10 @@ def validate_fragment(fragment):
 def validate_testimony_id_keys_exist(fragment):
   '''Validate that each testimony linked to a fragment is present in the db'''
   for child in fragment['tree']['children']:
+    # parent nodes may not have testimony_ids
+    if not 'testimony_id' in child.keys():
+      continue
+    print(' * validating testimony with id', child['testimony_id'], 'exists')
     assert_testimony_exists(child['testimony_id'])
     for grandchild in child['children']:
       assert_testimony_exists(child['testimony_id'])
