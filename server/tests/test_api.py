@@ -16,7 +16,6 @@ app = app.test_client()
 
 # identify all routes that should return responses
 routes = [
-  '/',
   '/api/tree',
   '/api/testimony',
   '/api/table_of_contents',

@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from './Hero';
+import PropTypes from 'prop-types';
 import Pagination from './Pagination';
 import { connect } from 'react-redux';
 import { fetchTestimony } from '../actions/testimony';
@@ -66,8 +67,8 @@ const Table = props => (
         <div className='text'>
           <div>{ t.testimony_title }</div>
           <div className='meta'>
-            <span>Accession Number:</span>
-            <span>{ t.accession_number }.</span>
+            <span>Provenance:</span>
+            <span>{ t.provenance }.</span>
             <span>Courtesy of the</span>
             <span>{ t.collection } Archive.</span>
           </div>

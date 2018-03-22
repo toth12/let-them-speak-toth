@@ -3,6 +3,7 @@ import sys
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 [sys.path.append(i) for i in ['server', '..', '.']]
+from helpers import get_db
 
 root_schema = {
   '_id': ObjectId,
@@ -57,7 +58,7 @@ def assert_testimony_exists(testimony_id):
   print(' * validating testimony_id', testimony_id, 'exists')
   assert len(list(result)) > 0
 
-db = MongoClient('localhost', 27017)['lts']
+db = get_db()
 for doc in db['fragments'].find():
   validate_fragment(doc)
   validate_testimony_id_keys_exist(doc)

@@ -1,8 +1,11 @@
 '''server/app.py - main api app declaration'''
+import os
+import sys
 from flask import Flask, jsonify, send_from_directory, request
 from flask_cors import CORS
 from pymongo import MongoClient
-from blacklab import search_blacklab
+[sys.path.append(i) for i in ['.', '..', 'server']] #pylint: disable=expression-not-assigned
+from blacklab import search_blacklab #pylint: disable=wrong-import-position
 
 '''Main wrapper for app creation'''
 app = Flask(__name__, static_folder='../build')
@@ -11,7 +14,7 @@ CORS(app)
 app.debug = True
 
 # initialize db connection
-host = 'localhost'
+host = os.environ['MONGO_HOST']
 port = 27017
 db = MongoClient(host, port, connect=False)['lts']
 

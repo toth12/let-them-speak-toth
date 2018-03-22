@@ -14,7 +14,6 @@ Generate seed data for the fragments collection. Schema:
 }
 '''
 
-import os
 import random
 import sys
 from faker import Faker
