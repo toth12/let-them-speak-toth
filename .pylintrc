@@ -41,6 +41,39 @@ score=yes
 # Maximum number of nested blocks for function / method body
 max-nested-blocks=5
 
+# Bad variable names which should always be refused, separated by a comma
+bad-names=foo,
+  bar,
+  baz,
+  cats
+
+# Whitelist acceptable variable names
+good-names= a,
+  b,
+  c,
+  d,
+  e,
+  f,
+  g,
+  h,
+  i,
+  j,
+  k,
+  l,
+  m,
+  n,
+  o,
+  p,
+  q,
+  r,
+  s,
+  t,
+  u,
+  v,
+  w,
+  x,
+  y,
+  z
 
 [BASIC]
 
@@ -141,4 +174,4 @@ min-public-methods=2
 [OVERRIDES]
 
 # List of pylint default rules to override
-disable=missing-final-newline, pointless-string-statement
+disable=missing-final-newline, pointless-string-statement, expression-not-assigned
