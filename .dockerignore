@@ -1,0 +1,10 @@
+.cache
+.git
+.dockerignore
+.pytest_cache
+__pycache__
+node_modules
+build
+lts
+BlackLab
+server/seeds/folia/

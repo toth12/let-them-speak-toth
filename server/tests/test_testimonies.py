@@ -2,7 +2,7 @@
 
 import sys
 [sys.path.append(i) for i in ['server', '..', '.']]
-from helpers import get_db
+from db import get_db
 
 testimony_schema = {
   'testimony_id': str,

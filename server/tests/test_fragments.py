@@ -3,7 +3,7 @@ import sys
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 [sys.path.append(i) for i in ['server', '..', '.']]
-from helpers import get_db
+from db import get_db
 
 root_schema = {
   '_id': ObjectId,

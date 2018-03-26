@@ -1,22 +1,16 @@
 '''server/app.py - main api app declaration'''
-import os
 import sys
 from flask import Flask, jsonify, send_from_directory, request
 from flask_cors import CORS
-from pymongo import MongoClient
-[sys.path.append(i) for i in ['.', '..', 'server']] #pylint: disable=expression-not-assigned
-from blacklab import search_blacklab #pylint: disable=wrong-import-position
+[sys.path.append(i) for i in ['.', '..', 'server']]
+from server.blacklab import search_blacklab #pylint: disable=wrong-import-position
+from server.db import get_db #pylint: disable=wrong-import-position
 
-'''Main wrapper for app creation'''
 app = Flask(__name__, static_folder='../build')
 CORS(app)
 
 app.debug = True
-
-# initialize db connection
-host = os.environ['MONGO_HOST']
-port = 27017
-db = MongoClient(host, port, connect=False)['lts']
+db = get_db()
 
 ##
 # API routes
@@ -84,7 +78,7 @@ def sentences():
     },
   ]}
   results = db.tokens.find(query, {'_id': 0})
-  sentence_indices = [i['sentence_index'] for i in results]
+  sentence_indices = [j['sentence_index'] for j in results]
   return jsonify({
     'sentenceStart': min(sentence_indices),
     'sentenceEnd': max(sentence_indices)

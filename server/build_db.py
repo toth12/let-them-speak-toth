@@ -1,9 +1,10 @@
 '''Build a BlackLab index from a directory of folia files'''
 
+from __future__ import print_function
 import os
 import sys
-[sys.path.append(i) for i in ['.', '..', 'server']] #pylint: disable=expression-not-assigned
-from seeds.utils import write_json #pylint: disable=wrong-import-position, import-error
+[sys.path.append(i) for i in ['.', '..', 'server']]
+from server.seeds.utils import write_json #pylint: disable=wrong-import-position, import-error
 
 ##
 # Config

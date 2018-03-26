@@ -5,7 +5,7 @@ from py4j.java_gateway import JavaGateway, Py4JNetworkError
 import os
 import sys
 [sys.path.append(i) for i in ['server', '..', '.']]
-from helpers import get_db
+from db import get_db
 
 def test_mongo_is_running():
   '''Validate mongo is running'''

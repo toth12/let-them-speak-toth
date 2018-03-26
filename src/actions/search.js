@@ -73,7 +73,8 @@ const search = (query, showLoader, resetPages) => {
     const _state = getState();
     if (showLoader) dispatch(searching());
     if (resetPages) dispatch(dispatch(setSearchPage(0)));
-    let url = config.endpoint + 'search?query=' + query;
+    let url = config.endpoint + 'search';
+    url += '?query=' + encodeURIComponent(query);
     url += '&start=' + _state.search.page * perPage;
     get(url,
       (data) => handleSearchData(dispatch, data, query),

@@ -1,7 +1,12 @@
 '''Main interface to BlackLab server'''
 
-from urllib.request import urlopen
-from urllib.parse import quote
+# try to import from python 3, fallback to 2
+try:
+  from urllib.request import urlopen
+  from urllib.parse import quote, unquote
+except ImportError:
+  from urllib2 import urlopen
+  from urllib import quote, unquote #pylint: disable=ungrouped-imports
 import json
 import os
 
@@ -17,10 +22,11 @@ def search_blacklab(*args, **kwargs):
   '''
   root = 'http://' + os.environ['TOMCAT_HOST']
   root += ':8080/blacklab-server-1.6.0/lts/hits'
+  query = get_query_pattern(kwargs.get('query', 'test'))
   args = {
     'first': kwargs.get('offset', 0),
     'limit': kwargs.get('limit', 20),
-    'patt': get_query_pattern(kwargs.get('query', 'test')),
+    'patt': unquote(query),
     'waitfortotal': 'true',
     'outputformat': 'json',
     'prettyprint': 'no',
@@ -44,8 +50,9 @@ def get_query_pattern(query):
     {str} the user's query in curated form
   '''
   query = query.strip().strip('"')
+  parens = ['[', ']', '(', ')']
   # case of CQL query
-  if (query) and (query[0] == '[') and (query[-1] == ']'):
+  if (query) and (query[0] in parens) and (query[-1] in parens):
     return query
   # case of multiword query
   elif ' ' in query:
@@ -81,15 +88,15 @@ def parse_response(obj):
   total = obj['summary']['numberOfHitsRetrieved']
   doc_infos = obj['docInfos']
   results = []
-  for i in obj['hits']:
+  for h in obj['hits']:
     results.append({
-      'left': get_match_string(i['left']),
-      'match': get_match_string(i['match']),
-      'right': get_match_string(i['right']),
-      'testimony_id': get_testimony_meta(i, 'testimony_id', doc_infos),
-      'shelfmark': get_testimony_meta(i, 'shelfmark', doc_infos),
-      'token_start': i['start'],
-      'token_end': i['end']
+      'left': get_match_string(h['left']),
+      'match': get_match_string(h['match']),
+      'right': get_match_string(h['right']),
+      'testimony_id': get_testimony_meta(h, 'testimony_id', doc_infos),
+      'shelfmark': get_testimony_meta(h, 'shelfmark', doc_infos),
+      'token_start': h['start'],
+      'token_end': h['end']
     })
 
   return {

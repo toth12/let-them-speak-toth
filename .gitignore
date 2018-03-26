@@ -11,3 +11,4 @@ __pycache__
 BlackLab
 server/seeds/folia/
 server/inputs/
+.pytest_cache
