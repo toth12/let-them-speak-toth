@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import img from '../assets/images/x-close.svg';
+import placeholder from '../assets/images/placeholder.jpg';
 import { hideTestimony } from '../actions/testimony';
-import { smpte } from '../assets/images/smpte.png';
 
 class Testimony extends React.Component {
 
@@ -10,14 +10,32 @@ class Testimony extends React.Component {
     super(props)
     this.handleClick = this.handleClick.bind(this);
     this.activateSentences = this.activateSentences.bind(this);
-    this.state = {timerId: null};
+    this.setMediaStart = this.setMediaStart.bind(this);
+    this.state = {
+      highlightId: null,
+      timeId: null,
+    };
   }
 
   componentDidUpdate(prevProps) {
-    if (!this.props.sentenceStart || !this.props.sentenceEnd) return;
-    if (this.props.sentenceStart !== prevProps.sentenceStart ||
-        this.props.sentenceEnd !== prevProps.sentenceEnd) {
-      this.activateSentences();
+    if (this.props.setenceStart && this.props.setenceEnd) {
+      if (this.props.sentenceStart !== prevProps.sentenceStart ||
+          this.props.sentenceEnd !== prevProps.sentenceEnd) {
+        this.activateSentences();
+      }
+    }
+
+    if (this.props.mediaStart) {
+      if (this.props.mediaStart !== prevProps.mediaStart) {
+        this.setMediaStart();
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    this.state = {
+      highlightId: null,
+      timeId: null,
     }
   }
 
@@ -28,9 +46,9 @@ class Testimony extends React.Component {
   }
 
   activateSentences() {
-    const container = document.querySelector('.testimony .content .left .body');
+    const container = document.querySelector('.testimony .content .left-body');
     if (!container) {
-      this.setState({timerId: setTimeout(this.activateSentences, 200)});
+      this.setState({highlightId: setTimeout(this.activateSentences, 200)});
       return;
     };
     // remove active class from any extant sentences
@@ -40,12 +58,25 @@ class Testimony extends React.Component {
     }
     // highlight the active sentence(s)
     for (let i=this.props.sentenceStart; i<this.props.sentenceEnd+1; i++) {
-      const elem = document.querySelector('#s' + i);
-      elem.className += ' active';
+      document.querySelector('#s' + i).className += ' active';
     }
     // scroll the first sentence into view
     const elem = document.querySelector('#s' + this.props.sentenceStart);
     container.scrollTop = elem.offsetTop - 200;
+  }
+
+  setMediaStart() {
+    let media;
+    if (this.props.testimony) {
+      const url = this.props.testimony.media_url[0];
+      const selector = isVideo(url) ? 'video' : 'audio';
+      media = document.querySelector(selector);
+    }
+    if (!media) {
+      this.setState({timeId: setTimeout(this.setMediaStart, 200)})
+      return;
+    }
+    media.currentTime = this.props.mediaStart;
   }
 
   render() {
@@ -69,7 +100,7 @@ class Testimony extends React.Component {
 
 const Right = props => (
   <div className='right'>
-    <img className='close'src={img} />
+    <img className='close' src={img} />
     <div className='title'>Media</div>
     <div className='right-body'>
       <Media testimony={props.testimony} />
@@ -119,7 +150,7 @@ const Video = props => (
 
 const Audio = props => (
   <div className='audio-container'>
-    <img src='http://via.placeholder.com/340x220' />
+    <img src={placeholder} />
     <audio controls>
       <source src={props.url} type='audio/mpeg' />
       Your browser does not support the audio tag.
@@ -157,6 +188,7 @@ const mapStateToProps = state => ({
   err: state.testimony.err,
   sentenceStart: state.testimony.sentenceStart,
   sentenceEnd: state.testimony.sentenceEnd,
+  mediaStart: state.testimony.mediaStart,
 })
 
 const mapDispatchToProps = dispatch => ({

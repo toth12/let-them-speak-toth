@@ -7,11 +7,12 @@ import tree from '../lib/tree.js';
 import src from '../assets/images/double-arrow.svg';
 import {
   fetchTestimony,
-  highlightSentences
+  highlightSentences,
+  setMediaStart,
 } from '../actions/testimony';
 import {
   setActiveIndex,
-  fetchTreeData
+  fetchTreeData,
 } from '../actions/tree';
 
 class TreeChart extends React.Component {
@@ -54,6 +55,7 @@ class TreeChart extends React.Component {
             testimonyId: d.data.testimony_id,
             lookupSentences: false,
           })
+          this.props.setMediaStart(d.data.media_offset || 0)
           this.props.fetchTestimony(d.data.testimony_id)
         }),
       })
@@ -95,6 +97,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setActiveIndex: (d, idx) => dispatch(setActiveIndex(idx)),
+  setMediaStart: (val) => dispatch(setMediaStart(val)),
   fetchTreeData: () => dispatch(fetchTreeData()),
   fetchTestimony: id => dispatch(fetchTestimony(id)),
   highlightSentences: obj => dispatch(highlightSentences(obj))

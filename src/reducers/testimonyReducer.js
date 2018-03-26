@@ -3,6 +3,7 @@ const initialState = {
   err: false,
   sentenceStart: null,
   sentenceEnd: null,
+  mediaStart: null,
 }
 
 const testimonyReducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ const testimonyReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         sentenceStart: action.obj.sentenceStart,
         sentenceEnd: action.obj.sentenceEnd,
+      })
+
+    case 'SET_MEDIA_START':
+      return Object.assign({}, state, {
+        mediaStart: action.val,
       })
 
     default:

@@ -18,6 +18,10 @@ export const setActiveSentences = obj => ({
   type: 'SET_ACTIVE_SENTENCES', obj,
 })
 
+export const setMediaStart = val => ({
+  type: 'SET_MEDIA_START', val
+})
+
 export const highlightSentences = obj => {
   return function(dispatch) {
     dispatch({type: 'HIGHLIGHT_SENTENCES', obj});
