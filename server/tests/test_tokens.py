@@ -11,7 +11,7 @@ def test_token_format():
   db = get_db()
   for i in db['tokens'].find({}, {'id': 0}):
     validate_attribute(i, 'testimony_id', str)
-    validate_attribute(i, 'token_index', int)
+    validate_attribute(i, 'tokens', list)
 
 def validate_attribute(obs, key, val_type):
   '''

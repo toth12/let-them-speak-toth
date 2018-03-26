@@ -69,19 +69,14 @@ def search():
 @app.route('/api/sentences')
 def sentences():
   '''Fetch sentence indices given a testimony id and token indices'''
-  query = {'testimony_id': request.args.get('testimony_id', None), '$or': [
-    {
-      'token_index': int(request.args.get('token_start', 0)),
-    },
-    {
-      'token_index': int(request.args.get('token_end', 0)),
-    },
-  ]}
-  results = db.tokens.find(query, {'_id': 0})
-  sentence_indices = [j['sentence_index'] for j in results]
+  testimony_id = request.args.get('testimony_id', None)
+  token_start = int(request.args.get('token_start', 0))
+  token_end = int(request.args.get('token_end', 0))
+  results = db.tokens.find({'testimony_id': testimony_id}, {'_id': 0})
+  tokens = list(results)[0]['tokens']
   return jsonify({
-    'sentenceStart': min(sentence_indices),
-    'sentenceEnd': max(sentence_indices)
+    'sentenceStart': tokens[token_start]['sentence_index'],
+    'sentenceEnd': tokens[token_end]['sentence_index']
   })
 
 ##

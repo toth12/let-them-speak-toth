@@ -32,14 +32,14 @@ from server.seeds.utils import rm_dir, make_dir, write_text #pylint: disable=wro
 
 fake = Faker()
 db = get_db()
-n_testimonies = 100
+n_testimonies = 1000
 paragraph_boundary = '\n'
 folia_dir = os.path.join('server', 'seeds', 'folia')
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
 video_url = url + '/videos/dev/shoah-sample.mp4'
 audio_url = url + '/videos/dev/ushmm-sample.mp3'
 thumb_url = url + '/thumbnails/dev/preview.png'
-token_ids = []
+tokens_collection = []
 
 rm_dir(folia_dir)
 make_dir(folia_dir)
@@ -133,17 +133,18 @@ def store_token_ids(testimony_id, full_text):
   '''
   t_idx = 0
   s_idx = 0
+  tokens = []
   for paragraph in full_text.split(paragraph_boundary):
     for sentence in paragraph.split('.'):
       if sentence.split():
         for _ in sentence.split():
-          token_ids.append({
-            'testimony_id': testimony_id,
+          tokens.append({
             'token_index': t_idx,
             'sentence_index': s_idx,
           })
           t_idx += 1
         s_idx += 1
+  tokens_collection.append({'testimony_id': testimony_id, 'tokens': tokens})
 
 ##
 # Testimony helpers
@@ -246,7 +247,7 @@ def seed_testimonies():
 
   # save the mappings from tokens to their sentence indices
   db.tokens.remove({})
-  db.tokens.insert_many(token_ids)
+  db.tokens.insert_many(tokens_collection)
 
 if __name__ == '__main__':
   seed_testimonies()
