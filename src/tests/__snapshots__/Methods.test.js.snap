@@ -33,64 +33,47 @@ exports[`renders 1`] = `
         <tr>
           <td>
             <a
-              href="#one"
-              onClick={[Function]}
+              download={true}
+              href="/assets/files/sample.pdf"
             >
               <div
                 className="background-image"
               />
+              <div>
+                Essay title number one
+                <br />
+                Subtitle for this essay
+              </div>
             </a>
           </td>
           <td>
             <a
-              href="#two"
-              onClick={[Function]}
+              download={true}
+              href="/assets/files/sample.pdf"
             >
               <div
                 className="background-image"
               />
+              <div>
+                Essay title number two
+                <br />
+                Subtitle for this essay
+              </div>
             </a>
           </td>
           <td>
             <a
-              href="#three"
-              onClick={[Function]}
+              download={true}
+              href="/assets/files/sample.pdf"
             >
               <div
                 className="background-image"
               />
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a
-              href="#one"
-              onClick={[Function]}
-            >
-              Essay title number one
-              <br />
-              Subtitle for this essay
-            </a>
-          </td>
-          <td>
-            <a
-              href="#two"
-              onClick={[Function]}
-            >
-              Essay title number one
-              <br />
-              Subtitle for this essay
-            </a>
-          </td>
-          <td>
-            <a
-              href="#three"
-              onClick={[Function]}
-            >
-              Essay title number one
-              <br />
-              Subtitle for this essay
+              <div>
+                Essay title number three
+                <br />
+                Subtitle for this essay
+              </div>
             </a>
           </td>
         </tr>

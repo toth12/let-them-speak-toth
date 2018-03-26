@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from './Hero';
-import { Link } from 'react-router-dom';
 
 const Methods = props => (
   <div className='methods'>
@@ -14,36 +13,22 @@ const Methods = props => (
         <tbody>
           <tr>
             <td>
-              <Link to='#one'>
+              <a href='/assets/files/sample.pdf' download>
                 <div className='background-image' />
-              </Link>
+                <div>Essay title number one<br/>Subtitle for this essay</div>
+              </a>
             </td>
             <td>
-              <Link to='#two'>
+              <a href='/assets/files/sample.pdf' download>
                 <div className='background-image' />
-              </Link>
+                <div>Essay title number two<br/>Subtitle for this essay</div>
+              </a>
             </td>
             <td>
-              <Link to='#three'>
+              <a href='/assets/files/sample.pdf' download>
                 <div className='background-image' />
-              </Link>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Link to='#one'>
-                Essay title number one<br/>Subtitle for this essay
-              </Link>
-            </td>
-            <td>
-              <Link to='#two'>
-                Essay title number one<br/>Subtitle for this essay
-              </Link>
-            </td>
-            <td>
-              <Link to='#three'>
-                Essay title number one<br/>Subtitle for this essay
-              </Link>
+                <div>Essay title number three<br/>Subtitle for this essay</div>
+              </a>
             </td>
           </tr>
         </tbody>
