@@ -53,7 +53,7 @@ class Input extends React.Component {
   }
 
   handleKeys(e) {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && e.target.value) {
       this.props.search(e.target.value);
     }
   }
