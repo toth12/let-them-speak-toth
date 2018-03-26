@@ -17,14 +17,11 @@ Generate seed data for the fragments collection. Schema:
 import random
 import sys
 from faker import Faker
-from pymongo import MongoClient
+[sys.path.append(i) for i in ['.', '..', 'server']]
+from db import get_db #pylint: disable=wrong-import-position, import-error
 
 fake = Faker()
-if len(sys.argv) > 1:
-  client = MongoClient(sys.argv[1])
-else:
-  client = MongoClient()
-db = client.lts
+db = get_db()
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
 video_url = url + '/videos/dev/shoah-sample.mp4'
 audio_url = url + '/videos/dev/ushmm-sample.mp3'

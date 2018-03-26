@@ -3,15 +3,6 @@
 import os
 import json
 from shutil import rmtree
-from pymongo import MongoClient
-
-def get_db():
-  '''
-  Return a connection to the db
-  '''
-  host = os.environ['MONGO_HOST']
-  port = 27017
-  return MongoClient(host, port)['lts']
 
 def write_text(path, text):
   '''

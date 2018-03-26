@@ -29,6 +29,13 @@ def test_vertical_pipes():
     except AssertionError:
       assert_pattern_in_each_match([i], 'that')
 
+def test_complex_queries():
+  '''
+  Test that several complex queries return expected results
+  '''
+  results = search_blacklab(query='[pos="N.*"&lemma="run"]')
+  assert_pattern_in_each_match(results['results'], 'run')
+
 def assert_pattern_in_each_match(results, pattern):
   '''
   Assert that each match in `results` contains `pattern`

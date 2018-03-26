@@ -1,9 +1,7 @@
 '''API test suite'''
 import sys
 import json
-sys.path.insert(0, 'server')
-sys.path.insert(0, '..')
-sys.path.insert(0, '.')
+[sys.path.append(i) for i in ['server', '..', '.']]
 
 # import the Flask module
 from app import app #pylint: disable=wrong-import-position

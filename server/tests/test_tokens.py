@@ -2,7 +2,7 @@
 
 import sys
 [sys.path.append(i) for i in ['server', '..', '.']]
-from helpers import get_db
+from db import get_db
 
 def test_token_format():
   '''

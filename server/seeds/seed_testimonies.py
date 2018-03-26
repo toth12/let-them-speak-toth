@@ -23,9 +23,12 @@ Generate seed data for the testimonies collection. Schema:
 
 from random import random, randint
 import os
+import sys
 from faker import Faker
-from seed_fragments import get_fragments
-from utils import rm_dir, make_dir, get_db, write_text #pylint: disable=no-name-in-module
+[sys.path.append(i) for i in ['server', '..', '../..']]
+from server.db import get_db #pylint: disable=wrong-import-position
+from server.seeds.seed_fragments import get_fragments #pylint: disable=wrong-import-position
+from server.seeds.utils import rm_dir, make_dir, write_text #pylint: disable=wrong-import-position, no-name-in-module
 
 fake = Faker()
 db = get_db()
@@ -230,7 +233,7 @@ def seed_testimonies():
       'provenance': ' '.join(fake.words(nb=3)), #pylint: disable=no-member
     })
 
-  testimony_ids = [i['testimony_id'] for i in testimonies]
+  testimony_ids = [j['testimony_id'] for j in testimonies]
   fragments = get_fragments(testimony_ids)
 
   # remove all fragments and add seed fragments
