@@ -38,19 +38,21 @@
 
 .testimony .content {
   position: relative;
+  padding-top: 30px;
 }
 
 .testimony .right {
   width: 360px;
   float: right;
+  padding-right: 20px;
 }
 
 .testimony .left {
   overflow-x: hidden;
-  padding: 30px 0 20px 20px;
+  padding: 0 20px;
 }
 
-.testimony .left .body {
+.testimony .left .left-body {
   background: #F4F4F4;
   margin: 0;
 }
@@ -65,33 +67,32 @@
   padding-bottom: 16px;
 }
 
-.testimony .body {
+.testimony .left-body {
   padding: 20px;
-}
-
-.testimony .body,
-.testimony .history {
-  max-height: 70vh;
   overflow: auto;
-  font-family: 'arno-pro', serif;
-  font-size: 18px;
   line-height: 1.25em;
+  font-family: 'arno-pro', serif;
 }
 
-.testimony .body p {
+.testimony .left-body,
+.testimony .right-body {
+  height: 70vh;
+  font-size: 18px;
+}
+
+.testimony .left-body p {
   font-size: inherit;
   margin-top: 0;
 }
 
-.testimony .body span.active {
+.testimony .left-body span.active {
   background: rgba(255, 165, 0, .6);
 }
 
 .footer {
-  padding-bottom: 20px;
-  padding-left: 20px;
+  padding: 20px;
   font-size: 13px;
-  line-height: .9em;
+  line-height: .85em;
   color: #A2A2A2;
 }
 
@@ -103,30 +104,14 @@
 * Right
 **/
 
-.testimony .right-content {
-  padding: 20px;
+.testimony .right-body {
+  position: relative;
 }
 
-.testimony .tab {
-  font-weight: 700;
-  font-size: 17px;
-  width: 50%;
-  display: inline-block;
-  padding: 12px 10px;
-  border: 1px solid lightgray;
-  border-right: none;
-  text-align: center;
-  cursor: pointer;
-  color: #C4C4C4;
-}
-
-.testimony .tab.active {
-  color: #666;
-  border-bottom: 1px solid #fff;
-}
-
-.testimony .tab:first-of-type.active {
-  border-left: 1px solid #fff;
+.testimony .media {
+  position: absolute;
+  top: 0;
+  z-index: 10;
 }
 
 .testimony .audio-container {
@@ -140,9 +125,23 @@
   color: #333;
 }
 
-.testimony .history {
-  padding: 8px 0;
-  line-height: 1.6em;
+.testimony .metadata {
+  padding-top: 275px;
+  line-height: 1.5em;
+  font-size: 0.9em;
+  font-family: Helvetica, Open Sans, serif;
+  position: absolute;
+  top: 0;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.testimony .metadata-block {
+  margin-bottom: 12px;
+}
+
+.testimony video {
+  background: #f9f9f9;
 }
 
 @media(max-width: 900px) {
@@ -160,7 +159,7 @@
     padding-top: 0;
   }
 
-  .testimony .body {
+  .testimony .left-body {
     margin-right: 0;
   }
 
@@ -176,15 +175,15 @@
 }
 
 @media (max-height: 700px) {
-  .testimony .body,
-  .testimony .history {
-    max-height: 55vh;
+  .testimony .left-body,
+  .testimony .right-body {
+    height: 55vh;
   }
 }
 
 @media (max-width: 900px) and (max-height: 900px) {
-  .testimony .body,
-  .testimony .history {
-    max-height: 30vh;
+  .testimony .left-body,
+  .testimony .right-body {
+    height: 30vh;
   }
 }

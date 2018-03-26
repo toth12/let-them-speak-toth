@@ -14,10 +14,6 @@ export const hideTestimony = () => ({
   type: 'HIDE_TESTIMONY',
 })
 
-export const setTestimonyTab = tab => ({
-  type: 'SET_TESTIMONY_TAB', tab,
-})
-
 export const setActiveSentences = obj => ({
   type: 'SET_ACTIVE_SENTENCES', obj,
 })

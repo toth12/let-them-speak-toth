@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import img from '../assets/images/x-close.svg';
-import {
-  hideTestimony,
-  setTestimonyTab
-} from '../actions/testimony';
+import { hideTestimony } from '../actions/testimony';
+import { smpte } from '../assets/images/smpte.png';
 
 class Testimony extends React.Component {
 
@@ -57,9 +55,7 @@ class Testimony extends React.Component {
         <div className='testimony-inner'>
           <div className='testimony'>
             <div className='content'>
-              <Right testimony={testimony}
-                tab={this.props.tab}
-                setTab={this.props.setTab} />
+              <Right testimony={testimony} />
               <Left testimony={testimony} />
               <Footer testimony={testimony} />
             </div>
@@ -74,23 +70,20 @@ class Testimony extends React.Component {
 const Right = props => (
   <div className='right'>
     <img className='close'src={img} />
-    <div className='tabs'>
-      <Tab val='video' label='Video' {...props} />
-      <Tab val='history' label='History' {...props} />
-    </div>
-    <div className='right-content'>
-      {props.tab === 'history' ?
-        <div className='history'>{props.testimony.interview_summary}</div>
-        : <Media testimony={props.testimony} />
-      }
+    <div className='title'>Media</div>
+    <div className='right-body'>
+      <Media testimony={props.testimony} />
+      <Metadata testimony={props.testimony} />
     </div>
   </div>
 )
 
 const Left = props => (
   <div className='left'>
-    <div className='title'>{props.testimony.testimony_title}</div>
-    <div className='body'
+    <div className='title'>
+      Transcript Excerpt: {props.testimony.testimony_title}
+    </div>
+    <div className='left-body'
       dangerouslySetInnerHTML={{__html: props.testimony.html_transcript}}>
     </div>
   </div>
@@ -108,12 +101,6 @@ const Footer = props => (
   </div>
 )
 
-const Tab = props => (
-  <div className={props.tab.toLowerCase() === props.label.toLowerCase() ?
-      'tab active' : 'tab'}
-    onClick={props.setTab.bind(null, props.val)}>{props.label}</div>
-)
-
 const Media = props => (
   <div className='media'>
     {isVideo(props.testimony.media_url[0]) ?
@@ -124,7 +111,7 @@ const Media = props => (
 )
 
 const Video = props => (
-  <video width='320' height='240' controls>
+  <video width='340' height='260' controls>
     <source src={props.url} type='video/mp4' />
     Your browser does not support the video tag.
   </video>
@@ -132,7 +119,7 @@ const Video = props => (
 
 const Audio = props => (
   <div className='audio-container'>
-    <img src='http://via.placeholder.com/320x240' />
+    <img src='http://via.placeholder.com/340x220' />
     <audio controls>
       <source src={props.url} type='audio/mpeg' />
       Your browser does not support the audio tag.
@@ -140,21 +127,40 @@ const Audio = props => (
   </div>
 )
 
-const isVideo = str => str.indexOf('.mp4') > -1;
+const Metadata = props => (
+  <div className='metadata'>
+    <div className='metadata-block'>
+      <div><b>About the Interview</b></div>
+      <div>Shelfmark: {props.testimony.shelfmark}</div>
+      <div>Interview date: {props.testimony.recording_year}</div>
+      {props.testimony.camp_names.length ?
+        <div>Camp: {props.testimony.camp_names.join(', ')}</div>
+        : null
+      }
+      {props.testimony.ghetto_names.length ?
+        <div>Camp: {props.testimony.ghetto_names.join(', ')}</div>
+        : null
+      }
+      <div>Provenance: {props.testimony.provenance}</div>
+    </div>
+    <div className='metadata-block'>
+      <div><b>Interview Summary</b></div>
+      <div>{props.testimony.interview_summary}</div>
+    </div>
+  </div>
+)
 
-const breakLines = str => str.replace(/(?:\r\n|\r|\n)/g, '<br/><br/>');
+const isVideo = str => str.indexOf('.mp4') > -1;
 
 const mapStateToProps = state => ({
   testimony: state.testimony.testimony,
   err: state.testimony.err,
-  tab: state.testimony.tab,
   sentenceStart: state.testimony.sentenceStart,
   sentenceEnd: state.testimony.sentenceEnd,
 })
 
 const mapDispatchToProps = dispatch => ({
   hideTestimony: () => dispatch(hideTestimony()),
-  setTab: tab => dispatch(setTestimonyTab(tab)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Testimony);
