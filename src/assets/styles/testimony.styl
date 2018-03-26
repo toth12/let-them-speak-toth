@@ -66,13 +66,13 @@
 }
 
 .testimony .body {
-  max-height: 70vh;
-  overflow: auto;
   padding: 20px;
 }
 
 .testimony .body,
 .testimony .history {
+  max-height: 70vh;
+  overflow: auto;
   font-family: 'arno-pro', serif;
   font-size: 18px;
   line-height: 1.25em;
@@ -176,13 +176,15 @@
 }
 
 @media (max-height: 700px) {
-  .testimony .body {
+  .testimony .body,
+  .testimony .history {
     max-height: 55vh;
   }
 }
 
 @media (max-width: 900px) and (max-height: 900px) {
-  .testimony .body {
+  .testimony .body,
+  .testimony .history {
     max-height: 30vh;
   }
 }
