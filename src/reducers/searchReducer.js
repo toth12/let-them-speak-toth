@@ -55,6 +55,11 @@ const searchReducer = (state = initialState, action) => {
         page: action.page,
       })
 
+    case 'SHOW_INSTRUCTIONS':
+      return Object.assign({}, state, {
+        instructions: true,
+      })
+
     default:
       return state
   }

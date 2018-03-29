@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import img from '../assets/images/x-close.svg';
 import placeholder from '../assets/images/placeholder.jpg';
 import { hideTestimony } from '../actions/testimony';
@@ -18,7 +19,7 @@ class Testimony extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.setenceStart && this.props.setenceEnd) {
+    if (this.props.sentenceStart && this.props.sentenceEnd) {
       if (this.props.sentenceStart !== prevProps.sentenceStart ||
           this.props.sentenceEnd !== prevProps.sentenceEnd) {
         this.activateSentences();
@@ -182,6 +183,39 @@ const Metadata = props => (
 )
 
 const isVideo = str => str.indexOf('.mp4') > -1;
+
+const testimonyProps = PropTypes.shape({
+  camp_names: PropTypes.arrayOf(PropTypes.string),
+  collection: PropTypes.string,
+  gender: PropTypes.string,
+  ghetto_names: PropTypes.arrayOf(PropTypes.string),
+  html_transcript: PropTypes.string.isRequired,
+  interview_summary: PropTypes.string.isRequired,
+  interviewee_name: PropTypes.string.isRequired,
+  media_url: PropTypes.arrayOf(PropTypes.string),
+  provenance: PropTypes.string.isRequired,
+  recording_year: PropTypes.number.isRequired,
+  shelfmark: PropTypes.string.isRequired,
+  testimony_id: PropTypes.string.isRequired,
+  testimony_title: PropTypes.string.isRequired,
+  thumbnail_url: PropTypes.string.isRequired,
+})
+
+Testimony.PropTypes = {
+  err: PropTypes.bool.isRequired,
+  hideTestimony: PropTypes.func.isRequired,
+  mediaStart: PropTypes.number,
+  sentenceStart: PropTypes.number.isRequired,
+  sentenceEnd: PropTypes.number.isRequired,
+  testimony: testimonyProps,
+}
+
+Right.PropTypes = testimonyProps;
+Left.PropTypes = testimonyProps;
+Footer.PropTypes = testimonyProps;
+Media.PropTypes = testimonyProps;
+Metadata.PropTypes = testimonyProps;
+Audio.PropTypes = testimonyProps;
 
 const mapStateToProps = state => ({
   testimony: state.testimony.testimony,

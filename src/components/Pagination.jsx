@@ -32,4 +32,13 @@ const getPages = (total, activePage, perPage) => {
   return allPages.slice(firstPage, firstPage + maxPages);
 }
 
+Pagination.PropTypes = {
+  activePage: PropTypes.number.isRequired,
+  items: PropTypes.number.isRequired,
+  perPage: PropTypes.number.isRequired,
+  leftArrowClick: PropTypes.func.isRequired,
+  pageClick: PropTypes.func.isRequired,
+  rightArrowClick: PropTypes.func.isRequired,
+}
+
 export default Pagination;

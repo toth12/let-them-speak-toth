@@ -89,6 +89,28 @@ class TreeChart extends React.Component {
   }
 }
 
+const nodeProps = {
+  children: PropTypes.arrayOf(nodeProps),
+  label: PropTypes.string.isRequired,
+  media_index: PropTypes.number,
+  media_offset: PropTypes.number,
+  start_sentence_index: PropTypes.number.isRequired,
+  end_sentence_index: PropTypes.number.isRequired,
+  testimony_id: PropTypes.string.isRequired,
+}
+
+TreeChart.PropTypes = {
+  data: PropTypes.arrayOf({
+    essay_id: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    tree: PropTypes.shape()
+  }),
+  fetchTestimony: PropTypes.func.isRequired,
+  fetchTreeData: PropTypes.func.isRequired,
+  setActiveIndex: PropTypes.func.isRequired,
+  setMediaStart: PropTypes.func.isRequired,
+}
+
 const mapStateToProps = state => ({
   data: state.tree.data,
   selected: state.tree.selected,
