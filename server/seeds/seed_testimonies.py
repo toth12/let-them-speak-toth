@@ -32,14 +32,13 @@ from server.seeds.utils import rm_dir, make_dir, write_text #pylint: disable=wro
 
 fake = Faker()
 db = get_db()
-n_testimonies = 1000
+n_testimonies = 100
 paragraph_boundary = '\n'
 folia_dir = os.path.join('server', 'seeds', 'folia')
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
 video_url = url + '/videos/dev/shoah-sample.mp4'
 audio_url = url + '/videos/dev/ushmm-sample.mp3'
 thumb_url = url + '/thumbnails/dev/preview.png'
-tokens_collection = []
 
 rm_dir(folia_dir)
 make_dir(folia_dir)
@@ -144,7 +143,7 @@ def store_token_ids(testimony_id, full_text):
           })
           t_idx += 1
         s_idx += 1
-  tokens_collection.append({'testimony_id': testimony_id, 'tokens': tokens})
+  db.tokens.insert_one({'testimony_id': testimony_id, 'tokens': tokens})
 
 ##
 # Testimony helpers
@@ -207,6 +206,12 @@ def get_interviewee_name(_gender):
 
 def seed_testimonies():
   '''Seed all testimonies and linked fragments'''
+
+  # drop all extant collection records
+  db.fragments.remove({})
+  db.testimonies.remove({})
+  db.tokens.remove({})
+
   testimonies = []
   for testimony_idx, _ in enumerate(range(n_testimonies)):
     print(' * seeding testimony number', testimony_idx + 1)
@@ -237,17 +242,9 @@ def seed_testimonies():
   testimony_ids = [j['testimony_id'] for j in testimonies]
   fragments = get_fragments(testimony_ids)
 
-  # remove all fragments and add seed fragments
-  db.fragments.remove({})
+  # save all collections
   db.fragments.insert_many(fragments)
-
-  # remove all testimonies and add seed testimonies
-  db.testimonies.remove({})
   db.testimonies.insert_many(testimonies)
-
-  # save the mappings from tokens to their sentence indices
-  db.tokens.remove({})
-  db.tokens.insert_many(tokens_collection)
 
 if __name__ == '__main__':
   seed_testimonies()
