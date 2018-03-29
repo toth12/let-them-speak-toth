@@ -111,6 +111,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 To apply the group changes, log out then log back in. Next, build the app:
 
 ```
+# install dependencies
+sudo yum install git -y
+
 # get the app source
 git clone https://github.com/YaleDHLab/let-them-speak
 
@@ -120,11 +123,8 @@ screen -S server-screen
 # cd into the app source
 cd let-them-speak
 
-# build the image
-docker-compose up --build
-
-# forward requests for port 7082 to port 80
-sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 7082
+# run the image (add -d to demeanoize)
+docker-compose -f production.yml up
 ```
 
 Then, from another ssh session, detach your screen:

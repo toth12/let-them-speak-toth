@@ -16,6 +16,7 @@ services:
       - '27017:27017'
 
   web:
+    image: 'yaledhlab/let-them-speak-web'
     # gain access to linked containers
     links:
       - mongo_service
@@ -27,8 +28,6 @@ services:
     # set environment variables
     environment:
       PYTHONUNBUFFERED: 'true'
-    # use the image from the Dockerfile in the cwd
-    build: .
     ports:
       - '7082:7082'
     volumes:
