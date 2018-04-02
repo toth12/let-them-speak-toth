@@ -34,8 +34,8 @@ exports[`renders 1`] = `
       </h2>
       <a
         className="essay-title"
-        href="#0"
-        onClick={[Function]}
+        download={true}
+        href="/assets/files/sample.pdf"
       >
         1
         . 
@@ -43,8 +43,8 @@ exports[`renders 1`] = `
       </a>
       <a
         className="essay-title"
-        href="#1"
-        onClick={[Function]}
+        download={true}
+        href="/assets/files/sample.pdf"
       >
         2
         . 
@@ -52,8 +52,8 @@ exports[`renders 1`] = `
       </a>
       <a
         className="essay-title"
-        href="#2"
-        onClick={[Function]}
+        download={true}
+        href="/assets/files/sample.pdf"
       >
         3
         . 
@@ -61,8 +61,8 @@ exports[`renders 1`] = `
       </a>
       <a
         className="essay-title"
-        href="#3"
-        onClick={[Function]}
+        download={true}
+        href="/assets/files/sample.pdf"
       >
         4
         . 
@@ -70,73 +70,37 @@ exports[`renders 1`] = `
       </a>
       <a
         className="essay-title"
-        href="#4"
-        onClick={[Function]}
+        download={true}
+        href="/assets/files/sample.pdf"
       >
         5
-        . 
-        A. Tempor eu. Dignissim nunc. Morbi faucibus
-      </a>
-      <a
-        className="essay-title"
-        href="#5"
-        onClick={[Function]}
-      >
-        6
         . 
         Tempor eu. Dignissim nunc. Morbi faucibus
       </a>
       <a
         className="essay-title"
-        href="#6"
-        onClick={[Function]}
+        download={true}
+        href="/assets/files/sample.pdf"
       >
-        7
+        6
         . 
         Lorem ipsum dolor sit amet, arcu vulputate
       </a>
       <a
         className="essay-title"
-        href="#7"
-        onClick={[Function]}
+        download={true}
+        href="/assets/files/sample.pdf"
       >
-        8
-        . 
-        Ipsum dolor sit amet, arcu vulputate
-      </a>
-      <a
-        className="essay-title"
-        href="#8"
-        onClick={[Function]}
-      >
-        9
-        . 
-        Dolor sit amet, arcu vulputate
-      </a>
-      <a
-        className="essay-title"
-        href="#9"
-        onClick={[Function]}
-      >
-        10
-        . 
-        Amet a. Tempor eu. Dignissim nunc. Morbi faucibus
-      </a>
-      <a
-        className="essay-title"
-        href="#10"
-        onClick={[Function]}
-      >
-        11
+        7
         . 
         A. Tempor eu. Dignissim nunc. Morbi faucibus
       </a>
       <a
         className="essay-title"
-        href="#11"
-        onClick={[Function]}
+        download={true}
+        href="/assets/files/sample.pdf"
       >
-        12
+        8
         . 
         Tempor eu. Dignissim nunc. Morbi faucibus
       </a>

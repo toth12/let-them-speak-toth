@@ -28,6 +28,10 @@ export const setSearchPage = page => ({
   type: 'SET_SEARCH_PAGE', page,
 })
 
+export const showInstructions = () => ({
+  type: 'SHOW_INSTRUCTIONS',
+})
+
 /**
 * Pagination Helpers
 **/

@@ -2,8 +2,6 @@
 
 > A database of Holocaust survivor testimonies.
 
-[![Build Status](https://travis-ci.com/YaleDHLab/let-them-speak.svg?branch=master)](https://travis-ci.com/YaleDHLab/let-them-speak)
-
 ## Dependencies
 
 First you'll need to install Maven, Tomcat, and Node.js:
@@ -85,4 +83,52 @@ To run the Python tests (located in `server/tests/`), run:
 
 ```bash
 pytest
+```
+
+## Deploying to Ec2
+
+Install docker:
+```
+# install docker
+sudo yum install docker -y
+
+# start docker
+sudo service docker start
+
+# allow ec2-user to run docker
+sudo usermod -a -G docker ec2-user
+```
+
+Install docker-compose:
+```
+# get the docker-compose binaries
+sudo curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+# change the permissions on the source
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+To apply the group changes, log out then log back in. Next, build the app:
+
+```
+# install dependencies
+sudo yum install git -y
+
+# get the app source
+git clone https://github.com/YaleDHLab/let-them-speak
+
+# start a screen to hold the server process
+screen -S server-screen
+
+# cd into the app source
+cd let-them-speak
+
+# run the image (add -d to demeanoize)
+docker-compose -f production.yml up
+```
+
+Then, from another ssh session, detach your screen:
+
+```
+screen -D
 ```

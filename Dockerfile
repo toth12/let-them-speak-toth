@@ -71,4 +71,8 @@ EXPOSE 7082
 
 # Seed the db
 CMD npm run seed && \
-  gunicorn -b 0.0.0.0:7082 --access-logfile - --reload server.app:app
+  gunicorn -b 0.0.0.0:7082 \
+  --access-logfile - \
+  --reload server.app:app \
+  --timeout 90 \
+  --log-level=DEBUG

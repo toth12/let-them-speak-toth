@@ -1,9 +1,9 @@
 const initialState = {
   testimony: null,
   err: false,
-  tab: 'video',
   sentenceStart: null,
   sentenceEnd: null,
+  mediaStart: null,
 }
 
 const testimonyReducer = (state = initialState, action) => {
@@ -25,15 +25,15 @@ const testimonyReducer = (state = initialState, action) => {
         err: false,
       })
 
-    case 'SET_TESTIMONY_TAB':
-      return Object.assign({}, state, {
-        tab: action.tab,
-      })
-
     case 'SET_ACTIVE_SENTENCES':
       return Object.assign({}, state, {
         sentenceStart: action.obj.sentenceStart,
         sentenceEnd: action.obj.sentenceEnd,
+      })
+
+    case 'SET_MEDIA_START':
+      return Object.assign({}, state, {
+        mediaStart: action.val,
       })
 
     default:

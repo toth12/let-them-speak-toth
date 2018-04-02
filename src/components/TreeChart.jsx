@@ -7,11 +7,12 @@ import tree from '../lib/tree.js';
 import src from '../assets/images/double-arrow.svg';
 import {
   fetchTestimony,
-  highlightSentences
+  highlightSentences,
+  setMediaStart,
 } from '../actions/testimony';
 import {
   setActiveIndex,
-  fetchTreeData
+  fetchTreeData,
 } from '../actions/tree';
 
 class TreeChart extends React.Component {
@@ -54,6 +55,7 @@ class TreeChart extends React.Component {
             testimonyId: d.data.testimony_id,
             lookupSentences: false,
           })
+          this.props.setMediaStart(d.data.media_offset || 0)
           this.props.fetchTestimony(d.data.testimony_id)
         }),
       })
@@ -87,6 +89,28 @@ class TreeChart extends React.Component {
   }
 }
 
+const nodeProps = {
+  children: PropTypes.arrayOf(nodeProps),
+  label: PropTypes.string.isRequired,
+  media_index: PropTypes.number,
+  media_offset: PropTypes.number,
+  start_sentence_index: PropTypes.number.isRequired,
+  end_sentence_index: PropTypes.number.isRequired,
+  testimony_id: PropTypes.string.isRequired,
+}
+
+TreeChart.PropTypes = {
+  data: PropTypes.arrayOf({
+    essay_id: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    tree: PropTypes.shape()
+  }),
+  fetchTestimony: PropTypes.func.isRequired,
+  fetchTreeData: PropTypes.func.isRequired,
+  setActiveIndex: PropTypes.func.isRequired,
+  setMediaStart: PropTypes.func.isRequired,
+}
+
 const mapStateToProps = state => ({
   data: state.tree.data,
   selected: state.tree.selected,
@@ -95,6 +119,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setActiveIndex: (d, idx) => dispatch(setActiveIndex(idx)),
+  setMediaStart: (val) => dispatch(setMediaStart(val)),
   fetchTreeData: () => dispatch(fetchTreeData()),
   fetchTestimony: id => dispatch(fetchTestimony(id)),
   highlightSentences: obj => dispatch(highlightSentences(obj))

@@ -4,13 +4,21 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
-const webpack = require('webpack'); 
+const webpack = require('webpack');
 const path = require('path');
 
 const paths = {
   src: path.resolve(__dirname, 'src'),
   build: path.resolve(__dirname, 'build')
 }
+
+const pathsToCopy = [
+  {
+    context: path.join(paths.src),
+    from: path.join(paths.src, 'assets/files/*'),
+    to: path.join(paths.build)
+  },
+]
 
 const uglifyConfig = {
   sourceMap: false,
@@ -92,6 +100,7 @@ const common = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin(pathsToCopy),
     new CleanWebpackPlugin([paths.build]),
     new HtmlWebpackPlugin(htmlConfig),
     new OptimizeCssAssetsPlugin(cssConfig),

@@ -14,12 +14,12 @@ export const hideTestimony = () => ({
   type: 'HIDE_TESTIMONY',
 })
 
-export const setTestimonyTab = tab => ({
-  type: 'SET_TESTIMONY_TAB', tab,
-})
-
 export const setActiveSentences = obj => ({
   type: 'SET_ACTIVE_SENTENCES', obj,
+})
+
+export const setMediaStart = val => ({
+  type: 'SET_MEDIA_START', val
 })
 
 export const highlightSentences = obj => {

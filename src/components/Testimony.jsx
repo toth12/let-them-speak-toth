@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import img from '../assets/images/x-close.svg';
-import {
-  hideTestimony,
-  setTestimonyTab
-} from '../actions/testimony';
+import placeholder from '../assets/images/placeholder.jpg';
+import { hideTestimony } from '../actions/testimony';
 
 class Testimony extends React.Component {
 
@@ -12,14 +11,32 @@ class Testimony extends React.Component {
     super(props)
     this.handleClick = this.handleClick.bind(this);
     this.activateSentences = this.activateSentences.bind(this);
-    this.state = {timerId: null};
+    this.setMediaStart = this.setMediaStart.bind(this);
+    this.state = {
+      highlightId: null,
+      timeId: null,
+    };
   }
 
   componentDidUpdate(prevProps) {
-    if (!this.props.sentenceStart || !this.props.sentenceEnd) return;
-    if (this.props.sentenceStart !== prevProps.sentenceStart ||
-        this.props.sentenceEnd !== prevProps.sentenceEnd) {
-      this.activateSentences();
+    if (this.props.sentenceStart && this.props.sentenceEnd) {
+      if (this.props.sentenceStart !== prevProps.sentenceStart ||
+          this.props.sentenceEnd !== prevProps.sentenceEnd) {
+        this.activateSentences();
+      }
+    }
+
+    if (this.props.mediaStart) {
+      if (this.props.mediaStart !== prevProps.mediaStart) {
+        this.setMediaStart();
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    this.state = {
+      highlightId: null,
+      timeId: null,
     }
   }
 
@@ -30,9 +47,9 @@ class Testimony extends React.Component {
   }
 
   activateSentences() {
-    const container = document.querySelector('.testimony .content .left .body');
+    const container = document.querySelector('.testimony .content .left-body');
     if (!container) {
-      this.setState({timerId: setTimeout(this.activateSentences, 200)});
+      this.setState({highlightId: setTimeout(this.activateSentences, 200)});
       return;
     };
     // remove active class from any extant sentences
@@ -42,12 +59,25 @@ class Testimony extends React.Component {
     }
     // highlight the active sentence(s)
     for (let i=this.props.sentenceStart; i<this.props.sentenceEnd+1; i++) {
-      const elem = document.querySelector('#s' + i);
-      elem.className += ' active';
+      document.querySelector('#s' + i).className += ' active';
     }
     // scroll the first sentence into view
     const elem = document.querySelector('#s' + this.props.sentenceStart);
     container.scrollTop = elem.offsetTop - 200;
+  }
+
+  setMediaStart() {
+    let media;
+    if (this.props.testimony) {
+      const url = this.props.testimony.media_url[0];
+      const selector = isVideo(url) ? 'video' : 'audio';
+      media = document.querySelector(selector);
+    }
+    if (!media) {
+      this.setState({timeId: setTimeout(this.setMediaStart, 200)})
+      return;
+    }
+    media.currentTime = this.props.mediaStart;
   }
 
   render() {
@@ -57,9 +87,7 @@ class Testimony extends React.Component {
         <div className='testimony-inner'>
           <div className='testimony'>
             <div className='content'>
-              <Right testimony={testimony}
-                tab={this.props.tab}
-                setTab={this.props.setTab} />
+              <Right testimony={testimony} />
               <Left testimony={testimony} />
               <Footer testimony={testimony} />
             </div>
@@ -73,24 +101,21 @@ class Testimony extends React.Component {
 
 const Right = props => (
   <div className='right'>
-    <img className='close'src={img} />
-    <div className='tabs'>
-      <Tab val='video' label='Video' {...props} />
-      <Tab val='history' label='History' {...props} />
-    </div>
-    <div className='right-content'>
-      {props.tab === 'history' ?
-        <div className='history'>{props.testimony.interview_summary}</div>
-        : <Media testimony={props.testimony} />
-      }
+    <img className='close' src={img} />
+    <div className='title'>Media</div>
+    <div className='right-body'>
+      <Media testimony={props.testimony} />
+      <Metadata testimony={props.testimony} />
     </div>
   </div>
 )
 
 const Left = props => (
   <div className='left'>
-    <div className='title'>{props.testimony.testimony_title}</div>
-    <div className='body'
+    <div className='title'>
+      Transcript Excerpt: {props.testimony.testimony_title}
+    </div>
+    <div className='left-body'
       dangerouslySetInnerHTML={{__html: props.testimony.html_transcript}}>
     </div>
   </div>
@@ -108,12 +133,6 @@ const Footer = props => (
   </div>
 )
 
-const Tab = props => (
-  <div className={props.tab.toLowerCase() === props.label.toLowerCase() ?
-      'tab active' : 'tab'}
-    onClick={props.setTab.bind(null, props.val)}>{props.label}</div>
-)
-
 const Media = props => (
   <div className='media'>
     {isVideo(props.testimony.media_url[0]) ?
@@ -124,7 +143,7 @@ const Media = props => (
 )
 
 const Video = props => (
-  <video width='320' height='240' controls>
+  <video width='340' height='260' controls>
     <source src={props.url} type='video/mp4' />
     Your browser does not support the video tag.
   </video>
@@ -132,7 +151,7 @@ const Video = props => (
 
 const Audio = props => (
   <div className='audio-container'>
-    <img src='http://via.placeholder.com/320x240' />
+    <img src={placeholder} />
     <audio controls>
       <source src={props.url} type='audio/mpeg' />
       Your browser does not support the audio tag.
@@ -140,21 +159,74 @@ const Audio = props => (
   </div>
 )
 
+const Metadata = props => (
+  <div className='metadata'>
+    <div className='metadata-block'>
+      <div><b>About the Interview</b></div>
+      <div>Shelfmark: {props.testimony.shelfmark}</div>
+      <div>Interview date: {props.testimony.recording_year}</div>
+      {props.testimony.camp_names.length ?
+        <div>Camp: {props.testimony.camp_names.join(', ')}</div>
+        : null
+      }
+      {props.testimony.ghetto_names.length ?
+        <div>Camp: {props.testimony.ghetto_names.join(', ')}</div>
+        : null
+      }
+      <div>Provenance: {props.testimony.provenance}</div>
+    </div>
+    <div className='metadata-block'>
+      <div><b>Interview Summary</b></div>
+      <div>{props.testimony.interview_summary}</div>
+    </div>
+  </div>
+)
+
 const isVideo = str => str.indexOf('.mp4') > -1;
 
-const breakLines = str => str.replace(/(?:\r\n|\r|\n)/g, '<br/><br/>');
+const testimonyProps = PropTypes.shape({
+  camp_names: PropTypes.arrayOf(PropTypes.string),
+  collection: PropTypes.string,
+  gender: PropTypes.string,
+  ghetto_names: PropTypes.arrayOf(PropTypes.string),
+  html_transcript: PropTypes.string.isRequired,
+  interview_summary: PropTypes.string.isRequired,
+  interviewee_name: PropTypes.string.isRequired,
+  media_url: PropTypes.arrayOf(PropTypes.string),
+  provenance: PropTypes.string.isRequired,
+  recording_year: PropTypes.number.isRequired,
+  shelfmark: PropTypes.string.isRequired,
+  testimony_id: PropTypes.string.isRequired,
+  testimony_title: PropTypes.string.isRequired,
+  thumbnail_url: PropTypes.string.isRequired,
+})
+
+Testimony.PropTypes = {
+  err: PropTypes.bool.isRequired,
+  hideTestimony: PropTypes.func.isRequired,
+  mediaStart: PropTypes.number,
+  sentenceStart: PropTypes.number.isRequired,
+  sentenceEnd: PropTypes.number.isRequired,
+  testimony: testimonyProps,
+}
+
+Right.PropTypes = testimonyProps;
+Left.PropTypes = testimonyProps;
+Footer.PropTypes = testimonyProps;
+Media.PropTypes = testimonyProps;
+Metadata.PropTypes = testimonyProps;
+Audio.PropTypes = testimonyProps;
 
 const mapStateToProps = state => ({
   testimony: state.testimony.testimony,
   err: state.testimony.err,
-  tab: state.testimony.tab,
   sentenceStart: state.testimony.sentenceStart,
   sentenceEnd: state.testimony.sentenceEnd,
+  mediaStart: state.testimony.mediaStart,
 })
 
 const mapDispatchToProps = dispatch => ({
   hideTestimony: () => dispatch(hideTestimony()),
-  setTab: tab => dispatch(setTestimonyTab(tab)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Testimony);

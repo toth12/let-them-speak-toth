@@ -78,6 +78,24 @@ const Table = props => (
   </div>
 )
 
+const sharedTypes = {
+  testimonies: PropTypes.arrayOf(PropTypes.shape({
+    collection: PropTypes.string,
+    testimony_id: PropTypes.string,
+    testimony_title: PropTypes.string,
+  })),
+  page: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  fetchTableOfContents: PropTypes.func.isRequired,
+  nextPage: PropTypes.func.isRequired,
+  previousPage: PropTypes.func.isRequired,
+  getPage: PropTypes.func.isRequired,
+  fetchTestimony: PropTypes.func.isRequired,
+}
+
+Contents.PropTypes = sharedTypes;
+Table.PropTypes = sharedTypes;
+
 const mapStateToProps = state => ({
   testimonies: state.contents.testimonies,
   page: state.contents.page,

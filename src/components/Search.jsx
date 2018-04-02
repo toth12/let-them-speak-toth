@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Hero from './Hero';
@@ -11,6 +12,7 @@ import {
 } from '../actions/testimony';
 import {
   fetchSearchResults,
+  showInstructions,
   previousPage,
   nextPage,
   getPage,
@@ -23,9 +25,13 @@ class Search extends React.Component {
     this.nextPage = this.nextPage.bind(this)
   }
 
+  componentWillUnmount() {
+    this.props.showInstructions();
+  }
+
   nextPage() {
     if (this.props.page + 1 < this.props.resultCount / perPage) {
-      this.props.nextPage()
+      this.props.nextPage();
     }
   }
 
@@ -53,7 +59,7 @@ class Input extends React.Component {
   }
 
   handleKeys(e) {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && e.target.value) {
       this.props.search(e.target.value);
     }
   }
@@ -195,6 +201,54 @@ const getHit = (str, side) => {
   }
 }
 
+Label.PropTypes = {
+  resultCount: PropTypes.number.isRequired,
+}
+
+Result.PropTypes = {
+  fetchTestimony: PropTypes.func.isRequired,
+  highlightSentences: PropTypes.func.isRequired,
+  idx: PropTypes.number.isRequired,
+  result: PropTypes.shape({
+    left: PropTypes.string.isRequired,
+    match: PropTypes.string.isRequired,
+    right: PropTypes.string.isRequired,
+    shelfmark: PropTypes.string.isRequired,
+    testimony_id: PropTypes.string.isRequired,
+    token_start: PropTypes.number.isRequired,
+    token_end: PropTypes.number.isRequired,
+  })
+}
+
+const sharedProps = {
+  fetchTestimony: PropTypes.func.isRequired,
+  highlightSentences: PropTypes.func.isRequired,
+  previousPage: PropTypes.func.isRequired,
+  nextPage: PropTypes.func.isRequired,
+  getPage: PropTypes.func.isRequired,
+  search: PropTypes.func.isRequired,
+  searchErr: PropTypes.bool,
+  searching: PropTypes.bool,
+  testimonyErr: PropTypes.bool,
+  instructions: PropTypes.bool.isRequired,
+  page: PropTypes.number.isRequired,
+  resultCount: PropTypes.number,
+  results: PropTypes.arrayOf({
+    left: PropTypes.string.isRequired,
+    match: PropTypes.string.isRequired,
+    right: PropTypes.string.isRequired,
+    shelfmark: PropTypes.string.isRequired,
+    testimony_id: PropTypes.string.isRequired,
+    token_start: PropTypes.number.isRequired,
+    token_end: PropTypes.number.isRequired,
+  }).isRequired,
+}
+
+Search.PropTypes = sharedProps;
+Content.PropTypes = sharedProps;
+Results.PropTypes = sharedProps;
+ResultTable.PropTypes = sharedProps;
+
 const mapStateToProps = state => ({
   searching: state.search.searching,
   instructions: state.search.instructions,
@@ -206,6 +260,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+  showInstructions: () => dispatch(showInstructions()),
   search: phrase => dispatch(fetchSearchResults(phrase)),
   previousPage: () => dispatch(previousPage()),
   nextPage: () => dispatch(nextPage()),

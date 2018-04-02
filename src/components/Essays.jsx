@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from './Hero';
-import { Link } from 'react-router-dom';
 
 const Essays = props => (
   <div>
@@ -19,26 +18,50 @@ const Essays = props => (
   </div>
 )
 
-const titles = [
-  'Lorem ipsum dolor sit amet, arcu vulputate',
-  'Ipsum dolor sit amet, arcu vulputate',
-  'Dolor sit amet, arcu vulputate',
-  'Amet a. Tempor eu. Dignissim nunc. Morbi faucibus',
-  'A. Tempor eu. Dignissim nunc. Morbi faucibus',
-  'Tempor eu. Dignissim nunc. Morbi faucibus',
-  'Lorem ipsum dolor sit amet, arcu vulputate',
-  'Ipsum dolor sit amet, arcu vulputate',
-  'Dolor sit amet, arcu vulputate',
-  'Amet a. Tempor eu. Dignissim nunc. Morbi faucibus',
-  'A. Tempor eu. Dignissim nunc. Morbi faucibus',
-  'Tempor eu. Dignissim nunc. Morbi faucibus',
+const essayList = [
+  {
+    title: 'Lorem ipsum dolor sit amet, arcu vulputate',
+    file: '/assets/files/sample.pdf',
+  },
+  {
+    title: 'Ipsum dolor sit amet, arcu vulputate',
+    file: '/assets/files/sample.pdf',
+  },
+  {
+    title: 'Dolor sit amet, arcu vulputate',
+    file: '/assets/files/sample.pdf',
+  },
+  {
+    title: 'Amet a. Tempor eu. Dignissim nunc. Morbi faucibus',
+    file: '/assets/files/sample.pdf',
+  },
+  {
+    title: 'Tempor eu. Dignissim nunc. Morbi faucibus',
+    file: '/assets/files/sample.pdf',
+  },
+  {
+    title: 'Lorem ipsum dolor sit amet, arcu vulputate',
+    file: '/assets/files/sample.pdf',
+  },
+  {
+    title: 'A. Tempor eu. Dignissim nunc. Morbi faucibus',
+    file: '/assets/files/sample.pdf',
+  },
+  {
+    title: 'Tempor eu. Dignissim nunc. Morbi faucibus',
+    file: '/assets/files/sample.pdf',
+  }
 ];
 
 const Titles = (props) => (
   <div className='essay-titles'>
     <h2>Table of Contents</h2>
-    {titles.map((t, idx) => (
-      <Link to={'#' + idx} className='essay-title' key={idx}>{idx + 1}. {t}</Link>
+    {essayList.map((t, idx) => (
+      <a href={t.file}
+        className='essay-title'
+        key={idx}
+        download>{idx + 1}. {t.title}
+      </a>
     ))}
   </div>
 )
