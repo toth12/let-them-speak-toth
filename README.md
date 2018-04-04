@@ -55,7 +55,17 @@ That will start the webpack dev server on port 7081. Note that you will need to 
 
 ## Docker Usage
 
-Install Docker and Docker Compose, then in the root directory, start the app with `docker-compose up --build`
+Install Docker, then in the root directory, build the container with:
+
+```bash
+docker build -t letthemspeak .
+```
+
+Once the container is built, you can run it with:
+
+```bash
+docker run -p 7082:7082 -p 8080:8080 -p 27017:27017 letthemspeak /bin/sh -c "mongod & /usr/local/tomcat/bin/catalina.sh start & gunicorn -b 0.0.0.0:7082 --access-logfile - --reload server.app:app --timeout 90 --log-level=DEBUG"
+```
 
 ## Linting
 
