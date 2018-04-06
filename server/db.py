@@ -15,4 +15,4 @@ def get_db():
       return client
     except Exception as exc: #pylint: disable=broad-except
       print(exc)
-      time.sleep(5)
+      time.sleep(0.1)
