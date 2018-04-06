@@ -5,7 +5,7 @@ FROM node:8-alpine
 MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
 
 ##
-# Build BlackLab
+# Build Maven
 ##
 
 RUN apk add --update --no-cache \
@@ -30,13 +30,6 @@ RUN MAVEN_VERSION="3.3.9" && \
   mv "/tmp/apache-maven-$MAVEN_VERSION" "$MAVEN_HOME" && \
   ln -s "$MAVEN_HOME/bin/mvn" "/usr/bin/mvn" && \
   rm -rf "/tmp/*"
-
-# Get the BlackLab source
-RUN git clone "git://github.com/INL/BlackLab.git"
-
-# Build BlackLab with Maven
-RUN cd "BlackLab" && \
-  mvn clean install
 
 ##
 # Install Mongo
@@ -103,10 +96,23 @@ RUN pip install -r "requirements.txt" && \
   npm install --no-optional && \
   npm run build
 
-# Make ports available
-EXPOSE 27017
-EXPOSE 8080
-EXPOSE 7082
+##
+# Install Blacklab
+##
 
-# Seed the db
-CMD ["sh", "-c", "mongod", "&", "sh", "/usr/local/tomcat/bin/catalina.sh", "start", "&", "gunicorn", "-b", "0.0.0.0:7082", "--access-logfile", "-", "--reload server.app:app", "--timeout", "90", "--log-level=DEBUG"]
+# Get the BlackLab source
+RUN git clone "git://github.com/INL/BlackLab.git"
+
+# Build BlackLab with Maven
+RUN cd "BlackLab" && \
+  mvn clean install
+
+##
+# Run container
+##
+
+# Make ports available
+EXPOSE 27017 8080 7082
+
+# Run the container
+CMD ["sh", "-c", "mongod", "&", "sh", "/usr/local/tomcat/bin/catalina.sh", "start", "&", "npm", "run", "seed", "&", "gunicorn", "-b", "0.0.0.0:7082", "--access-logfile", "-", "--reload server.app:app", "--timeout", "90", "--log-level=DEBUG"]
