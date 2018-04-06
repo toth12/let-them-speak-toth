@@ -7,9 +7,13 @@ MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
 
 
 
+
+
+
 ##
 # Build Maven
 ##
+
 
 
 RUN apk add --update --no-cache \
@@ -34,6 +38,11 @@ RUN MAVEN_VERSION="3.3.9" && \
   mv "/tmp/apache-maven-$MAVEN_VERSION" "$MAVEN_HOME" && \
   ln -s "$MAVEN_HOME/bin/mvn" "/usr/bin/mvn" && \
   rm -rf "/tmp/*"
+
+
+
+
+
 
 ##
 # Install Mongo
@@ -96,7 +105,7 @@ RUN apk add --update --no-cache --upgrade \
   py-pip \
   nano \
   openssh \
-  #openrc \
+  sudo \
   nodejs
 
 
@@ -112,13 +121,27 @@ add ./start_with_seed_data.sh /etc/my_init.d/
 RUN ["/bin/bash", "-c", "chmod -R 777 /etc/my_init.d/"] 
 
 
-#Add user 
 
+#Add user 
 
 RUN ["adduser","-D","-s","/bin/bash", "admin"]
 #Set pwd for user
 
+#this is not working
 RUN ["echo","admin:hello","|", "chpasswd"]
+
+#Add user to the sudo group
+
+#Install usermod
+
+RUN echo http://dl-2.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories
+RUN apk --no-cache add shadow 
+
+#add sudo group
+
+RUN ["addgroup", "sudo"]
+
+RUN ["usermod","-aG","sudo","admin"]
 
 
 
