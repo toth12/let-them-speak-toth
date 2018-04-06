@@ -4,13 +4,6 @@ FROM andreptb/oracle-java:8-alpine
 # Specify author / maintainer
 MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
 
-# Add source to a directory and use that directory
-# NB: /app is a reserved directory in tomcat container
-ENV APP_PATH="/lts-app"
-RUN mkdir "$APP_PATH"
-ADD . "$APP_PATH"
-WORKDIR "$APP_PATH"
-
 ##
 # Build BlackLab
 ##
@@ -45,8 +38,24 @@ RUN cd "BlackLab" && \
 # Build Python + Node dependencies
 ##
 
+# Use Node base image when installing Node deps
+FROM node:8-alpine
+
+# Add source to a directory and use that directory
+# NB: /app is a reserved directory in tomcat container
+ENV APP_PATH="/lts-app"
+RUN mkdir "$APP_PATH"
+ADD . "$APP_PATH"
+WORKDIR "$APP_PATH"
+
+# Add package repositories to container
+RUN echo "ipv6" >> /etc/modules
+RUN echo "http://dl-2.alpinelinux.org/alpine/v3.7/main" >> /etc/apk/repositories; \
+    echo "http://dl-4.alpinelinux.org/alpine/v3.7/main" >> /etc/apk/repositories; \
+    echo "http://dl-5.alpinelinux.org/alpine/v3.7/main" >> /etc/apk/repositories;
+
 # Install system deps with Alpine Linux package manager
-RUN apk add --update --no-cache \
+RUN apk add --update --no-cache --upgrade \
   g++ \
   gcc \
   make \

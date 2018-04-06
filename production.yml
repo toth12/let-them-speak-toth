@@ -29,7 +29,7 @@ services:
     environment:
       PYTHONUNBUFFERED: 'true'
     ports:
-      - '7082:7082'
+      - '7082:80'
     volumes:
       - docker-data-tomcat:/tomcat_webapps
       - docker-data-blacklab:/lts-app/lts/
