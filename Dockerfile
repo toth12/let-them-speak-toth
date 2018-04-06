@@ -4,9 +4,13 @@ FROM node:8-alpine
 # Specify author / maintainer
 MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
 
+
+
+
 ##
 # Build Maven
 ##
+
 
 RUN apk add --update --no-cache \
   wget \
@@ -55,6 +59,7 @@ RUN mkdir -p /data/db && \
 # Install Tomcat
 ##
 
+
 RUN apk add openjdk8 && \
   mkdir -p /tmp/tomcat && \
   cd /tmp/tomcat && \
@@ -89,30 +94,85 @@ RUN apk add --update --no-cache --upgrade \
   python3-dev \
   python \
   py-pip \
+  nano \
+  openssh \
+  #openrc \
   nodejs
 
+
+#Copy the start file
+
+run mkdir /etc/my_init.d
+
+add ./start.sh /etc/my_init.d/
+
+# set the permissions for the varad folder
+RUN ["/bin/bash", "-c", "chmod -R 777 /etc/my_init.d/"] 
+
+
+#Add user 
+
+
+RUN ["adduser","-D","-s","/bin/bash", "admin"]
+#Set pwd for user
+
+RUN ["echo","admin:hello","|", "chpasswd"]
+
+
+
 # Install Python dependencies
-RUN pip install -r "requirements.txt" && \
-  npm install --no-optional && \
-  npm run build
+#RUN pip install -r "requirements.txt" && \
+#  npm install --no-optional && \
+#  npm run build
 
 ##
 # Install Blacklab
 ##
 
 # Get the BlackLab source
-RUN git clone "git://github.com/INL/BlackLab.git"
+#RUN git clone "git://github.com/INL/BlackLab.git"
 
 # Build BlackLab with Maven
-RUN cd "BlackLab" && \
-  mvn clean install
+#RUN cd "BlackLab" && \
+#  mvn clean install
 
-##
-# Run container
-##
+
 
 # Make ports available
 EXPOSE 27017 8080 7082
 
-# Run the container
-CMD ["sh", "-c", "mongod", "&", "sh", "/usr/local/tomcat/bin/catalina.sh", "start", "&", "npm", "run", "seed", "&", "gunicorn", "-b", "0.0.0.0:7082", "--access-logfile", "-", "--reload server.app:app", "--timeout", "90", "--log-level=DEBUG"]
+#Add operc
+
+RUN set -x \
+    && apk add --update --no-cache openrc \
+    # Disable getty's
+    && sed -i 's/^\(tty\d\:\:\)/#\1/g' /etc/inittab \
+    && sed -i \
+        # Change subsystem type to "docker"
+        -e 's/#rc_sys=".*"/rc_sys="docker"/g' \
+        # Allow all variables through
+        -e 's/#rc_env_allow=".*"/rc_env_allow="\*"/g' \
+        # Start crashed services
+        -e 's/#rc_crashed_stop=.*/rc_crashed_stop=NO/g' \
+        -e 's/#rc_crashed_start=.*/rc_crashed_start=YES/g' \
+        # Define extra dependencies for services
+        -e 's/#rc_provide=".*"/rc_provide="loopback net"/g' \
+        /etc/rc.conf \
+    # Remove unnecessary services
+    && rm -f /etc/init.d/hwdrivers \
+            /etc/init.d/hwclock \
+            /etc/init.d/hwdrivers \
+            /etc/init.d/modules \
+            /etc/init.d/modules-load \
+            /etc/init.d/modloop \
+    # Can't do cgroups
+    && sed -i 's/cgroup_add_service /# cgroup_add_service /g' /lib/rc/sh/openrc-run.sh \
+    && sed -i 's/VSERVER/DOCKER/Ig' /lib/rc/sh/init.sh
+
+
+
+##
+# Run container
+##
+#CMD ["sh", "-c", "mongod", "&", "sh", "/usr/local/tomcat/bin/catalina.sh", "start", "&", "npm", "run", "seed", "&", "gunicorn", "-b", "0.0.0.0:7082", "--access-logfile", "-", "--reload server.app:app", "--timeout", "90", "--log-level=DEBUG"]
+#CMD ["sh", "-c", "mongod", "&", "sh", "/usr/local/tomcat/bin/catalina.sh", "start"]
