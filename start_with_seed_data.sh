@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-#set user password
+#set user password, this is a temporary solution
 
 echo 'admin:hello' | chpasswd
 
