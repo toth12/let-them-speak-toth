@@ -32,7 +32,7 @@ from server.seeds.utils import rm_dir, make_dir, write_text #pylint: disable=wro
 
 fake = Faker()
 db = get_db()
-n_testimonies = 100
+n_testimonies = 5
 paragraph_boundary = '\n'
 folia_dir = os.path.join('server', 'seeds', 'folia')
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'

@@ -104,7 +104,9 @@ RUN apk add --update --no-cache --upgrade \
 
 run mkdir /etc/my_init.d
 
-add ./start.sh /etc/my_init.d/
+add ./start_with_real_data.sh /etc/my_init.d/
+add ./start_with_seed_data.sh /etc/my_init.d/
+
 
 # set the permissions for the varad folder
 RUN ["/bin/bash", "-c", "chmod -R 777 /etc/my_init.d/"] 
@@ -121,20 +123,20 @@ RUN ["echo","admin:hello","|", "chpasswd"]
 
 
 # Install Python dependencies
-#RUN pip install -r "requirements.txt" && \
-#  npm install --no-optional && \
-#  npm run build
+RUN pip install -r "requirements.txt" && \
+  npm install --no-optional && \
+  npm run build
 
 ##
 # Install Blacklab
 ##
 
 # Get the BlackLab source
-#RUN git clone "git://github.com/INL/BlackLab.git"
+RUN git clone "git://github.com/INL/BlackLab.git"
 
 # Build BlackLab with Maven
-#RUN cd "BlackLab" && \
-#  mvn clean install
+RUN cd "BlackLab" && \
+  mvn clean install
 
 
 
