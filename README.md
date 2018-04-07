@@ -64,7 +64,7 @@ docker build --tag letthemspeak --no-cache --file Dockerfile .
 Once the container is built, you can run it with:
 
 ```bash
-docker run -p 7082:7082 -p 8080:8080 -p 27017:27017 letthemspeak /bin/sh -c "mongod & /usr/local/tomcat/bin/catalina.sh start & npm run seed & gunicorn -b 0.0.0.0:7082 --access-logfile - --reload server.app:app --timeout 90 --log-level=DEBUG"
+docker run -p 7082:7082 -p 8080:8080 -p 27017:27017 letthemspeak /bin/sh -c "mongod & /usr/local/tomcat/bin/catalina.sh start & npm run seed & gunicorn -b 0.0.0.0:7082 --workers 1 --threads 8 --timeout 30 --keep-alive 2 --access-logfile - --log-level=DEBUG server.app:app"
 ```
 
 ## Linting
@@ -109,15 +109,6 @@ sudo service docker start
 sudo usermod -a -G docker ec2-user
 ```
 
-Install docker-compose:
-```
-# get the docker-compose binaries
-sudo curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-
-# change the permissions on the source
-sudo chmod +x /usr/local/bin/docker-compose
-```
-
 To apply the group changes, log out then log back in. Next, build the app:
 
 ```
@@ -128,13 +119,12 @@ sudo yum install git -y
 git clone https://github.com/YaleDHLab/let-them-speak
 
 # start a screen to hold the server process
-screen -S server-screen
+screen -S server
 
 # cd into the app source
 cd let-them-speak
 
-# run the image (add -d to demeanoize)
-docker-compose -f production.yml up
+# run the Docker commands above to build and start the container
 ```
 
 Then, from another ssh session, detach your screen:
