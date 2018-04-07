@@ -117,6 +117,8 @@ add ./start_with_real_data.sh /etc/my_init.d/
 add ./start_with_seed_data.sh /etc/my_init.d/
 
 
+
+
 # set the permissions for the varad folder
 RUN ["/bin/bash", "-c", "chmod -R 777 /etc/my_init.d/"] 
 
@@ -141,14 +143,36 @@ RUN apk --no-cache add shadow
 
 RUN ["addgroup", "sudo"]
 
-RUN ["usermod","-aG","sudo","admin"]
+#add admin to sudoers
+#this command is not workingRUN ["usermod","-aG","sudo","admin"]
+
+RUN echo "admin ALL=(ALL) ALL" >> /etc/sudoers
+
+#Set the profile for all users
+
+RUN echo "cd /lts-app/ && source env_lts/bin/activate" >> /etc/profile
+RUN echo "export MONGO_HOST=\"0.0.0.0\"" >> /etc/profile
+RUN echo "export TOMCAT_WEBAPPS=\"/usr/local/tomcat/webapps/\"" >> /etc/profile
 
 
 
-# Install Python dependencies
-RUN pip install -r "requirements.txt" && \
+
+#Install virtual environment
+
+RUN ["pip","install","virtualenv"]
+
+# create virtualenvironment
+
+RUN ["/bin/bash", "-c", "cd /lts-app/ && virtualenv env_lts"]
+
+RUN ["/bin/bash", "-c", "cd /lts-app/ && source env_lts/bin/activate  && ./env_lts/bin/pip install -r requirements.txt"]
+
+# Install Python and project dependencies
+RUN source env_lts/bin/activate && \
   npm install --no-optional && \
   npm run build
+
+
 
 ##
 # Install Blacklab
@@ -196,8 +220,3 @@ RUN set -x \
 
 
 
-##
-# Run container
-##
-#CMD ["sh", "-c", "mongod", "&", "sh", "/usr/local/tomcat/bin/catalina.sh", "start", "&", "npm", "run", "seed", "&", "gunicorn", "-b", "0.0.0.0:7082", "--access-logfile", "-", "--reload server.app:app", "--timeout", "90", "--log-level=DEBUG"]
-#CMD ["sh", "-c", "mongod", "&", "sh", "/usr/local/tomcat/bin/catalina.sh", "start"]
