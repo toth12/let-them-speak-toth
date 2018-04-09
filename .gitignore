@@ -12,3 +12,4 @@ BlackLab
 server/seeds/folia/
 server/inputs/
 .pytest_cache
+env_lts

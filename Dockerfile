@@ -95,7 +95,8 @@ RUN apk add openjdk8 && \
 # NB: /app is a reserved directory in tomcat container
 ENV APP_PATH="/lts-app"
 RUN mkdir "$APP_PATH"
-ADD . "$APP_PATH"
+#For a compact version copy the entire project folder to the docker
+#ADD . "$APP_PATH"
 WORKDIR "$APP_PATH"
 
 # Store Mongo service name as mongo host
@@ -124,6 +125,8 @@ run mkdir /etc/my_init.d
 
 add ./start_with_real_data.sh /etc/my_init.d/
 add ./start_with_seed_data.sh /etc/my_init.d/
+
+add ./start_default.sh /etc/my_init.d/
 
 
 
@@ -170,28 +173,33 @@ RUN echo "export TOMCAT_WEBAPPS=\"/usr/local/tomcat/webapps/\"" >> /etc/profile
 
 RUN ["pip","install","virtualenv"]
 
-# create virtualenvironment
+# Compact version create virtualenvironment
 
-RUN ["/bin/bash", "-c", "cd /lts-app/ && virtualenv env_lts"]
+#copy the requirements file
 
-RUN ["/bin/bash", "-c", "cd /lts-app/ && source env_lts/bin/activate  && ./env_lts/bin/pip install -r requirements.txt"]
+#add ./requirements.txt /lts-app/
 
+#RUN ["/bin/bash", "-c", "cd /lts-app/ && virtualenv env_lts"]
+
+#RUN ["/bin/bash", "-c", "cd /lts-app/ && source env_lts/bin/activate  && ./env_lts/bin/pip install -r requirements.txt"]
+
+#Compact version
 # Install Python and project dependencies
-RUN source env_lts/bin/activate && \
-  npm install --no-optional && \
-  npm run build
+#RUN source env_lts/bin/activate && \
+#  npm install --no-optional && \
+#  npm run build
 
 
 
 ##
-# Install Blacklab
+# Install Blacklab to a temporary directory
 ##
 
-# Get the BlackLab source
-RUN git clone "git://github.com/INL/BlackLab.git"
+# Get the BlackLab source and copy it to a temporary folder
+RUN git clone "git://github.com/INL/BlackLab.git" /home/admin/BlackLab
 
-# Build BlackLab with Maven
-RUN cd "BlackLab" && \
+# Build BlackLab with Maven in the temporary folder
+RUN cd "/home/admin/BlackLab" && \
   mvn clean install
 
 
