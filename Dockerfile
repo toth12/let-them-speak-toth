@@ -6,14 +6,18 @@ MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
 
 
 
-
-
-
-
 ##
 # Build Maven
 ##
 
+#Add Alpine Edge Repo (mongodb-tools is available only in the edge)
+
+#RUN ['touch','etc/apk/repositories']
+
+#RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
+
+#RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+#RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
 
 
 RUN apk add --update --no-cache \
@@ -49,7 +53,7 @@ RUN MAVEN_VERSION="3.3.9" && \
 ##
 
 # Add package repositories to container
-RUN apk update && apk upgrade && \
+RUN apk update && apk upgrade --repository https://dl-cdn.alpinelinux.org/alpine/edge/community && \
     apk add \
       bash \
       g++ \
@@ -58,6 +62,11 @@ RUN apk update && apk upgrade && \
       boost-system \
       boost \
       mongodb \
+      go \
+      #libsasl2-dev \
+      #libpcap \
+      #libpcap-dev \
+      mongodb-tools \
       --no-cache && \
     rm -rf /var/cache/apk/*
 

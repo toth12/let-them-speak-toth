@@ -9,6 +9,10 @@ echo 'admin:hello' | chpasswd
 
 chmod -R 777 /lts-app/
 
+#chmod Tomcat web library
+
+chmod -R 777 /usr/local/tomcat/webapps
+
 #start tomcat
 
 bash /usr/local/tomcat/bin/catalina.sh start
@@ -24,7 +28,7 @@ openrc boot
 openrc -s sshd start
 
 #seed the data and start the server
-cd /lts-app/ && source env_lts/bin/activate && npm run seed && npm run production
+cd /lts-app/ && source env_lts/bin/activate && npm run build-db && npm run production
 
 #start bash for debegging
 #/bin/bash

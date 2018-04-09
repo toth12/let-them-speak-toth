@@ -10,6 +10,9 @@ echo 'admin:hello' | chpasswd
 
 chmod -R 777 /lts-app/
 
+#chmod tomcat webapps folder
+chmod -R 777 /usr/local/tomcat/webapps
+
 #start tomcat
 
 bash /usr/local/tomcat/bin/catalina.sh start
