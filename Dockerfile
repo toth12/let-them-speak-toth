@@ -165,6 +165,7 @@ RUN echo "admin ALL=(ALL) ALL" >> /etc/sudoers
 RUN echo "cd /lts-app/ && source env_lts/bin/activate" >> /etc/profile
 RUN echo "export MONGO_HOST=\"0.0.0.0\"" >> /etc/profile
 RUN echo "export TOMCAT_WEBAPPS=\"/usr/local/tomcat/webapps/\"" >> /etc/profile
+RUN echo "export TOMCAT_HOST=\"0.0.0.0\"" >> /etc/profile
 
 
 

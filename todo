@@ -1,0 +1,19 @@
+What I did:
+
+- non compact version that links project folder 
+- docker can be started in different ways: seed,build-db, default
+- ssh to the container
+- admin user with sudo rights
+- virtual environment added
+- project compile when included
+- BlackLab folder changed
+
+Problem: user password how to add
+
+Further todos:
+
+- everything in bash
+Init.sh level: debugging  | daemon
+Type: default, seed, real_data
+- admin password
+- rights to set up, for instance, admin can run npm run production with sudo, without sudo it is not connected to Tomcat
