@@ -10,7 +10,6 @@ app = Flask(__name__, static_folder='../build')
 CORS(app)
 
 app.debug = True
-db = get_db()
 
 ##
 # API routes
@@ -19,6 +18,7 @@ db = get_db()
 @app.route('/api/tree')
 def items():
   '''Fetch tree data'''
+  db = get_db() #pylint: disable=invalid-name
   try:
     return jsonify(list(db.fragments.find({}, {'_id': 0})))
   except Exception: #pylint: disable=broad-except
@@ -27,6 +27,7 @@ def items():
 @app.route('/api/testimony')
 def testimony():
   '''Fetch a transcript'''
+  db = get_db() #pylint: disable=invalid-name
   args = {'testimony_id': request.args.get('testimony_id')}
   result = list(db.testimonies.find(args, {'_id': 0}))
   if result:
@@ -36,6 +37,7 @@ def testimony():
 @app.route('/api/table_of_contents')
 def table_of_contents():
   '''Fetch all testimonies for the table of contents'''
+  db = get_db() #pylint: disable=invalid-name
   projection = {
     '_id': 0,
     'rg_number': 1,
@@ -69,6 +71,7 @@ def search():
 @app.route('/api/sentences')
 def sentences():
   '''Fetch sentence indices given a testimony id and token indices'''
+  db = get_db() #pylint: disable=invalid-name
   testimony_id = request.args.get('testimony_id', None)
   token_start = int(request.args.get('token_start', 0))
   token_end = int(request.args.get('token_end', 0))
@@ -91,4 +94,4 @@ def index(path):
   return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=7082)
+  app.run(host='0.0.0.0', port=7082, threaded=True)
