@@ -18,10 +18,8 @@ import random
 import sys
 from faker import Faker
 [sys.path.append(i) for i in ['.', '..', 'server']]
-from db import get_db #pylint: disable=wrong-import-position, import-error
 
 fake = Faker()
-db = get_db()
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
 video_url = url + '/videos/dev/shoah-sample.mp4'
 audio_url = url + '/videos/dev/ushmm-sample.mp3'

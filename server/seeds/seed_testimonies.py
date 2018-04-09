@@ -31,8 +31,7 @@ from server.seeds.seed_fragments import get_fragments #pylint: disable=wrong-imp
 from server.seeds.utils import rm_dir, make_dir, write_text #pylint: disable=wrong-import-position, no-name-in-module
 
 fake = Faker()
-db = get_db()
-n_testimonies = 100
+n_testimonies = 10
 paragraph_boundary = '\n'
 folia_dir = os.path.join('server', 'seeds', 'folia')
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
@@ -130,6 +129,7 @@ def store_token_ids(testimony_id, full_text):
   Store a mapping from each token's index position to the idx of
   the sentence in which that token occurs
   '''
+  db = get_db() #pylint: disable=invalid-name
   t_idx = 0
   s_idx = 0
   tokens = []
@@ -208,6 +208,7 @@ def seed_testimonies():
   '''Seed all testimonies and linked fragments'''
 
   # drop all extant collection records
+  db = get_db() #pylint: disable=invalid-name
   db.fragments.remove({})
   db.testimonies.remove({})
   db.tokens.remove({})

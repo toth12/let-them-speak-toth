@@ -86,8 +86,9 @@ RUN apk add --update --no-cache --upgrade \
   gcc \
   make \
   openssl-dev \
-  python3-dev \
   python \
+  python-dev \
+  python3-dev \
   py-pip \
   nodejs
 
