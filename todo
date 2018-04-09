@@ -17,3 +17,6 @@ Init.sh level: debugging  | daemon
 Type: default, seed, real_data
 - admin password
 - rights to set up, for instance, admin can run npm run production with sudo, without sudo it is not connected to Tomcat
+- write documentation
+- server ip address to set in /src/configuration
+- test does not pass because type is str and it is in unicode

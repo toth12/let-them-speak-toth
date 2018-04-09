@@ -10,14 +10,6 @@ MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
 # Build Maven
 ##
 
-#Add Alpine Edge Repo (mongodb-tools is available only in the edge)
-
-#RUN ['touch','etc/apk/repositories']
-
-#RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
-
-#RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
-#RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
 
 
 RUN apk add --update --no-cache \
@@ -119,7 +111,7 @@ RUN apk add --update --no-cache --upgrade \
   nodejs
 
 
-#Copy the start file
+#Copy the init scripts
 
 run mkdir /etc/my_init.d
 
@@ -131,7 +123,7 @@ add ./start_default.sh /etc/my_init.d/
 
 
 
-# set the permissions for the varad folder
+# set the permissions for the init script
 RUN ["/bin/bash", "-c", "chmod -R 777 /etc/my_init.d/"] 
 
 
@@ -139,10 +131,11 @@ RUN ["/bin/bash", "-c", "chmod -R 777 /etc/my_init.d/"]
 #Add user 
 
 RUN ["adduser","-D","-s","/bin/bash", "admin"]
-#Set pwd for user
 
-#this is not working
-RUN ["echo","admin:hello","|", "chpasswd"]
+
+#Set pwd for admin
+
+RUN ["/bin/bash","-c","echo admin:hello | chpasswd"]
 
 #Add user to the sudo group
 

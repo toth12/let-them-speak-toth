@@ -1,14 +1,15 @@
 #!/bin/bash
 
 
-#set user password, this is a temporary solution
-
-echo 'admin:hello' | chpasswd
 
 
 #chmod project directory
 
 chmod -R 777 /lts-app/
+
+#change ownership of project folder
+
+chown -RP admin lts-app/
 
 #chmod tomcat webapps folder
 chmod -R 777 /usr/local/tomcat/webapps

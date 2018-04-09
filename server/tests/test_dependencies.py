@@ -1,6 +1,6 @@
 '''Test that all server-level dependencies are met'''
 from subprocess import check_output
-from urllib.request import urlopen
+from urllib2 import urlopen
 from py4j.java_gateway import JavaGateway, Py4JNetworkError
 import os
 import sys
