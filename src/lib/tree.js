@@ -28,7 +28,7 @@ tree.init = (props) => {
   svg.selectAll('.root-node').data(props.data).enter()
     .append('text')
       .attr('class', 'root-node')
-      .text((d) => d.label.toLowerCase())
+      .text((d) => d.label)
       .attr('font-size', fonts.parent)
       .attr('y', tree.getRootY)
       .attr('x', margin.left)
@@ -258,7 +258,9 @@ tree.draw = (props) => {
         return 'translate(' + d.y + ',' + d.x + ')';
       })
       .attr('font-size', getFontSize)
-      .on('click', props.onClick)
+      .on('click', d => {
+        props.onClick(d)
+      })
 
   /**
   * Text
@@ -305,7 +307,7 @@ tree.draw = (props) => {
   }
 
   function getLabel(d) {
-    return d.data.label.toLowerCase();
+    return d.data.label;
   }
 }
 

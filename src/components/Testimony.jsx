@@ -181,7 +181,7 @@ const Metadata = props => (
       <div>Shelfmark: {props.testimony.shelfmark}</div>
       <div>Interview date: {props.testimony.recording_year}</div>
       {props.testimony.camp_names.length ?
-        <div>Camp: {props.testimony.camp_names.join(', ')}</div>
+        <div>Camps: {props.testimony.camp_names.join(', ')}</div>
         : null
       }
       {props.testimony.ghetto_names.length ?

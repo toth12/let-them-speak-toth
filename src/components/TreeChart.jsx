@@ -48,7 +48,9 @@ class TreeChart extends React.Component {
     } else {
       tree.draw({
         data: this.props.data[this.props.selected].tree,
-        onClick: ((d, idx) => {
+        onClick: (d => {
+          // display a testimony on click of a child node
+          if (d.children && d.children.length) return;
           this.props.highlightSentences({
             start: d.data.start_sentence_index,
             end: d.data.end_sentence_index,
