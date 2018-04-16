@@ -1,4 +1,5 @@
 beautifulsoup4==4.5.1
+cas-client==0.1.4
 Faker>=0.8.10
 Flask>=0.12.2
 Flask-Cors>=3.0.3

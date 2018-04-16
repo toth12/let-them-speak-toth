@@ -1,6 +1,14 @@
 '''server/app.py - main api app declaration'''
+import hashlib
 import sys
-from flask import Flask, jsonify, send_from_directory, request
+from cas_client import CASClient
+from flask import Flask
+from flask import jsonify
+from flask import send_from_directory
+from flask import request
+from flask import redirect
+from flask import session
+from flask import url_for
 from flask_cors import CORS
 [sys.path.append(i) for i in ['.', '..', 'server']]
 from server.blacklab import search_blacklab #pylint: disable=wrong-import-position
@@ -10,6 +18,12 @@ app = Flask(__name__, static_folder='../build')
 CORS(app)
 
 app.debug = True
+
+# cas authentication URL
+cas_url = 'https://secure.its.yale.edu/cas/'
+cas_client = CASClient(cas_url, auth_prefix='')
+app.secret_key = hashlib.new('ripemd160').hexdigest()
+restrict_access = True
 
 ##
 # API routes
@@ -83,6 +97,43 @@ def sentences():
   })
 
 ##
+# Auth routes
+##
+
+@app.route('/login')
+def login():
+  '''Send a user to the CAS endpoint where they can authenticate'''
+  service_url = get_service_url(request)
+  cas_login_url = cas_client.get_login_url(service_url=service_url)
+  return redirect(cas_login_url)
+
+@app.route('/validate')
+def validate():
+  '''Validate that a user's CAS auth attempt was or wasn't successful'''
+  ticket = request.args.get('ticket')
+  auth_url = get_service_url(request)
+  if ticket:
+    response = cas_client.perform_service_validate(
+      ticket=ticket, service_url=auth_url)
+    # user has authenticated
+    if response and response.success:
+      session['authenticated'] = True
+      return redirect(url_for('index'))
+  # attempt to authenticate the user
+  if 'authenticated' in session:
+    del session['authenticated']
+  cas_login_url = cas_client.get_login_url(service_url=auth_url)
+  return redirect(cas_login_url)
+
+def get_service_url(_request):
+  '''
+  Identify the url to which logged in users will be sent
+  @param {Flask.request} a flask request object
+  @returns {str} the url to which users should be sent upon authentication
+  '''
+  return '/'.join(_request.url.split('/')[:3]) + '/validate'
+
+##
 # View route
 ##
 
@@ -91,6 +142,10 @@ def sentences():
 def index(path):
   '''Return index.html for all non-api routes'''
   #pylint: disable=unused-argument
+  if restrict_access:
+    if session.get('authenticated'):
+      return send_from_directory(app.static_folder, 'index.html')
+    return redirect(url_for('login'))
   return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
