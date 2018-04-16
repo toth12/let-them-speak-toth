@@ -48,7 +48,7 @@ class Testimony extends React.Component {
 
   activateSentences() {
     const container = document.querySelector('.testimony .content .left-body');
-    if (!container) {
+    if (!container || !this.props.sentenceStart || !this.props.sentenceEnd) {
       this.setState({highlightId: setTimeout(this.activateSentences, 200)});
       return;
     };
@@ -59,19 +59,24 @@ class Testimony extends React.Component {
     }
     // highlight the active sentence(s)
     for (let i=this.props.sentenceStart; i<this.props.sentenceEnd+1; i++) {
-      document.querySelector('#s' + i).className += ' active';
+      let match = document.querySelector('#s' + i);
+      if (match) match.className += ' active';
+      else (console.log('#s' + i + ' could not be found'));
     }
     // scroll the first sentence into view
     const elem = document.querySelector('#s' + this.props.sentenceStart);
-    container.scrollTop = elem.offsetTop - 200;
+    if (elem) container.scrollTop = elem.offsetTop - 200;
   }
 
   setMediaStart() {
-    let media;
+    let media, selector;
     if (this.props.testimony) {
       const url = this.props.testimony.media_url[0];
-      const selector = isVideo(url) ? 'video' : 'audio';
-      media = document.querySelector(selector);
+      if (isVideo(url)) selector = 'video';
+      if (isAudio(url)) selector = 'audio';
+      if (selector) {
+        media = document.querySelector(selector);
+      }
     }
     if (!media) {
       this.setState({timeId: setTimeout(this.setMediaStart, 200)})
@@ -115,7 +120,7 @@ const Left = props => (
     <div className='title'>
       Transcript Excerpt: {props.testimony.testimony_title}
     </div>
-    <div className='left-body'
+    <div className='left-body transcript-text'
       dangerouslySetInnerHTML={{__html: props.testimony.html_transcript}}>
     </div>
   </div>
@@ -133,14 +138,20 @@ const Footer = props => (
   </div>
 )
 
-const Media = props => (
-  <div className='media'>
-    {isVideo(props.testimony.media_url[0]) ?
-      <Video url={props.testimony.media_url[0]} />
-      : <Audio url={props.testimony.media_url[0]} />
+class Media extends React.Component {
+  render() {
+    let content = <NoMedia />;
+    const url = this.props.testimony.media_url || null;
+    if (url) {
+      if (isVideo(url)) {
+        content = <Video url={url} />
+      } else if (isAudio(url)) {
+        content = <Audio url={url} />
+      }
     }
-  </div>
-)
+    return content;
+  }
+}
 
 const Video = props => (
   <video width='340' height='260' controls>
@@ -157,6 +168,10 @@ const Audio = props => (
       Your browser does not support the audio tag.
     </audio>
   </div>
+)
+
+const NoMedia = props => (
+  <div className='no-media' />
 )
 
 const Metadata = props => (
@@ -183,6 +198,8 @@ const Metadata = props => (
 )
 
 const isVideo = str => str.indexOf('.mp4') > -1;
+
+const isAudio = str => str.indexOf('.mp3') > -1;
 
 const testimonyProps = PropTypes.shape({
   camp_names: PropTypes.arrayOf(PropTypes.string),
