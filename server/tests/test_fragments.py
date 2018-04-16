@@ -1,5 +1,6 @@
 '''Fragments collection test suite'''
 import sys
+from six import string_types
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 [sys.path.append(i) for i in ['server', '..', '.']]
@@ -7,14 +8,14 @@ from db import get_db
 
 root_schema = {
   '_id': ObjectId,
-  'label': str,
-  'essay_id': str,
+  'label': string_types,
+  'essay_id': string_types,
   'tree': dict,
 }
 
 node_schema = {
-  'label': str,
-  'testimony_id': str,
+  'label': string_types,
+  'testimony_id': string_types,
   'media_index': int,
   'media_offset': int,
   'start_sentence_index': int,
