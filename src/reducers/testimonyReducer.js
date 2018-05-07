@@ -36,6 +36,14 @@ const testimonyReducer = (state = initialState, action) => {
         mediaStart: action.val,
       })
 
+    case 'CLEAR_ACTIVE_MEDIA': {
+      return Object.assign({}, state, {
+        sentenceStart: null,
+        sentenceEnd: null,
+        mediaStart: null,
+      })
+    }
+
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import img from '../assets/images/x-close.svg';
 import placeholder from '../assets/images/placeholder.jpg';
-import { hideTestimony } from '../actions/testimony';
+import { hideTestimony, clearActiveMedia } from '../actions/testimony';
 
 class Testimony extends React.Component {
 
@@ -71,7 +71,7 @@ class Testimony extends React.Component {
   setMediaStart() {
     let media, selector;
     if (this.props.testimony) {
-      const url = this.props.testimony.media_url[0];
+      const url = getMediaUrl(this.props.testimony);
       if (isVideo(url)) selector = 'video';
       if (isAudio(url)) selector = 'audio';
       if (selector) {
@@ -141,7 +141,7 @@ const Footer = props => (
 class Media extends React.Component {
   render() {
     let content = <NoMedia />;
-    const url = this.props.testimony.media_url || null;
+    const url = getMediaUrl(this.props.testimony);
     if (url) {
       if (isVideo(url)) {
         content = <Video url={url} />
@@ -197,6 +197,8 @@ const Metadata = props => (
   </div>
 )
 
+const getMediaUrl = testimony => testimony.media_url[0] || '';
+
 const isVideo = str => str.indexOf('.mp4') > -1;
 
 const isAudio = str => str.indexOf('.mp3') > -1;
@@ -244,6 +246,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   hideTestimony: () => dispatch(hideTestimony()),
+  clearActiveMedia: () => dispatch(clearActiveMedia()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Testimony);

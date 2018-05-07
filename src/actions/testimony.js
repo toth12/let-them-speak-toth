@@ -10,17 +10,27 @@ export const receiveTestimonyData = data => ({
   type: 'RECEIVE_TESTIMONY_DATA', data,
 })
 
-export const hideTestimony = () => ({
-  type: 'HIDE_TESTIMONY',
-})
-
 export const setActiveSentences = obj => ({
   type: 'SET_ACTIVE_SENTENCES', obj,
+})
+
+export const clearActiveMedia = () => ({
+  type: 'CLEAR_ACTIVE_MEDIA',
 })
 
 export const setMediaStart = val => ({
   type: 'SET_MEDIA_START', val
 })
+
+// when hiding the testimony, clear the active media
+// so remounting the same fragment shows the proper
+// active media
+export const hideTestimony = () => {
+  return function(dispatch) {
+    dispatch({type: 'HIDE_TESTIMONY'})
+    dispatch(clearActiveMedia())
+  }
+}
 
 export const highlightSentences = obj => {
   return function(dispatch) {
