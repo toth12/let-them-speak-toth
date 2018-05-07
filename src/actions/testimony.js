@@ -61,7 +61,7 @@ const handleTestimonyData = (dispatch, data) => {
   data = parse(data, dispatch, testimonyRequestFailed());
   if (data.err) {
     dispatch(testimonyRequestFailed());
-  } else if (data) {
+  } else if (data && data.testimony_id) {
     dispatch(receiveTestimonyData(data));
   } else {
     dispatch(testimonyRequestFailed());
