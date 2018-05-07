@@ -87,7 +87,7 @@ class Testimony extends React.Component {
 
   render() {
     const testimony = this.props.testimony;
-    const content = testimony === null ? null :
+    const content = !testimony ? null :
       <div className='testimony-modal-container' onClick={this.handleClick}>
         <div className='testimony-inner'>
           <div className='testimony'>
