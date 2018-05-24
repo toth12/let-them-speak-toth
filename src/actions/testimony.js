@@ -26,20 +26,20 @@ export const setMediaStart = val => ({
 // so remounting the same fragment shows the proper
 // active media
 export const hideTestimony = () => {
-  return function(dispatch) {
+  return dispatch => {
     dispatch({type: 'HIDE_TESTIMONY'})
     dispatch(clearActiveMedia())
   }
 }
 
 export const highlightSentences = obj => {
-  return function(dispatch) {
+  return dispatch => {
     dispatch({type: 'HIGHLIGHT_SENTENCES', obj});
     if (obj.lookupSentences) {
       get(config.endpoint + 'sentences?testimony_id=' + obj.testimonyId +
         '&token_start=' + obj.start + '&token_end=' + obj.end,
-        (data) => dispatch(setActiveSentences(JSON.parse(data))), // eslint-disable-line indent
-        (err) => dispatch(testimonyRequestFailed(err))) // eslint-disable-line indent
+        data => dispatch(setActiveSentences(JSON.parse(data))), // eslint-disable-line indent
+        err => dispatch(testimonyRequestFailed(err))) // eslint-disable-line indent
     } else {
       dispatch(setActiveSentences({
         sentenceStart: obj.start,
@@ -50,10 +50,10 @@ export const highlightSentences = obj => {
 }
 
 export const fetchTestimony = id => {
-  return function(dispatch) {
+  return dispatch => {
     get(config.endpoint + 'testimony?testimony_id=' + id,
-      (data) => handleTestimonyData(dispatch, data),
-      (err) => dispatch(testimonyRequestFailed(err)))
+      data => handleTestimonyData(dispatch, data),
+      err => dispatch(testimonyRequestFailed(err)))
   }
 }
 
