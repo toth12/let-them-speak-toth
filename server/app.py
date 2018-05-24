@@ -32,7 +32,7 @@ use_authentication = True
 @app.route('/api/tree')
 def items():
   '''Fetch tree data'''
-  db = get_db() #pylint: disable=invalid-name
+  db = get_db()
   try:
     return jsonify(list(db.fragments.find({}, {'_id': 0})))
   except Exception: #pylint: disable=broad-except
@@ -41,7 +41,7 @@ def items():
 @app.route('/api/testimony')
 def testimony():
   '''Fetch a transcript'''
-  db = get_db() #pylint: disable=invalid-name
+  db = get_db()
   args = {'testimony_id': request.args.get('testimony_id')}
   result = list(db.testimonies.find(args, {'_id': 0}))
   if result:
@@ -49,7 +49,7 @@ def testimony():
   return jsonify([])
 
 @app.route('/api/search')
-def search():
+def xml_search():
   '''Fetch testimonies that match a query'''
   limit = int(request.args.get('limit', 20))
   start = int(request.args.get('start', 0))
@@ -63,7 +63,7 @@ def search():
 @app.route('/api/sentences')
 def sentences():
   '''Fetch sentence indices given a testimony id and token indices'''
-  db = get_db() #pylint: disable=invalid-name
+  db = get_db()
   testimony_id = request.args.get('testimony_id', None)
   token_start = int(request.args.get('token_start', 0))
   token_end = int(request.args.get('token_end', 0))
@@ -81,7 +81,7 @@ def sentences():
 @app.route('/api/table_of_contents')
 def table_of_contents():
   '''Fetch all testimonies for the table of contents'''
-  db = get_db() #pylint: disable=invalid-name
+  db = get_db()
   args = get_filter_query(request.args)
   projection = projections['table_of_contents']
   limit = 10
@@ -94,7 +94,7 @@ def table_of_contents():
   })
 
 @app.route('/api/filters')
-def filter():
+def filter_testimonies():
   '''Get the distinct levels of each field used in filtering'''
   db = get_db()
   # initialize distinct value arrays

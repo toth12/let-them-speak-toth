@@ -18,7 +18,7 @@ export const getTypeahead = (field, query) => {
   return dispatch => {
     get(config.endpoint + 'typeahead?field=' + field + '&query=' + query,
       data => dispatch(handleTypeaheadResults(field, query, JSON.parse(data))),
-      err => dispatch(handleTypeaheadErr(field, query)))
+      err => dispatch(handleTypeaheadErr(field, query, err)))
   }
 }
 
@@ -44,7 +44,7 @@ export const getFilterLevels = () => {
     url += getFilterQueryParams(getState);
     get(url,
       data => dispatch(receiveFilterLevels(JSON.parse(data))),
-      err => dispatch(handleFilterError()))
+      err => dispatch(handleFilterError(err)))
   }
 }
 

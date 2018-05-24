@@ -26,6 +26,7 @@ module.exports = {
     "no-empty": ["error", { "allowEmptyCatch": true }],
     "no-undef": ["error", { "typeof": false }],
     "no-unused-vars": ["error", { "varsIgnorePattern": "React" }],
+    "no-case-declarations": 0,
     "no-trailing-spaces": 2,
     "quotes": ["error", "single"],
     "react/jsx-uses-vars": 2,

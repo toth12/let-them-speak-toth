@@ -174,4 +174,4 @@ min-public-methods=2
 [OVERRIDES]
 
 # List of pylint default rules to override
-disable=missing-final-newline, pointless-string-statement, expression-not-assigned
+disable=missing-final-newline, pointless-string-statement, expression-not-assigned, invalid-name
