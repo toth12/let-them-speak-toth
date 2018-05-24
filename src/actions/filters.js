@@ -63,6 +63,12 @@ export const getFilterQueryParams = getState => {
       if (idx + 1 < selectedKeys.length) url += '&';
     })
   }
+  const years = getState().filters.years;
+  if (years.min && years.max) {
+    if (!url) url = '?';
+    url += 'min_year=' + years.min + '&';
+    url += 'max_year=' + years.max;
+  }
   return url;
 }
 
@@ -76,3 +82,7 @@ export const setFilterValue = (field, value) => {
     dispatch(getFilterLevels())
   }
 }
+
+export const setYearRange = obj => ({
+  type: 'SET_YEAR_RANGE', obj: obj,
+})
