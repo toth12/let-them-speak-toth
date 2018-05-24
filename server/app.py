@@ -20,10 +20,10 @@ CORS(app)
 app.debug = True
 
 # cas authentication URL
-cas_url = 'https://secure.its.yale.edu/cas/'
+cas_url = 'https://secure.its.yale.edu/cas'
 cas_client = CASClient(cas_url, auth_prefix='')
 app.secret_key = hashlib.new('ripemd160').hexdigest()
-restrict_access = True
+use_authentication = True
 
 ##
 # API routes
@@ -47,28 +47,6 @@ def testimony():
   if result:
     return jsonify(result[0])
   return jsonify([])
-
-@app.route('/api/table_of_contents')
-def table_of_contents():
-  '''Fetch all testimonies for the table of contents'''
-  db = get_db() #pylint: disable=invalid-name
-  projection = {
-    '_id': 0,
-    'rg_number': 1,
-    'accession_number': 1,
-    'collection': 1,
-    'testimony_title': 1,
-    'testimony_id': 1,
-  }
-  limit = 10
-  start = int(request.args.get('start', 0))
-  args = {}
-  total = db.testimonies.find(args).count()
-  results = db.testimonies.find(args, projection).skip(start).limit(limit)
-  return jsonify({
-    'total': int(total),
-    'results': list(results),
-  })
 
 @app.route('/api/search')
 def search():
@@ -95,6 +73,126 @@ def sentences():
     'sentenceStart': tokens[token_start]['sentence_index'],
     'sentenceEnd': tokens[token_end]['sentence_index']
   })
+
+##
+# Filtered routes
+##
+
+@app.route('/api/table_of_contents')
+def table_of_contents():
+  '''Fetch all testimonies for the table of contents'''
+  db = get_db() #pylint: disable=invalid-name
+  args = get_filter_query(request.args)
+  projection = projections['table_of_contents']
+  limit = 10
+  start = int(request.args.get('start', 0))
+  total = db.testimonies.find(args).count()
+  results = db.testimonies.find(args, projection).skip(start).limit(limit)
+  return jsonify({
+    'total': int(total),
+    'results': list(results),
+  })
+
+@app.route('/api/filters')
+def filter():
+  '''Get the distinct levels of each field used in filtering'''
+  db = get_db()
+  # initialize distinct value arrays
+  collections = set()
+  genders = set()
+  ghetto_names = set()
+  camp_names = set()
+  recording_years = set()
+  interviewee_names = set()
+  testimony_ids = set()
+  # build the search using any requested filters
+  args = get_filter_query(request.args)
+  # add each distinct level to the sets initialized above
+  for i in db.testimonies.find(args, projections['filters']):
+    collections.add(i['collection'])
+    genders.add(i['gender'])
+    interviewee_names.add(i['interviewee_name'])
+    testimony_ids.add(i['testimony_id'])
+    recording_years.add(i['recording_year'])
+    # handle list fields
+    for j in i['ghetto_names']:
+      ghetto_names.add(j)
+    for j in i['camp_names']:
+      camp_names.add(j)
+  return jsonify({
+    'collections': list(collections),
+    'genders': list(genders),
+    'ghetto_names': list(ghetto_names),
+    'camp_names': list(camp_names),
+    'recording_years': list(recording_years),
+    'interviewee_names': list(interviewee_names),
+    'testimony_ids': list(testimony_ids)
+  })
+
+@app.route('/api/typeahead')
+def typeahead():
+  '''Given a field and a string, return all values
+  in the given field that contain the string'''
+  db = get_db()
+  field = request.args.get('field', None)
+  query = request.args.get('query', '')
+  if not field:
+    return jsonify(['Error: a field is required'])
+  search = {field: {'$regex': query}}
+  results = db.testimonies.find(search).distinct(field)
+  return jsonify(results)
+
+def get_filter_query(args):
+  '''Return a mongo query that returns all values
+  that match all key/value pairs specified in `args`
+  @params:
+    {dict} args: a JSON-serialized representation of filters.selected
+  @returns:
+    {dict} a formatted Mongo query
+  '''
+  search = {}
+  for i in args:
+    # skip params passed to Flask that aren't in testimony collection
+    if i in ['start', 'min_year', 'max_year']:
+      continue
+    if i in ['ghetto_name', 'camp_name']:
+      # all filters.selected value keys are singular, but these
+      # keys are pluralized in the mongo table
+      search[i + 's'] = {'$in': [args[i]]}
+    else:
+      search[i] = args[i]
+  # add year-based query values
+  if ('min_year' in args) and ('max_year' in args):
+    search['recording_year'] = {
+      '$gte': int(args['min_year']),
+      '$lte': int(args['max_year']),
+    }
+  return search
+
+##
+# Query Projections
+##
+
+projections = {
+  'filters': {
+    '_id': 0,
+    'collection': 1,
+    'gender': 1,
+    'interviewee_name': 1,
+    'recording_year': 1,
+    'ghetto_names': 1,
+    'camp_names': 1,
+    'testimony_id': 1,
+  },
+  'table_of_contents': {
+    '_id': 0,
+    'rg_number': 1,
+    'accession_number': 1,
+    'collection': 1,
+    'testimony_title': 1,
+    'testimony_id': 1,
+  }
+}
 
 ##
 # Auth routes
@@ -142,7 +240,7 @@ def get_service_url(_request):
 def index(path):
   '''Return index.html for all non-api routes'''
   #pylint: disable=unused-argument
-  if restrict_access:
+  if use_authentication:
     if session.get('authenticated'):
       return send_from_directory(app.static_folder, 'index.html')
     return redirect(url_for('login'))
