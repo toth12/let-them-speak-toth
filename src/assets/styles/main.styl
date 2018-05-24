@@ -8,11 +8,11 @@
 }
 
 body, html {
-  min-height: 100%;
-  min-height: 100vh;
+  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow: auto;
 }
 
 html {
@@ -31,14 +31,19 @@ body {
 
 #app,
 .app-container {
-  min-height: 100%;
+  height: 100%;
 }
 
 .container {
+  height: 100%;
   max-width: 860px;
   display: block;
   margin: 0 auto;
   padding: 30px 30px 60px;
+}
+
+.container.page-toc {
+  max-width: 920px;
 }
 
 /**
@@ -46,7 +51,7 @@ body {
 **/
 
 .app-wrap {
-  min-height: 100%;
+  height: 100%;
 }
 
 /**
@@ -153,9 +158,20 @@ button.brown a,
 **/
 
 select {
-  background: transparent;
-  border: none;
+  border-radius: 0;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  border: none;
 }
 
 /**

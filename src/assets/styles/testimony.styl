@@ -148,23 +148,56 @@
   margin-bottom: 12px;
 }
 
+.testimony .media-container {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
 .testimony video {
   background: #f9f9f9;
+  z-index: 100;
 }
 
 @media(max-width: 900px) {
+  .testimony .close {
+    top: 14px;
+    right: 14px;
+  }
+
+  .testimony .content {
+    max-height: 90vh;
+    overflow: auto;
+  }
+
   .testimony .right {
     float: none;
     width: 100%;
+    height: auto;
   }
 
-  .testimony video {
+  .testimony .right-body {
+    height: auto;
+  }
+
+  .testimony .right .title {
+    padding-left: 20px;
+  }
+
+  .testimony .right .media-container {
     margin: 5px auto 0;
     display: block;
+    width: 100%;
+    position: initial;
+    text-align: center;
+  }
+
+  .testimony .right .metadata {
+    display: none;
   }
 
   .testimony .left {
-    padding-top: 0;
+    padding-top: 20px;
   }
 
   .testimony .left-body {
@@ -179,19 +212,5 @@
   .testimony .audio-container audio {
     margin: 0 auto;
     display: block;
-  }
-}
-
-@media (max-height: 700px) {
-  .testimony .left-body,
-  .testimony .right-body {
-    height: 55vh;
-  }
-}
-
-@media (max-width: 900px) and (max-height: 900px) {
-  .testimony .left-body,
-  .testimony .right-body {
-    height: 30vh;
   }
 }

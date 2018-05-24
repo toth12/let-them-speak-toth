@@ -2,10 +2,15 @@
 * Contents
 **/
 
+.toc-container {
+  position: relative;
+}
+
 .toc-table {
   padding: 50px;
   background: #fff;
-  border: 2px solid #ddd;
+  border: 1px solid #ddd;
+  margin-left: 216px;
 }
 
 .toc-row {
@@ -16,6 +21,11 @@
 
 .toc-row:first-of-type {
   padding-top: 0;
+}
+
+.toc-row:last-of-type {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .toc-row:hover .text {
