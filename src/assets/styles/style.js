@@ -14,3 +14,4 @@ import './testimony.styl';
 import './loader.styl';
 import './pagination.styl';
 import './error.styl';
+import './filters.styl';

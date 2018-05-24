@@ -37,7 +37,7 @@ export const showInstructions = () => ({
 **/
 
 export const nextPage = () => {
-  return function(dispatch, getState) {
+  return (dispatch, getState) => {
     const _state = getState();
     dispatch({type: 'NEXT_SEARCH_PAGE'})
     dispatch(fetchPageResults(_state.search.query));
@@ -45,7 +45,7 @@ export const nextPage = () => {
 }
 
 export const previousPage = () => {
-  return function(dispatch, getState) {
+  return (dispatch, getState) => {
     const _state = getState();
     dispatch({type: 'PREVIOUS_SEARCH_PAGE'})
     dispatch(fetchPageResults(_state.search.query));
@@ -53,7 +53,7 @@ export const previousPage = () => {
 }
 
 export const getPage = page => {
-  return function(dispatch, getState) {
+  return (dispatch, getState) => {
     const _state = getState();
     dispatch(setSearchPage(page));
     dispatch(fetchPageResults(_state.search.query));
@@ -73,7 +73,7 @@ export const fetchSearchResults = query => {
 }
 
 const search = (query, showLoader, resetPages) => {
-  return function(dispatch, getState) {
+  return (dispatch, getState) => {
     const _state = getState();
     if (showLoader) dispatch(searching());
     if (resetPages) dispatch(dispatch(setSearchPage(0)));

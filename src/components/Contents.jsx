@@ -12,11 +12,33 @@ import {
   pageSize,
   perPage,
 } from '../actions/contents';
+import Filters from './Filters';
 
 class Contents extends React.Component {
   constructor(props) {
     super(props)
     this.nextPage = this.nextPage.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.getPage(0);
+    this.props.fetchTableOfContents();
+  }
+
+  componentDidUpdate(prevProps) {
+    // the TOC updates when filters are set -> refetch values
+    let updated = false;
+    Object.keys(prevProps.selected).map(f => {
+      if (prevProps.selected[f] !== this.props.selected[f]) {
+        updated = true;
+      }
+    })
+    Object.keys(prevProps.years).map(y => {
+      if (prevProps.years[y] !== this.props.years[y]) {
+        updated = true;
+      }
+    })
+    if (updated) this.props.getPage(0)
   }
 
   nextPage() {
@@ -26,20 +48,16 @@ class Contents extends React.Component {
     }
   }
 
-  componentWillMount() {
-    this.props.getPage(0);
-    this.props.fetchTableOfContents();
-  }
-
   render() {
     return (
-      <div>
+      <div className='page'>
         <Hero text='Table of Contents' />
-        <div className='container'>
-          <h2>The Holocaust Testimonials of the Name Collection</h2>
+        <div className='container page-toc'>
+          <h2>Holocaust Testimonials Table of Contents</h2>
           {this.props.total ?
-            <div>
+            <div className='toc-container'>
               <Table {...this.props} />
+              <Filters />
               <Pagination
                 items={this.props.total}
                 activePage={this.props.page}
@@ -61,16 +79,15 @@ const Table = props => (
   <div className='toc-table'>
     {props.testimonies.map((t, idx) => (
       <div key={idx} className='toc-row' onClick={
-        () => props.fetchTestimony(t.testimony_id)
-        }>
+          () => props.fetchTestimony(t.testimony_id)}>
         <span className='number'>{(props.page * perPage) + idx + 1}.</span>
         <div className='text'>
           <div>{ t.testimony_title }</div>
           <div className='meta'>
             <span>Provenance:</span>
-            <span>{ t.provenance }.</span>
+            <span>{ t.provenance ? t.provenance + ' .' : ''}</span>
             <span>Courtesy of the</span>
-            <span>{ t.collection } Archive.</span>
+            <span>{ t.collection ? t.collection + ' Archive.' : ''}</span>
           </div>
         </div>
       </div>
@@ -98,6 +115,8 @@ Table.PropTypes = sharedTypes;
 
 const mapStateToProps = state => ({
   testimonies: state.contents.testimonies,
+  selected: state.filters.selected,
+  years: state.filters.years,
   page: state.contents.page,
   total: state.contents.total,
 })

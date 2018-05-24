@@ -41,13 +41,13 @@ class Testimony extends React.Component {
   }
 
   handleClick(e) {
-    const modal = document.querySelector('.testimony');
+    const modal = $('.testimony');
     if (modal.contains(e.target) && e.target.className != 'close') return;
     this.props.hideTestimony();
   }
 
   activateSentences() {
-    const container = document.querySelector('.testimony .content .left-body');
+    const container = $('.testimony .content .left-body');
     if (!container || !this.props.sentenceStart || !this.props.sentenceEnd) {
       this.setState({highlightId: setTimeout(this.activateSentences, 200)});
       return;
@@ -59,12 +59,12 @@ class Testimony extends React.Component {
     }
     // highlight the active sentence(s)
     for (let i=this.props.sentenceStart; i<this.props.sentenceEnd+1; i++) {
-      let match = document.querySelector('#s' + i);
+      let match = $('#s' + i);
       if (match) match.className += ' active';
       else (console.log('#s' + i + ' could not be found'));
     }
     // scroll the first sentence into view
-    const elem = document.querySelector('#s' + this.props.sentenceStart);
+    const elem = $('#s' + this.props.sentenceStart);
     if (elem) container.scrollTop = elem.offsetTop - 200;
   }
 
@@ -75,7 +75,7 @@ class Testimony extends React.Component {
       if (isVideo(url)) selector = 'video';
       if (isAudio(url)) selector = 'audio';
       if (selector) {
-        media = document.querySelector(selector);
+        media = $(selector);
       }
     }
     if (!media) {
@@ -149,7 +149,7 @@ class Media extends React.Component {
         content = <Audio url={url} />
       }
     }
-    return content;
+    return <div className='media-container'>{content}</div>;
   }
 }
 
@@ -196,6 +196,8 @@ const Metadata = props => (
     </div>
   </div>
 )
+
+const $ = selector => document.querySelector(selector);
 
 const getMediaUrl = testimony => testimony.media_url[0] || '';
 

@@ -1,0 +1,126 @@
+@require './variables';
+
+/**
+* Filter styles
+**/
+
+.filter-container {
+  width: 200px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #ddd;
+  padding: 20px;
+  color: #666;
+}
+
+.filter-element {
+  margin-bottom: 25px;
+}
+
+.filter-element:last-of-type {
+  margin-bottom: 0;
+}
+
+.filter-container label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+
+.filter-container select,
+.filter-container input {
+  width: 100%;
+  background: #f3f3f3;
+  font-size: 1em;
+  padding: 6px 12px;
+  font-size: 0.8em;
+  border-radius: 3px;
+  border: none;
+  color: inherit;
+}
+
+.filter-container select {
+  background-image: url(../images/caret.png);
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+}
+
+/**
+* Typeahead styles
+**/
+
+.sr-only.rbt-sr-status {
+  display: none;
+}
+
+ul.rbt-menu.show {
+  background: #f9f9f9;
+  padding: 12px;
+  line-height: 1.3em;
+  z-index: 10;
+}
+
+ul.rbt-menu.show li.active {
+  background: #efeded;
+}
+
+a.dropdown-item {
+  color: inherit;
+  font-size: 14px;
+}
+
+.rbt-highlight-text {
+  background: #e6e6e6;
+}
+
+/* no options available */
+a.dropdown-item.disabled,
+/* load more options */
+li.rbt-menu-pagination-option {
+  background: $brown;
+  color: #fff;
+  padding: 2px 4px;
+  font-size: 13px;
+}
+
+/**
+* Timeline range slider
+**/
+
+.rc-slider {
+  margin: 0 8px;
+  width: auto;
+}
+
+.rc-slider-handle {
+  border: 2px solid #aaa;
+}
+
+.rc-slider-handle:hover {
+  border: 2px solid #999;
+}
+
+.rc-slider-track {
+  background: $brown;
+}
+
+/* label containers */
+.rc-slider-tooltip-content {
+  transform: translate(0, 56px);
+}
+
+/* labels */
+.rc-slider-tooltip-inner {
+  color: #797878;
+  background-color: #fff;
+  box-shadow: 0 0 4px #737373;
+}
+
+/* label stems */
+.rc-slider-tooltip-placement-top .rc-slider-tooltip-arrow {
+  display: none;
+}
