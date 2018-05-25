@@ -65,7 +65,7 @@ export const getFilterQueryParams = getState => {
   }
   const years = getState().filters.years;
   if (years.min && years.max) {
-    if (!url) url = '?';
+    url += url ? '&' : '?';
     url += 'min_year=' + years.min + '&';
     url += 'max_year=' + years.max;
   }
