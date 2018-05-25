@@ -54,21 +54,23 @@ class Contents extends React.Component {
         <Hero text='Table of Contents' />
         <div className='container page-toc'>
           <h2>Holocaust Testimonials Table of Contents</h2>
-          {this.props.total ?
-            <div className='toc-container'>
-              <Table {...this.props} />
-              <Filters />
-              <Pagination
-                items={this.props.total}
-                activePage={this.props.page}
-                perPage={perPage}
-                pageClick={this.props.getPage}
-                leftArrowClick={this.props.previousPage}
-                rightArrowClick={this.nextPage}
-              />
-            </div>
-            : null
-          }
+          <div className='toc-container'>
+            {this.props.total
+              ? <Table {...this.props} />
+              : <NoResults/>
+            }
+            <Filters />
+            {this.props.total > 10
+              ? <Pagination
+                  items={this.props.total}
+                  activePage={this.props.page}
+                  perPage={perPage}
+                  pageClick={this.props.getPage}
+                  leftArrowClick={this.props.previousPage}
+                  rightArrowClick={this.nextPage}/>
+              : null
+            }
+          </div>
         </div>
       </div>
     )
@@ -93,6 +95,10 @@ const Table = props => (
       </div>
     ))}
   </div>
+)
+
+const NoResults = props => (
+  <div className='no-results'>Your query returned no results</div>
 )
 
 const sharedTypes = {
