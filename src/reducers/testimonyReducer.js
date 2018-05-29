@@ -4,6 +4,7 @@ const initialState = {
   sentenceStart: null,
   sentenceEnd: null,
   mediaStart: null,
+  mediaIndex: null,
 }
 
 const testimonyReducer = (state = initialState, action) => {
@@ -36,10 +37,16 @@ const testimonyReducer = (state = initialState, action) => {
         mediaStart: action.val,
       })
 
+    case 'SET_MEDIA_INDEX':
+      return Object.assign({}, state, {
+        mediaIndex: action.index,
+      })
+
     case 'CLEAR_ACTIVE_MEDIA': {
       return Object.assign({}, state, {
         sentenceStart: null,
         sentenceEnd: null,
+        mediaIndex: null,
         mediaStart: null,
       })
     }

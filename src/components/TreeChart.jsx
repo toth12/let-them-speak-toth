@@ -9,6 +9,7 @@ import {
   fetchTestimony,
   highlightSentences,
   setMediaStart,
+  setMediaIndex,
 } from '../actions/testimony';
 import {
   setActiveIndex,
@@ -57,6 +58,7 @@ class TreeChart extends React.Component {
             testimonyId: d.data.testimony_id,
             lookupSentences: false,
           })
+          this.props.setMediaIndex(d.data.media_index || 0)
           this.props.setMediaStart(d.data.media_offset || 0)
           this.props.fetchTestimony(d.data.testimony_id)
         }),
@@ -111,6 +113,7 @@ TreeChart.PropTypes = {
   fetchTreeData: PropTypes.func.isRequired,
   setActiveIndex: PropTypes.func.isRequired,
   setMediaStart: PropTypes.func.isRequired,
+  setMediaIndex: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
@@ -121,7 +124,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setActiveIndex: (d, idx) => dispatch(setActiveIndex(idx)),
-  setMediaStart: (val) => dispatch(setMediaStart(val)),
+  setMediaIndex: val => dispatch(setMediaIndex(val)),
+  setMediaStart: val => dispatch(setMediaStart(val)),
   fetchTreeData: () => dispatch(fetchTreeData()),
   fetchTestimony: id => dispatch(fetchTestimony(id)),
   highlightSentences: obj => dispatch(highlightSentences(obj))
