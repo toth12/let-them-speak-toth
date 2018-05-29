@@ -44,8 +44,8 @@ def search_blacklab(params):
   if filter_params:
     query += '&filter='
     for i in filter_params:
-      query += i + ':' + quote(str(params[i])) + filter_join
-    query = query.rstrip(filter_join)
+      query += i + ':' + quote('"' + str(params[i]) + '"') + filter_join
+    query = filter_join.join(query.split(filter_join)[:-1])
     query += add_year_params(params, filter_join)
   else:
     query += add_year_params(params, '&filter=')

@@ -65,8 +65,8 @@ def write_folia(obj):
   xml += get_metadata({
     'collection': obj['collection'],
     'gender': obj['gender'],
-    'ghetto_names': obj['ghetto_names'],
-    'camp_names': obj['camp_names'],
+    'ghetto_names': ','.join(obj['ghetto_names']),
+    'camp_names': ','.join(obj['camp_names']),
     'interviewee_name': obj['interviewee_name'],
     'testimony_id': obj['testimony_id'],
     'recording_year': obj['recording_year'],
@@ -128,34 +128,32 @@ def get_metadata(obj):
       shelfmark
     {str} title: the title of a testimony
   '''
-  metadata = '''
-  <annotations>
-    <pos-annotation set="brown-tagset"/>
-    <lemma-annotation set="treetagger"/>
-  </annotations>
-  <meta id="collection">{0}</meta>
-  <meta id="gender">{1}</meta>
-  <meta id="interviewee_name">{2}</meta>
-  <meta id="recording_year">{3}</meta>
-  <meta id="testimony_id">{4}</meta>
-  <meta id="shelfmark">{5}</meta>
-  '''.format(
+  return '''
+  <metadata type="native">
+    <annotations>
+      <pos-annotation set="brown-tagset"/>
+      <lemma-annotation set="treetagger"/>
+    </annotations>
+    <meta id="collection">{0}</meta>
+    <meta id="gender">{1}</meta>
+    <meta id="camp_names">{2}</meta>
+    <meta id="ghetto_names">{3}</meta>
+    <meta id="interviewee_name">{4}</meta>
+    <meta id="recording_year">{5}</meta>
+    <meta id="testimony_id">{6}</meta>
+    <meta id="shelfmark">{7}</meta>
+  </metadata>'''.format(
     # metadata fields
     obj['collection'],
     obj['gender'],
+    obj['camp_names'],
+    obj['ghetto_names'],
     obj['interviewee_name'],
     obj['recording_year'],
     obj['testimony_id'],
     # search display fields
     obj['shelfmark'],
   )
-  # add list metadata
-  for n in obj['ghetto_names']:
-    metadata += '<meta id="ghetto_names">{0}</meta>\n'.format(n)
-  for n in obj['camp_names']:
-    metadata += '<meta id="camp_names">{0}</meta>\n'.format(n)
-  # return teh full metadata object
-  return '<metadata type="native">{0}</metadata>'.format(metadata)
 
 
 def get_pos():
