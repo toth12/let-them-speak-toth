@@ -86,10 +86,16 @@ const Table = props => (
         <div className='text'>
           <div>{ t.testimony_title }</div>
           <div className='meta'>
-            <span>Provenance:</span>
-            <span>{ t.provenance ? t.provenance + ' .' : ''}</span>
-            <span>Courtesy of the</span>
-            <span>{ t.collection ? t.collection + ' Archive.' : ''}</span>
+            { t.provenance
+              ? <span>{t.provenance + '. '}</span>
+              : null
+            }
+            { t.collection
+              ? <span>
+                  {'Courtesy of the ' + (t.collection  + ' Archive.') || ''}
+                </span>
+              : null
+            }
           </div>
         </div>
       </div>
