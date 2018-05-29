@@ -1,24 +1,25 @@
 '''Test structure of testimony collection members'''
 
+from six import string_types
 import sys
 [sys.path.append(i) for i in ['server', '..', '.']]
 from db import get_db
 
 testimony_schema = {
-  'testimony_id': str,
-  'interviewee_name': str,
-  'gender': str,
-  'collection': str,
-  'shelfmark': str,
+  'testimony_id': string_types,
+  'interviewee_name': string_types,
+  'gender': string_types,
+  'collection': string_types,
+  'shelfmark': string_types,
   'recording_year': int,
-  'camp_names': [str],
-  'ghetto_names': [str],
-  'html_transcript': str,
-  'media_url': [str],
-  'thumbnail_url': str,
-  'testimony_title': str,
-  'interview_summary': str,
-  'provenance': str,
+  'camp_names': [string_types],
+  'ghetto_names': [string_types],
+  'html_transcript': string_types,
+  'media_url': [string_types],
+  'thumbnail_url': string_types,
+  'testimony_title': string_types,
+  'interview_summary': string_types,
+  'provenance': string_types,
 }
 
 def test_testimony_format():

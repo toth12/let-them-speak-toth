@@ -46,21 +46,37 @@ make_dir(folia_dir)
 # Folia helpers
 ##
 
-def write_folia(title, full_text, testimony_id):
+def write_folia(obj):
   '''
   Write the folia content of a text file to disk
   @args:
-    {str} title: the title of a testimony
-    {str} full_text: the full text content of a testimony
-    {str} testimony_id: the unique identifier for a testimony
+    {obj} an object with the following metadata fields:
+      collection
+      gender
+      ghetto_names
+      camp_names
+      interviewee_name
+      testimony_id
+      recording_year
+      testimony_id
+      shelfmark
   '''
-  xml = get_top(testimony_id)
-  xml += get_metadata(testimony_id, title)
+  xml = get_top(obj['testimony_id'])
+  xml += get_metadata({
+    'collection': obj['collection'],
+    'gender': obj['gender'],
+    'ghetto_names': ' | '.join(obj['ghetto_names']),
+    'camp_names': ' | '.join(obj['camp_names']),
+    'interviewee_name': obj['interviewee_name'],
+    'testimony_id': obj['testimony_id'],
+    'recording_year': obj['recording_year'],
+    'shelfmark': obj['shelfmark'],
+  })
   xml += '<text><div>'
 
   # tokenize paragraphs and sentences and add each to the xml
   s_idx = 0
-  for paragraph in full_text.split(paragraph_boundary):
+  for paragraph in obj['full_text'].split(paragraph_boundary):
     for sentence in paragraph.split('.'):
       xml += '<s id="s' + str(s_idx) + '">'
       xml += '<t>' + sentence + '</t>'
@@ -79,7 +95,7 @@ def write_folia(title, full_text, testimony_id):
   xml += '</div></text></FoLiA>'
 
   # write the outfile
-  outfile = os.path.join(folia_dir, testimony_id + '.xml')
+  outfile = os.path.join(folia_dir, obj['testimony_id'] + '.xml')
   write_text(outfile, xml.strip())
 
 def get_top(testimony_id):
@@ -97,11 +113,19 @@ def get_top(testimony_id):
     generator="seed_folia_util">
   '''.format(testimony_id)
 
-def get_metadata(testimony_id, shelfmark):
+def get_metadata(obj):
   '''
   Get the metadata tags for a folia document given a testimony
   @args:
-    {str} testimony_id: the unique identifier for a testimony
+    {obj} an object with the following metadata fields:
+      collection
+      gender
+      ghetto_names
+      camp_names
+      interviewee_name
+      testimony_id
+      recording_year
+      shelfmark
     {str} title: the title of a testimony
   '''
   return '''
@@ -110,10 +134,27 @@ def get_metadata(testimony_id, shelfmark):
       <pos-annotation set="brown-tagset"/>
       <lemma-annotation set="treetagger"/>
     </annotations>
-    <meta id="testimony_id">{0}</meta>
-    <meta id="shelfmark">{1}</meta>
+    <meta id="collection">{0}</meta>
+    <meta id="gender">{1}</meta>
+    <meta id="ghetto_names">{2}</meta>
+    <meta id="camp_names">{3}</meta>
+    <meta id="interviewee_name">{4}</meta>
+    <meta id="recording_year">{5}</meta>
+    <meta id="testimony_id">{6}</meta>
+    <meta id="shelfmark">{7}</meta>
   </metadata>
-  '''.format(testimony_id, shelfmark)
+  '''.format(
+    # metadata fields
+    obj['collection'],
+    obj['gender'],
+    obj['ghetto_names'],
+    obj['camp_names'],
+    obj['interviewee_name'],
+    obj['recording_year'],
+    obj['testimony_id'],
+    # search display fields
+    obj['shelfmark'],
+  )
 
 def get_pos():
   '''Get a random POS from the list of available pos vals'''
@@ -129,7 +170,7 @@ def store_token_ids(testimony_id, full_text):
   Store a mapping from each token's index position to the idx of
   the sentence in which that token occurs
   '''
-  db = get_db() #pylint: disable=invalid-name
+  db = get_db()
   t_idx = 0
   s_idx = 0
   tokens = []
@@ -221,8 +262,7 @@ def seed_testimonies():
     full_text = get_full_text()
     testimony_id = str(get_int())
     store_token_ids(testimony_id, full_text)
-    write_folia(shelfmark, full_text, testimony_id)
-    testimonies.append({
+    testimony_record = {
       'testimony_id': testimony_id,
       'interviewee_name': get_interviewee_name(gender),
       'gender': gender,
@@ -238,7 +278,9 @@ def seed_testimonies():
       'testimony_title': fake.sentence(nb_words=5), #pylint: disable=no-member,
       'interview_summary': fake.text(max_nb_chars=500), #pylint: disable=no-member
       'provenance': ' '.join(fake.words(nb=3)), #pylint: disable=no-member
-    })
+    }
+    write_folia(testimony_record)
+    testimonies.append(testimony_record)
 
   testimony_ids = [j['testimony_id'] for j in testimonies]
   fragments = get_fragments(testimony_ids)
