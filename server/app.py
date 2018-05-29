@@ -51,11 +51,8 @@ def testimony():
 @app.route('/api/search')
 def xml_search():
   '''Fetch testimonies that match a query'''
-  limit = int(request.args.get('limit', 20))
-  start = int(request.args.get('start', 0))
-  query = request.args.get('query', '')
   try:
-    results = search_blacklab(offset=start, limit=limit, query=query)
+    results = search_blacklab(request.args)
     return jsonify(results)
   except Exception: #pylint: disable=broad-except
     return jsonify({'err': 'search error'})
@@ -156,9 +153,7 @@ def get_filter_query(args):
     if i in ['start', 'min_year', 'max_year']:
       continue
     if i in ['ghetto_name', 'camp_name']:
-      # all filters.selected value keys are singular, but these
-      # keys are pluralized in the mongo table
-      search[i + 's'] = {'$in': [args[i]]}
+      search[i] = {'$in': [args[i]]}
     else:
       search[i] = args[i]
   # add year-based query values

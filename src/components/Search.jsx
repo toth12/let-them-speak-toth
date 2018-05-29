@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Hero from './Hero';
 import Loader from './Loader';
 import Pagination from './Pagination';
+import Filters from './Filters'
 import Err from './Error';
 import {
   fetchTestimony,
@@ -29,6 +30,21 @@ class Search extends React.Component {
     this.props.showInstructions();
   }
 
+  componentDidUpdate(prevProps) {
+    let updated = false;
+    Object.keys(prevProps.selected).map(f => {
+      if (prevProps.selected[f] !== this.props.selected[f]) {
+        updated = true;
+      }
+    })
+    Object.keys(prevProps.years).map(y => {
+      if (prevProps.years[y] !== this.props.years[y]) {
+        updated = true;
+      }
+    })
+    if (updated) this.props.search($('#search-input').value)
+  }
+
   nextPage() {
     if (this.props.page + 1 < this.props.resultCount / perPage) {
       this.props.nextPage();
@@ -41,10 +57,10 @@ class Search extends React.Component {
         <Hero>
           <Input search={this.props.search} />
         </Hero>
-        <div className='container'>
+        <div className='container page-search'>
           {this.props.instructions ?
             <Instructions />
-          : <Content fetchNextPage={this.nextPage} {...this.props} />
+          : <Content nextPage={this.nextPage} {...this.props} />
           }
         </div>
       </div>
@@ -69,12 +85,8 @@ class Input extends React.Component {
       <div className='search-container'>
         <div className='input-container'>
           <div className='background-image glass' />
-          <input type='text' placeholder='Search Term'
+          <input id='search-input' type='text' placeholder='Search Term'
             onKeyDown={this.handleKeys} />
-          <select>
-            <option value='basic'>Basic</option>
-            <option value='advanced'>Advanced</option>
-          </select>
         </div>
       </div>
     )
@@ -82,7 +94,7 @@ class Input extends React.Component {
 }
 
 const Instructions = props => (
-  <div>
+  <div className='instructions'>
     <h2>Introduction to Search</h2>
     <p>Lorem ipsum dolor sit amet, arcu vulputate egestas dolor wisi, fugiat vestibulum etiam mattis sit, curabitur elit nulla vel, mus quis elit porttitor nulla. Amet elit in convallis, metus nam at sed, ipsum phasellus a dapibus, ornare in massa pharetra. Montes elementum pede integer ac, pulvinar aliquam non in augue, orci nulla eros nulla. Vulputate ut sed eget eu, dolor aliquam velit quisque a. Fermentum venenatis rhoncus vitae congue, suspendisse potenti pellentesque vestibulum.</p>
     <p>Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse. A sit, vehicula eleifend, per massa vitae. Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse.</p>
@@ -93,47 +105,38 @@ class Content extends React.Component {
   render() {
     let content;
     if (this.props.searchErr || this.props.testimonyErr) {
-      content = <Err />;
-    } else if (this.props.searching) {
-      content = <Loader />
+      return <Err />;
+    } else if (this.props.searching && !this.props.resultCount) {
+      return <Loader />;
     } else {
-      content = <Results {...this.props} />
+      return <Results {...this.props} />;
     }
-
-    return (
-      <div>
-        {content}
-      </div>
-    )
   }
 }
 
-class Results extends React.Component {
-  render() {
-    let content = null;
-    if (this.props.resultCount && this.props.resultCount > perPage) {
-      content = <div>
-        <ResultTable {...this.props} />
-        <Pagination
-          items={this.props.resultCount}
-          activePage={this.props.page}
-          perPage={perPage}
-          pageClick={this.props.getPage}
-          leftArrowClick={this.props.previousPage}
-          rightArrowClick={this.props.fetchNextPage} />
-      </div>
-    } else if (this.props.resultCount) {
-      content = <ResultTable {...this.props} />
-    }
-
-    return (
-      <section className='results'>
-        <Label resultCount={this.props.resultCount} />
-        {content}
-      </section>
-    )
-  }
-}
+const Results = props => (
+  <section className='results'>
+    <Label resultCount={props.resultCount} />
+    <div>
+      {props.searching
+        ? <Loader />
+        : null
+      }
+      <Filters {...props} />
+      <ResultTable {...props} />
+      {props.resultCount && props.resultCount > perPage
+        ? <Pagination
+            items={props.resultCount}
+            activePage={props.page}
+            perPage={perPage}
+            pageClick={props.getPage}
+            leftArrowClick={props.previousPage}
+            rightArrowClick={props.nextPage} />
+        : null
+      }
+    </div>
+  </section>
+)
 
 const ResultTable = props => (
   <div className='results-table'>
@@ -201,6 +204,8 @@ const getHit = (str, side) => {
   }
 }
 
+const $ = selector => document.querySelector(selector);
+
 Label.PropTypes = {
   resultCount: PropTypes.number.isRequired,
 }
@@ -255,6 +260,8 @@ const mapStateToProps = state => ({
   results: state.search.results,
   resultCount: state.search.resultCount,
   page: state.search.page,
+  selected: state.filters.selected,
+  years: state.filters.years,
   searchErr: state.search.err,
   testimonyErr: state.testimony.err,
 })
