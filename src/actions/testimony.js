@@ -22,6 +22,10 @@ export const setMediaStart = val => ({
   type: 'SET_MEDIA_START', val
 })
 
+export const setMediaIndex = val => ({
+  type: 'SET_MEDIA_INDEX', index: val,
+})
+
 // when hiding the testimony, clear the active media
 // so remounting the same fragment shows the proper
 // active media

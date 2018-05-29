@@ -71,12 +71,10 @@ class Testimony extends React.Component {
   setMediaStart() {
     let media, selector;
     if (this.props.testimony) {
-      const url = getMediaUrl(this.props.testimony);
+      const url = getMediaUrl(this.props.testimony, this.props.mediaIndex);
       if (isVideo(url)) selector = 'video';
       if (isAudio(url)) selector = 'audio';
-      if (selector) {
-        media = $(selector);
-      }
+      if (selector) media = $(selector);
     }
     if (!media) {
       this.setState({timeId: setTimeout(this.setMediaStart, 200)})
@@ -109,7 +107,7 @@ const Right = props => (
     <img className='close' src={img} />
     <div className='title'>Media</div>
     <div className='right-body'>
-      <Media testimony={props.testimony} />
+      <Media mediaIndex={props.mediaIndex} testimony={props.testimony} />
       <Metadata testimony={props.testimony} />
     </div>
   </div>
@@ -138,19 +136,17 @@ const Footer = props => (
   </div>
 )
 
-class Media extends React.Component {
-  render() {
-    let content = <NoMedia />;
-    const url = getMediaUrl(this.props.testimony);
-    if (url) {
-      if (isVideo(url)) {
-        content = <Video url={url} />
-      } else if (isAudio(url)) {
-        content = <Audio url={url} />
-      }
+const Media = props => {
+  let content = <NoMedia />;
+  const url = getMediaUrl(props.testimony, props.mediaIndex);
+  if (url) {
+    if (isVideo(url)) {
+      content = <Video url={url} />
+    } else if (isAudio(url)) {
+      content = <Audio url={url} />
     }
-    return <div className='media-container'>{content}</div>;
   }
+  return <div className='media-container'>{content}</div>;
 }
 
 const Video = props => (
@@ -199,7 +195,15 @@ const Metadata = props => (
 
 const $ = selector => document.querySelector(selector);
 
-const getMediaUrl = testimony => testimony.media_url[0] || '';
+const getMediaUrl = (testimony, mediaIndex) => {
+  if (Number.isInteger(mediaIndex) && testimony.media_url[mediaIndex]) {
+    return testimony.media_url[mediaIndex];
+  } else if (testimony.media_url) {
+    return testimony.media_url[0];
+  } else {
+    return '';
+  }
+}
 
 const isVideo = str => str.indexOf('.mp4') > -1;
 
@@ -243,6 +247,7 @@ const mapStateToProps = state => ({
   err: state.testimony.err,
   sentenceStart: state.testimony.sentenceStart,
   sentenceEnd: state.testimony.sentenceEnd,
+  mediaIndex: state.testimony.mediaIndex,
   mediaStart: state.testimony.mediaStart,
 })
 
