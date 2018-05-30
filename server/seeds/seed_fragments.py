@@ -47,11 +47,10 @@ def get_node(testimony_id, is_parent=False):
     label = fake.sentence(nb_words=12, variable_nb_words=True) #pylint: disable=no-member
 
   start_sentence = random.randint(1, 20)
-
   return {
     'label': label,
     'testimony_id': testimony_id,
-    'media_index': 0,
+    'media_index': random.randint(0, 1),
     'media_offset': random.randint(1, 20),
     'start_sentence_index': start_sentence,
     'end_sentence_index': start_sentence + 1,

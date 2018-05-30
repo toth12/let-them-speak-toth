@@ -35,7 +35,8 @@ n_testimonies = 10
 paragraph_boundary = '\n'
 folia_dir = os.path.join('server', 'seeds', 'folia')
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
-video_url = url + '/videos/dev/shoah-sample.mp4'
+video_url_one = url + '/videos/dev/shoah-sample.mp4'
+video_url_two = url + '/videos/dev/fortunoff-sample.mp4'
 audio_url = url + '/videos/dev/ushmm-sample.mp3'
 thumb_url = url + '/thumbnails/dev/preview.png'
 
@@ -193,8 +194,8 @@ def store_token_ids(testimony_id, full_text):
 def get_media():
   '''Return either an audio or video url'''
   if random() > 0.5:
-    return video_url
-  return audio_url
+    return [video_url_one, video_url_two]
+  return [audio_url]
 
 def get_int():
   '''Generate a random int between 0 and 9999999'''
@@ -280,7 +281,7 @@ def seed_testimonies():
       'ghetto_names': get_list_subset(['ghetto a', 'ghetto b', 'ghetto c']),
       'full_text': full_text, # not required
       'html_transcript': get_html(full_text),
-      'media_url': [get_media()],
+      'media_url': get_media(),
       'thumbnail_url': thumb_url,
       'testimony_title': fake.sentence(nb_words=5), #pylint: disable=no-member,
       'interview_summary': fake.text(max_nb_chars=500), #pylint: disable=no-member
