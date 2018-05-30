@@ -14,8 +14,8 @@ const initialState = {
     interviewee_name: null,
     testimony_id: null,
     recording_year: null,
-    camp_name: null,
-    ghetto_name: null,
+    camp_names: null,
+    ghetto_names: null,
   },
   years: {
     min: null,

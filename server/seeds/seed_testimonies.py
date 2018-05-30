@@ -65,8 +65,8 @@ def write_folia(obj):
   xml += get_metadata({
     'collection': obj['collection'],
     'gender': obj['gender'],
-    'ghetto_names': ' | '.join(obj['ghetto_names']),
-    'camp_names': ' | '.join(obj['camp_names']),
+    'ghetto_names': ','.join(obj['ghetto_names']),
+    'camp_names': ','.join(obj['camp_names']),
     'interviewee_name': obj['interviewee_name'],
     'testimony_id': obj['testimony_id'],
     'recording_year': obj['recording_year'],
@@ -136,25 +136,25 @@ def get_metadata(obj):
     </annotations>
     <meta id="collection">{0}</meta>
     <meta id="gender">{1}</meta>
-    <meta id="ghetto_names">{2}</meta>
-    <meta id="camp_names">{3}</meta>
+    <meta id="camp_names">{2}</meta>
+    <meta id="ghetto_names">{3}</meta>
     <meta id="interviewee_name">{4}</meta>
     <meta id="recording_year">{5}</meta>
     <meta id="testimony_id">{6}</meta>
     <meta id="shelfmark">{7}</meta>
-  </metadata>
-  '''.format(
+  </metadata>'''.format(
     # metadata fields
     obj['collection'],
     obj['gender'],
-    obj['ghetto_names'],
     obj['camp_names'],
+    obj['ghetto_names'],
     obj['interviewee_name'],
     obj['recording_year'],
     obj['testimony_id'],
     # search display fields
     obj['shelfmark'],
   )
+
 
 def get_pos():
   '''Get a random POS from the list of available pos vals'''
@@ -245,6 +245,13 @@ def get_interviewee_name(_gender):
     return fake.name_female() #pylint: disable=no-member
   return fake.name_male() #pylint: disable=no-member
 
+def get_list_subset(options, prob=0.3):
+  l = []
+  for i in options:
+    if random() < prob:
+      l.append(i)
+  return l
+
 def seed_testimonies():
   '''Seed all testimonies and linked fragments'''
 
@@ -269,8 +276,8 @@ def seed_testimonies():
       'collection': get_collection(),
       'shelfmark': shelfmark,
       'recording_year': randint(1970, 1990),
-      'camp_names': ['camp_a', 'camp_b'],
-      'ghetto_names': ['ghetto_a', 'ghetto_b'],
+      'camp_names': get_list_subset(['camp d', 'camp e', 'camp f']),
+      'ghetto_names': get_list_subset(['ghetto a', 'ghetto b', 'ghetto c']),
       'full_text': full_text, # not required
       'html_transcript': get_html(full_text),
       'media_url': [get_media()],

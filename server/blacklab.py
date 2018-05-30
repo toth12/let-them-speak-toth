@@ -10,33 +10,45 @@ except ImportError:
 import json
 import os
 
-def search_blacklab(*args, **kwargs):
+def search_blacklab(params):
   '''
   Run a search against the blacklab server. For full documentation
   on these parameters, see the official BlackLab documentation:
   http://inl.github.io/BlackLab/blacklab-server-overview.html
   @args:
-    {int} offset: 0-based index of the first result to return
-    {int} limit: the number of results to return
-    {str} query: the raw query from a user
+    {dict} args: all query args passed to a search endpoint
   '''
+
   root = 'http://' + os.environ['TOMCAT_HOST']
   root += ':8080/blacklab-server-1.6.0/lts/hits'
-  query = get_query_pattern(kwargs.get('query', 'test'))
+  query = get_query_pattern(params.get('query', 'test'))
+  # query-based arguments
   args = {
-    'first': kwargs.get('offset', 0),
-    'limit': kwargs.get('limit', 20),
+    'first': params.get('start', 0),
+    'limit': params.get('limit', 20),
     'patt': unquote(query),
     'waitfortotal': 'true',
     'outputformat': 'json',
     'prettyprint': 'no',
-    'wordsaroundhit': kwargs.get('window', 5),
+    'wordsaroundhit': params.get('window', 5),
   }
+  # compose url for blacklab query
   query = root + '?'
   for idx, arg in enumerate(args):
-    if idx > 0:
-      query += '&'
+    if idx > 0: query += '&'
     query += arg + '=' + quote(str(args[arg]))
+  # add filter params
+  filter_join = '%20AND%20'
+  non_filter_fields = ['start', 'limit', 'query', 'min_year', 'max_year']
+  filter_params = [i for i in params if i not in non_filter_fields]
+  if filter_params:
+    query += '&filter='
+    for i in filter_params:
+      query += i + ':' + quote('"' + str(params[i]) + '"') + filter_join
+    query = filter_join.join(query.split(filter_join)[:-1])
+    query += add_year_params(params, filter_join)
+  else:
+    query += add_year_params(params, '&filter=')
   result = request_url(query)
   return parse_response(result)
 
@@ -62,6 +74,25 @@ def get_query_pattern(query):
     return formatted
   # case of simple query
   return '"' + query + '"'
+
+
+def add_year_params(params, prefix):
+  '''
+  Given a url param dict, return a string that limits the
+  year range of matches if the user passed min_year and
+  max_year values
+  @args:
+    {dict} params: the paramters passed through the url to the search endpoint
+    {str} prefix: a prefix to prepend to the returned query params (if relevant)
+  @returns:
+    {str} a string with the year query params encoded (if applicable)
+  '''
+  if ('min_year' not in params) or ('max_year' not in params):
+    return ''
+  param = ''
+  param += prefix + 'recording_year:'
+  param += '%5B' + params[min_year] + '%20' + params[max_year] + '%5D'
+  return param
 
 
 def request_url(url):

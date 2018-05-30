@@ -1,6 +1,7 @@
+import config from '../config/client';
 import { get } from './get';
 import { parse } from './parse';
-import config from '../config/client';
+import { getFilterQueryParams } from './filters';
 
 export const perPage = 20;
 
@@ -78,7 +79,10 @@ const search = (query, showLoader, resetPages) => {
     if (showLoader) dispatch(searching());
     if (resetPages) dispatch(dispatch(setSearchPage(0)));
     let url = config.endpoint + 'search';
-    url += '?query=' + encodeURIComponent(query);
+    url += getFilterQueryParams(getState);
+    url += url.indexOf('?') == -1
+      ? '?query=' + encodeURIComponent(query)
+      : '&query=' + encodeURIComponent(query)
     url += '&start=' + _state.search.page * perPage;
     get(url,
       (data) => handleSearchData(dispatch, data, query),

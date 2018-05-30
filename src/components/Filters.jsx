@@ -58,7 +58,7 @@ class Filter extends React.Component {
               options={this.props.options.ghetto_names}
               placeholder='Select a ghetto'
               onChange={selected => {
-                this.props.setFilterValue('ghetto_name', selected[0])
+                this.props.setFilterValue('ghetto_names', selected[0])
               }} />
           </div>
 
@@ -70,7 +70,7 @@ class Filter extends React.Component {
               options={this.props.options.camp_names}
               placeholder='Select a camp'
               onChange={selected => {
-                this.props.setFilterValue('camp_name', selected[0])
+                this.props.setFilterValue('camp_names', selected[0])
               }} />
           </div>
 
@@ -98,7 +98,7 @@ class Filter extends React.Component {
               }} />
           </div>
 
-          <div className='filter-element'>
+          <div className='filter-element timeline-filter'>
             <label>Recording Year</label>
             <Range
               min={yearRange[0]}

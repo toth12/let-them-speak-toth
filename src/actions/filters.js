@@ -3,26 +3,6 @@ import { get } from './get';
 import config from '../config/client';
 
 /**
-* Typeahead
-**/
-
-export const handleTypeaheadResults = (field, query, data) => ({
-  type: 'HANDLE_TYPEAHEAD_RESULTS', field: field, query: query, data: data,
-})
-
-export const handleTypeaheadErr = (field, query) => ({
-  type: 'HANDLE_TYPEAHEAD_ERROR', field: field, query: query,
-})
-
-export const getTypeahead = (field, query) => {
-  return dispatch => {
-    get(config.endpoint + 'typeahead?field=' + field + '&query=' + query,
-      data => dispatch(handleTypeaheadResults(field, query, JSON.parse(data))),
-      err => dispatch(handleTypeaheadErr(field, query, err)))
-  }
-}
-
-/**
 * Filter levels
 **/
 
@@ -49,9 +29,25 @@ export const getFilterLevels = () => {
 }
 
 /**
-* Return filters.selected serialized as a url param string
+* Set the value of a filter field
 **/
 
+export const setFilterValue = (field, value) => {
+  return dispatch => {
+    dispatch({type: 'SET_FILTER_VALUE', field, value})
+    dispatch(getFilterLevels())
+  }
+}
+
+export const setYearRange = obj => ({
+  type: 'SET_YEAR_RANGE', obj: obj,
+})
+
+/**
+* Searching
+**/
+
+// Return state.filters.selected serialized as a url param string
 export const getFilterQueryParams = getState => {
   let url = '';
   let selected = getState().filters.selected;
@@ -73,16 +69,21 @@ export const getFilterQueryParams = getState => {
 }
 
 /**
-* Set the value of a filter field
+* Typeahead
 **/
 
-export const setFilterValue = (field, value) => {
+export const handleTypeaheadResults = (field, query, data) => ({
+  type: 'HANDLE_TYPEAHEAD_RESULTS', field: field, query: query, data: data,
+})
+
+export const handleTypeaheadErr = (field, query) => ({
+  type: 'HANDLE_TYPEAHEAD_ERROR', field: field, query: query,
+})
+
+export const getTypeahead = (field, query) => {
   return dispatch => {
-    dispatch({type: 'SET_FILTER_VALUE', field, value})
-    dispatch(getFilterLevels())
+    get(config.endpoint + 'typeahead?field=' + field + '&query=' + query,
+      data => dispatch(handleTypeaheadResults(field, query, JSON.parse(data))),
+      err => dispatch(handleTypeaheadErr(field, query, err)))
   }
 }
-
-export const setYearRange = obj => ({
-  type: 'SET_YEAR_RANGE', obj: obj,
-})
