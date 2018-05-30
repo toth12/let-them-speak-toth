@@ -98,7 +98,7 @@ class Filter extends React.Component {
               }} />
           </div>
 
-          <div className='filter-element'>
+          <div className='filter-element timeline-filter'>
             <label>Recording Year</label>
             <Range
               min={yearRange[0]}
