@@ -90,7 +90,7 @@ class Testimony extends React.Component {
         <div className='testimony-inner'>
           <div className='testimony'>
             <div className='content'>
-              <Right testimony={testimony} />
+              <Right {...this.props} />
               <Left testimony={testimony} />
               <Footer testimony={testimony} />
             </div>
@@ -107,7 +107,7 @@ const Right = props => (
     <img className='close' src={img} />
     <div className='title'>Media</div>
     <div className='right-body'>
-      <Media mediaIndex={props.mediaIndex} testimony={props.testimony} />
+      <Media {...props} />
       <Metadata testimony={props.testimony} />
     </div>
   </div>
