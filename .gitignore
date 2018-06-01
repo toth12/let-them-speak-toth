@@ -3,12 +3,13 @@
 *.pyc
 *.DS_Store
 .cache
+.pytest_cache
+__pycache__
+package-lock.json
 node_modules
 build
 lts
 docker-data
-__pycache__
 BlackLab
 server/seeds/folia/
 server/inputs/
-.pytest_cache

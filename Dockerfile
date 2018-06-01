@@ -5,7 +5,13 @@ FROM node:8-alpine
 MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
 
 ##
-# Build Maven
+# Install SSH
+##
+
+RUN apk add --update openssh
+
+##
+# Install Maven
 ##
 
 RUN apk add --update --no-cache \
@@ -18,18 +24,17 @@ ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk/jre
 ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
 
 # Store the path to the maven home
-ENV MAVEN_HOME="/usr/lib/maven"
+ENV MAVEN_HOME=/usr/lib/maven
 
 # Add maven and java to the path
-ENV PATH="$MAVEN_HOME/bin:$JAVA_HOME/bin:$PATH"
+ENV PATH=$MAVEN_HOME/bin:$JAVA_HOME/bin:$PATH
 
 # Install Maven
-RUN MAVEN_VERSION="3.3.9" && \
-  cd "/tmp" && \
-  wget "http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" -O - | tar xzf - && \
-  mv "/tmp/apache-maven-$MAVEN_VERSION" "$MAVEN_HOME" && \
-  ln -s "$MAVEN_HOME/bin/mvn" "/usr/bin/mvn" && \
-  rm -rf "/tmp/*"
+RUN cd /tmp && \
+  wget https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak/maven/apache-maven-3.3.9-bin.tar.gz -O - | tar xzf - && \
+  mv /tmp/apache-maven-3.3.9 $MAVEN_HOME && \
+  ln -s $MAVEN_HOME/bin/mvn /usr/bin/mvn && \
+  rm -rf /tmp/*
 
 ##
 # Install Mongo
@@ -45,6 +50,7 @@ RUN apk update && apk upgrade && \
       boost-system \
       boost \
       mongodb \
+      mongodb-tools \
       --no-cache && \
     rm -rf /var/cache/apk/*
 
@@ -58,10 +64,10 @@ RUN mkdir -p /data/db && \
 RUN apk add openjdk8 && \
   mkdir -p /tmp/tomcat && \
   cd /tmp/tomcat && \
-  wget http://mirror.stjschools.org/public/apache/tomcat/tomcat-8/v8.5.29/bin/apache-tomcat-8.5.29.tar.gz && \
-  tar -zxf apache-tomcat-8.5.29.tar.gz && \
+  wget https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak/tomcat/apache-tomcat-8.5.30.tar.gz && \
+  tar -zxf apache-tomcat-8.5.30.tar.gz && \
   mkdir -p /usr/local/tomcat && \
-  mv apache-tomcat-8.5.29/* /usr/local/tomcat/ && \
+  mv apache-tomcat-8.5.30/* /usr/local/tomcat/ && \
   sh /usr/local/tomcat/bin/catalina.sh version
 
 ##
@@ -70,15 +76,15 @@ RUN apk add openjdk8 && \
 
 # Add source to a directory and use that directory
 # NB: /app is a reserved directory in tomcat container
-ENV APP_PATH="/lts-app"
-RUN mkdir "$APP_PATH"
-ADD . "$APP_PATH"
-WORKDIR "$APP_PATH"
+ENV APP_PATH=/lts-app
+RUN mkdir $APP_PATH
+ADD . $APP_PATH
+WORKDIR $APP_PATH
 
 # Store Mongo service name as mongo host
-ENV MONGO_HOST="0.0.0.0"
-ENV TOMCAT_HOST="0.0.0.0"
-ENV TOMCAT_WEBAPPS="/usr/local/tomcat/webapps/"
+ENV MONGO_HOST=0.0.0.0
+ENV TOMCAT_HOST=0.0.0.0
+ENV TOMCAT_WEBAPPS=/usr/local/tomcat/webapps/
 
 # Install system deps with Alpine Linux package manager
 RUN apk add --update --no-cache --upgrade \
@@ -89,11 +95,14 @@ RUN apk add --update --no-cache --upgrade \
   python \
   python-dev \
   python3-dev \
+  py-lxml \
+  lib-xslt-dev \
+  libxml2-dev \
   py-pip \
   nodejs
 
 # Install Python dependencies
-RUN pip install -r "requirements.txt" && \
+RUN pip install -r requirements.txt && \
   npm install --no-optional && \
   npm run build
 
@@ -102,10 +111,10 @@ RUN pip install -r "requirements.txt" && \
 ##
 
 # Get the BlackLab source
-RUN git clone "git://github.com/INL/BlackLab.git"
+RUN git clone git://github.com/INL/BlackLab.git
 
 # Build BlackLab with Maven
-RUN cd "BlackLab" && \
+RUN cd BlackLab && \
   mvn clean install
 
 ##
@@ -114,6 +123,3 @@ RUN cd "BlackLab" && \
 
 # Make ports available
 EXPOSE 27017 8080 7082
-
-# Run the container
-CMD ["sh", "-c", "mongod", "&", "sh", "/usr/local/tomcat/bin/catalina.sh", "start", "&", "npm", "run", "seed", "&", "gunicorn", "-b", "0.0.0.0:7082", "--access-logfile", "-", "--reload server.app:app", "--timeout", "90", "--log-level=DEBUG"]
