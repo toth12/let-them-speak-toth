@@ -5,10 +5,24 @@ FROM node:8-alpine
 MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
 
 ##
+# Install admin tools
+##
+
+# coreutils: https://www.gnu.org/software/coreutils/manual/coreutils.html
+RUN apk add --update vim \
+  nano \
+  curl \
+  coreutils
+
+##
 # Install SSH
 ##
 
 RUN apk add --update openssh
+
+RUN apk add --no-cache openssh \
+  && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
+  && echo "root:root" | chpasswd
 
 ##
 # Install Maven
@@ -96,7 +110,6 @@ RUN apk add --update --no-cache --upgrade \
   python-dev \
   python3-dev \
   py-lxml \
-  lib-xslt-dev \
   libxml2-dev \
   py-pip \
   nodejs
@@ -122,4 +135,4 @@ RUN cd BlackLab && \
 ##
 
 # Make ports available
-EXPOSE 27017 8080 7082
+EXPOSE 27017 8080 7082 22
