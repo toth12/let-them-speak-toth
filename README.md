@@ -61,18 +61,22 @@ Install Docker, then in the root directory, build the container with:
 bash server/docker/build.sh
 ```
 
-Once the container is built, you can seed the database with:
+Once the container is built, you can seed the database and start the server with:
 
 ```bash
 bash server/docker/run_with_seed_data.sh
 ```
 
-To gain an active shell in the container, run:
-
+To ssh into container (see `chpasswd` line in Dockerfile), run:
 ```bash
 bash server/docker/ssh.sh
 ```
 
+To stop the container, run:
+
+```bash
+bash server/docker/stop.sh
+```
 
 ## Linting
 
