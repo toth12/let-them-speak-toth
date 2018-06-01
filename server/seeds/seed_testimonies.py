@@ -247,6 +247,7 @@ def get_interviewee_name(_gender):
   return fake.name_male() #pylint: disable=no-member
 
 def get_list_subset(options, prob=0.3):
+  '''Return a random subset of values from `options`'''
   l = []
   for i in options:
     if random() < prob:

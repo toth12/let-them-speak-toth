@@ -8,21 +8,21 @@ def test_multiple_word_queries():
   '''
   Test that the BlackLab helpers handle multiword queries
   '''
-  results = search_blacklab(query='the rest')
+  results = search_blacklab({'query': 'the rest'})
   assert_pattern_in_each_match(results['results'], 'the rest')
 
 def test_regular_expressions():
   '''
   Test that the BlackLab helpers handle regex
   '''
-  results = search_blacklab(query='[word="th.*"]')
+  results = search_blacklab({'query': '[word="th.*"]'})
   assert_pattern_in_each_match(results['results'], 'th')
 
 def test_vertical_pipes():
   '''
   Test that the BlackLab helpers handle vertical pipes
   '''
-  results = search_blacklab(query='this|that')
+  results = search_blacklab({'query': 'this|that'})
   for i in results['results']:
     try:
       assert_pattern_in_each_match([i], 'this')
@@ -33,7 +33,7 @@ def test_complex_queries():
   '''
   Test that several complex queries return expected results
   '''
-  results = search_blacklab(query='[pos="N.*"&lemma="run"]')
+  results = search_blacklab({'query': '[pos="N.*"&lemma="run"]'})
   assert_pattern_in_each_match(results['results'], 'run')
 
 def assert_pattern_in_each_match(results, pattern):
