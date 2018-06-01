@@ -58,14 +58,21 @@ That will start the webpack dev server on port 7081. Note that you will need to 
 Install Docker, then in the root directory, build the container with:
 
 ```bash
-docker build --tag letthemspeak --no-cache --file Dockerfile .
+bash server/docker/build.sh
 ```
 
-Once the container is built, you can run it with:
+Once the container is built, you can seed the database with:
 
 ```bash
-docker run -p 7082:7082 -p 8080:8080 -p 27017:27017 letthemspeak /bin/sh -c "mongod & /usr/local/tomcat/bin/catalina.sh start & npm run seed & gunicorn -b 0.0.0.0:7082 --workers 1 --threads 8 --timeout 30 --keep-alive 2 --access-logfile - --log-level=DEBUG server.app:app"
+bash server/docker/run_with_seed_data.sh
 ```
+
+To gain an active shell in the container, run:
+
+```bash
+bash server/docker/ssh.sh
+```
+
 
 ## Linting
 
