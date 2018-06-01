@@ -91,7 +91,7 @@ def add_year_params(params, prefix):
     return ''
   param = ''
   param += prefix + 'recording_year:'
-  param += '%5B' + params[min_year] + '%20' + params[max_year] + '%5D'
+  param += '%5B' + params['min_year'] + '%20' + params['max_year'] + '%5D'
   return param
 
 
@@ -166,5 +166,5 @@ def get_testimony_meta(obj, field, doc_infos):
 
 
 if __name__ == '__main__':
-  response = search_blacklab()
+  response = search_blacklab({})
   print(response)
