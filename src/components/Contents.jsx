@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from './Hero';
 import PropTypes from 'prop-types';
 import Pagination from './Pagination';
+import ResultsCount from './ResultsCount';
 import { connect } from 'react-redux';
 import { fetchTestimony } from '../actions/testimony';
 import {
@@ -53,7 +54,7 @@ class Contents extends React.Component {
       <div className='page'>
         <Hero text='Table of Contents' />
         <div className='container page-toc'>
-          <h2>Holocaust Testimonials Table of Contents</h2>
+          <ResultsCount resultCount={this.props.total} />
           <div className='toc-container'>
             {this.props.total
               ? <Table {...this.props} />

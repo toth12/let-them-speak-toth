@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import Hero from './Hero';
 import Loader from './Loader';
 import Pagination from './Pagination';
-import Filters from './Filters'
+import Filters from './Filters';
+import ResultsCount from './ResultsCount';
 import Err from './Error';
 import {
   fetchTestimony,
@@ -116,7 +117,7 @@ class Content extends React.Component {
 
 const Results = props => (
   <section className='results'>
-    <Label resultCount={props.resultCount} />
+    <ResultsCount resultCount={props.resultCount} />
     <div>
       {props.searching
         ? <Loader />
@@ -177,17 +178,6 @@ const Result = props => (
   </div>
 )
 
-const Label = props => (
-  <div className='results-label'>
-    <span><b>Results </b></span>
-    <span className='results-count'>
-      <span>There are </span>
-      <span><b>{props.resultCount}</b> </span>
-      <span>results for your search</span>
-    </span>
-  </div>
-)
-
 const getHit = (str, side) => {
   const length = 20;
   const matchLen = 16;
@@ -205,10 +195,6 @@ const getHit = (str, side) => {
 }
 
 const $ = selector => document.querySelector(selector);
-
-Label.PropTypes = {
-  resultCount: PropTypes.number.isRequired,
-}
 
 Result.PropTypes = {
   fetchTestimony: PropTypes.func.isRequired,
