@@ -137,7 +137,7 @@ const Footer = props => (
 )
 
 const Media = props => {
-  let content = <NoMedia />;
+  return <NoMedia />;
   const url = getMediaUrl(props.testimony, props.mediaIndex);
   if (url) {
     if (isVideo(url)) {
@@ -167,7 +167,7 @@ const Audio = props => (
 )
 
 const NoMedia = props => (
-  <div className='no-media' />
+  <div className='no-media'>No media is available for this record.</div>
 )
 
 const Metadata = props => (
