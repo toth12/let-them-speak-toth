@@ -46,7 +46,7 @@ const common = {
   },
   entry: path.join(paths.src, 'index.js'),
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.styl']
   },
   module: {
     rules: [

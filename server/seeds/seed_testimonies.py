@@ -31,7 +31,7 @@ from server.seeds.seed_fragments import get_fragments #pylint: disable=wrong-imp
 from server.seeds.utils import rm_dir, make_dir, write_text #pylint: disable=wrong-import-position, no-name-in-module
 
 fake = Faker()
-n_testimonies = 10
+n_testimonies = 20
 paragraph_boundary = '\n'
 folia_dir = os.path.join('server', 'seeds', 'folia')
 url = 'https://s3-us-west-2.amazonaws.com/lab-apps/let-them-speak'
