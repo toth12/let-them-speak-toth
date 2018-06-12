@@ -193,9 +193,11 @@ def store_token_ids(testimony_id, full_text):
 
 def get_media():
   '''Return either an audio or video url'''
-  if random() > 0.5:
+  if random() > 0.3:
     return [video_url_one, video_url_two]
-  return [audio_url]
+  if random() > 0.3:
+    return [audio_url]
+  return []
 
 def get_int():
   '''Generate a random int between 0 and 9999999'''
