@@ -67,7 +67,14 @@ Once the container is built, you can seed the database and start the server with
 bash server/docker/run_with_seed_data.sh
 ```
 
-To ssh into container (see `chpasswd` line in Dockerfile), run:
+If you have the production database credentials on your host, you can start the app with production data by running:
+
+```bash
+bash server/docker/run_with_prod_data.sh
+```
+
+To ssh into container (see `chpasswd` line in ./Dockerfile), run:
+
 ```bash
 bash server/docker/ssh.sh
 ```
@@ -108,8 +115,19 @@ pytest
 
 ## Deploying to Ec2
 
-Install docker:
+Configure the AWS CLI
+
+```bash
+# install the CLI
+pip install awscli --upgrade --user
+
+# configure the CLI (provide production credentials when prompted)
+aws configure
 ```
+
+Install docker:
+
+```bash
 # install docker
 sudo yum install docker -y
 
@@ -122,7 +140,7 @@ sudo usermod -a -G docker ec2-user
 
 To apply the group changes, log out then log back in. Next, build the app:
 
-```
+```bash
 # install dependencies
 sudo yum install git -y
 
