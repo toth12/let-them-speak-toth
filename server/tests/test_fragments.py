@@ -18,8 +18,8 @@ node_schema = {
   'testimony_id': string_types,
   'media_index': int,
   'media_offset': int,
-  'start_sentence_index': int,
-  'end_sentence_index': int,
+  'start_sentence_index': [int, type(None)],
+  'end_sentence_index': [int, type(None)],
   'children': list,
 }
 
@@ -43,8 +43,18 @@ def validate_node(_id, node):
       continue
     val = node[field]
     expected_type = node_schema[field]
-    print(' * validating', _id, 'tree field', field, 'has type', expected_type)
-    assert isinstance(val, expected_type)
+    expected_types = expected_type if isinstance(expected_type, list) else [expected_type]
+    validated = False
+    for _type in expected_types:
+      print(' * validating', _id, 'tree field', field, 'value', val, 'type in', expected_types)
+      try:
+        print(val, _type, isinstance(val, _type))
+        assert isinstance(val, _type)
+        validated = True
+      except:
+        pass
+    assert validated
+    # validate child nodes recursively
     for child in node['children']:
       print(' * validating', child, 'in', _id, 'tree children')
       validate_node(_id, child)
