@@ -184,14 +184,30 @@ const getHit = (str, side) => {
   str = str.trim();
   switch (side) {
     case 'left':
-      return str.substring(str.length - length, str.length) + '...';
+      return '...' + clean(str.substring(str.length - length, str.length));
     case 'match':
       return str.length <= matchLen ? str :
-        str.substring(0, matchLen/2).trim() + '...' +
-        str.substring(str.length-matchLen/2, str.length).trim();
+        clean(str.substring(0, matchLen/2)) + '...' +
+        clean(str.substring(str.length-matchLen/2, str.length));
     case 'right':
-      return str.substring(0, Math.min(length, str.length)) + '...';
+      return clean(str.substring(0, Math.min(length, str.length))) + '...';
   }
+}
+
+// reserved chars -/\^$*+?.()|[]{} TODO: linearize
+const clean = s => {
+  // reserved characters
+  s = s.replace(/ \./g, '.')
+  s = s.replace(/ \?/g, '?')
+  // non-reserved characters
+  s = s.replace(/ !/g, '!')
+  s = s.replace(/ ;/g, ';')
+  s = s.replace(/ ,/g , ',')
+  s = s.replace(/ :/g, ':')
+  s = s.replace(/ '/g, "'")
+  s = s.replace(/ "/g, '"')
+  s = s.replace(/ --/g, ' -- ')
+  return s.trim();
 }
 
 const $ = selector => document.querySelector(selector);
