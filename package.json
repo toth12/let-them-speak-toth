@@ -12,8 +12,9 @@
   "scripts": {
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 7081 --history-api-fallback",
     "seed": "python server/seeds/seed_db.py",
-    "fetch-data": "aws s3 cp s3://lab-secrets/let-them-speak server/inputs --profile lab-secrets",
-    "build-db": "npm run fetch-data && python server/build_db.py",
+    "fetch-prod-data": "mkdir -p server/inputs && aws s3 cp s3://lab-secrets/let-them-speak/ server/inputs --recursive --profile lab-secrets && rm -rf server/inputs/folia && unzip server/inputs/folia.zip -d server/inputs/folia/",
+    "build-db": "python server/build_db.py",
+    "build-prod-db": "npm run fetch-prod-data && npm run build-db",
     "build": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
     "compress": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
     "production": "npm run build && npm run serve-prod",
