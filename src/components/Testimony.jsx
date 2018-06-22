@@ -137,16 +137,14 @@ const Footer = props => (
 )
 
 const Media = props => {
-  return <NoMedia />;
   const url = getMediaUrl(props.testimony, props.mediaIndex);
   if (url) {
-    if (isVideo(url)) {
-      content = <Video url={url} />
-    } else if (isAudio(url)) {
-      content = <Audio url={url} />
-    }
+    let content;
+    if (isVideo(url)) content = <Video url={url} />
+    else if (isAudio(url)) content = <Audio url={url} />
+    return <div className='media-container'>{content}</div>;
   }
-  return <div className='media-container'>{content}</div>;
+  return <NoMedia />;
 }
 
 const Video = props => (
@@ -205,9 +203,15 @@ const getMediaUrl = (testimony, mediaIndex) => {
   }
 }
 
-const isVideo = str => str.indexOf('.mp4') > -1;
+const isVideo = str => {
+  let s = str || '';
+  return s.indexOf('.mp4') > -1;
+}
 
-const isAudio = str => str.indexOf('.mp3') > -1;
+const isAudio = str => {
+  let s = str || '';
+  return s.indexOf('.mp3') > -1;
+}
 
 const testimonyProps = PropTypes.shape({
   camp_names: PropTypes.arrayOf(PropTypes.string),

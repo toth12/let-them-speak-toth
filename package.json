@@ -12,7 +12,7 @@
   "scripts": {
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 7081 --history-api-fallback",
     "seed": "python server/seeds/seed_db.py",
-    "fetch-data": "aws s3 cp s3://lab-secrets/let-them-speak server/inputs --profile lab-secrets",
+    "fetch-data": "rm -r server/inputs && mkdir -p server/inputs && aws s3 cp s3://lab-secrets/let-them-speak/ server/inputs/ --profile lab-secrets --recursive",
     "build-db": "npm run fetch-data && python server/build_db.py",
     "build": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
     "compress": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
