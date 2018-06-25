@@ -123,7 +123,7 @@ const Results = props => (
         ? <Loader />
         : null
       }
-      <Filters {...props} />
+      <Filters />
       <ResultTable {...props} />
       {props.resultCount && props.resultCount > perPage
         ? <Pagination

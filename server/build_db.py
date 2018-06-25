@@ -47,7 +47,7 @@ def index_folia_files(dir_to_index, index_name):
     dir_to_index += '/'
 
   # blacklab classpath config
-  classpath = 'BlackLab/core/target/blacklab-1.6.0.jar'
+  classpath = 'BlackLab/core/target/blacklab-1.7.1.jar'
   classpath += ':Blacklab/core/target/lib/*'
 
   cmd = 'java -cp "' + classpath + '" '
@@ -75,7 +75,7 @@ def copy_war_files():
   '''
   Copy war files from BlackLab server dir to the apps_path
   '''
-  war_path = 'BlackLab/server/target/blacklab-server-1.6.0.war'
+  war_path = 'BlackLab/server/target/blacklab-server-1.7.1.war'
   war_file = os.path.basename(war_path)
   out_path = os.path.join(tomcat_apps_path, war_file)
   cmd = 'cp ' + war_path + ' ' + out_path
