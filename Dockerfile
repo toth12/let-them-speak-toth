@@ -86,17 +86,6 @@ RUN apk add openjdk8 && \
   sh /usr/local/tomcat/bin/catalina.sh version
 
 ##
-# Install Blacklab
-##
-
-# Get the BlackLab source
-RUN git clone git://github.com/INL/BlackLab.git
-
-# Build BlackLab with Maven
-RUN cd BlackLab && \
-  mvn clean install
-
-##
 # Build Python + Node dependencies
 ##
 
@@ -122,6 +111,17 @@ RUN apk add --update --no-cache --upgrade \
   libxml2-dev \
   py-pip \
   nodejs
+
+##
+# Install Blacklab
+##
+
+# Get the BlackLab source
+RUN git clone git://github.com/INL/BlackLab.git
+
+# Build BlackLab with Maven
+RUN cd BlackLab && \
+  mvn clean install
 
 ##
 # Run container
