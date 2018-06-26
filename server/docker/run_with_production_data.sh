@@ -9,7 +9,8 @@ docker run -v $(pwd):/lts-app \
       -p 8080:8080 \
       -p 27017:27017 \
   letthemspeak /bin/sh -c \
-  "pip install -r requirements.txt && \
+  "rm -r BlackLab && mv /blacklab/BlackLab . && \
+  pip install -r requirements.txt && \
       npm install --no-optional && \
       npm run build
   rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key && \

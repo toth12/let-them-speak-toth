@@ -117,10 +117,10 @@ RUN apk add --update --no-cache --upgrade \
 ##
 
 # Get the BlackLab source
-RUN git clone git://github.com/INL/BlackLab.git
-
-# Build BlackLab with Maven
-RUN cd BlackLab && \
+RUN mkdir -p /blacklab && \
+  cd /blacklab && \
+  git clone git://github.com/INL/BlackLab.git && \
+  cd BlackLab && \
   mvn clean install
 
 ##
