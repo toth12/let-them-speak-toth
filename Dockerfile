@@ -9,7 +9,7 @@ MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
 ##
 
 # coreutils: https://www.gnu.org/software/coreutils/manual/coreutils.html
-RUN apk add --update vim \
+RUN apk add --update --no-cache --upgrade vim \
   nano \
   curl \
   coreutils
@@ -20,6 +20,7 @@ RUN apk add --update vim \
 
 RUN apk add --update openssh
 
+# configure user `root` with password `root`
 RUN apk add --no-cache openssh \
   && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
   && echo "root:root" | chpasswd
@@ -56,20 +57,20 @@ RUN cd /tmp && \
 
 # Add package repositories to container
 RUN apk update && apk upgrade && \
-    apk add \
-      bash \
-      g++ \
-      gcc \
-      make \
-      boost-system \
-      boost \
-      mongodb \
-      mongodb-tools \
-      --no-cache && \
-    rm -rf /var/cache/apk/*
+  apk add \
+    bash \
+    g++ \
+    gcc \
+    make \
+    boost-system \
+    boost \
+    mongodb \
+    mongodb-tools \
+    --no-cache && \
+  rm -rf /var/cache/apk/*
 
 RUN mkdir -p /data/db && \
-    chown -R mongodb /data/db
+  chown -R mongodb /data/db
 
 ##
 # Install Tomcat
@@ -88,12 +89,9 @@ RUN apk add openjdk8 && \
 # Build Python + Node dependencies
 ##
 
-# Add source to a directory and use that directory
-# NB: /app is a reserved directory in tomcat container
-ENV APP_PATH=/lts-app
-RUN mkdir $APP_PATH
-ADD . $APP_PATH
-WORKDIR $APP_PATH
+ENV APP_PATH="/lts-app"
+RUN mkdir "$APP_PATH"
+WORKDIR "$APP_PATH"
 
 # Store Mongo service name as mongo host
 ENV MONGO_HOST=0.0.0.0
@@ -114,20 +112,15 @@ RUN apk add --update --no-cache --upgrade \
   py-pip \
   nodejs
 
-# Install Python dependencies
-RUN pip install -r requirements.txt && \
-  npm install --no-optional && \
-  npm run build
-
 ##
 # Install Blacklab
 ##
 
 # Get the BlackLab source
-RUN git clone git://github.com/INL/BlackLab.git
-
-# Build BlackLab with Maven
-RUN cd BlackLab && \
+RUN mkdir -p /blacklab && \
+  cd /blacklab && \
+  git clone git://github.com/INL/BlackLab.git && \
+  cd BlackLab && \
   mvn clean install
 
 ##

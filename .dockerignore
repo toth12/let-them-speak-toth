@@ -7,4 +7,7 @@ node_modules
 build
 lts
 BlackLab
-server/seeds/folia/
+server/seeds/folia
+server/inputs
+server/.cache
+server/__pycache__
