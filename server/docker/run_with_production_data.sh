@@ -18,7 +18,7 @@ docker run -v $(pwd):/lts-app \
       /usr/sbin/sshd -e $@ & \
   mongod & \
   /usr/local/tomcat/bin/catalina.sh start & \
-  npm run seed & \
+  npm run build-db & \
   gunicorn -b 0.0.0.0:7082 \
       --workers 1 \
       --threads 8 \
