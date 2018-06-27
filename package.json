@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "camelcase": "^5.0.0",
     "connected-react-router": "^4.2.3",
     "d3": "^4.13.0",
     "history": "^4.7.2",
