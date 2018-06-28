@@ -64,7 +64,7 @@ def sentences():
   testimony_id = request.args.get('testimony_id', None)
   token_start = int(request.args.get('token_start', 0))
   token_end = int(request.args.get('token_end', 0))
-  if not testimony_id:
+  if not testimony_id or not token_start or not token_end:
     return jsonify([])
   results = db.tokens.find({'testimony_id': testimony_id}, {'_id': 0})
   tokens = list(results)[0]['tokens']
