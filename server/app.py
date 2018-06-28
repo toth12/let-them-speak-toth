@@ -23,7 +23,7 @@ app.debug = True
 cas_url = 'https://secure.its.yale.edu/cas'
 cas_client = CASClient(cas_url, auth_prefix='')
 app.secret_key = hashlib.new('ripemd160').hexdigest()
-use_authentication = False
+use_authentication = True
 
 ##
 # API routes
