@@ -185,6 +185,14 @@ const Metadata = props => (
       <div>Provenance: {props.testimony.provenance}</div>
     </div>
     <div className='metadata-block'>
+      {window.location.href.includes('show_pdfs') && props.testimony.pdf_filds
+        ? props.testimony.pdf_files.map(l => (
+            <a href={'https://collections.ushmm.org/oh_findingaids/' + l}
+              target='_blank'/>
+          ))
+        : null
+      }
+
       {props.testimony.interview_summary
         ? <div>
             <div><b>Interview Summary</b></div>

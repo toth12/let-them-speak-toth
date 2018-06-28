@@ -5,6 +5,7 @@ import os
 import sys
 [sys.path.append(i) for i in ['.', '..', 'server']]
 from server.seeds.utils import write_json #pylint: disable=wrong-import-position, import-error
+from server.db import get_db #pylint: disable=wrong-import-position
 
 ##
 # Config
@@ -106,6 +107,14 @@ def create_folia_index(**kwargs):
   copy_war_files()
   print(' * Indices successfully created. Please restart tomcat!')
 
+def create_mongo_indexes():
+  '''
+  Index the tables in Mongo to optimize query performance
+  '''
+  db = get_db()
+  db.testimonies.create_index('testimony_id')
+  db.tokens.create_index('testimony_id')
+
 ##
 # Main DB builder
 ##
@@ -131,6 +140,9 @@ def build_db(folia_path, archive_path):
 
   # index the folia files
   create_folia_index(folia_dir=folia_path)
+
+  # create mongo indexes for quicker queries
+  create_mongo_indexes()
 
 if __name__ == '__main__':
   build_db(folia_dir, mongo_archive_path)
