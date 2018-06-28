@@ -80,7 +80,7 @@ class Filter extends React.Component {
               labelKey='IntervieweeName'
               multiple={false}
               options={this.props.options.interviewee_names}
-              placeholder='Select an interviewee'
+              placeholder='Select interviewee'
               onChange={selected => {
                 this.props.setFilterValue('interviewee_name', selected[0])
               }} />
