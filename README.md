@@ -150,7 +150,7 @@ screen -D
 
 ## Deploying to EC2 without Docker
 
-If Docker is using too much instance RAM, one can deploy without Docker with the following:
+If Docker is using too much instance RAM, one can deploy to Amazon Linux without Docker with the following:
 
 ```
 sudo yum install mlocate && updatedb
