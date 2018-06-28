@@ -174,19 +174,24 @@ const Metadata = props => (
       <div><b>About the Interview</b></div>
       <div>Shelfmark: {props.testimony.shelfmark}</div>
       <div>Interview date: {props.testimony.recording_year}</div>
-      {props.testimony.camp_names.length ?
-        <div>Camps: {props.testimony.camp_names.join(', ')}</div>
+      {props.testimony.camp_names.length
+        ? <div>Camps: {props.testimony.camp_names.join(', ')}</div>
         : null
       }
-      {props.testimony.ghetto_names.length ?
-        <div>Camp: {props.testimony.ghetto_names.join(', ')}</div>
+      {props.testimony.ghetto_names.length
+        ? <div>Camp: {props.testimony.ghetto_names.join(', ')}</div>
         : null
       }
       <div>Provenance: {props.testimony.provenance}</div>
     </div>
     <div className='metadata-block'>
-      <div><b>Interview Summary</b></div>
-      <div>{props.testimony.interview_summary}</div>
+      {props.testimony.interview_summary
+        ? <div>
+            <div><b>Interview Summary</b></div>
+            <div>{props.testimony.interview_summary}</div>
+          </div>
+        : null
+      }
     </div>
   </div>
 )
