@@ -195,7 +195,7 @@ sudo service mongod restart
 
 # port forwarding
 # forward requests to 80 to 7082
-iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 7082
+sudo iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 7082
 ```
 
 Then clone, install dependencies, build bundle, and serve with gunicorn.
