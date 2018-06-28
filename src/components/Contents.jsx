@@ -23,7 +23,6 @@ class Contents extends React.Component {
 
   componentWillMount() {
     this.props.getPage(0);
-    this.props.fetchTableOfContents();
   }
 
   componentDidUpdate(prevProps) {
