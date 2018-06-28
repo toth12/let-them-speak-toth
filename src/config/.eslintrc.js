@@ -19,6 +19,7 @@ module.exports = {
       "jsx": "never",
       "mjs": "never"
     }],
+    "import/extensions": 0,
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
     "max-len": [1, 80, { "ignoreComments": true, "ignoreTrailingComments": true, "ignoreUrls": true }],
