@@ -153,7 +153,7 @@ screen -D
 If Docker is using too much instance RAM, one can deploy to Amazon Linux without Docker with the following:
 
 ```
-sudo yum install mlocate && updatedb
+sudo yum install mlocate && sudo updatedb
 
 # install Oracle JDK 1.8
 wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-8u141-linux-x64.rpm
@@ -161,16 +161,19 @@ sudo yum install -y jdk-8u141-linux-x64.rpm
 
 # install OpenJDK
 sudo yum install -y java-1.8.0-openjdk-devel
-sudo yum remove java-1.7.0-openjdk -y
+sudo yum remove java-1.7.0-openjdk
 sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
 sudo yum install -y apache-maven
-mvn --version
+
+# specify java version [/usr/java/jdk1.8.0_141/bin/java{c}]
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
 
 # install Tomcat
-sudo yum install tomcat8 tomcat8-webapps
-sudo service tomcat8 restart
-# tomcat webapps in /var/lib/tomcat8/webapps
+sudo yum install tomcat tomcat-webapps
+sudo service tomcat restart
+# tomcat webapps in /var/lib/tomcat/webapps/
 
 # install Node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
@@ -190,7 +193,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
 sudo yum install -y mongodb-org
 
 # start services
-sudo service tomcat8 restart
+sudo service tomcat restart
 sudo service mongod restart
 
 # port forwarding
@@ -198,4 +201,34 @@ sudo service mongod restart
 sudo iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 7082
 ```
 
-Then clone, install dependencies, build bundle, and serve with gunicorn.
+Then clone, install dependencies, build bundle, and serve with gunicorn:
+
+```
+# clone the repo
+sudo yum groupinstall "Development Tools"
+git clone https://github.com/YaleDHLab/let-them-speak
+
+# install Node dependencies
+cd let-them-speak
+npm i -g yarn
+yarn install
+
+# install Python dependencies
+sudo easy_install pip
+pip install -r requirements.txt --user
+
+# build Blacklab
+git clone git://github.com/INL/BlackLab.git && cd BlackLab
+# ensure maven version is 1.8+
+mvn -v
+# install BlackLab
+mvn install
+
+# fetch production data
+aws configure
+sed -i -e 's/\[default\]/\[lab-secrets\]/g' ~/.aws/credentials
+yarn fetch-data
+yarn build-db
+yarn build
+yarn serve-gunicorn
+```
