@@ -178,8 +178,8 @@ const Metadata = props => (
         ? <div>Camps: {props.testimony.camp_names.join(', ')}</div>
         : null
       }
-      {props.testimony.ghetto_names.length ?
-        <div>Ghettos: {props.testimony.ghetto_names.join(', ')}</div>
+      {props.testimony.ghetto_names.length
+        ? <div>Ghettos: {props.testimony.ghetto_names.join(', ')}</div>
         : null
       }
       <div>Provenance: {props.testimony.provenance}</div>

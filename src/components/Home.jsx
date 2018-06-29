@@ -12,7 +12,7 @@ const Home = props => (
     </div>
     <div className='bottom'>
       <hr/>
-      <p>Editted by Gabor Mihaly Toth</p>
+      <p>Edited by Gabor Mihaly Toth</p>
       <p>Built in collaboration with the Yale Digital Humanities Lab</p>
     </div>
   </div>
