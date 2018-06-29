@@ -116,7 +116,7 @@ const Right = props => (
 const Left = props => (
   <div className='left'>
     <div className='title'>
-      Transcript Excerpt: {props.testimony.testimony_title}
+      {props.testimony.testimony_title}
     </div>
     <div className='left-body transcript-text'
       dangerouslySetInnerHTML={{__html: props.testimony.html_transcript}}>
@@ -179,7 +179,7 @@ const Metadata = props => (
         : null
       }
       {props.testimony.ghetto_names.length
-        ? <div>Camp: {props.testimony.ghetto_names.join(', ')}</div>
+        ? <div>Ghettos: {props.testimony.ghetto_names.join(', ')}</div>
         : null
       }
       <div>Provenance: {props.testimony.provenance}</div>
