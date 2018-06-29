@@ -72,9 +72,9 @@ def generate_config_file(index_name):
     }
   })
 
-def copy_war_files():
+def copy_war_file():
   '''
-  Copy war files from BlackLab server dir to the apps_path
+  Copy war file from BlackLab server dir to the apps_path
   '''
   war_path = 'BlackLab/server/target/blacklab-server-1.7.1.war'
   war_file = os.path.basename(war_path)
@@ -104,7 +104,7 @@ def create_folia_index(**kwargs):
   validate_blacklab_present()
   index_folia_files(folia_path, index_name)
   generate_config_file(index_name)
-  copy_war_files()
+  copy_war_file()
   print(' * Indices successfully created. Please restart tomcat!')
 
 def create_mongo_indexes():
