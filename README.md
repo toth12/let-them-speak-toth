@@ -28,7 +28,7 @@ cd BlackLab
 mvn install
 ```
 
-Finally, store the Tomcat webapps directory and the host addresses for both Mongo and Tomcat in your environment variables (update paths as necessary):
+Finally, store the Tomcat webapps directory, the host addresses for both Mongo and Tomcat, and the production AWS credentials in your environment variables (update paths as necessary):
 
 ```bash
 export MONGO_HOST="localhost"
@@ -67,7 +67,7 @@ Once the container is built, you can seed the database and start the server with
 bash server/docker/run_with_seed_data.sh
 ```
 
-If you have the production database credentials on your host, you can start the app with production data by running:
+If you have the production database credentials in your host's `~/.aws/credentials` file, you can start the app with production data by running:
 
 ```bash
 bash server/docker/run_with_prod_data.sh
