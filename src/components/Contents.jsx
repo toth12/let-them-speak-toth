@@ -26,19 +26,14 @@ class Contents extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // the TOC updates when filters are set -> refetch values
-    let updated = false;
-    Object.keys(prevProps.selected).map(f => {
-      if (prevProps.selected[f] !== this.props.selected[f]) {
-        updated = true;
-      }
-    })
-    Object.keys(prevProps.years).map(y => {
-      if (prevProps.years[y] !== this.props.years[y]) {
-        updated = true;
-      }
-    })
-    if (updated) this.props.getPage(0)
+    // get the first page of results when the filters change
+    if (filtersChanged(prevProps, this.props)) {
+      this.props.getPage(0)
+    }
+    // if we just loaded the TOC data, scroll to top of page
+    if (!prevProps.testimonies && this.props.testimonies) {
+      document.body.scrollTo(0,0)
+    }
   }
 
   nextPage() {
@@ -106,6 +101,18 @@ const Table = props => (
 const NoResults = props => (
   <div className='no-results'>Your query returned no results</div>
 )
+
+const filtersChanged = (prevProps, props) => {
+  let updated = false;
+  ['selected', 'years'].map(field => {
+    keys(prevProps[field]).map(v => {
+      if (prevProps[field][v] !== props[field][v]) updated = true;
+    })
+  })
+  return updated;
+}
+
+const keys = obj => Object.keys(obj);
 
 const sharedTypes = {
   testimonies: PropTypes.arrayOf(PropTypes.shape({
