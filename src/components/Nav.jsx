@@ -11,7 +11,7 @@ const Nav = props => (
       <li className='brand'>
         <Link to={'/#'}><img src={img} /></Link>
       </li>
-      <li><Link to={'/anthology'}>ANTHOLOGY</Link></li>
+      <li><Link to={'/anthology'}>FRAGMENTS</Link></li>
       <li><Link to={'/methods'}>METHODOLOGY</Link></li>
     </ul>
   </nav>

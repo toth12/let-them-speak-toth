@@ -6,13 +6,14 @@ const Home = props => (
     <div className='top'>
       <div className='brand' />
       <div>
-        <div className='welcome'>A data-driven anthology of oral history interviews with Holocaust survivors</div>
+      <div className='welcome'>An Anthology of Holocaust Testimonies: Yale Fortunoff Archive, USC Shoah Foundation, United States Holocaust Memorial Museum</div>
       </div>
       <Link className='button brown' to='/about'>Let's explore</Link>
     </div>
     <div className='bottom'>
       <hr/>
-      <p>A project by Gabor Mihaly Toth in collaboration with the Yale Digital Humanities Lab</p>
+      <p>Edited by Gabor Mihaly Toth</p>
+      <p>Built in collaboration with the Yale Digital Humanities Lab</p>
     </div>
   </div>
 )

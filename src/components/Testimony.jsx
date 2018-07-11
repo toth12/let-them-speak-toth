@@ -116,7 +116,7 @@ const Right = props => (
 const Left = props => (
   <div className='left'>
     <div className='title'>
-      Transcript Excerpt: {props.testimony.testimony_title}
+      {props.testimony.testimony_title}
     </div>
     <div className='left-body transcript-text'
       dangerouslySetInnerHTML={{__html: props.testimony.html_transcript}}>
@@ -137,16 +137,14 @@ const Footer = props => (
 )
 
 const Media = props => {
-  return <NoMedia />;
   const url = getMediaUrl(props.testimony, props.mediaIndex);
   if (url) {
-    if (isVideo(url)) {
-      content = <Video url={url} />
-    } else if (isAudio(url)) {
-      content = <Audio url={url} />
-    }
+    let content;
+    if (isVideo(url)) content = <Video url={url} />
+    else if (isAudio(url)) content = <Audio url={url} />
+    return <div className='media-container'>{content}</div>;
   }
-  return <div className='media-container'>{content}</div>;
+  return <NoMedia />;
 }
 
 const Video = props => (
@@ -181,12 +179,19 @@ const Metadata = props => (
         : null
       }
       {props.testimony.ghetto_names.length
-        ? <div>Camp: {props.testimony.ghetto_names.join(', ')}</div>
+        ? <div>Ghettos: {props.testimony.ghetto_names.join(', ')}</div>
         : null
       }
       <div>Provenance: {props.testimony.provenance}</div>
     </div>
     <div className='metadata-block'>
+      {window.location.href.includes('show_pdfs') && props.testimony.pdf_filds
+        ? props.testimony.pdf_files.map(l => (
+            <a href={'https://collections.ushmm.org/oh_findingaids/' + l}
+              target='_blank'/>
+          ))
+        : null
+      }
       {props.testimony.interview_summary
         ? <div>
             <div><b>Interview Summary</b></div>
@@ -210,9 +215,15 @@ const getMediaUrl = (testimony, mediaIndex) => {
   }
 }
 
-const isVideo = str => str.indexOf('.mp4') > -1;
+const isVideo = str => {
+  let s = str || '';
+  return s.indexOf('.mp4') > -1;
+}
 
-const isAudio = str => str.indexOf('.mp3') > -1;
+const isAudio = str => {
+  let s = str || '';
+  return s.indexOf('.mp3') > -1;
+}
 
 const testimonyProps = PropTypes.shape({
   camp_names: PropTypes.arrayOf(PropTypes.string),

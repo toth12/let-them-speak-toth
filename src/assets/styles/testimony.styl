@@ -93,15 +93,19 @@
   background: rgba(255, 165, 0, .6);
 }
 
-.footer {
+.testimony .footer {
   padding: 20px;
   font-size: 13px;
   line-height: .85em;
   color: #A2A2A2;
 }
 
-.footer div:first-of-type {
+.testimony .footer div:first-of-type {
   margin-bottom: 7px;
+}
+
+.testimony .footer span {
+  line-height: 1.1em;
 }
 
 /**
@@ -130,13 +134,20 @@
 }
 
 .testimony .metadata {
-  padding-top: 275px;
+  padding-top: 300px;
   line-height: 1.5em;
   font-family: Helvetica, Open Sans, serif;
   position: absolute;
   top: 0;
   max-height: 100%;
   overflow: auto;
+}
+
+.no-media {
+  background: #fff;
+  z-index: 1;
+  position: relative;
+  padding-bottom: 20px;
 }
 
 .no-media + .metadata {

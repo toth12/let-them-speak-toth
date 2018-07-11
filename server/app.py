@@ -43,7 +43,7 @@ def testimony():
   '''Fetch a transcript'''
   db = get_db()
   args = {'testimony_id': request.args.get('testimony_id')}
-  result = list(db.testimonies.find(args, {'_id': 0}))
+  result = list(db.testimonies.find(args, projections['testimony']))
   if result:
     return jsonify(result[0])
   return jsonify([])
@@ -64,11 +64,13 @@ def sentences():
   testimony_id = request.args.get('testimony_id', None)
   token_start = int(request.args.get('token_start', 0))
   token_end = int(request.args.get('token_end', 0))
+  if not testimony_id or not token_start or not token_end:
+    return jsonify([])
   results = db.tokens.find({'testimony_id': testimony_id}, {'_id': 0})
   tokens = list(results)[0]['tokens']
   return jsonify({
     'sentenceStart': tokens[token_start]['sentence_index'],
-    'sentenceEnd': tokens[token_end]['sentence_index']
+    'sentenceEnd': tokens[token_end]['sentence_index'],
   })
 
 ##
@@ -186,6 +188,11 @@ projections = {
     'collection': 1,
     'testimony_title': 1,
     'testimony_id': 1,
+  },
+  'testimony': {
+    '_id': 0,
+    'structured_transcript': 0,
+    'status': 0
   }
 }
 

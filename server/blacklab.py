@@ -20,7 +20,7 @@ def search_blacklab(params):
   '''
 
   root = 'http://' + os.environ['TOMCAT_HOST']
-  root += ':8080/blacklab-server-1.6.0/lts/hits'
+  root += ':8080/blacklab-server-1.7.1/lts/hits'
   query = get_query_pattern(params.get('query', 'test'))
   # query-based arguments
   args = {

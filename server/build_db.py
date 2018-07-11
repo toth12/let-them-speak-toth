@@ -5,6 +5,7 @@ import os
 import sys
 [sys.path.append(i) for i in ['.', '..', 'server']]
 from server.seeds.utils import write_json #pylint: disable=wrong-import-position, import-error
+from server.db import get_db #pylint: disable=wrong-import-position
 
 ##
 # Config
@@ -47,7 +48,7 @@ def index_folia_files(dir_to_index, index_name):
     dir_to_index += '/'
 
   # blacklab classpath config
-  classpath = 'BlackLab/core/target/blacklab-1.6.0.jar'
+  classpath = 'BlackLab/core/target/blacklab-1.7.1.jar'
   classpath += ':Blacklab/core/target/lib/*'
 
   cmd = 'java -cp "' + classpath + '" '
@@ -71,11 +72,11 @@ def generate_config_file(index_name):
     }
   })
 
-def copy_war_files():
+def copy_war_file():
   '''
-  Copy war files from BlackLab server dir to the apps_path
+  Copy war file from BlackLab server dir to the apps_path
   '''
-  war_path = 'BlackLab/server/target/blacklab-server-1.6.0.war'
+  war_path = 'BlackLab/server/target/blacklab-server-1.7.1.war'
   war_file = os.path.basename(war_path)
   out_path = os.path.join(tomcat_apps_path, war_file)
   cmd = 'cp ' + war_path + ' ' + out_path
@@ -103,8 +104,16 @@ def create_folia_index(**kwargs):
   validate_blacklab_present()
   index_folia_files(folia_path, index_name)
   generate_config_file(index_name)
-  copy_war_files()
+  copy_war_file()
   print(' * Indices successfully created. Please restart tomcat!')
+
+def create_mongo_indexes():
+  '''
+  Index the tables in Mongo to optimize query performance
+  '''
+  db = get_db()
+  db.testimonies.create_index('testimony_id')
+  db.tokens.create_index('testimony_id')
 
 ##
 # Main DB builder
@@ -131,6 +140,9 @@ def build_db(folia_path, archive_path):
 
   # index the folia files
   create_folia_index(folia_dir=folia_path)
+
+  # create mongo indexes for quicker queries
+  create_mongo_indexes()
 
 if __name__ == '__main__':
   build_db(folia_dir, mongo_archive_path)
