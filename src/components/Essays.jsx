@@ -6,49 +6,50 @@ const Essays = props => (
     <Hero text='Essays' />
     <div className='container'>
       <blockquote>
-      "Lorem ipsum dolor sit amet, arcu vulputate egestas dolor wisi, fugiat vestibulum etiam mattis sit, curabitur elit nulla vel, mus quis elit porttitor nulla."
+      "They couldn't walk, couldn't talk, kept on saying we should say "Kaddish" after them, we should remember them."
       </blockquote>
-      <p className='center-text'>&mdash;Source Attribution</p>
-      <p>Lorem ipsum dolor sit amet, arcu vulputate egestas dolor wisi, fugiat vestibulum etiam mattis sit, curabitur elit nulla vel, mus quis elit porttitor nulla. Amet elit in convallis, metus nam at sed, ipsum phasellus a dapibus, ornare in massa pharetra. Montes elementum pede integer ac, pulvinar aliquam non in augue, orci nulla eros nulla. Vulputate ut sed eget eu, dolor aliquam velit quisque a. Fermentum venenatis rhoncus vitae congue, suspendisse potenti pellentesque vestibulum.</p>
-      <p>Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse. A sit, vehicula eleifend, per massa vitae. Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse.</p>
-      <Titles />
-      <p>Lorem ipsum dolor sit amet, arcu vulputate egestas dolor wisi, fugiat vestibulum etiam mattis sit, curabitur elit nulla vel, mus quis elit porttitor nulla. Amet elit in convallis, metus nam at sed, ipsum phasellus a dapibus, ornare in massa pharetra. Montes elementum pede integer ac, pulvinar aliquam non in augue, orci nulla eros nulla. Vulputate ut sed eget eu, dolor aliquam velit quisque a. Fermentum venenatis rhoncus vitae congue, suspendisse potenti pellentesque vestibulum.</p>
-      <p>Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse. A sit, vehicula eleifend, per massa vitae. Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse.</p>
+      <p className='center-text'>&mdash;Oral History Interview with Suzanne Claire Holzer-Wester, USHMM, RG-50.061*0010.</p>
+      <p>This part of Let them speak features essays by Gabor Mihaly Toth on each experience domains presented in the anthology of fragments. Content is under development.</p>
+      <Titles/>
     </div>
   </div>
 )
 
 const essayList = [
   {
-    title: 'Lorem ipsum dolor sit amet, arcu vulputate',
+    title: 'The Perspective of the Voiceless',
     file: '/assets/files/sample.pdf',
   },
   {
-    title: 'Ipsum dolor sit amet, arcu vulputate',
+    title: 'Nakedness',
     file: '/assets/files/sample.pdf',
   },
   {
-    title: 'Dolor sit amet, arcu vulputate',
+    title: 'Shaking',
     file: '/assets/files/sample.pdf',
   },
   {
-    title: 'Amet a. Tempor eu. Dignissim nunc. Morbi faucibus',
+    title: 'Yelling and screaming',
     file: '/assets/files/sample.pdf',
   },
   {
-    title: 'Tempor eu. Dignissim nunc. Morbi faucibus',
+    title: 'Maltreatment',
     file: '/assets/files/sample.pdf',
   },
   {
-    title: 'Lorem ipsum dolor sit amet, arcu vulputate',
+    title: 'Running',
     file: '/assets/files/sample.pdf',
   },
   {
-    title: 'A. Tempor eu. Dignissim nunc. Morbi faucibus',
+    title: 'Fear',
     file: '/assets/files/sample.pdf',
   },
   {
-    title: 'Tempor eu. Dignissim nunc. Morbi faucibus',
+    title: 'Guilt',
+    file: '/assets/files/sample.pdf',
+  },
+  {
+    title: 'Shame',
     file: '/assets/files/sample.pdf',
   }
 ];

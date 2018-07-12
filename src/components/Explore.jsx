@@ -6,12 +6,31 @@ const Explore = props => (
   <div>
     <Hero text='Explore' />
     <div className='container'>
-      <h2>LET THE DATA SPEAK</h2>
-      <p>Even though the data underlying Let them speak cannot be considered to be Big Data, it definitely exceeds what a human reader can explore without the power of computing tools. The interview transcripts contain approximately …. million individual words, which corresponds to ….. hours of audio and video content. Beyond the size of the data, there are two other features that make the exploration even more challenging. First, transcripts are verbatim; they therefore bear the characteristics of orality such as for instance, the presence of half-sentences and long breaks. Second, interviews are by 3000 different ‘authors’ who use a great variety of vocabulary and grammatical constructions. As English is not their native language, readers may occasionally encounter odd lexical choices and grammatical constructions.</p>
-      <p>On the one hand, the goal of a data edition is to provide exploratory tools that help readers to overcome these difficulties and find their way in the data. Interview transcripts underwent a linguistic processing, as a result of which the data became searchable as a linguistic corpus. Not only can readers search a given word, but they can also enrich or narrow their search by drawing on linguistic features such as dictionary form or grammatical forms. Linguistic annotation also enables the search for sequences or patterns in texts. Furthermore, when using linguistic constructions users can also integrate catalogue data into their searches. Linguistic searches helps to find connections between texts and textual contexts. By clicking on search results, readers can quickly go back to the original texts, and listen them.</p>
-      <p>On the other hand, this data edition also aims to facilitate a buttom-up exploration. To fulfill this mission, various word indices have been constructed. These word indices show the vocabulary underlying the data set, and helps to see what is the vocabulary underlying the data. In addition to word indices, two further exploratory tools helps to find unexpected elements in the data. Various timelines show points in time over the interviews. Locations extracted from interviews are plotted on maps, that help to browse the content of interviews in space. These word indices are similar to traditional indices in books.</p>
-      <p>Finally, a traditional table of contents enable the reader to read or listen interviews in parallel. The tool table of contents enable the simple reading and browsing of interviews in the collection. Furthermore, interviews can be filterable. So user can find specific interviews based on various extra textual criteria. These extra-textual criteria derive from the meta-data that each data provider gave us.</p>
-      <p>As a whole, the exploratory tools enable a computer assisted close reading of texts, and to find connections between texts. In a data edition it is important to be transparent, and these exploratory tools are based on the processing of the data. Descriptions of data processing is described in the methodology part of this edition.</p>
+      
+      <p>The volume of the data underlying Let them speak exceeds what a human reader can explore without the power of computing tools. Interviews in this edition cover approximately 45 million individual words. Existing metadata, as well as other finding aids such as indexing and summaries, have hitherto been the main resource of help in the exploration of testimonies. Nevertheless, there is also need to search in the words of survivors. This does not only mean finding words in texts. Search also targets the identification of connections, similarities, and dissimilarities between interviews. Search also implies the retrieval of certain feelings and patterns of thought in the recollection of survivors. Of course, searching through 45 million words can produce results that are still too much to read and study. Search therefore needs to be complemented with options to narrow down results to certain groups of survivors such as for instance victims of a given camp. To fulfill these requirements, interviews were transformed into a linguistically annotated corpus enriched with metadata provided by the three collections.</p>
+
+      <p>-> link to corpus search</p>
+
+      <p>-> link to methodology </p>
+
+      <p>In addition to search, a traditional table of contents supports the exploration of interviews. This leads readers to complete transcripts, and to the listening or watching some but not all interviews. The table of contents is also filterable in terms of certain metadata.</p>
+
+      <p>-> link to TOC </p>
+
+      <p>Transcripts are not fully accurate; they might feature occasional errors, omissions, odd formatting and deviations from the original audio / video tapes. The goal of a data edition is not to produce a completely accurate publication of data. Due to the extraordinary large volume, and due to the fact that interviews were recorded and transcribed by many different projects using different and not always consistent transcribing standards, Let them speak cannot offer complete accuracy. Despite this, the editor and his team try their best. Interview transcripts are undergoing a basic quality control that tries to find erroneous transcripts.  In addition to transcript errors, historical inaccuracies may be present as these are personal recollections and reflections of individual survivors and witnesses. Please take this into consideration when reading transcripts, and contact the editor with suggestions for improvement.</p>
+
+      <p>You can read more about data processing and quality control in the Methodology section.</p>
+
+      <p>-> link to Methodology</p>
+
+      <p>At the moment, the corpus search is the main exploratory tool of Let them speak. Thanks to the generous support by the Fortunoff Archive, further exploratory tools are planned to be implemented. These tools will facilitate the exploration of victim’s perspective.</p>
+
+
+
+
+
+
+
       <div className='button-trio'>
         <Link className='button' to='/search'>Corpus Search</Link>
         <Link className='button' to='/contents'>Table of Contents</Link>
