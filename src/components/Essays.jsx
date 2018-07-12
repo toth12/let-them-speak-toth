@@ -5,9 +5,7 @@ const Essays = props => (
   <div>
     <Hero text='Essays' />
     <div className='container'>
-      <blockquote>
-      "They couldn't walk, couldn't talk, kept on saying we should say "Kaddish" after them, we should remember them."
-      </blockquote>
+      <blockquote>"They couldn't walk, couldn't talk, kept on saying we should say "Kaddish" after them, we should remember them."</blockquote>
       <p className='center-text'>&mdash;Oral History Interview with Suzanne Claire Holzer-Wester, USHMM, RG-50.061*0010.</p>
       <p>This part of Let them speak features essays by Gabor Mihaly Toth on each experience domains presented in the anthology of fragments. Content is under development.</p>
       <Titles/>
