@@ -60,7 +60,7 @@ const Titles = (props) => (
       <a href={t.file}
         className='essay-title'
         key={idx}
-        download>{idx + 1}. {t.title}
+        target='_blank'>{idx + 1}. {t.title}
       </a>
     ))}
   </div>

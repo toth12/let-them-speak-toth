@@ -13,19 +13,19 @@ const Methods = props => (
         <tbody>
           <tr>
             <td>
-              <a href='/assets/files/sample.pdf' download>
+              <a href='/assets/files/sample.pdf' target='_blank'>
                 <div className='background-image' />
                 <div>Essay title number one<br/>Subtitle for this essay</div>
               </a>
             </td>
             <td>
-              <a href='/assets/files/sample.pdf' download>
+              <a href='/assets/files/sample.pdf' target='_blank'>
                 <div className='background-image' />
                 <div>Essay title number two<br/>Subtitle for this essay</div>
               </a>
             </td>
             <td>
-              <a href='/assets/files/sample.pdf' download>
+              <a href='/assets/files/sample.pdf' target='_blank'>
                 <div className='background-image' />
                 <div>Essay title number three<br/>Subtitle for this essay</div>
               </a>
