@@ -5,34 +5,59 @@ const Methods = props => (
   <div className='methods'>
     <Hero text='Methodology' />
     <div className='container'>
-      <h2>Subheading here for page section</h2>
-      <p>Lorem ipsum dolor sit amet, arcu vulputate egestas dolor wisi, fugiat vestibulum etiam mattis sit, curabitur elit nulla vel, mus quis elit porttitor nulla. Amet elit in convallis, metus nam at sed, ipsum phasellus a dapibus, ornare in massa pharetra. Montes elementum pede integer ac, pulvinar aliquam non in augue, orci nulla eros nulla. Vulputate ut sed eget eu, dolor aliquam velit quisque a. Fermentum venenatis rhoncus vitae congue, suspendisse potenti pellentesque vestibulum.</p>
-      <p>Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse. A sit, vehicula eleifend, per massa vitae. Amet a. Tempor eu. Dignissim nunc. Morbi faucibus, fermentum urna in, vitae nulla habitasse.</p>
-      <h2>Subheading here for page section</h2>
+      <p>Let them speak consists of several technological components that are described in this part. Beyond the discussion of how technology helped to accomplish this project, the three data sets made available by data providers are presented here, including their quantitative (distribution of gender, nationalities, average interview length, etc) and qualitative profiling description of interview methodologies applied when recording the interviews. Content is under development.</p>
+      <h2>Data Sets</h2>
       <table className='image-trio'>
         <tbody>
           <tr>
             <td>
               <a href='/assets/files/sample.pdf' target='_blank'>
                 <div className='background-image' />
-                <div>Essay title number one<br/>Subtitle for this essay</div>
+                <div>Yale Fortunoff Archive</div>
               </a>
             </td>
             <td>
               <a href='/assets/files/sample.pdf' target='_blank'>
                 <div className='background-image' />
-                <div>Essay title number two<br/>Subtitle for this essay</div>
+                <div>USC Shoah Foundation, Visual Archive</div>
               </a>
             </td>
             <td>
               <a href='/assets/files/sample.pdf' target='_blank'>
                 <div className='background-image' />
-                <div>Essay title number three<br/>Subtitle for this essay</div>
+                <div>United States Holocaust Memorial Museum</div>
               </a>
             </td>
           </tr>
         </tbody>
       </table>
+
+      <h2>Data Processing</h2>
+      <table className='image-trio'>
+        <tbody>
+          <tr>
+            <td>
+              <a href='/assets/files/sample.pdf' download>
+                <div className='background-image' />
+                <div>Processing of transcripts and metadata</div>
+              </a>
+            </td>
+            <td>
+              <a href='/assets/files/sample.pdf' download>
+                <div className='background-image' />
+                <div>Linguistic Annotation</div>
+              </a>
+            </td>
+            <td>
+              <a href='/assets/files/sample.pdf' download>
+                <div className='background-image' />
+                <div>Retrieval of Fragments</div>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
 )
