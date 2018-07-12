@@ -143,7 +143,12 @@
   overflow: auto;
 }
 
-.no-media {
+.testimony .metadata .meta-label {
+  color: #999;
+}
+
+.no-media,
+.remote-media-link {
   background: #fff;
   z-index: 1;
   position: relative;
@@ -154,7 +159,12 @@
   padding-top: 30px;
 }
 
+.remote-media-link + .metadata {
+  padding-top: 65px;
+}
+
 .testimony .no-media,
+.testimony .remote-media-link,
 .testimony .metadata {
   font-size: 0.85em;
 }

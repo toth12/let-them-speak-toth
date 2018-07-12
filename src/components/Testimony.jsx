@@ -137,14 +137,18 @@ const Footer = props => (
 )
 
 const Media = props => {
+  let content;
   const url = getMediaUrl(props.testimony, props.mediaIndex);
-  if (url) {
-    let content;
+  // case of Fortunoff collection; return media
+  if (props.testimony.collection == 'USHMM') {
+    if (!url) return <NoMedia collection={props.testimony.collection} />;
     if (isVideo(url)) content = <Video url={url} />
-    else if (isAudio(url)) content = <Audio url={url} />
-    return <div className='media-container'>{content}</div>;
+    if (isAudio(url)) content = <Audio url={url} />
+  // case of non-Fortunoff collection; return url to other host
+  } else {
+    return <NoMedia collection={props.testimony.collection} />
   }
-  return <NoMedia />;
+  return <div className='media-container'>{content}</div>;
 }
 
 const Video = props => (
@@ -164,25 +168,60 @@ const Audio = props => (
   </div>
 )
 
-const NoMedia = props => (
-  <div className='no-media'>No media is available for this record.</div>
-)
+const NoMedia = props => {
+  let href;
+  switch (props.collection) {
+    case 'Fortunoff':
+      href = 'https://web.library.yale.edu/testimonies';
+      break;
+
+    case 'USC Shoah Foundation':
+      href = 'https://sfi.usc.edu/'
+      break;
+
+    default:
+      return <div className='no-media'>Sorry, media is not available for this record.</div>;
+  }
+
+  return (
+    <div className='remote-media-link'>The media content is not available at the moment; please visit the <a target='_blank' href={href}>data provider's website</a> for further information.</div>
+  )
+}
+
+const metaFields = [
+  {
+    label: 'Shelfmark',
+    field: 'shelfmark',
+  },
+  {
+    label: 'Interview date',
+    field: 'recording_year',
+  },
+  {
+    label: 'Camps',
+    field: 'camp_names',
+  },
+  {
+    label: 'Ghettos',
+    field: 'ghetto_names',
+  },
+  {
+    label: 'Provenance',
+    field: 'provenance',
+  }
+]
 
 const Metadata = props => (
   <div className='metadata'>
     <div className='metadata-block'>
       <div><b>About the Interview</b></div>
-      <div>Shelfmark: {props.testimony.shelfmark}</div>
-      <div>Interview date: {props.testimony.recording_year}</div>
-      {props.testimony.camp_names.length
-        ? <div>Camps: {props.testimony.camp_names.join(', ')}</div>
+      {metaFields.map((f, idx) => props.testimony[f.field].length
+        ? <div key={idx}>
+            <span className='meta-label'>{f.label}</span>
+            <span>: {props.testimony[f.field]}</span>
+          </div>
         : null
-      }
-      {props.testimony.ghetto_names.length
-        ? <div>Ghettos: {props.testimony.ghetto_names.join(', ')}</div>
-        : null
-      }
-      <div>Provenance: {props.testimony.provenance}</div>
+      )}
     </div>
     <div className='metadata-block'>
       {window.location.href.includes('show_pdfs') && props.testimony.pdf_filds
@@ -192,7 +231,6 @@ const Metadata = props => (
           ))
         : null
       }
-
       {props.testimony.interview_summary
         ? <div>
             <div><b>Interview Summary</b></div>
