@@ -42,13 +42,12 @@ def validate_node(_id, node):
     if (node['children']) and (field in optional_for_parents):
       continue
     val = node[field]
-    expected_type = node_schema[field]
-    expected_types = expected_type if isinstance(expected_type, list) else [expected_type]
+    f_type = node_schema[field]
+    f_type = f_type if isinstance(f_type, list) else [f_type]
     validated = False
-    for _type in expected_types:
-      print(' * validating', _id, 'tree field', field, 'value', val, 'type in', expected_types)
+    for _type in f_type:
+      print(' * validating', _id, 'tree field', field, 'value', val, 'type in', f_type)
       try:
-        print(val, _type, isinstance(val, _type))
         assert isinstance(val, _type)
         validated = True
       except:
