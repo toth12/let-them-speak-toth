@@ -14,6 +14,10 @@ export const handleFilterError = () => ({
   type: 'HANDLE_FILTER_ERROR',
 })
 
+export const clearFilters = () => ({
+  type: 'CLEAR_FILTERS',
+})
+
 // get all distinct levels for filter fields -- if
 // the user has selected values for one or more
 // filters, return only those distinct levels available

@@ -192,22 +192,27 @@ const metaFields = [
   {
     label: 'Shelfmark',
     field: 'shelfmark',
+    type: 'str',
   },
   {
     label: 'Interview date',
     field: 'recording_year',
+    type: 'str',
   },
   {
     label: 'Camps',
     field: 'camp_names',
+    type: 'arr',
   },
   {
     label: 'Ghettos',
     field: 'ghetto_names',
+    type: 'arr',
   },
   {
     label: 'Provenance',
     field: 'provenance',
+    type: 'str',
   }
 ]
 
@@ -218,7 +223,10 @@ const Metadata = props => (
       {metaFields.map((f, idx) => props.testimony[f.field].length
         ? <div key={idx}>
             <span className='meta-label'>{f.label}</span>
-            <span>: {props.testimony[f.field]}</span>
+            <span>: {f.type === 'str'
+              ? props.testimony[f.field]
+              : props.testimony[f.field].join(', ')
+            }</span>
           </div>
         : null
       )}

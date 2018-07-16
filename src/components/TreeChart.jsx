@@ -49,19 +49,8 @@ class TreeChart extends React.Component {
     } else {
       tree.draw({
         data: this.props.data[this.props.selected].tree,
-        onClick: (d => {
-          // display a testimony on click of a child node
-          if (d.children && d.children.length) return;
-          this.props.highlightSentences({
-            start: d.data.start_sentence_index,
-            end: d.data.end_sentence_index,
-            testimonyId: d.data.testimony_id,
-            lookupSentences: false,
-          })
-          this.props.setMediaIndex(d.data.media_index || 0)
-          this.props.setMediaStart(d.data.media_offset || 0)
-          this.props.fetchTestimony(d.data.testimony_id)
-        }),
+        // display a testimony on click of a child node
+        onClick: d => handleClick(this.props, d)
       })
     }
   }
@@ -91,6 +80,25 @@ class TreeChart extends React.Component {
       </div>
     )
   }
+}
+
+const handleClick = (props, d) => {
+  console.log(props, d)
+
+  if ((d.children && d.children.length) ||
+       !d.data.testimony_id) return;
+  if (d.data.start_sentence_index &&
+      d.data.end_sentence_index) {
+    props.highlightSentences({
+      start: d.data.start_sentence_index,
+      end: d.data.end_sentence_index,
+      testimonyId: d.data.testimony_id,
+      lookupSentences: false,
+    })
+  }
+  props.setMediaIndex(d.data.media_index || 0)
+  props.setMediaStart(d.data.media_offset || 0)
+  props.fetchTestimony(d.data.testimony_id)
 }
 
 const nodeProps = {
