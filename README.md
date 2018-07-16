@@ -26,7 +26,7 @@ Next you'll need to clone and compile the BlackLab source:
 # acquire and build source
 git clone git://github.com/INL/BlackLab.git
 cd BlackLab
-# ensure maven version is 1.8+
+# ensure maven was compiled with the JDK 1.8
 mvn -v
 # install BlackLab
 mvn install
