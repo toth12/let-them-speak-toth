@@ -8,6 +8,7 @@ import Pagination from './Pagination';
 import Filters from './Filters';
 import ResultsCount from './ResultsCount';
 import Err from './Error';
+import { filtersChanged } from '../lib/filters';
 import {
   fetchTestimony,
   highlightSentences,
@@ -32,18 +33,9 @@ class Search extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    let updated = false;
-    Object.keys(prevProps.selected).map(f => {
-      if (prevProps.selected[f] !== this.props.selected[f]) {
-        updated = true;
-      }
-    })
-    Object.keys(prevProps.years).map(y => {
-      if (prevProps.years[y] !== this.props.years[y]) {
-        updated = true;
-      }
-    })
-    if (updated) this.props.search($('#search-input').value)
+    if (filtersChanged(prevProps, this.props)) {
+      this.props.search($('#search-input').value)
+    }
   }
 
   nextPage() {

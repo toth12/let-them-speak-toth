@@ -1,12 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Nav from './Nav';
 import Testimony from './Testimony';
 import Err from './Error';
+import TestimonyLoader from './TestimonyLoader';
 
-class AppWrapper extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
       err: false,
     }
@@ -14,12 +15,8 @@ class AppWrapper extends React.Component {
 
   componentWillMount() {
     const self = this;
-    window.onerror = function () {
-      self.setState({err: true})
-    };
-    window.addEventListener('error', function () {
-      self.setState({err: true})
-    })
+    window.onerror = () => self.setState({err: true});
+    window.addEventListener('error', () => self.setState({err: true}))
   }
 
   render() {
@@ -27,7 +24,11 @@ class AppWrapper extends React.Component {
       <div className='app-container'>
         <Nav />
         <Testimony />
-        {this.state.err ? <Err className='top-level-err' /> : null}
+        <TestimonyLoader />
+        {this.state.err
+          ? <Err className='top-level-err' />
+          : null
+        }
         <div className='app-wrap'>
           {this.props.children}
         </div>
@@ -36,4 +37,4 @@ class AppWrapper extends React.Component {
   }
 }
 
-export default AppWrapper;
+export default App;

@@ -5,10 +5,16 @@ const initialState = {
   sentenceEnd: null,
   mediaStart: null,
   mediaIndex: null,
+  loading: false,
 }
 
 const testimonyReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'TESTIMONY_IS_LOADING':
+      return Object.assign({}, state, {
+        loading: true,
+      })
+
     case 'TESTIMONY_DATA_REQUEST_FAILED':
       return Object.assign({}, state, {
         err: true,
@@ -18,6 +24,7 @@ const testimonyReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         testimony: action.data,
         err: false,
+        loading: false,
       })
 
     case 'HIDE_TESTIMONY':
