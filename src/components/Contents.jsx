@@ -14,6 +14,7 @@ import {
   perPage,
 } from '../actions/contents';
 import Filters from './Filters';
+import { filtersChanged } from '../lib/filters';
 
 class Contents extends React.Component {
   constructor(props) {
@@ -101,16 +102,6 @@ const Table = props => (
 const NoResults = props => (
   <div className='no-results'>Your query returned no results</div>
 )
-
-const filtersChanged = (prevProps, props) => {
-  let updated = false;
-  ['selected', 'years'].map(field => {
-    keys(prevProps[field]).map(v => {
-      if (prevProps[field][v] !== props[field][v]) updated = true;
-    })
-  })
-  return updated;
-}
 
 const keys = obj => Object.keys(obj);
 
