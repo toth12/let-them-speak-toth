@@ -103,8 +103,6 @@ const NoResults = props => (
   <div className='no-results'>Your query returned no results</div>
 )
 
-const keys = obj => Object.keys(obj);
-
 const sharedTypes = {
   testimonies: PropTypes.arrayOf(PropTypes.shape({
     collection: PropTypes.string,

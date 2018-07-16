@@ -7,3 +7,5 @@ export const filtersChanged = (prevProps, props) => {
   })
   return updated;
 }
+
+const keys = obj => Object.keys(obj);
