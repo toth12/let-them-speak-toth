@@ -2,6 +2,10 @@ import { get } from './get';
 import { parse } from './parse';
 import config from '../config/client';
 
+export const testimonyIsLoading = () => ({
+  type: 'TESTIMONY_IS_LOADING',
+})
+
 export const testimonyRequestFailed = () => ({
   type: 'TESTIMONY_DATA_REQUEST_FAILED',
 })
@@ -55,6 +59,7 @@ export const highlightSentences = obj => {
 
 export const fetchTestimony = id => {
   return dispatch => {
+    dispatch(testimonyIsLoading())
     get(config.endpoint + 'testimony?testimony_id=' + id,
       data => handleTestimonyData(dispatch, data),
       err => dispatch(testimonyRequestFailed(err)))
