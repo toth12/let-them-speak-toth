@@ -14,7 +14,7 @@ exports[`renders 1`] = `
       <div
         className="welcome"
       >
-        A data-driven anthology of oral history interviews with Holocaust survivors
+        An Anthology of Holocaust Testimonies: Yale Fortunoff Archive, USC Shoah Foundation, United States Holocaust Memorial Museum
       </div>
     </div>
     <a
@@ -30,7 +30,10 @@ exports[`renders 1`] = `
   >
     <hr />
     <p>
-      A project by Gabor Mihaly Toth in collaboration with the Yale Digital Humanities Lab
+      Edited by Gabor Mihaly Toth
+    </p>
+    <p>
+      Built in collaboration with the Yale Digital Humanities Lab
     </p>
   </div>
 </div>
