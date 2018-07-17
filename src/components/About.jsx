@@ -5,8 +5,8 @@ const About = props => (
   <div className='about'>
     <Hero text='About' />
     <div className='container'>
-      <h2>"Tell the World What Happened to Us"</h2>
-      <p>Tens of thousands of audiovisual interviews with survivors of the Holocaust have been recorded since the end of the Second World War. Let Them Speak, a digital monograph, a data edition, and a digital tool, makes approximately 3000 English language interviews from three collections available: Fortunoff Video Archive for Holocaust Testimonies (FVAHT), Yale University; United States Holocaust Memorial Museum (USHMM); and USC Shoah Foundation (USC). Let Them Speak makes these perspectives explorable in the following ways:
+      <h2>Explore</h2>
+      <p>Tens of thousands of audiovisual interviews with survivors of the Holocaust have been recorded since the end of the Second World War. <span className='italic'>Let Them Speak</span>, a digital monograph, a data edition, and a digital tool, makes approximately 3000 English language interviews from three collections available. The title is symbolic; it expresses the author’s intention to give voice to both murdered victims and survivors. <span className='italic'>Let them speak</span> makes victim’s perspective investigable through various exploratory tools and an anthology of testimonial fragments:
       </p>
       <br/><br/><br/>
       <table className='image-trio'>
@@ -34,8 +34,8 @@ const About = props => (
         </tbody>
       </table>
       <br/><br/><br/>
-      <h2>Subheading Here</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt cursus ipsum, ut maximus risus condimentum ut. Vivamus elementum, velit et posuere dapibus, arcu enim vulputate leo, at imperdiet urna metus ac odio. Etiam id tincidunt libero. Integer accumsan, urna eget eleifend volutpat, enim dui euismod erat, eget ullamcorper nunc tellus non turpis. Donec feugiat at massa sed tempor. Nulla quam nisl, imperdiet sed sapien eget, iaculis pellentesque turpis. Donec faucibus ex diam. Fusce in malesuada nisi, at tincidunt risus. Integer condimentum eget lorem in placerat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eu quam sed velit lobortis porttitor vel sed purus. Vestibulum ornare non tortor nec pellentesque. Quisque neque justo, ullamcorper eu ultricies porttitor, pulvinar at tortor. Vivamus ornare scelerisque enim, ac dap</p>
+      <h2>Scholarship</h2>
+      <p>Let them speak as a data edition brings together a wide range of methods from data science, natural language processing and machine learning. Let them speak as a monograph features essays on victims' perspective.</p>
       <br/><br/><br/>
       <table className='image-trio'>
         <tbody>
@@ -43,36 +43,31 @@ const About = props => (
             <td>
               <a href='/essays' target='_blank'>
                 <div><h3>Essays</h3></div><hr/>
-                <div className='teaser'>Browse testimonies of Holocaust survivors by location, date, and demographic metadata</div>
+                <div className='teaser'>Read the author's essays on victims' perspective</div>
               </a>
             </td>
             <td>
               <a href='/methods' target='_blank'>
                 <div><h3>Methodology</h3></div><hr/>
-                <div className='teaser'>Discover shared experiences anthologized by data-driven word tree fragments</div>
-              </a>
-            </td>
-            <td>
-              <a href='/explore' target='_blank'>
-                <div><h3>Explore</h3></div><hr/>
-                <div className='teaser'>Find keywords and topics across testimony transcripts with advanced linguistic search tools</div>
+                <div className='teaser'>Discover the data sets and techniques used to process them</div>
               </a>
             </td>
           </tr>
         </tbody>
       </table>
-      <br/><br/><br/>      
-      <p>While each testimony is the unique story of an individual, one commonly shared sentiment is the desire to <em>tell the world</em>. Thanks to the willingness of survivors to speak, despite the considerable emotional difficulty of doing so, hundreds of scholars, archivists and volunteers have been able to study and learn from their experiences. Nevertheless, the sheer number of available testimonies, as well as lack of transcripts and appropriate search tools, have remained a significant barrier to understanding the Holocaust from the perspective of the survivor and the voiceless victim. The overall goal of Let Them Speak is to make victim’s perspective investigable and tangible for future generations. </p>
+      <br/><br/><br/>
+      <h2>Introduction into Let Them Speak</h2>      
+      <p>While each testimony is the unique story of an individual, one commonly shared sentiment is the desire to <span className='italic'>tell the world</span>. Thanks to the willingness of survivors to speak, despite the considerable emotional difficulty of doing so, hundreds of scholars, archivists and volunteers have been able to study and learn from their experiences. Nevertheless, the sheer number of available testimonies, as well as lack of transcripts and appropriate search tools, have remained a significant barrier to understanding the Holocaust from the perspective of the survivor and the voiceless victim. The overall goal of Let Them Speak is to make victim’s perspective investigable and tangible for future generations. </p>
       
-      <p>In 2018, under the initiative of the Fortunoff Video Archive for Holocaust Testimonies of Yale University (FVAHT), three leading institutions responsible for large collections of Holocaust testimonies agreed to make transcripts, and some video material, of a portion of their collection available in Let-them-speak. The Fortunoff Video Archive for Holocaust Testimonies gave access to 180 transcripts and videos recorded as part of the Holocaust Survivor Film Project in the late 1970s and early 1980s. The United States Holocaust Memorial Museum (USHMM) contributed 1500 interviews recorded between the 1970s and the late 1990s. The Visual Archive of the Shoah Foundation at the University of South California (USC VA) gave 1000 interview transcripts recorded in the 1990s. (See the complete description of the data sets underlying Let Them Speak in the Methodology section). With funding from the Fortunoff Video Archive, Let Them Speak was edited and built by Gabor M. Toth in collaboration with the Yale Digital Humanities Laboratory, and in consultation with FVAHT, USC VA, and USHMM. The edition brings together  nearly 3000 testimonies from these three collections for the first time, and allows for unprecedented forms of access, search and analysis of these survivors’ experiences.</p>
+      <p>In 2018, under the initiative of the Fortunoff Video Archive for Holocaust Testimonies of Yale University (FVAHT), three leading institutions responsible for large collections of Holocaust testimonies agreed to make transcripts, and some video material, of a portion of their collection available in Let-them-speak. The Fortunoff Video Archive gave access to 180 transcripts and videos recorded as part of the Holocaust Survivor Film Project in the late 1970s and early 1980s. The United States Holocaust Memorial Museum (USHMM) contributed 1500 interviews recorded between the 1970s and the late 1990s. The Visual Archive of the Shoah Foundation at the University of South California (USC VA) gave 1000 interview transcripts recorded in the 1990s. With generous funding from the Fortunoff Video Archive, <span className='italic'>Let Them Speak</span> was edited and built by Gabor M. Toth in collaboration with the Yale Digital Humanities Laboratory, and in consultation with FVAHT, USC VA, and USHMM. The edition brings together  nearly 3000 testimonies from these three collections for the first time, and allows for unprecedented forms of access, search and analysis of these survivors’ experiences.</p>
 
-      <p>Let Them Speak is a data edition that aims not only to release interviews in a digital format, but also to unlock testimonies by drawing on modern technologies such as natural language processing and data mining. The edition is built around Blacklab, a sophisticated engine that helps readers to explore the collection of testimonies.  A filterable and searchable table of contents allows readers to browse and read transcripts or watch some but not all testimonies. The edition is in fact an ongoing effort by the Fortunoff Archive, and further exploratory tools will soon be developed in the coming years. Let Them Speak also commemorates those millions of murdered victims, who could never share their experience. Technology has been employed to build an anthology of testimonial fragments that represents the experience of voiceless victims. Readers can get acquainted with the way technology has been applied under the Methodology section.</p>
+      <p><span className='italic'>Let Them Speak</span> is a data edition that aims not only to release interviews in a digital format, but also to unlock testimonies by drawing on modern technologies such as natural language processing and data mining. The edition is built around Blacklab, a sophisticated engine that helps readers to explore the collection of testimonies. A filterable and searchable table of contents allows readers to browse and read transcripts or watch some but not all testimonies. The edition is in fact an ongoing effort by the Fortunoff Archive, and further exploratory tools will soon be developed in the coming years. <span className='italic'>Let Them Speak</span> also commemorates those millions of murdered victims, who could never share their experience. Technology has been employed to build an anthology of testimonial fragments that represents the experience of voiceless victims. Readers can get acquainted with the way technology has been applied under the Methodology section.</p>
 
-      <p>These exploratory tools complement the work of archivists, librarians and indexers who work to make these testimonies discoverable by employing rigorous cataloguing standards and controlled vocabularies. In fact, as the reader shall see, this edition builds upon their important work. The edition also uses transcriptions of testimonies that were prepared by students and volunteers working for the FVAHT, USC, and USHMM. Their work significantly contributed to this publication. Even though Let Them Speak is the result of a small and dedicated team, it is based on many years of collaborative work and was designed as a project to encourage further cross-institutional cooperation.</p>
+      <p>These exploratory tools complement the work of archivists, librarians and indexers who work to make these testimonies discoverable by employing rigorous cataloguing standards and controlled vocabularies. In fact, as the reader shall see, this edition builds upon their important work. The edition also uses transcriptions of testimonies that were prepared by students and volunteers working for the FVAHT, USC, and USHMM. Their work significantly contributed to this publication. Even though <span className='italic'>Let Them Speak</span> is the result of a small and dedicated team, it is based on many years of collaborative work and was designed as a project to encourage further cross-institutional cooperation.</p>
 
-      <p>The creation of a data edition is not only a technological exercise. It also involves philological work, ethical considerations, as well as thecontextualization of testimonies within the current scholarship. (see Essays). Hence, this edition is also a monograph featuring scholarship on the Holocaust, on testimonies, and on the ethical application of algorithms to study genocides.</p>
+      <p>The creation of a data edition is not only a technological exercise. It also involves philological work, ethical considerations, as well as thecontextualization of testimonies within the current scholarship. Hence, this edition is also a monograph featuring scholarship on the Holocaust, on testimonies, and on the ethical application of algorithms to study genocides.</p>
 
-      <p>By the end of the second decade of the second millennium, the last survivors will be gone, and the ability to learn from them first-hand, to record their stories, will end. The responsibility of the coming generations is to keep these interviews alive, to preserve them, to make them accessible, and most importantly to let survivors speak – to “tell the world what happened” to them. </p>
+      <p>By the end of the second decade of the second millennium, the last survivors will be gone, and the ability to learn from them first-hand, to record their stories, will end. The responsibility of the coming generations is to keep these interviews alive, to preserve them, to make them accessible, and most importantly to let survivors speak – to <span className='italic'>“tell the world what happened”</span> to them. </p>
     </div>
   </div>
 )
