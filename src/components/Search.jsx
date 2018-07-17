@@ -132,6 +132,10 @@ class Content extends React.Component {
 
 const Results = props => (
   <section className='results'>
+    <div className='restore-instructions'
+      onClick={props.showInstructions}>
+      Back to Instructions
+    </div>
     <ResultsCount resultCount={props.resultCount} />
     <div>
       {props.searching
