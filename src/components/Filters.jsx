@@ -19,9 +19,13 @@ class Filter extends React.Component {
   render() {
     const createSliderWithTooltip = Slider.createSliderWithTooltip;
     const Range = createSliderWithTooltip(Slider.Range);
-    const yearRange = this.props.options.recording_years.length
-      ? d3.extent(this.props.options.recording_years)
-      : [0, 1];
+    const years = this.props.options.recording_years.reduce((arr, i) => {
+      if (Number.isInteger(i)) arr.push(i); return arr;
+    }, []);
+    const yearRange = years.length
+      ? d3.extent(years)
+      : null;
+
     return (
       <div className='filter-container'>
         <div className='filter'>
@@ -98,19 +102,22 @@ class Filter extends React.Component {
               }} />
           </div>
 
-          <div className='filter-element timeline-filter'>
-            <label>Recording Year</label>
-            <Range
-              min={yearRange[0]}
-              max={yearRange[1]}
-              defaultValue={yearRange}
-              onAfterChange={(vals) => {
-                this.props.setYearRange({
-                  min: vals[0],
-                  max: vals[1],
-                })
-              }} />
-          </div>
+          {yearRange
+            ? <div className='filter-element timeline-filter'>
+                <label>Recording Year</label>
+                <Range
+                  min={yearRange[0]}
+                  max={yearRange[1]}
+                  defaultValue={yearRange}
+                  onAfterChange={(vals) => {
+                    this.props.setYearRange({
+                      min: vals[0],
+                      max: vals[1],
+                    })
+                  }} />
+              </div>
+            : null
+          }
 
         </div>
       </div>

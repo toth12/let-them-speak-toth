@@ -8,14 +8,13 @@ class TestimonyLoader extends React.Component {
   }
 
   render() {
-    return (
-      <div className='testimony-loader'>
-        {this.props.testimonyLoading
-          ? <Loader />
-          : null
-        }
-      </div>
-    )
+    const content = this.props.testimonyLoading
+      ? <div className='testimony-loader'>
+          <Loader />
+        </div>
+      : null
+
+    return content;
   }
 }
 

@@ -148,23 +148,27 @@ const Media = props => {
   } else {
     return <NoMedia collection={props.testimony.collection} />
   }
-  return <div className='media-container'>{content}</div>;
+  return content;
 }
 
 const Video = props => (
-  <video width='340' height='260' controls>
-    <source src={props.url} type='video/mp4' />
-    Your browser does not support the video tag.
-  </video>
+  <div className='media-container video-media'>
+    <video width='340' height='260' controls>
+      <source src={props.url} type='video/mp4' />
+      Your browser does not support the video tag.
+    </video>
+  </div>
 )
 
 const Audio = props => (
-  <div className='audio-container'>
-    <img src={placeholder} />
-    <audio controls>
-      <source src={props.url} type='audio/mpeg' />
-      Your browser does not support the audio tag.
-    </audio>
+  <div className='media-container audio-media'>
+    <div className='audio-container'>
+      <img src={placeholder} />
+      <audio controls>
+        <source src={props.url} type='audio/mpeg' />
+        Your browser does not support the audio tag.
+      </audio>
+    </div>
   </div>
 )
 
@@ -220,7 +224,8 @@ const Metadata = props => (
   <div className='metadata'>
     <div className='metadata-block'>
       <div><b>About the Interview</b></div>
-      {metaFields.map((f, idx) => props.testimony[f.field].length
+      {metaFields.map((f, idx) => props.testimony[f.field] &&
+          props.testimony[f.field].length
         ? <div key={idx}>
             <span className='meta-label'>{f.label}</span>
             <span>: {f.type === 'str'
