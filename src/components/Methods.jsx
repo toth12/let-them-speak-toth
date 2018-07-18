@@ -5,7 +5,7 @@ const Methods = props => (
   <div className='methods'>
     <Hero text='Methodology' />
     <div className='container'>
-      <p><span className='italic'>Let Them Speak</span> consists of several technological components that are described in this part. Beyond the discussion of how technology helped to accomplish this project, the three data sets made available by data providers are presented here, including their quantitative (distribution of gender, nationalities, average interview length, etc) and qualitative profiling description of interview methodologies applied when recording the interviews. Content is under development.</p>
+      <p><span className='italic'>Let Them Speak</span> consists of several technological components that are described in this part. In addition to discussion of how technology helped to accomplish this project, the three data sets made available by data providers are presented here, including their quantitative (distribution of gender, nationalities, average interview length, etc) and qualitative profiling description of interview methodologies applied when recording the interviews. Content is under development.</p>
       <h2>Data Sets</h2>
    
      
