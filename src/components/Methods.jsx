@@ -12,7 +12,7 @@ const Methods = props => (
         <tbody>
           <tr>
             <td>
-              <a href='/essays' target='_blank'>
+              <a href='/methods' target='_blank'>
                 <div><h3>Yale Fortunoff<br/>Video Archive</h3></div><hr/>
                 <div className='teaser'>Read about the interviews shared by this data provider</div>
               </a>
@@ -24,7 +24,7 @@ const Methods = props => (
               </a>
             </td>
             <td>
-              <a href='/explore' target='_blank'>
+              <a href='/methods' target='_blank'>
                 <div><h3>United States Holocaust Memorial Museum</h3></div><hr/>
                 <div className='teaser'>Read about the interviews shared by this data provider</div>
               </a>
@@ -39,7 +39,7 @@ const Methods = props => (
         <tbody>
           <tr>
             <td>
-              <a href='/essays' target='_blank'>
+              <a href='/methods' target='_blank'>
                 <div><h3>Transcripts & Metadata</h3></div><hr/>
                 <div className='teaser'>Read about how transcripts and metadata were processed</div>
               </a>
@@ -51,7 +51,7 @@ const Methods = props => (
               </a>
             </td>
             <td>
-              <a href='/explore' target='_blank'>
+              <a href='/methods' target='_blank'>
                 <div><h3>Retrieval of Fragments</h3></div><hr/>
                 <div className='teaser'>Read about how testimonial fragments are retrieced</div>
               </a>
