@@ -89,8 +89,8 @@ class Input extends React.Component {
 const Instructions = props => (
   <div className='instructions'>
     <h2>Introduction to Corpus Search</h2>
-    <p> Let them speak enables the searching of simple words and word sequences. By inserting you or you went into the search box, you will be presented a filterable concordance of their occurrences, and following a click, you can read results in the interviews. (At the moment listening in context is not yet available; interviews are played from the beginning).</p>
-    <p>Interviews in Let them speak are also parts of a linguistic corpus, which is a collection of texts where certain types of properties about each word is available. Each word in Let them speak has two properties: the dictionary form (lemma) and the grammatical category of the word (part of speech). Returning to the previous example, this enables the retrieval of not only I went but also I go. To activate the corpus search, user is now requested to use the Corpus Query Language [CQL]. (The development of a comprehensive user interface is underway). This is a pattern matching language that combines a great variety of information to match sequences of words in texts. </p>
+    <p> <span className='italic'>Let Them Speak</span> enables the searching of simple words and word sequences. By inserting you or you went into the search box, you will be presented a filterable concordance of their occurrences, and following a click, you can read results in the interviews. (At the moment listening in context is not yet available; interviews are played from the beginning).</p>
+    <p>Interviews in <span className='italic'>Let Them Speak</span> are also parts of a linguistic corpus, which is a collection of texts where certain types of properties about each word is available. Each word in <span className='italic'>Let Them Speak</span> has two properties: the dictionary form (lemma) and the grammatical category of the word (part of speech). Returning to the previous example, this enables the retrieval of not only I went but also I go. To activate the corpus search, user is now requested to use the Corpus Query Language [CQL]. (The development of a comprehensive user interface is underway). This is a pattern matching language that combines a great variety of information to match sequences of words in texts. </p>
     <p>CQL can help to match individual words with certain attributes. Each word to be matched has to be written between square brackets:</p>
     <p>[lemma="go"]</p>
     <p>Thanks to defining lemma or dictionary form as attribute, this pattern will retrieve the occurrences of not only went but also go, goes, going.</p>
@@ -134,7 +134,7 @@ const Results = props => (
   <section className='results'>
     <div className='restore-instructions'
       onClick={props.showInstructions}>
-      Back to Instructions&rarr;
+      Back to Instructions&rarr;  
     </div>
     <ResultsCount resultCount={props.resultCount} />
     <div>
