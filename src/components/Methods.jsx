@@ -12,6 +12,7 @@ const Methods = props => (
         <tbody>
           <tr>
             <td>
+
               {/* <a href='/essays' target='_blank'>*/}
                 <div><h3>Yale Fortunoff<br/>Video Archive</h3></div><hr/>
                 <div className='teaser'>Read about the interviews shared by this data provider</div>
@@ -52,8 +53,8 @@ const Methods = props => (
             </td>
             <td>
               {/*<a href='/explore' target='_blank'> */}
-                <div><h3>Retrieval of Fragments</h3></div><hr/>
-                <div className='teaser'>Read about how testimonial fragments are retrieced</div>
+              <div><h3>Retrieval of Fragments</h3></div><hr/>
+              <div className='teaser'>Read about how testimonial fragments are retrieced</div>
              {/*</a> */}
             </td>
           </tr>

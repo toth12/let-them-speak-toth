@@ -111,7 +111,7 @@ const Instructions = props => (
     <code>[lemma="never"] []&#123;0,5&#125; [lemma="forget"]</code> 
     <p>Or the use of a similar pattern with different words can be used:</p>
     <code>[lemma="always"] []&#123;0,5&#125; [lemma="remember"]</code>
-    <p>And the two patterns can be combined into one by means of parentheses and the | sign: </p>
+    <p>And the two patterns can be combined into one by means of parentheses and the | sign:</p>
     <code>([lemma="never"] []&#123;0,5&#125; [lemma="forget"]) | ([lemma="always"] []&#123;0,5&#125; [lemma="remember"])</code>
     <p>Finding instances of certain behaviors by certain groups is also an important research goal. How can one for instance find examples of guards helping inmates? The following pattern matches guard and help in close proximity.</p>
     <code>[lemma="guard"] []&#123;0,5&#125; [lemma="help"]</code>
