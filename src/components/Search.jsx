@@ -92,28 +92,28 @@ const Instructions = props => (
     <p> Let them speak enables the searching of simple words and word sequences. By inserting you or you went into the search box, you will be presented a filterable concordance of their occurrences, and following a click, you can read results in the interviews. (At the moment listening in context is not yet available; interviews are played from the beginning).</p>
     <p>Interviews in Let them speak are also parts of a linguistic corpus, which is a collection of texts where certain types of properties about each word is available. Each word in Let them speak has two properties: the dictionary form (lemma) and the grammatical category of the word (part of speech). Returning to the previous example, this enables the retrieval of not only I went but also I go. To activate the corpus search, user is now requested to use the Corpus Query Language [CQL]. (The development of a comprehensive user interface is underway). This is a pattern matching language that combines a great variety of information to match sequences of words in texts. </p>
     <p>CQL can help to match individual words with certain attributes. Each word to be matched has to be written between square brackets:</p>
-    <p>[lemma="go"]</p>
+    <code>[lemma="go"]</code>
     <p>Thanks to defining lemma or dictionary form as attribute, this pattern will retrieve the occurrences of not only went but also go, goes, going.</p>
     <p>Attributes can be also combined. Consider for instance that you want to retrieve interviews where victims speak about working in a mine. To differentiate mine as a noun from mine as a possessive pronoun, you need to add the grammatical category as well. We do this by adding the attribute pos, and by defining the grammatical category with the pos attribute. When adding linguistic annotation, the grammatical category codes of the Penn Treebank Project were used (see the complete list <a target="_blank" href="https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html">here</a>)</p>
-    <p>[lemma="mine"  pos="NN"] </p>
+    <code>[lemma="mine"  pos="NN"] </code>
     <p>Note that the advantage of using lemma here is that the query also returns occurrences of mine in the plural form.</p>
     <p>CQL also enables the construction of sequences or patterns.</p>
-    <p>[lemma="I"] [lemma="go"]</p>
+    <code>[lemma="I"] [lemma="go"]</code>
     <p>This retrieves I go, I went but it does not retrieve for instance I will go, I could not go, etc. To face this, one can add a wild card.</p>
-    <p>[lemma="I"] [ ] [lemma="go"]</p>
+    <code>[lemma="I"] [ ] [lemma="go"]</code>
     <p>This finds a sequence of words where I is the first word, the suffixed forms of go is the last word, and any one word can be in-between. This pattern however does not match I will not go. It is therefore possible to quantify the number of words that can be in-between.</p>
     <p>Only one word:</p>
-    <p>[lemma="I"] [ ]&#123;1&#125; [lemma="go"]</p>
+    <code>[lemma="I"] [ ]&#123;1&#125; [lemma="go"]</code>
     <p>One or two words:</p>
-    <p>[lemma="I"] [ ]&#123;1,2&#125; [lemma="go"]</p>
+    <code>[lemma="I"] [ ]&#123;1,2&#125; [lemma="go"]</code>
     <p>The editor works on a more comprehensive guide on CQL. Until the accomplishment of these guides, two more topic specific use scenarios are presented.</p>
     <p>A key moment in an interview when the interviewee uses the expression, I will never forget. This can be however expressed in many different ways: I cannot forget, I was unable to forget, I always remember, etc. If you simply search for remember, your are given tens of thousands of search results. CQL can help to narrow this search.</p>
-    <p>[lemma="never"] []&#123;0,5&#125; [lemma="forget"]</p>
-    <p>[lemma="always"] []&#123;0,5&#125; [lemma="remember"]</p>
+    <code>[lemma="never"] []&#123;0,5&#125; [lemma="forget"]</code>&nbsp;
+    <code>[lemma="always"] []&#123;0,5&#125; [lemma="remember"]</code>
     <p>And the two patterns can be combined into one by means of parentheses and the | sign: </p>
-    <p>([lemma="never"] []&#123;0,5&#125; [lemma="forget"]) | ([lemma="always"] []&#123;0,5&#125; [lemma="remember"])</p>
+    <code>([lemma="never"] []&#123;0,5&#125; [lemma="forget"]) | ([lemma="always"] []&#123;0,5&#125; [lemma="remember"])</code>
     <p>Finding instances of certain behaviors by certain groups is also an important research goal. How can one for instance find examples of guards helping inmates? The following pattern matches guard and help in close proximity.</p>
-    <p>[lemma="guard"] []&#123;0,5&#125; [lemma="help"]</p>
+    <code>[lemma="guard"] []&#123;0,5&#125; [lemma="help"]</code>
   </div>
 )
 
