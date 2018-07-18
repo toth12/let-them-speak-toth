@@ -127,7 +127,7 @@ const Results = props => (
   <section className='results'>
     <div className='restore-instructions'
       onClick={props.showInstructions}>
-      Back to Instructions&rarr;  
+      Back to Instructions&rarr;
     </div>
     <ResultsCount resultCount={props.resultCount} />
     <div>
