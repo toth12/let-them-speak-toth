@@ -12,8 +12,8 @@ const Home = props => (
     </div>
     <div className='bottom'>
       <hr/>
-      <p>Edited by Gabor Mihaly Toth</p>
-      <p>Built in collaboration with the Yale Digital Humanities Lab</p>
+      <p>Gabor Mihaly Toth</p>
+      <p>Funded by Fortunoff Video Archive and built in collaboration with the Yale Digital Humanities Lab</p>
     </div>
   </div>
 )
