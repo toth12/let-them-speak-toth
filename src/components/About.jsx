@@ -6,7 +6,7 @@ const About = props => (
     <Hero text='About' />
     <div className='container'>
       <h2>Explore</h2>
-      <p>Tens of thousands of audiovisual interviews with survivors of the Holocaust have been recorded since the end of the Second World War. <i>Let Them Speak</i>, a digital monograph, a data edition, and a digital tool, makes approximately 3000 English language interviews from three collectionsavailable. The title is symbolic; it expresses the author’s intention to give voice to both murdered victims and survivors. <i>Let Them Speak</i> makes victims’ perspective investigable through various exploratory tools and an anthology of testimonial fragments. The first prototype offers two ways to explore testimonies and Holocaust experiences (further exploratory tools are under development):</p>
+      <p>Tens of thousands of audiovisual interviews with survivors of the Holocaust have been recorded since the end of the Second World War. <i>Let Them Speak</i>, a digital monograph, a data edition, and a digital tool, makes approximately 3000 English language interviews from three collections available. The title is symbolic; it expresses the author’s intention to give voice to both murdered victims and survivors. <i>Let Them Speak</i> makes victims’ perspective investigable through various exploratory tools and an anthology of testimonial fragments. The first prototype offers three ways to explore testimonies and Holocaust experiences (further exploratory tools are under development):</p>
       <br/><br/><br/>
       <table className='image-trio'>
         <tbody>
