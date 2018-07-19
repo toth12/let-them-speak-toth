@@ -95,8 +95,7 @@ const Instructions = props => (
     <code>[lemma="go"]</code>
     <p>Thanks to defining lemma or dictionary form as attribute, this pattern will retrieve the occurrences of not only went but also go, goes, going.</p>
     <p>Attributes can be also combined. Consider for instance that you want to retrieve interviews where victims speak about working in a mine. To differentiate mine as a noun from mine as a possessive pronoun, you need to add the grammatical category as well. We do this by adding the attribute pos, and by defining the grammatical category with the pos attribute. When adding linguistic annotation, the grammatical category codes of the Penn Treebank Project were used (see the complete list <a target="_blank" href="https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html">here</a>)</p>
-    <code>[lemma="mine"  pos="NN"] </code>
-    <p>Note that the advantage of using lemma here is that the query also returns occurrences of mine in the plural form.</p>
+    <code>[lemma="mine"  pos="NNS"] </code>
     <p>CQL also enables the construction of sequences or patterns.</p>
     <code>[lemma="I"] [lemma="go"]</code>
     <p>This retrieves I go, I went but it does not retrieve for instance I will go, I could not go, etc. To face this, one can add a wild card.</p>
