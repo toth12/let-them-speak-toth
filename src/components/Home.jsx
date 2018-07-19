@@ -6,7 +6,8 @@ const Home = props => (
     <div className='top'>
       <div className='brand' />
       <div>
-      <div className='welcome'>An Anthology of Holocaust Testimonies: Yale Fortunoff Archive, USC Shoah Foundation, United States Holocaust Memorial Museum</div>
+      <div className='welcome'>An Anthology of Holocaust Testimonies:<br/>
+      Yale Fortunoff Archive, USC Shoah Foundation, United States Holocaust Memorial Museum</div>
       </div>
       <Link className='button brown' to='/about'>Let's explore</Link>
     </div>

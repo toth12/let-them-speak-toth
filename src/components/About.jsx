@@ -6,25 +6,25 @@ const About = props => (
     <Hero text='About' />
     <div className='container'>
       <h2>Explore</h2>
-      <p>Tens of thousands of audiovisual interviews with survivors of the Holocaust have been recorded since the end of the Second World War. <i>Let Them Speak</i>, a digital monograph, a data edition, and a digital tool, makes approximately 3000 English language interviews from three collectionsavailable. The title is symbolic; it expresses the author’s intention to give voice to both murdered victims and survivors. <i>Let Them Speak</i> makes victims’ perspective investigable through various exploratory tools and an anthology of testimonial fragments. The first prototype offers two ways to explore testimonies and Holocaust experiences (further exploratory tools are under development):</p>
+      <p>Tens of thousands of audiovisual interviews with survivors of the Holocaust have been recorded since the end of the Second World War. <i>Let Them Speak</i>, a digital monograph, a data edition, and a digital tool, makes approximately 3000 English language interviews from three collections available. The title is symbolic; it expresses the author’s intention to give voice to both murdered victims and survivors. <i>Let Them Speak</i> makes victims’ perspective investigable through various exploratory tools and an anthology of testimonial fragments. The first prototype offers three ways to explore testimonies and Holocaust experiences (further exploratory tools are under development):</p>
       <br/><br/><br/>
       <table className='image-trio'>
         <tbody>
           <tr>
             <td>
-              <a href='/contents' target='_blank'>
+              <a href='/contents'>
                 <div><h3>Table of Contents</h3></div><hr/>
                 <div className='teaser'>Browse testimonies of Holocaust survivors by location, date, and demographic metadata</div>
               </a>
             </td>
             <td>
-              <a href='/anthology' target='_blank'>
+              <a href='/anthology'>
                 <div><h3>Fragments</h3></div><hr/>
                 <div className='teaser'>Discover shared experiences anthologized by data-driven word tree fragments</div>
               </a>
             </td>
             <td>
-              <a href='/search' target='_blank'>
+              <a href='/search'>
                 <div><h3>Corpus Search</h3></div><hr/>
                 <div className='teaser'>Find keywords and topics across testimony transcripts with advanced linguistic search tools</div>
               </a>
@@ -40,13 +40,13 @@ const About = props => (
         <tbody>
           <tr>
             <td>
-              <a href='/essays' target='_blank'>
+              <a href='/essays'>
                 <div><h3>Essays</h3></div><hr/>
                 <div className='teaser'>Read the author's essays on victims' perspective</div>
               </a>
             </td>
             <td>
-              <a href='/methods' target='_blank'>
+              <a href='/methods'>
                 <div><h3>Methodology</h3></div><hr/>
                 <div className='teaser'>Discover the data sets and techniques used to process them</div>
               </a>
