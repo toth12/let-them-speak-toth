@@ -1,6 +1,7 @@
 '''server/app.py - main api app declaration'''
 import hashlib
 import sys
+import os
 from cas_client import CASClient
 from flask import Flask
 from flask import jsonify
@@ -23,7 +24,8 @@ app.debug = True
 cas_url = 'https://secure.its.yale.edu/cas'
 cas_client = CASClient(cas_url, auth_prefix='')
 app.secret_key = hashlib.new('ripemd160').hexdigest()
-use_authentication = True
+use_cas_auth = True
+use_param_auth = True
 
 ##
 # API routes
@@ -234,6 +236,19 @@ def get_service_url(_request):
   return '/'.join(_request.url.split('/')[:3]) + '/validate'
 
 ##
+# Query param auth
+##
+
+def auth_params_present(args):
+  '''
+  @args:
+    {dict} args: a dictionary of query params passed on route request
+  @returns:
+    {bool} boolean indicating whether the correct auth params are present
+  '''
+  return args.get('security_code', '') == os.environ['LTS_AUTH_CODE']
+
+##
 # View route
 ##
 
@@ -242,7 +257,10 @@ def get_service_url(_request):
 def index(path):
   '''Return index.html for all non-api routes'''
   #pylint: disable=unused-argument
-  if use_authentication:
+  if use_cas_auth or use_param_auth:
+    # check for param auth on query
+    if use_param_auth and auth_params_present(request.args):
+      session['authenticated'] = True
     if session.get('authenticated'):
       return send_from_directory(app.static_folder, 'index.html')
     return redirect(url_for('login'))
