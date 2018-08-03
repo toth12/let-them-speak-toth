@@ -31,6 +31,10 @@ class Testimony extends React.Component {
         this.setMediaStart();
       }
     }
+
+    if (this.props.route !== prevProps.route) {
+      this.props.hideTestimony();
+    }
   }
 
   componentWillUnmount() {
@@ -317,6 +321,7 @@ const mapStateToProps = state => ({
   sentenceEnd: state.testimony.sentenceEnd,
   mediaIndex: state.testimony.mediaIndex,
   mediaStart: state.testimony.mediaStart,
+  route: state.router.location.pathname,
 })
 
 const mapDispatchToProps = dispatch => ({
