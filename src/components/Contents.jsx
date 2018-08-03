@@ -29,18 +29,14 @@ class Contents extends React.Component {
   componentDidUpdate(prevProps) {
     // get the first page of results when the filters change
     if (filtersChanged(prevProps, this.props)) {
-      this.props.getPage(0)
-    }
-    // if we just loaded the TOC data, scroll to top of page
-    if (!prevProps.testimonies && this.props.testimonies) {
-      document.body.scrollTo(0,0)
+      this.props.getPage(0);
     }
   }
 
   nextPage() {
     // Don't let users request beyond the final page
     if ((this.props.page + 1) * perPage < this.props.total) {
-      this.props.nextPage()
+      this.props.nextPage();
     }
   }
 
