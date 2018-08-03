@@ -10,6 +10,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       err: false,
+      lastHref: '',
     }
   }
 
@@ -17,6 +18,15 @@ class App extends React.Component {
     const self = this;
     window.onerror = () => self.setState({err: true});
     window.addEventListener('error', () => self.setState({err: true}))
+  }
+
+  componentDidUpdate() {
+    if (this.state.lastHref !== window.location.href) {
+      document.body.scrollTo(0,0);
+      this.setState({
+        lastHref: window.location.href
+      })
+    }
   }
 
   render() {
