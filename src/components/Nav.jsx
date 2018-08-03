@@ -19,18 +19,39 @@ class Nav extends React.Component {
     return (
       <nav>
         <ul>
-          <li><Link to={'/about'}>ABOUT</Link></li>
-          <li><Link to={'/essays'}>ESSAYS</Link></li>
-          <li><Link to={'/explore'}>EXPLORE</Link></li>
+          <ActiveLink
+            child={<Link to={'/about'}>ABOUT</Link>}
+            routes={['/about']}
+            activeRoute={this.props.route} />
+          <ActiveLink
+            child={<Link to={'/essays'}>ESSAYS</Link>}
+            routes={['/essays']}
+            activeRoute={this.props.route} />
+          <ActiveLink
+            child={<Link to={'/explore'}>EXPLORE</Link>}
+            routes={['/explore', '/contents', '/search']}
+            activeRoute={this.props.route} />
           <li className='brand'>
             <Link to={'/#'}><img src={img} /></Link>
           </li>
-          <li><Link to={'/anthology'}>FRAGMENTS</Link></li>
-          <li><Link to={'/methods'}>METHODOLOGY</Link></li>
+          <ActiveLink
+            child={<Link to={'/anthology'}>FRAGMENTS</Link>}
+            routes={['/anthology']}
+            activeRoute={this.props.route} />
+          <ActiveLink
+            child={<Link to={'/methods'}>METHODOLOGY</Link>}
+            routes={['/methods']}
+            activeRoute={this.props.route} />
         </ul>
       </nav>
     )
   }
+}
+
+const ActiveLink = props => {
+  return props.routes.indexOf(props.activeRoute) > -1
+    ? <li className='active'>{props.child}</li>
+    : <li>{props.child}</li>
 }
 
 const mapStateToProps = state => ({

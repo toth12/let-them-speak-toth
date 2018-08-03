@@ -61,7 +61,10 @@ def get_query_pattern(query):
   @returns:
     {str} the user's query in curated form
   '''
-  query = query.strip().strip('"')
+  query = query.strip()
+  strip_chars = '“”"\''
+  for i in strip_chars:
+    query = query.strip(i)
   parens = ['[', ']', '(', ')']
   # case of CQL query
   if (query) and (query[0] in parens) and (query[-1] in parens):

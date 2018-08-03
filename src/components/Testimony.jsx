@@ -31,6 +31,10 @@ class Testimony extends React.Component {
         this.setMediaStart();
       }
     }
+
+    if (this.props.route !== prevProps.route) {
+      this.props.hideTestimony();
+    }
   }
 
   componentWillUnmount() {
@@ -61,7 +65,7 @@ class Testimony extends React.Component {
     for (let i=this.props.sentenceStart; i<this.props.sentenceEnd+1; i++) {
       let match = $('#s' + i);
       if (match) match.className += ' active';
-      else (console.log('#s' + i + ' could not be found'));
+      else (console.warn('#s' + i + ' could not be found'));
     }
     // scroll the first sentence into view
     const elem = $('#s' + this.props.sentenceStart);
@@ -317,6 +321,7 @@ const mapStateToProps = state => ({
   sentenceEnd: state.testimony.sentenceEnd,
   mediaIndex: state.testimony.mediaIndex,
   mediaStart: state.testimony.mediaStart,
+  route: state.router.location.pathname,
 })
 
 const mapDispatchToProps = dispatch => ({
