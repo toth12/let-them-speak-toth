@@ -23,6 +23,9 @@ mongo_archive_path = os.path.join('server', 'inputs', 'lts.archive')
 # name of the database to use when building db
 db_name = 'lts'
 
+# specify blacklab version to use
+bl_version = '1.7.2'
+
 ##
 # Functions
 ##
@@ -48,7 +51,7 @@ def index_folia_files(dir_to_index, index_name):
     dir_to_index += '/'
 
   # blacklab classpath config
-  classpath = 'BlackLab/core/target/blacklab-1.7.1.jar'
+  classpath = 'BlackLab/core/target/blacklab-' + bl_version + '.jar'
   classpath += ':Blacklab/core/target/lib/*'
 
   cmd = 'java -cp "' + classpath + '" '
@@ -76,7 +79,7 @@ def copy_war_file():
   '''
   Copy war file from BlackLab server dir to the apps_path
   '''
-  war_path = 'BlackLab/server/target/blacklab-server-1.7.1.war'
+  war_path = 'BlackLab/server/target/blacklab-server-' + bl_version + '.war'
   war_file = os.path.basename(war_path)
   out_path = os.path.join(tomcat_apps_path, war_file)
   cmd = 'cp ' + war_path + ' ' + out_path
