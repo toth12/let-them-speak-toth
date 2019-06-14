@@ -1,4 +1,5 @@
-'''Main interface to BlackLab server'''
+# -*- coding: utf-8 -*-
+# '''Main interface to BlackLab server'''
 
 # try to import from python 3, fallback to 2
 try:
@@ -20,8 +21,9 @@ def search_blacklab(params):
   '''
 
   root = 'http://' + os.environ['TOMCAT_HOST']
-  root += ':8080/blacklab-server-1.7.1/lts/hits'
+  root += ':8080/blacklab-server-1.7.2/lts/hits'
   query = get_query_pattern(params.get('query', 'test'))
+
   # query-based arguments
   args = {
     'first': params.get('start', 0),
@@ -32,6 +34,7 @@ def search_blacklab(params):
     'prettyprint': 'no',
     'wordsaroundhit': params.get('window', 5),
   }
+
   # compose url for blacklab query
   query = root + '?'
   for idx, arg in enumerate(args):
@@ -62,9 +65,14 @@ def get_query_pattern(query):
     {str} the user's query in curated form
   '''
   query = query.strip()
+
   strip_chars = '“”"\''
   for i in strip_chars:
-    query = query.strip(i)
+    try:
+      query = query.decode("utf8").strip(i.decode("ISO8859-1"))
+    except Exception as e:
+      raise Exception("Error stripping chars: %s, %s: %s" % (strip_chars, i, e))
+
   parens = ['[', ']', '(', ')']
   # case of CQL query
   if (query) and (query[0] in parens) and (query[-1] in parens):
@@ -119,7 +127,8 @@ def parse_response(obj):
   @returns:
     {obj} an object in the format required by the client
   '''
-  total = obj['summary']['numberOfHitsRetrieved']
+  total = obj["summary"]["numberOfHits"]
+
   doc_infos = obj['docInfos']
   results = []
   for h in obj['hits']:
