@@ -59,7 +59,16 @@ That will start the webpack dev server on port 7081. Note that you will need to 
 
 ## New docker usage
 
-Install Docker, then in the root directory of this repo, build the image with
+Pre-requesites: Install docker, awscli, and add credentials to ~/.aws/credentials
+
+Then to fetch the production data, run:
+
+```bash
+npm run fetch-data
+```
+
+Now we're ready to build the app in Docker! In the root directory of this repo,
+build the image with:
 
 ```bash
 bash server/docker/2019/build-image.sh

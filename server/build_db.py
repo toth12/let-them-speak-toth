@@ -24,7 +24,7 @@ mongo_archive_path = os.path.join('server', 'inputs', 'lts.archive')
 db_name = 'lts'
 
 # specify blacklab version to use
-bl_version = '1.7.2'
+bl_version = '1.7.3'
 
 ##
 # Functions

@@ -119,7 +119,7 @@ RUN apk add --update --no-cache --upgrade \
 # Get the BlackLab source
 RUN mkdir -p /blacklab && \
   cd /blacklab && \
-  git clone git://github.com/INL/BlackLab.git --branch v1.7.2 && \
+  git clone git://github.com/INL/BlackLab.git --branch v1.7.3 && \
   cd BlackLab && \
   rm -rf .git && \
   mvn clean install
