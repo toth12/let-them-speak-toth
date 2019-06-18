@@ -10,6 +10,11 @@ sudo iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-po
 
 ###### PART 2 
 
+# install Node
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+. ~/.nvm/nvm.sh
+nvm install 8.11.2
+
 # install Node dependencies
 cd let-them-speak
 npm i -g yarn
