@@ -29,7 +29,13 @@ mvn install
 # fetch production data
 #aws configure
 #sed -i -e 's/\[default\]/\[lab-secrets\]/g' ~/.aws/credentials
-yarn fetch-data
-yarn build-db
+
+#yarn fetch-data
+#yarn build-db 
+
+# Fetch pre-compiled index
+aws s3 sync s3://lts-blacklab-index/ /lts-app/lts
+echo '{"indices": {"lts": {"dir": "/lts-app/lts/"}}}' > /usr/local/tomcat/webapps/blacklab-server.json
+
 yarn build
 yarn serve-gunicorn
