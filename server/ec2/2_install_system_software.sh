@@ -26,23 +26,23 @@ sudo update-alternatives --config java
 sudo update-alternatives --config javac
 
 # install Tomcat
-sudo yum install tomcat tomcat-webapps
+sudo yum install -y tomcat tomcat-webapps
 sudo service tomcat restart
 # tomcat webapps in /var/lib/tomcat/webapps/
-
-# install Node
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-. ~/.nvm/nvm.sh
-nvm install 8.11.2
 
 # install Mongo
 # sudo vim  /etc/yum.repos.d/mongodb-org-4.0.repo
 # paste:
-sudo echo "[mongodb-org-4.0]
+echo "[mongodb-org-4.0]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/amazon/2013.03/mongodb-org/4.0/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc" > /etc/yum.repos.d/mongodb-org-4.0.repo
+gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc" | sudo tee /etc/yum.repos.d/mongodb-org-4.0.repo
 # install
 sudo yum install -y mongodb-org
+
+# Done
+echo "Now run: 
+bash let-them-speak/server/ec2/3_start_app.sh
+"
