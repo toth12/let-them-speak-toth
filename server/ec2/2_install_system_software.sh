@@ -6,9 +6,10 @@
 echo 'export MONGO_HOST="localhost"
 export TOMCAT_HOST="localhost"
 export TOMCAT_WEBAPPS="/var/lib/tomcat/webapps/"' >> ~/.bash_profile
-echo export LTS_AUTH_CODE="$(openssl rand -base64 32)" >> ~/.bash_profile
-. ~/.bash_profile
+# echo export LTS_AUTH_CODE="$(openssl rand -base64 32)" >> ~/.bash_profile
+echo export LTS_AUTH_CODE=$(python -c "import random; print(''.join([str(random.randint(0,9)) for x in range(40)]) + '\n')") >> ~/.bash_profile
 
+. ~/.bash_profile
 
 # install Oracle JDK 1.8
 wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-8u141-linux-x64.rpm
