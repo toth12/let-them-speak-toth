@@ -42,6 +42,10 @@ class Nav extends React.Component {
             child={<Link to={'/methods'}>METHODOLOGY</Link>}
             routes={['/methods']}
             activeRoute={this.props.route} />
+          <ActiveLink
+            child={<Link to={'/search'}>SEARCH</Link>}
+            routes={['/search']}
+            activeRoute={this.props.route} />
         </ul>
       </nav>
     )

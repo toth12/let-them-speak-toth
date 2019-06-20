@@ -96,7 +96,7 @@ const essayListPart3= [
     file: '/assets/files/sample.pdf',
   },
   {
-    title: 'Athenticity and Truth ',
+    title: 'Athenticity and Truth',
     epigraph: '...it could have been him, it could have been anybody else, but they did hang her...',
     file: '/assets/files/sample.pdf',
   },
@@ -112,7 +112,7 @@ const essayListPart4= [
 
 const Titles = (props) => (
   <div className='essay-titles'>
-    <h2>I. The Lost Experience of the Drowned
+    <h2>I. The Silenced Experience of the Drowned
     </h2>
     {essayListPart1.map((t, idx) => (
       <a href={t.file}
@@ -131,7 +131,7 @@ const Titles = (props) => (
       </a>
     ))}
 
-    <h2>III. Epistemology of Testimonial Fragment
+    <h2>III. Epistemology of Testimonial Fragments
     </h2>
     {essayListPart3.map((t, idx) => (
       <a href={t.file}
