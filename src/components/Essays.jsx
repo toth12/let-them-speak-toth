@@ -3,7 +3,7 @@ import Hero from './Hero';
 
 const Essays = props => (
   <div>
-    <Hero text='Essays' />
+    <Hero text='Monograph' />
     <div className='container'>
       <blockquote>"They couldn't walk, couldn't talk, kept on saying we should say "Kaddish" after them, we should remember them."</blockquote>
       <p className='center-text'>&mdash;Oral History Interview with Suzanne Claire Holzer-Wester, USHMM, RG-50.061*0010.</p>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Anthology = props => (
   <div className='anthology'>
-    <Hero text='Anthology of Fragments' />
+    <Hero text='Testimonial Fragments' />
     <div className='container'>
       <h2>GIVING VOICE TO THE VOICELESS</h2>
       <blockquote>“The best witness, the only true witness in reality, according to the specialists, is one who has not
