@@ -6,15 +6,16 @@ const Home = props => (
     <div className='top'>
       <div className='brand' />
       <div>
-      <div className='welcome'>An Anthology of Holocaust Testimonies:<br/>
+      <div className='welcome'>
+      Gabor Mihaly Toth<br/><br/>
+      In Search of the Drowned in the Words of the Saved: <br/>Testimonies and Testimonial Fragments of the Holocaust<br/><br/>
       Yale Fortunoff Archive, USC Shoah Foundation, United States Holocaust Memorial Museum</div>
       </div>
       <Link className='button brown' to='/about'>Let's explore</Link>
     </div>
     <div className='bottom'>
       <hr/>
-      <p>Gabor Mihaly Toth</p>
-      <p>Funded by Fortunoff Video Archive and built in collaboration with the Yale Digital Humanities Lab</p>
+      <p>Funded by Fortunoff Video Archive, USC Shoah Foundation, USC Viterbi School of Engineering and built in collaboration with the Yale Digital Humanities Lab</p>
     </div>
   </div>
 )
