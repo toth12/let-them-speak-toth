@@ -6,7 +6,8 @@ const About = props => (
     <Hero text='About' />
     <div className='container'>
     <h2>Short Introduction</h2>
-      <p><i>Let them Speak</i> is the epigraph of this book and the name of the collaborative project between three institutions that gave rise to it. <i>Let them Speak</i> is symbolic; it expresses my intention to give voice to millions of murdered Holocaust victims, to the <i>Drowned</i>, as Primo Levi, the Italian writer and Holocaust survivor, named them. Today, when the last of the <i>Saved</i>, as Levi called survivors, die, reflecting on how to tell the experience and perspective of the <i>Drowned</i> is becoming a moral obligation for future generations. Until now, symbolically, the <i>Saved</i> could give voice to the <i>Drowned</i>. To realize the impossible, I bring survivors’ voice, computer science, philosophy, and my own family’s memory together. <i>In Search of the Drowned in the Words of the Saved</i> is a hybrid publication realized with the help of digital technology. On the one hand, it offers scholarship on the silenced experience of the <i>Drowned</i> and essays on oral history testimony in the digital age. <br/><br/></p>
+    <blockquote className='center-text'><i>Let them Speak</i></blockquote>
+      <p><i>Let them Speak</i> is the epigraph of this book and the name of the collaborative project between three institutions that gave rise to it. <i>Let them Speak</i> is symbolic; it expresses my intention to give voice to millions of murdered Holocaust victims, to the <i>Drowned</i>, as Primo Levi, the Italian writer and Holocaust survivor, named them. Today, when the last of the <i>Saved</i>, as Levi called survivors, die, reflecting on how to tell the experience and perspective of the <i>Drowned</i> is becoming a moral obligation for future generations. Until now, symbolically, the <i>Saved</i> could give voice to the <i>Drowned</i>. To realize the impossible, I bring together survivors’ voice, computer science, philosophy, and my own family’s memory. <i>In Search of the Drowned in the Words of the Saved</i> is a hybrid publication realized with the help of digital technology. On the one hand, it offers scholarship on the silenced experience of the <i>Drowned</i> and essays on oral history testimony in the digital age. <br/><br/></p>
       <h2>Scholarship</h2>
       <table className='image-trio'>
         <tbody>
@@ -34,14 +35,14 @@ const About = props => (
         <tbody>
           <tr>
             <td>
-              <a href='/contents'>
+              <a href='/explore'>
                 <div><h3>Testimonies</h3></div><hr/>
                 <div className='teaser'>Browse testimonies of Holocaust survivors by location, date, and demographic metadata and read, listen or watch their experience</div>
               </a>
             </td>
             <td>
               <a href='/anthology'>
-                <div><h3>Testimonial Fragments</h3></div><hr/>
+                <div><h3>Fragments</h3></div><hr/>
                 <div className='teaser'>Explore pieces of collective suffering rendered as testimonial fragments and visualized as leaves of a hierarchical tree</div>
               </a>
             </td>
