@@ -16,39 +16,48 @@ const Essays = props => (
 const essayList = [
   {
     title: 'The Perspective of the Voiceless',
-    file: '/assets/files/sample.pdf',
+    //file: '/assets/files/sample.pdf',
+    file: '/essays/sample'
   },
   {
     title: 'Nakedness',
-    file: '/assets/files/sample.pdf',
+    //file: '/assets/files/sample.pdf',
+    file: '/essays/sample'
   },
   {
     title: 'Shaking',
-    file: '/assets/files/sample.pdf',
+    //file: '/assets/files/sample.pdf',
+    file: '/essays/sample'
   },
   {
     title: 'Yelling and screaming',
-    file: '/assets/files/sample.pdf',
+    //file: '/assets/files/sample.pdf',
+    file: '/essays/sample'
   },
   {
     title: 'Maltreatment',
-    file: '/assets/files/sample.pdf',
+    //file: '/assets/files/sample.pdf',
+    file: '/essays/sample'
   },
   {
     title: 'Running',
-    file: '/assets/files/sample.pdf',
+    //file: '/assets/files/sample.pdf',
+    file: '/essays/sample'
   },
   {
     title: 'Fear',
-    file: '/assets/files/sample.pdf',
+    //file: '/assets/files/sample.pdf',
+    file: '/essays/sample'
   },
   {
     title: 'Guilt',
-    file: '/assets/files/sample.pdf',
+    //file: '/assets/files/sample.pdf',
+    file: '/essays/sample'
   },
   {
     title: 'Shame',
-    file: '/assets/files/sample.pdf',
+    //file: '/assets/files/sample.pdf',
+    file: '/essays/sample'
   }
 ];
 
