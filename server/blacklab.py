@@ -20,7 +20,7 @@ def search_blacklab(params):
     {dict} args: all query args passed to a search endpoint
   '''
   root = 'http://' + os.environ['TOMCAT_HOST']
-  root += ':8080/blacklab-server-1.7.2/lts/hits'
+  root += ':8080/blacklab-server-1.7.3/lts/hits'
   query = get_query_pattern(params.get('query', 'test'))
   # query-based arguments
   args = {
@@ -65,13 +65,13 @@ def get_query_pattern(query):
   query = query.strip()
   strip_chars = '“”"\''
   
-  '''
+  
   for i in strip_chars:
     try:
       query = query.decode("utf8").strip(i.decode("ISO8859-1"))
     except Exception as e:
       raise Exception("Error stripping chars: %s, %s: %s" % (strip_chars, i, e))
-  '''
+  
   parens = ['[', ']', '(', ')']
   # case of CQL query
   if (query) and (query[0] in parens) and (query[-1] in parens):
