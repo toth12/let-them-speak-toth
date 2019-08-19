@@ -24,12 +24,12 @@ class Nav extends React.Component {
             routes={['/about']}
             activeRoute={this.props.route} />
           <ActiveLink
-            child={<Link to={'/essays'}>ESSAYS</Link>}
+            child={<Link to={'/essays'}>MONOGRAPH</Link>}
             routes={['/essays']}
             activeRoute={this.props.route} />
           <ActiveLink
-            child={<Link to={'/explore'}>EXPLORE</Link>}
-            routes={['/explore', '/contents', '/search']}
+            child={<Link to={'/methods'}>METHODOLOGY</Link>}
+            routes={['/methods']}
             activeRoute={this.props.route} />
           <li className='brand'>
             <Link to={'/#'}><img src={img} /></Link>
@@ -39,8 +39,12 @@ class Nav extends React.Component {
             routes={['/anthology']}
             activeRoute={this.props.route} />
           <ActiveLink
-            child={<Link to={'/methods'}>METHODOLOGY</Link>}
-            routes={['/methods']}
+            child={<Link to={'/explore'}>TESTIMONIES</Link>}
+            routes={['/contents','/explore']}
+            activeRoute={this.props.route} />
+          <ActiveLink
+            child={<Link to={'/search'}>SEARCH</Link>}
+            routes={['/search']}
             activeRoute={this.props.route} />
         </ul>
       </nav>

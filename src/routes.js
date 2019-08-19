@@ -4,6 +4,7 @@ import App from './components/App';
 import Home from './components/Home';
 import About from './components/About';
 import Essays from './components/Essays';
+import EssayModal from './components/EssayModal';
 import Explore from './components/Explore';
 import Anthology from './components/Anthology';
 import Methods from './components/Methods';
@@ -16,7 +17,8 @@ const routes = (
     <Switch>
       <Route exact path='/' component={Home} />
       <Route path='/about' component={About} />
-      <Route path='/essays' component={Essays} />
+      <Route path='/essays/:essayId' component={EssayModal} />
+      <Route exact path='/essays' component={Essays} />
       <Route path='/explore' component={Explore} />
       <Route path='/anthology' component={Anthology} />
       <Route path='/methods' component={Methods} />

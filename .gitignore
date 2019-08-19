@@ -13,3 +13,4 @@ docker-data
 BlackLab
 server/seeds/folia/
 server/inputs/
+*-log.txt

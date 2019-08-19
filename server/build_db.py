@@ -24,7 +24,7 @@ mongo_archive_path = os.path.join('server', 'inputs', 'lts.archive')
 db_name = 'lts'
 
 # specify blacklab version to use
-bl_version = '1.7.2'
+bl_version = '1.7.3'
 
 ##
 # Functions
@@ -53,6 +53,12 @@ def index_folia_files(dir_to_index, index_name):
   # blacklab classpath config
   classpath = 'BlackLab/core/target/blacklab-' + bl_version + '.jar'
   classpath += ':Blacklab/core/target/lib/*'
+
+  # Don't run if the index folder already exists
+  if os.path.exists("%s" % index_name):
+    print ("Skipping index rebuild because '%s' already exists!" % index_name)
+    print ("Remove this folder if you want to force rebuild (takes a long time).")
+    return
 
   cmd = 'java -cp "' + classpath + '" '
   cmd += 'nl.inl.blacklab.tools.IndexTool ' # blacklab tool to run

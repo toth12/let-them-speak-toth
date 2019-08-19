@@ -2,7 +2,7 @@
 FROM node:8-alpine
 
 # Specify author / maintainer
-MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
+LABEL authors="Jake Kara <jake.kara@yale.edu>, Douglas Duhaime <douglas.duhaime@gmail.com>"
 
 ##
 # Install admin tools
@@ -119,8 +119,9 @@ RUN apk add --update --no-cache --upgrade \
 # Get the BlackLab source
 RUN mkdir -p /blacklab && \
   cd /blacklab && \
-  git clone git://github.com/INL/BlackLab.git && \
+  git clone git://github.com/INL/BlackLab.git --branch v1.7.3 && \
   cd BlackLab && \
+  rm -rf .git && \
   mvn clean install
 
 ##

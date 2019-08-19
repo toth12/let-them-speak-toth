@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // must be odd
 const maxPages = 7;
 
+
 const Pagination = props => (
   <div className='pagination'>
     <div className='arrow left-arrow' onClick={props.leftArrowClick} />
@@ -13,7 +14,7 @@ const Pagination = props => (
         onClick={props.pageClick.bind(null, p-1)}>{p}</div>
     ))}
     <div className='arrow right-arrow'
-      onClick={props.rightArrowClick} />
+      onClick={props.activePage + 1 < Math.ceil(props.items / props.perPage) ? props.rightArrowClick : ()=>{}} />
   </div>
 )
 
@@ -27,9 +28,19 @@ const Pagination = props => (
 **/
 
 const getPages = (total, activePage, perPage) => {
+  
   const allPages = Array.from(new Array(Math.ceil(total/perPage)), (i, idx) => idx + 1);
   const firstPage = activePage <= (maxPages - 1)/2 ? 0 : activePage - 3;
-  return allPages.slice(firstPage, firstPage + maxPages);
+
+  // return allPages.slice(firstPage, firstPage + maxPages);
+
+  // BUGFIX - Need to prevent window from sliding past allPages.length;
+  const lastPage = Math.min(allPages.length, firstPage + maxPages);
+
+  const range = [lastPage - maxPages, lastPage];
+
+  return allPages.slice(...range);
+
 }
 
 Pagination.PropTypes = {
