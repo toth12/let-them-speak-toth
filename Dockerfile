@@ -2,7 +2,7 @@
 FROM node:8-alpine
 
 # Specify author / maintainer
-MAINTAINER Douglas Duhaime <douglas.duhaime@gmail.com>
+LABEL authors="Jake Kara <jake.kara@yale.edu>, Douglas Duhaime <douglas.duhaime@gmail.com>"
 
 ##
 # Install admin tools
