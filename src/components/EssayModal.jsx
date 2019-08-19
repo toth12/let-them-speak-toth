@@ -30,8 +30,6 @@ const EssayModal = props => {
   const title = essay.title || "Under construction",
     body = essay.body || "Under construction";
 
-  console.log("EssayModal", essayId, essay, title, body)
-
   return (<div className='testimony-modal-container'>
     <div className='testimony-inner'>
       <div className='testimony'>
