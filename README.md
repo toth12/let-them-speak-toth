@@ -86,36 +86,6 @@ When that completes, Blacklab and the mongodb should be properly set up. You
 should be able to browse to https://localhost:7082 to interactive with the app.
 
 To stop and start the container without redoing the previous slow process, use
-these two commands
-
-```bash
-bash server/docker/2019/stop-container.sh
-```
-
-and 
-
-```bash
-bash server/docker/2019/start-container.sh
-```
-
-If you make changes to the app from your host environment and want to restart
-gunicorn while the container, use:
-
-```bash
-bash server/docker/2019/restart-app.sh
-```
-
-If you want to drop into a shell in the container:
-
-```bash
-bash server/docker/2019/open-shell.sh
-```
-
-To remove the container and image (!) use:
-
-```bash
-bash server/docker/2019/remove-it-all.sh
-```
 
 ## Docker Usage - old - deprecated
 

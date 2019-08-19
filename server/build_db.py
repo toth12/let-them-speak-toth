@@ -54,6 +54,12 @@ def index_folia_files(dir_to_index, index_name):
   classpath = 'BlackLab/core/target/blacklab-' + bl_version + '.jar'
   classpath += ':Blacklab/core/target/lib/*'
 
+  # Don't run if the index folder already exists
+  if os.path.exists("%s" % index_name):
+    print ("Skipping index rebuild because '%s' already exists!" % index_name)
+    print ("Remove this folder if you want to force rebuild (takes a long time).")
+    return
+
   cmd = 'java -cp "' + classpath + '" '
   cmd += 'nl.inl.blacklab.tools.IndexTool ' # blacklab tool to run
   cmd += 'create ' # command to blacklab
