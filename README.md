@@ -282,3 +282,12 @@ yarn build-db
 yarn build
 yarn serve-gunicorn
 ```
+
+**Important: src/config/client.js: ** this file needs to be modified when run
+remotely, to contain the public IP address of the server in production. If
+running on EC2, you can obtain this with the following command:
+
+    curl http://169.254.169.254/latest/meta-data/public-ipv4
+
+(Documentation on the AWS instance metadata server [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html#instancedata-data-retrieval).)
+
