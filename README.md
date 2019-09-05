@@ -57,9 +57,23 @@ npm run start
 
 That will start the webpack dev server on port 7081. Note that you will need to have a BlackLab server running to generate the seed data or run text queries. See below for getting started with BlackLab.
 
-## New docker usage
+## Docker usage
 
-Pre-requesites: Install docker, awscli, and add credentials to ~/.aws/credentials
+Install Docker, then in the root directory, build the container with:
+
+```bash
+bash server/docker/build.sh
+```
+
+Once the container is built, you can seed the database and start the server with (use strong LTS_AUTH_CODE in production env. Any length of alphanumeric characters.):
+
+```bash
+LTS_AUTH_CODE=12345 bash server/docker/run_with_seed_data.sh
+```
+
+In order to run with production data, you need a local copy of some starter data. To fetch the production data from AWS, you will need to have credentials with access to a private s3 bucket.
+
+Add credentials to a profile in ~/.aws/credentials
 
 Then to fetch the production data, run:
 
@@ -74,22 +88,20 @@ build the image with:
 bash server/docker/2019/build-image.sh
 ```
 
-Then you have to seed the database. This step will take a while! Copy production
-server/inputs/ folder into the server folder in this repo and run:
+Then you have to seed the database. This step will take a while! Make sure you have production data in server/inputs/ folder:
 
 
 ```bash
 bash server/docker/2019/build-container.sh
 ```
 
-When that completes, Blacklab and the mongodb should be properly set up. You
-should be able to browse to https://localhost:7082 to interactive with the app.
+When that completes, Blacklab and the mongodb should be properly set up. You should be able to browse to https://localhost:7082 to interactive with the app.
 
 To stop and start the container without redoing the previous slow process, use
 
 ## Docker Usage - old - deprecated
 
-THIS SECTION IS DEPRECATED AND WILL BE REMOVED. SEE ABOVE FOR CURRENT DOCKER USAGE.
+THIS SECTION IS DEPRECATED AND WILL BE REMOVED. SEE ABOVE FOR CURRENT DOCKER USAGE. Some of these scripts and instructions were rewritten and re-documented above in order to copy the data from the host machine into the docker container at runtime. This allows you to avoid rebuilding the Blacklab index, which is very time consuming.
 
 Install Docker, then in the root directory, build the container with:
 

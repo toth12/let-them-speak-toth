@@ -4,12 +4,13 @@ echo ' * Starting container with production data'
 
 # run the server with already present data
 docker run -v $(pwd):/lts-app \
+      -e LTS_AUTH_CODE=${LTS_AUTH_CODE} \
       -p 7022:22 \
       -p 7082:7082 \
       -p 8080:8080 \
       -p 27017:27017 \
   letthemspeak /bin/sh -c \
-  "rm -r BlackLab && mv /blacklab/BlackLab . && \
+  "rm -rf BlackLab && mv /blacklab/BlackLab . && \
   pip install -r requirements.txt && \
       npm install --no-optional && \
       npm run build
