@@ -57,7 +57,7 @@ npm run start
 
 That will start the webpack dev server on port 7081. Note that you will need to have a BlackLab server running to generate the seed data or run text queries. See below for getting started with BlackLab.
 
-## Docker usage
+## New docker usage
 
 Install Docker, then in the root directory, build the container with:
 
@@ -96,8 +96,6 @@ bash server/docker/2019/build-container.sh
 ```
 
 When that completes, Blacklab and the mongodb should be properly set up. You should be able to browse to https://localhost:7082 to interactive with the app.
-
-To stop and start the container without redoing the previous slow process, use
 
 ## Docker Usage - old - deprecated
 
