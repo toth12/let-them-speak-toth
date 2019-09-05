@@ -59,6 +59,8 @@ That will start the webpack dev server on port 7081. Note that you will need to 
 
 ## New docker usage
 
+#### With seed (fake) data
+
 Install Docker, then in the root directory, build the container with:
 
 ```bash
@@ -70,6 +72,10 @@ Once the container is built, you can seed the database and start the server with
 ```bash
 LTS_AUTH_CODE=12345 bash server/docker/run_with_seed_data.sh
 ```
+
+#### With production data
+
+If you've run the previous steps with seed data, but now you want to run it with production data, make sure to remove the "lts" directory that has been created in your repo directory. If this folder is present, it will prevent the data files from being re-indexed in the subsequent steps. As you'll see, indexing takes a very long time, so to prevent that from happening over and over during development deploys, we check for the presence of this folder. 
 
 In order to run with production data, you need a local copy of some starter data. To fetch the production data from AWS, you will need to have credentials with access to a private s3 bucket.
 
