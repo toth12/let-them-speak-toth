@@ -11,8 +11,13 @@ def get_db():
     try:
       # initialize db connection
       host = os.environ['MONGO_HOST']
-      client = MongoClient(host, 27017, connect=False)['lts']
-      return client
+      
+      mc = MongoClient(host, 27017, connect=False)
+      # print(mc.database_names())
+      if "lts" not in mc.database_names():
+        break
+      
+      return mc["lts"]
     except Exception as exc: #pylint: disable=broad-except
-      print(exc)
+      print("get_db exception: " + str(exc))
       time.sleep(0.1)

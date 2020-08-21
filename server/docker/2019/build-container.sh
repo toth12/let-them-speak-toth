@@ -4,7 +4,7 @@ echo ' * Starting container with present data'
 
 # run the server with already present data
 
-docker run -it -v "$(pwd)":/lts-app \
+docker run --rm -it -v "$(pwd)":/lts-app \
       -e LTS_AUTH_CODE=${LTS_AUTH_CODE} \
       --name letthemspeak \
       -p 7022:22 \

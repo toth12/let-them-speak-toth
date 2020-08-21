@@ -50,7 +50,10 @@ def search_blacklab(params):
     query += add_year_params(params, filter_join)
   else:
     query += add_year_params(params, '&filter=')
+  
+  print("Calling request_url " + str(query))
   result = request_url(query)
+  print("Got result " + str(result))
   return parse_response(result)
 
 
@@ -66,11 +69,11 @@ def get_query_pattern(query):
   strip_chars = '“”"\''
   
   
-  for i in strip_chars:
-    try:
-      query = query.decode("utf8").strip(i.decode("ISO8859-1"))
-    except Exception as e:
-      raise Exception("Error stripping chars: %s, %s: %s" % (strip_chars, i, e))
+  # for i in strip_chars:
+  #   try:
+  #     query = query.decode("utf8").strip(i.decode("ISO8859-1"))
+  #   except Exception as e:
+  #     raise Exception("Error stripping chars: %s, %s: %s" % (strip_chars, i, e))
   
   parens = ['[', ']', '(', ')']
   # case of CQL query
