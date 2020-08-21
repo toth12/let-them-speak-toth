@@ -46,7 +46,7 @@ def search_blacklab(params):
     query += '&filter='
     for i in filter_params:
       query += i + ':' + quote('"' + str(params[i]) + '"') + filter_join
-    query = filter_join.join(query.split(filter_join)[:-1])
+    query = query.rstrip(filter_join)
     query += add_year_params(params, filter_join)
   else:
     query += add_year_params(params, '&filter=')
@@ -63,26 +63,37 @@ def get_query_pattern(query):
     {str} the user's query in curated form
   '''
   query = query.strip()
-  strip_chars = '“”"\''
-  
-  
-  for i in strip_chars:
+  quote_chars = '“”"\''
+  for i in quote_chars:
     try:
       query = query.decode("utf8").strip(i.decode("ISO8859-1"))
     except Exception as e:
-      raise Exception("Error stripping chars: %s, %s: %s" % (strip_chars, i, e))
-  
+      raise Exception("Error stripping char: %s: %s" % (i, e))
+
   parens = ['[', ']', '(', ')']
+  cql_suffixes = ['+']
   # case of CQL query
-  if (query) and (query[0] in parens) and (query[-1] in parens):
+  start_is_cql = query[0] in parens
+  end_is_cql = (query[-1] in parens) or (query[-1] in cql_suffixes)
+  if query and start_is_cql and end_is_cql:
     return query
+  # if this is not a CQL query, replace quotation marks
+  for i in quote_chars:
+    # retain apostrophes
+    if i == '\'': continue
+    query = query.replace(i, '')
   # case of multiword query
   elif ' ' in query:
     formatted = ''
     for i in query.split():
-      formatted += '[word="' + i + '"]'
+      # handle OR operator
+      if i == '|':
+        formatted += ' | '
+      # handle query token
+      else:
+        formatted += '[word="' + i + '"]'
     return formatted
-  # case of simple query
+  # case of single word query
   return '"' + query + '"'
 
 
