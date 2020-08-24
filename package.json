@@ -21,7 +21,7 @@
     "lint-js": "./node_modules/eslint/bin/eslint.js -c './src/config/.eslintrc.js' src/",
     "lint-py": "pylint server",
     "lint": "npm run lint-js && npm run lint-py",
-    "jest": "./node_modules/jest/bin/jest.js",
+    "jest": "./node_modules/jest/bin/jest.js --testURL http://localhost",
     "test": "npm run build && npm run lint && npm run jest && pytest"
   },
   "dependencies": {
