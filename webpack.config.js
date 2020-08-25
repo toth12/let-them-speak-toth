@@ -151,6 +151,6 @@ if (TARGET === 'start') {
   module.exports = merge(common, devSettings)
 }
 
-if (TARGET === 'build' || !TARGET) {
+if (TARGET === 'build' || TARGET === "develop" || !TARGET) {
   module.exports = merge(common, prodSettings)
 }
