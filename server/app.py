@@ -24,8 +24,8 @@ app.debug = True
 cas_url = 'https://secure.its.yale.edu/cas'
 cas_client = CASClient(cas_url, auth_prefix='')
 app.secret_key = hashlib.new('ripemd160').hexdigest()
-use_cas_auth = True
-use_param_auth = True
+use_cas_auth = False
+use_param_auth = False
 
 ##
 # API routes
@@ -56,8 +56,8 @@ def xml_search():
   try:
     results = search_blacklab(request.args)
     return jsonify(results)
-  except Exception: #pylint: disable=broad-except
-    return jsonify({'err': 'search error'})
+  except Exception as e: #pylint: disable=broad-except
+    return jsonify({'err': 'search error: ' + str(e)})
 
 @app.route('/api/sentences')
 def sentences():

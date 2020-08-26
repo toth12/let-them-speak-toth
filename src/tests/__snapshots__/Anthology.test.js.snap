@@ -8,51 +8,110 @@ exports[`renders 1`] = `
     className="hero background-image"
   >
     <h1>
-      Anthology of Fragments
+      Testimonial Fragments
     </h1>
   </div>
   <div
     className="container"
   >
     <h2>
-      GIVING VOICE TO THE VOICELESS
+      GIVING VOICE TO THE VOICELESS THROUGH PIECES OF COLLECTIVE SUFFERING
     </h2>
-    <blockquote>
-      “The best witness, the only true witness in reality, according to the specialists, is one who has not survived, who has gone to the end of experience and is dead. But neither the historians nor the sociologists have so far resolved this contradiction: how to invite these true witnesses, the dead,to their conferences? How can be made to speak?"
-    </blockquote>
-    <p
-      className="center-text"
-    >
-      —Jorge Semprún, Le mort qu’il faut (The Required Dead Man) (Paris: Gallimard, 2001). Translated and quoted by G. Hartman in Testimony and Authenticity, published in G. Hartman, Scars of the Spirit (New York: Palgrave Macmillan, 2002). p. 91.
+    <br />
+    <br />
+    <p>
+      Reconstructing the experience of the 
+      <i>
+        Drowned
+      </i>
+       and telling the history of the Holocaust from their perspective is an impossible task. Their experience and perspective perished with them. Today, our only proxy to them is the survivor. However, with the passing of the last survivors, there will not be anyone to speak for them. What will remain are tens of thousands of oral testimonies. How we can trace the perspective of the 
+      <i>
+        Drowned
+      </i>
+       in thousands of post-war testimonies and how we can render it ethically are the main themes of the 
+      <a
+        href="/essays"
+      >
+        Monograph
+      </a>
+       that is part of this publication. Throughout the chapters of the Monograph a simple but powerful idea is developed: the experience of the 
+      <i>
+        Drowned
+      </i>
+       can be rendered through pieces of collective suffering. Modern computing technology (described in the 
+      <a
+        href="/methods"
+      >
+        Methodology
+      </a>
+       section) has been applied to find some and definitely not all pieces in the 2700 testimonies that this publication contains. Inspired by words of survivors, pieces of collective suffering are represented as 
+      <i>
+        testimonial fragments
+      </i>
+      , a concept borrowed from philology of ancient texts. 
+      <i>
+        Testimonial fragments
+      </i>
+       are short 
+      <i>
+        de-memorialized
+      </i>
+       excerpts from testimonies. What 
+      <i>
+        de-memorialization
+      </i>
+       means and why it is crucial to render the experience of the 
+      <i>
+        Drowned
+      </i>
+       are also explained in the Monograph. In short, 
+      <i>
+        testimonial fragments
+      </i>
+       as pieces of collective suffering describe cross-cultural physical, emotional, and physical experiences that any victim, both the 
+      <i>
+        Drowned
+      </i>
+       and the 
+      <i>
+        Saved
+      </i>
+      , had to face.
     </p>
     <p>
-      The Spanish-French writer and survivor of Buchenwald, George Semprun, gave an impossible task: giving voice to the voiceless victim. The task is impossible because the experience of voiceless victims perished with them. Today, our only proxy to them is the survivor. However, with passing of the last survivors, there will not be anyone to speak for them. What will remain are tens of thousands of oral history testimonies. How can we trace the perspective of the nameless victim in thousands of post-war testimonies? A recollection by a survivor has helped to tackle the impossible task given by Semprun.
-    </p>
-    <blockquote>
-      When I went back to -- to Auschwitz several years ago, back then -- ‘93, I believe, there’s a room in Auschwitz where it has all luggage, suitcases. I walked into this room and the first suitcase that stares at me is Weiss, W-e-i-s-s. That was my maiden name. Do I know if it was ours? No. Would I recognize it? No. Could it have been? Yes.
-    </blockquote>
-    <p
-      className="center-text"
-    >
-      —Oral History Interview with  F.F. USHMM, RG-50.549.02.0020
-    </p>
-    <p>
-      Just like the suitcases in the Auschswitz Museum could have belonged to anyone, who was deported to the camp, there must be a set of experiences that could have been the experience of any of the six million victims. They are collective experiences that recurred in the fate of millions. Given a reasonably large corpus of testimonies, these shared experiences must also recur in the corpus. Modern computing technology was put into action to retrieve short testimonial fragments describing recurrent experiences in testimonies.
-    </p>
-    <p>
-      Let them speak features testimonial fragments in eight cross-cultural experience domains (at the moment only 5 of them are accessible). Testimonial fragments are presented as a hierarchical tree. The main leaves of the tree are denoting the eight experience domains. By clicking on a leaf, readers are presented groups of testimonial fragments describing a similar recurrent experience, as well as prototypical experiences in a given experience domain (the top branches of the opened tree). By clicking on a fragment, reader can read, listen or watch original testimony where the fragment was retrieved.
-    </p>
-    <p>
-      Let them speak is not only the title of this book. It is an approach that on the one hand presents victim’s perspective by making survivors speak: where and how a recurrent experience happened; what and how victims felt about it. On the other hand, it presents the experience of the voiceless by assembling some pieces of the collective experience. We cannot reconstruct what the voiceless actually experienced, but we can reconstruct what they were likely to experience. The recurrence of certain experiences in interviews suggest that they could have been the possible experience of any victim. Testimonial fragments are meant to represent collective experiences; interviews behind fragments are the unique and individual manifestations of these collective experiences. Let them speak as an anthology enables an effortless oscillation between the collective and the individual, and opens reading paths that are guiding the reader through collective experiences. Let them speak as an approach facilitates the shift from the study of testimonies as a manifold of many subjective experiences, to the investigation of testimonies as an inventory of collective experiences.
-    </p>
-    <p>
-      Explore Testimonial Fragments [link to essays]
-    </p>
-    <p>
-      Read Essays on Fragments and the Experience of the Voiceless [link to essays]
-    </p>
-    <p>
-      Read about Applied Computational Methods [link to methods]
+      Here, 
+      <i>
+        testimonial fragments
+      </i>
+       are presented through a hierarchical tree visualization. The main leaves of the tree are different cross-cultural experience domains. By clicking on a leaf, readers are presented with groups of 
+      <i>
+        testimonial fragments
+      </i>
+       describing a similar recurring experience (hence, a piece of collective suffering), as well as prototypical experiences in a given experience domain (the top branches of the opened tree). By clicking on a 
+      <i>
+        testimonial fragment
+      </i>
+      , reader can read, listen or watch the 
+      <i>
+        testimonial fragment
+      </i>
+       in the original testimony where computing tools found it. The playing of the original audio / video recording begins from the interview question leading to the 
+      <i>
+        testimonial fragment
+      </i>
+      .  Symbolically, through 
+      <i>
+        testimonial fragments
+      </i>
+       and through the voice of the 
+      <i>
+        Saved
+      </i>
+      , the 
+      <i>
+        Drowned
+      </i>
+       can speak up even today.
     </p>
     <div
       className="center-text"

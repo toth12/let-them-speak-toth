@@ -6,14 +6,14 @@ exports[`renders 1`] = `
     className="hero background-image"
   >
     <h1>
-      Essays
+      Monograph
     </h1>
   </div>
   <div
     className="container"
   >
     <blockquote>
-      "They couldn't walk, couldn't talk, kept on saying we should say "Kaddish" after them, we should remember them."
+      They couldn't walk, couldn't talk, kept on saying we should say "Kaddish" after them, we should remember them.
     </blockquote>
     <p
       className="center-text"
@@ -21,94 +21,243 @@ exports[`renders 1`] = `
       —Oral History Interview with Suzanne Claire Holzer-Wester, USHMM, RG-50.061*0010.
     </p>
     <p>
-      This part of Let them speak features essays by Gabor Mihaly Toth on each experience domains presented in the anthology of fragments. Content is under development.
+      Content not available here; please refer to sample chapters submitted as part of the proposal.
     </p>
     <div
       className="essay-titles"
     >
       <h2>
-        Table of Contents
+        I. The Silenced Experience of the Drowned
       </h2>
       <a
         className="essay-title"
-        href="/assets/files/sample.pdf"
+        href="/essays/sample"
         target="_blank"
       >
         1
         . 
-        The Perspective of the Voiceless
+        The Last Wish
+        : 
+        <i>
+          Sometimes think of us who have to suffer for being born.
+        </i>
       </a>
       <a
         className="essay-title"
-        href="/assets/files/sample.pdf"
+        href="/essays/sample"
         target="_blank"
       >
         2
         . 
-        Nakedness
+        The Inhumanity of Historical Memory
+        : 
+        <i>
+          Do you know that after those 6 million people, there's hardly one who can say kaddish?
+        </i>
       </a>
       <a
         className="essay-title"
-        href="/assets/files/sample.pdf"
+        href="/essays/sample"
         target="_blank"
       >
         3
         . 
-        Shaking
+        Emotions, Thoughts, and the Experience of Suffering
+        : 
+        <i>
+          ...we were human too. We lived, we laughed and loved like you.
+        </i>
       </a>
       <a
         className="essay-title"
-        href="/assets/files/sample.pdf"
+        href="/essays/sample"
         target="_blank"
       >
         4
         . 
-        Yelling and screaming
+        The Trap of Secondary Narration
+        : 
+        <i>
+          ...we just live – or better to say, struggle - one day to the next and wait for the unavoidable that awaits us...
+        </i>
       </a>
       <a
         className="essay-title"
-        href="/assets/files/sample.pdf"
+        href="/essays/sample"
         target="_blank"
       >
         5
         . 
-        Maltreatment
+        The Silenced Voice of the Drowned
+        : 
+        <i>
+          I thought I would be bar mitzvah but it doesn’t look that way. And it was the only thing I wanted to live for.
+        </i>
       </a>
       <a
         className="essay-title"
-        href="/assets/files/sample.pdf"
+        href="/essays/sample"
         target="_blank"
       >
         6
         . 
-        Running
+        De-memoralization
+        : 
+        <i>
+          I know nothing about your family.
+        </i>
       </a>
       <a
         className="essay-title"
-        href="/assets/files/sample.pdf"
+        href="/essays/sample"
         target="_blank"
       >
         7
         . 
-        Fear
+        The Grey Zone
+        : 
+        <i>
+          I am ten years older and my nerves are more battered than hers.
+        </i>
       </a>
       <a
         className="essay-title"
-        href="/assets/files/sample.pdf"
+        href="/essays/sample"
         target="_blank"
       >
         8
         . 
-        Guilt
+        Collective Suffering
+        : 
+        <i>
+          Don’t give yourself to despair, this is our destiny shared with millions, we have so far endured it - but until when?!
+        </i>
+      </a>
+      <h2>
+        II. Collective Suffering and its Representation
+      </h2>
+      <a
+        className="essay-title"
+        href="/essays/sample"
+        target="_blank"
+      >
+        1
+        . 
+        Possibilities
+        : 
+        <i>
+          That could have been my mother. That could have been my father. That could have been my sister or my brother.
+        </i>
       </a>
       <a
         className="essay-title"
-        href="/assets/files/sample.pdf"
+        href="/essays/sample"
         target="_blank"
       >
-        9
+        2
         . 
-        Shame
+        Recurrence
+        : 
+        <i>
+          Here I had to march naked in front of a bunch of men. This is all humiliation.
+        </i>
+      </a>
+      <a
+        className="essay-title"
+        href="/essays/sample"
+        target="_blank"
+      >
+        3
+        . 
+        Testimonial Fragments
+        : 
+        <i>
+          ...part of what our job is, is to try and collect some of those fragments...
+        </i>
+      </a>
+      <a
+        className="essay-title"
+        href="/essays/sample"
+        target="_blank"
+      >
+        4
+        . 
+        Heterogeneity
+        : 
+        <i>
+          Women and men looked alike.
+        </i>
+      </a>
+      <a
+        className="essay-title"
+        href="/essays/sample"
+        target="_blank"
+      >
+        5
+        . 
+        The Human
+        : 
+        <i>
+          They give you a haircut, make you look like -- tot -- take your individuality away.
+        </i>
+      </a>
+      <h2>
+        III. Epistemology of Testimonial Fragments
+      </h2>
+      <a
+        className="essay-title"
+        href="/essays/sample"
+        target="_blank"
+      >
+        1
+        . 
+        Otherized
+        : 
+        <i>
+          My children to this day have been quite indifferent about the Holocaust or my background and to them I have a feeling that it is as remote as the exodus from Egypt of our forefathers.
+        </i>
+      </a>
+      <a
+        className="essay-title"
+        href="/essays/sample"
+        target="_blank"
+      >
+        2
+        . 
+        Unspeakable
+        : 
+        <i>
+          You will never probably see what I'm going to see. You are never going to hear from the graves what I am going to hear. But you will see enough.
+        </i>
+      </a>
+      <a
+        className="essay-title"
+        href="/essays/sample"
+        target="_blank"
+      >
+        3
+        . 
+        Athenticity and Truth
+        : 
+        <i>
+          ...it could have been him, it could have been anybody else, but they did hang her...
+        </i>
+      </a>
+      <h2>
+        IV. Conclusion
+      </h2>
+      <a
+        className="essay-title"
+        href="/essays/sample"
+        target="_blank"
+      >
+        1
+        . 
+        The Experience of the Irrational
+        : 
+        <i>
+          I don't know why, why we were persecuted.
+        </i>
       </a>
     </div>
   </div>

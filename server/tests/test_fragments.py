@@ -61,7 +61,7 @@ def validate_node(_id, node):
 def validate_fragment(fragment):
   '''Validate that a fragment has the required structure'''
   for fragment_key in fragment.keys():
-    print(' * validating', fragment_key, 'in', fragment['_id'])
+    print(' * validating', fragment_key, 'in', fragment['_id'], fragment[fragment_key])
     assert isinstance(fragment[fragment_key], root_schema[fragment_key])
     validate_length(fragment[fragment_key], root_schema[fragment_key])
     validate_node(fragment['_id'], fragment['tree'])
@@ -81,9 +81,24 @@ def assert_testimony_exists(testimony_id):
   '''Validate that a given testimony exists in the db'''
   result = list(db['testimonies'].find({'testimony_id': testimony_id}))
   print(' * validating testimony_id', testimony_id, 'exists')
-  assert len(list(result)) > 0
+  if (len(list(result)) <= 0):
+    print (f"WARNING: DID NOT FIND TESTIMONY WITH ID: {testimony_id}")
+  #assert len(list(result)) > 0
 
 db = get_db()
+# print("db", db)
+# print("Listing collections")
+# print(db.list_collections())
+# print("Printing lol")
+# print(db["lol"].find())
+# print("Printing fragments")
+# print(db["fragments"].find())
+# print("Printing fragments get_collection()")
+# print(db.get_collection("fragments"))
+# print("Printing lol get_collection()")
+# print(db.get_collection("lol"))
+
 for doc in db['fragments'].find():
+  print("Testing doc")
   validate_fragment(doc)
   validate_testimony_id_keys_exist(doc)

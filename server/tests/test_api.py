@@ -33,8 +33,16 @@ def test_tree_data():
 
 def test_search_offset():
   '''Validate the search route paginates properly'''
-  one = get_json('/api/search?start=0')['results'][1]
-  two = get_json('/api/search?start=1')['results'][0]
+  resp_one = get_json('/api/search?start=0')
+  resp_two = get_json('/api/search?start=1')
+
+  print("RESPONSE ONE")
+  print(resp_one)
+  print("============")
+
+  one = resp_one['results'][1]
+
+  two = resp_two['results'][0]
   assert one == two
 
 def get_json(route):

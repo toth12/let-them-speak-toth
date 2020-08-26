@@ -50,7 +50,10 @@ def search_blacklab(params):
     query += add_year_params(params, filter_join)
   else:
     query += add_year_params(params, '&filter=')
+  
+  print("Calling request_url " + str(query))
   result = request_url(query)
+  print("Got result " + str(result))
   return parse_response(result)
 
 
