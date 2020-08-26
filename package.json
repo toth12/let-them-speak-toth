@@ -15,6 +15,7 @@
     "fetch-data": "rm -rf server/inputs && mkdir -p server/inputs && aws s3 cp s3://lab-secrets/let-them-speak/ server/inputs/ --profile lab-secrets --recursive && rm -rf server/inputs/folia && unzip server/inputs/folia.zip -d server/inputs/folia/",
     "build-db": "python server/build_db.py",
     "build": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
+    "develop": "webpack --watch",
     "production": "npm run build && npm run serve-prod",
     "serve-prod": "python server/app.py",
     "serve-gunicorn": "gunicorn -b 0.0.0.0:7082 --workers 1 --threads 8 --timeout 30 --keep-alive 2 --access-logfile - --log-level=DEBUG server.app:app",
