@@ -86,7 +86,7 @@ def get_query_pattern(query):
     if i == '\'': continue
     query = query.replace(i, '')
   # case of multiword query
-  elif ' ' in query:
+  if ' ' in query:
     formatted = ''
     for i in query.split():
       # handle OR operator
