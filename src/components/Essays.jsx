@@ -118,7 +118,7 @@ const Titles = (props) => (
       <a href={t.file}
         className='essay-title'
         key={idx}
-        target='_blank'>{idx + 1}. {t.title}: <i>{t.epigraph}</i>
+        target='_self'>{idx + 1}. {t.title}: <i>{t.epigraph}</i>
       </a>
 
     ))}
@@ -127,7 +127,7 @@ const Titles = (props) => (
       <a href={t.file}
         className='essay-title'
         key={idx}
-        target='_blank'>{idx + 1}. {t.title}: <i>{t.epigraph}</i>
+        target='_self'>{idx + 1}. {t.title}: <i>{t.epigraph}</i>
       </a>
     ))}
 
@@ -137,7 +137,7 @@ const Titles = (props) => (
       <a href={t.file}
         className='essay-title'
         key={idx}
-        target='_blank'>{idx + 1}. {t.title}: <i>{t.epigraph}</i>
+        target='_self'>{idx + 1}. {t.title}: <i>{t.epigraph}</i>
       </a>
     ))}
 
@@ -147,7 +147,7 @@ const Titles = (props) => (
       <a href={t.file}
         className='essay-title'
         key={idx}
-        target='_blank'>{idx + 1}. {t.title}: <i>{t.epigraph}</i>
+        target='_self'>{idx + 1}. {t.title}: <i>{t.epigraph}</i>
       </a>
     ))}
 
