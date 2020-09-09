@@ -12,6 +12,7 @@ import './tree-chart';
 import './contents';
 import './anthology';
 import './testimony';
+import './media-picker';
 import './loader';
 import './pagination';
 import './error';
