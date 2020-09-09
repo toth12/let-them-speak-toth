@@ -6,6 +6,7 @@ import './home';
 import './search';
 import './methods';
 import './essays';
+import './essayModal';
 import './tree';
 import './tree-chart';
 import './contents';
