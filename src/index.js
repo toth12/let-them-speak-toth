@@ -8,7 +8,11 @@ import { ConnectedRouter } from "connected-react-router";
 import "./assets/styles/style";
 import ReactGA from "react-ga";
 
-ReactGA.initialize(process.env.LTS_GA_CODE);
+ReactGA.initialize(process.env.LTS_GA_CODE, {
+  gaOptions: {
+    cookieFlags: "max-age=7200;secure;SameSite=none",
+  },
+});
 
 // render the main component
 ReactDOM.render(
