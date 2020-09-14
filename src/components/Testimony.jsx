@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import img from "../assets/images/x-close.svg";
 import placeholder from "../assets/images/placeholder.jpg";
 import { hideTestimony, clearActiveMedia } from "../actions/testimony";
+import ReactGA from "react-ga";
 
 class Testimony extends React.Component {
   constructor(props) {
@@ -19,6 +20,10 @@ class Testimony extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    if (this.props.testimony && this.props.testimony.testimony_id) {
+      ReactGA.modalview(`/testimony/${this.props.testimony.testimony_id}`);
+    }
+
     if (this.props.sentenceStart && this.props.sentenceEnd) {
       if (
         this.props.sentenceStart !== prevProps.sentenceStart ||
@@ -160,8 +165,8 @@ const Media = (props) => {
   let content;
   // const url = getMediaUrl(props.testimony, props.mediaIndex);
   const url = getMediaUrl(props.testimony, props.selectedMediaIndex);
-  console.log("Rendering media with index: ", props.selectedMediaIndex)
-  console.log("and url=", url)
+  console.log("Rendering media with index: ", props.selectedMediaIndex);
+  console.log("and url=", url);
 
   // case of Fortunoff collection; return media
   if (props.testimony.collection == "USHMM") {
@@ -258,22 +263,26 @@ const MediaPicker = (props) => {
   const urls = props.testimony.media_url;
   const selectedMediaIndex = props.selectedMediaIndex;
 
-  if (urls.length < 2){
-    return <div className="media-picker media-picker-empty"></div>
+  if (urls.length < 2) {
+    return <div className="media-picker media-picker-empty"></div>;
   }
 
   return (
     <div className="media-picker">
       <span className="label">Media parts: </span>
       {urls.map((_, i) => {
-        const selectedClass = i === selectedMediaIndex ? "selected" : "unselected"
-        return <button 
-        className={`media-picker-section ${selectedClass}`}
-        href="#"
-        onClick={()=>props.setMediaIndexCallback(i)}
-        key={i}>
-          {i + 1}
-          </button>;
+        const selectedClass =
+          i === selectedMediaIndex ? "selected" : "unselected";
+        return (
+          <button
+            className={`media-picker-section ${selectedClass}`}
+            href="#"
+            onClick={() => props.setMediaIndexCallback(i)}
+            key={i}
+          >
+            {i + 1}
+          </button>
+        );
       })}
     </div>
   );

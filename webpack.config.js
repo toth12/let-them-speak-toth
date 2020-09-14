@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 const path = require("path");
+const { env } = require("process");
 
 const paths = {
   src: path.resolve(__dirname, "src"),
@@ -145,6 +146,7 @@ const prodSettings = {
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
+        LTS_GA_CODE: JSON.stringify(env.LTS_GA_CODE),
         NODE_ENV: JSON.stringify("production"),
       },
     }),

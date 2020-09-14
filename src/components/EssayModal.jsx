@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import img from "../assets/images/x-close.svg";
 // import essayIndex from "../assets/files/essays/index.json";
 import essayIndex from "../assets/files/essays/index";
+import ReactGA from "react-ga";
 
 const getEssay = (essayName) => {
   console.log("getEssay", essayName, essayIndex);
@@ -18,10 +19,13 @@ const getEssay = (essayName) => {
 
 const EssayModal = (props) => {
   const { essayId } = props.match.params;
+
   const essay = getEssay(essayId);
 
   const title = essay.title || "Under construction",
     body = essay.body || "Under construction";
+
+  ReactGA.pageview("/essays/" + essayId);
 
   return (
     <div className="testimony-modal-container essay-modal-container">
