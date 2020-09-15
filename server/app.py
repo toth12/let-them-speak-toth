@@ -14,11 +14,15 @@ from flask_cors import CORS
 [sys.path.append(i) for i in ['.', '..', 'server']]
 from server.blacklab import search_blacklab #pylint: disable=wrong-import-position
 from server.db import get_db #pylint: disable=wrong-import-position
+from flask_caching import Cache
 
 app = Flask(__name__, static_folder='../build')
 CORS(app)
 
 app.debug = True
+
+cache = Cache(config={'CACHE_TYPE': 'simple'})
+cache.init_app(app)
 
 # cas authentication URL
 cas_url = 'https://secure.its.yale.edu/cas'
@@ -95,6 +99,7 @@ def table_of_contents():
   })
 
 @app.route('/api/filters')
+@cache.cached(timeout=50)
 def filter_testimonies():
   '''Get the distinct levels of each field used in filtering'''
   db = get_db()

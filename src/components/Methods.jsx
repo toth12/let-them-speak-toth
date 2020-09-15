@@ -17,19 +17,19 @@ const Methods = props => (
             <td>
 
               {/* <a href='/essays' target='_blank'>*/}
-                <div><h3>Yale Fortunoff<br/>Video Archive</h3></div><hr/>
+                <div><a href="/methods/MethodsDatasetDescriptionFortunoff"><h3>Yale Fortunoff<br/>Video Archive</h3></a></div><hr/>
                 <div className='teaser'>Read about the interviews shared by this data provider</div>
               {/* </a> */}
             </td>
             <td>
              {/* <a href='/methods' target='_blank'>*/}
-                <div><h3>USC Shoah Foundation, Visual Archive</h3></div><hr/>
+                <div><a href="/methods/MethodsDatasetDescriptionUSC"><h3>USC Shoah Foundation, Visual Archive</h3></a></div><hr/>
                 <div className='teaser'>Read about the interviews shared by this data provider</div>
               {/*</a>*/}
             </td>
             <td>
              {/* <a href='/explore' target='_blank'> */}
-                <div><h3>United States Holocaust Memorial Museum</h3></div><hr/>
+                <div><a href="/methods/MethodsDatasetDescriptionUSHMM"><h3>United States Holocaust Memorial Museum</h3></a></div><hr/>
                 <div className='teaser'>Read about the interviews shared by this data provider</div>
              {/*</a> */}
             </td>
@@ -44,7 +44,7 @@ const Methods = props => (
           <tr>
             <td>
              {/* <a href='/essays' target='_blank'> */}
-                <div><h3>Transcripts & Metadata</h3></div><hr/>
+                <div><a href="/methods/MethodsMetadataProcessing"><h3>Transcripts & Metadata</h3></a></div><hr/>
                 <div className='teaser'>Read about how transcripts and metadata were processed</div>
              {/* </a> */}
             </td>
