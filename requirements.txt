@@ -4,6 +4,7 @@ cas-client==0.1.4
 Faker>=0.8.10
 Flask>=0.12.2
 Flask-Cors>=3.0.3
+Flask-Caching==1.9.0
 gevent==1.2.1
 gunicorn>=19.7.1
 pylint>=1.8.2
