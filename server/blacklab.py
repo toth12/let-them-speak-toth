@@ -69,7 +69,7 @@ def get_query_pattern(query):
   quote_chars = '“”"\''
   for i in quote_chars:
     try:
-      query = query.decode("utf8").strip(i.decode("ISO8859-1"))
+      query = query.strip(i)
     except Exception as e:
       raise Exception("Error stripping char: %s: %s" % (i, e))
 
