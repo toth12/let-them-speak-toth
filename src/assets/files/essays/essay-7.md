@@ -1,4 +1,4 @@
-# Bridging the Gap between the Past and Present: the Universality of Suffering
+# The Universality of Suffering : Bridging the Gap between the Past and Present
 
 
 
