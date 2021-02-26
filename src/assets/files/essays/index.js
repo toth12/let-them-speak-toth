@@ -76,6 +76,6 @@ export default {
   },
   default: {
     body:
-      "<h3>Essay not found!</h3><p>The essay you requested was not found. The link may be invalid.</p>",
+      "<h3>Essay not found!</h3><p>The content is not yet available.</p>",
   },
 };
