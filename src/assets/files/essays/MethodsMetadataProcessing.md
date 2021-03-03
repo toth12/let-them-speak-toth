@@ -90,9 +90,9 @@ To identify the name of the ghetto where a person was forced to stay, I analyzed
 It is important to point out that the exact name of the ghetto where a person was detained is often absent from the records of the USHMM (see for instance, the <i>Oral history interview with Itka Zygmuntowicz</i>, USHMM, RG-50.030*0435), even if the person was detained in a ghetto. The similar can be said about camps. In these cases, I did not attempt to infer these pieces of information from the transcripts or from the interview summaries. 
 
 
-From <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/interviews_without_ghettos.csv" target="_blank">here</a> you can download a complete list of interviews where the ghetto metadata is not available.
+From <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviews_without_ghettos.csv" target="_blank">here</a> you can download a complete list of interviews where the ghetto metadata is not available.
 
-From <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/interviews_without_camps.csv" target="_blank">here</a> you can download a complete list of interviews where the camp metadata is not available.
+From <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviews_without_camps.csv" target="_blank">here</a> you can download a complete list of interviews where the camp metadata is not available.
 
 <b>C. USC Shoah Foundation</b>
 
@@ -126,7 +126,7 @@ Data shared by different institutions often feature orthographical variants of t
 
 "Litoměrice"
 
-The three words all refer to the same town in the Czech Republic; however, the name of this town is present in three different orthographic variants in the metadata provided by the three institutions. In case of conflicting orthographic variants, I usually applied the variant used in the relevant English language wikipedia entry. The resolution of orthographic variants of ghetto names can be found in a CSV file that you can download from <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/camp_variants_resolution_sheet.csv" target="_blank">here</a>. The resolution of camp names can be downloaded from <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/camp_variants_resolution_sheet.csv" target="_blank">here</a>.
+The three words all refer to the same town in the Czech Republic; however, the name of this town is present in three different orthographic variants in the metadata provided by the three institutions. In case of conflicting orthographic variants, I usually applied the variant used in the relevant English language wikipedia entry. The resolution of orthographic variants of ghetto names can be found in a CSV file that you can download from <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/camp_variants_resolution_sheet.csv" target="_blank">here</a>. The resolution of camp names can be downloaded from <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/camp_variants_resolution_sheet.csv" target="_blank">here</a>.
 
 <b>B. Regularization of different character variants</b>
 
@@ -204,9 +204,9 @@ If you do not find a given ghetto, you are advised to search for its name in dif
 
 As mentioned above, not all metadata records shared by the three institutions contain ghetto and camp names. This might indicate that the person was hiding during the war or fled before deportations or the establishment of a ghetto. It might also mean that she or he was forced into forced labour service. Due to the volume and the occasional inconsistencies of the data, it would have been impossible to infer the reason for the absence of camp and ghetto information. However, you can download all interviews where camp and ghetto information were not available:
 
-Interviews without camp information can be downloaded from <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/interviews_without_camps.csv" target="_blank">here</a>.
+Interviews without camp information can be downloaded from <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviews_without_camps.csv" target="_blank">here</a>.
 
-Interviews without ghetto information can be downloaded from <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/interviews_without_ghettos.csv" target="_blank">here</a>.
+Interviews without ghetto information can be downloaded from <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviews_without_ghettos.csv" target="_blank">here</a>.
 
 <h2>3. Gender</h2>
 
@@ -234,7 +234,7 @@ In the CSV file provided by the USC Shoah Foundation, the gender of interviewees
 
 <b>A. Limitation: absence of gender from certain records</b>
 
-The computational approach was unable to infer the gender of every interviewee. By clicking <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/interviews_without_gender_info.csv" target="_blank">here</a>, you can download all interviews where no gender information was identified.
+The computational approach was unable to infer the gender of every interviewee. By clicking <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviews_without_gender_info.csv" target="_blank">here</a>, you can download all interviews where no gender information was identified.
 
 <h2>4. Name of Interviewees</h2>
 
@@ -246,7 +246,7 @@ Marc records describe the name of interviewees in the Marc field  100 / A (infor
 
 During the data processing, interviewees' names were taken over without any further modification or normalization (see also below).
 
-The Yale Fortunoff data contains a number of interviews where multiple interviewees speak. See them in a specific data file that you can download from <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/interviews_with_multiple_interviewees.csv" target="_blank">here</a>.
+The Yale Fortunoff data contains a number of interviews where multiple interviewees speak. See them in a specific data file that you can download from <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviews_with_multiple_interviewees.csv" target="_blank">here</a>.
 
 <b>B. USHMM</b>
 
@@ -254,7 +254,7 @@ Interviewees' names are stored in the <i>interviewee</i> field of the JSON files
 
 An important peculiarity of persons' names in the USHMM records is that they occasionally contain honorifics such as for instance Mrs., Mr., and Dr. As a respect for the USHMM catalogue records, these honorifics were not removed from names of interviewees. For example, when searching for "Mr", you will find a number of records.
 
-In case of a handful of USHMM interviews, names of interviewees were not included into the catalogue records. They are therefore not searchable with interviewee names. In this <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/interviews_without_name_of_interviewees.csv" target="_blank">data file</a>, you can find the list of these interviews.
+In case of a handful of USHMM interviews, names of interviewees were not included into the catalogue records. They are therefore not searchable with interviewee names. In this <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviews_without_name_of_interviewees.csv" target="_blank">data file</a>, you can find the list of these interviews.
 
 The USHMM data contains interviews where multiple interviewees speak. See them in the data file linked above.
 
@@ -272,7 +272,7 @@ Interviewees' names were not harmonized; neither were they changed or transforme
 
 <b>B. Limitation: absence of surnames</b>
 
-Surnames are not distinguished in the catalogue records; yet, they are completely absent from the Yale Fortunoff Archive data. Name of interviewees are therefore not directly searchable in terms of surnames. The data file that you can download from <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/interviewee_ordered_by_surnames.csv" target="_blank">here</a> contains the list of all interviewees ordered by surnames that I inferred with a computational approach. Since this list was produced with the straight-forward approach of slicing names and using the last element as surname, it might not be completely accurate. 
+Surnames are not distinguished in the catalogue records; yet, they are completely absent from the Yale Fortunoff Archive data. Name of interviewees are therefore not directly searchable in terms of surnames. The data file that you can download from <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviewee_ordered_by_surnames.csv" target="_blank">here</a> contains the list of all interviewees ordered by surnames that I inferred with a computational approach. Since this list was produced with the straight-forward approach of slicing names and using the last element as surname, it might not be completely accurate. 
 
 <h2>5. Shelf Mark of Interviews</h2>
 
@@ -326,7 +326,7 @@ During the data processing, information in this field was identified and taken o
 
 The year when an interview was conducted was identified by processing the <i>display_date</i> field (information shared by the USHMM) in the JSON data shared by the USHMM.
 
-In case of some USHMM interviews, it was impossible to infer the recording year; by clicking <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/interviews_without_recording_year.csv" target="_blank">here</a>, you can download the relevant data file containing the list of interviews where no recording year was identified.
+In case of some USHMM interviews, it was impossible to infer the recording year; by clicking <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviews_without_recording_year.csv" target="_blank">here</a>, you can download the relevant data file containing the list of interviews where no recording year was identified.
 
 <b>C. USC Shoah Foundation</b>
 
@@ -376,7 +376,7 @@ The metadata provided by the USC Shoah Foundation included a record containing t
 
 <b>A. Limitation: testimony title harmonization</b>
 
-Testimony titles were not harmonized; they were taken over from the original catalogue records without any modification. From <a href="https://github.com/yale-fortunoff/lts-data/blob/data-files-first-milestone/data/all_interviews_with_titles_shelfmarks.csv" target="_blank">here</a> you can download the list of all testimonies and their respective titles.
+Testimony titles were not harmonized; they were taken over from the original catalogue records without any modification. From <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/all_interviews_with_titles_shelfmarks.csv" target="_blank">here</a> you can download the list of all testimonies and their respective titles.
 
 <h2>10. Interview Summary</h2>
 
