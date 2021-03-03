@@ -162,23 +162,51 @@ const Footer = (props) => (
 );
 
 const Media = (props) => {
-  let content;
+  let content = <NoMedia collection={props.testimony.collection} />;
   // const url = getMediaUrl(props.testimony, props.mediaIndex);
   const url = getMediaUrl(props.testimony, props.selectedMediaIndex);
-  console.log("Rendering media with index: ", props.selectedMediaIndex);
-  console.log("and url=", url);
+  // console.log("Rendering media with index >: ", props.selectedMediaIndex, props.testimony);
+  // console.log("and url=", url);
 
   // case of Fortunoff collection; return media
-  if (props.testimony.collection == "USHMM") {
-    if (!url) return <NoMedia collection={props.testimony.collection} />;
-    if (isVideo(url)) content = <Video key={url} url={url} />;
-    if (isAudio(url)) content = <Audio key={url} url={url} />;
+  if (["USHMM", "USC"].includes(props.testimony.collection)) {
+    if (!url) {
+      // console.log("No URL")
+      return <NoMedia collection={props.testimony.collection} />;
+    }
+    if (isVideo(url)) {
+      // console.log("Is video")
+      content = <Video key={url} url={url} />;
+    }
+    if (isAudio(url)) {
+      // console.log("Is audio")
+      content = <Audio key={url} url={url} />;
+    }
+    if (isYoutube(url)){
+      content = <YouTube key={url} url={url}/>
+    }
+    // console.log("is not audio or video")
     // case of non-Fortunoff collection; return url to other host
   } else {
+    // console.log("Unknown collection")
     return <NoMedia collection={props.testimony.collection} />;
   }
+  // console.log("Returning", content)
   return content;
 };
+
+const YouTube = (props) => {
+  const src = props.url.split("/").reverse()
+  if (src.length < 1){ return null }
+  const id = src[0]
+  
+  return (
+    <div className="media-container video-media">
+      <iframe width="340" height="260" 
+        src={`https://www.youtube.com/embed/${id}`}>
+      </iframe>
+    </div>
+)}
 
 const Video = (props) => (
   <div className="media-container video-media">
@@ -353,6 +381,11 @@ const isAudio = (str) => {
   let s = str || "";
   return s.indexOf(".mp3") > -1;
 };
+
+const isYoutube = (str) => {
+  let s = str || "";
+  return s.indexOf("youtu.be") > -1;
+}
 
 const testimonyProps = PropTypes.shape({
   camp_names: PropTypes.arrayOf(PropTypes.string),
