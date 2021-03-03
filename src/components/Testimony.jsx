@@ -208,10 +208,6 @@ const NoMedia = (props) => {
       href = "https://web.library.yale.edu/testimonies";
       break;
 
-    case "USC Shoah Foundation":
-      href = "https://sfi.usc.edu/";
-      break;
-
     default:
       return (
         <div className="no-media">
