@@ -13,6 +13,12 @@ import markdownMethodsMetadataProcessing from "./MethodsMetadataProcessing.md";
 import markdownMethodsDatasetDescriptionFortunoff from "./MethodsDatasetDescriptionFortunoff.md";
 import markdownMethodsDatasetDescriptionUSC from "./MethodsDatasetDescriptionUSC.md";
 import markdownMethodsDatasetDescriptionUSHMM from "./MethodsDatasetDescriptionUSHMM.md";
+import MethodsMiningFragments from "./MethodsMiningFragments.md";
+import MethodsLinguisticAnnotation from "./MethodsLinguisticAnnotation.md";
+import MethodsTechnicalSpecification from "./MethodsTechnicalSpecification.md";
+
+
+
 export default {
   "essay-1": {
     title: "Essay 1",
@@ -33,6 +39,18 @@ export default {
   "MethodsDatasetDescriptionUSHMM": {
     title: "MethodsDatasetDescriptionUSHMM",
     body: markdownMethodsDatasetDescriptionUSHMM,
+  },
+  "MethodsMiningFragments": {
+    title: "MethodsMiningFragments",
+    body: MethodsMiningFragments,
+  },
+  "MethodsLinguisticAnnotation": {
+    title: "MethodsLinguisticAnnotation",
+    body: MethodsLinguisticAnnotation,
+  },
+  "MethodsTechnicalSpecification": {
+    title: "MethodsTechnicalSpecification",
+    body: MethodsTechnicalSpecification,
   },
   "essay-2": {
     title: "Essay 2",

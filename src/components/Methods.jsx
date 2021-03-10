@@ -49,15 +49,15 @@ const Methods = props => (
              {/* </a> */}
             </td>
             <td>
-              {/*<a href='/methods' target='_blank'> */}
-                <div><a href="/methods/blank"><h3>Linguistic Annotation</h3></a></div><hr/>
+              {/*<a href='/essays' target='_blank'> */}
+                <div><a href="/methods/MethodsLinguisticAnnotation"><h3>Linguistic Annotation</h3></a></div><hr/>
                 <div className='teaser'>Read about how transcripts were transformed into an annotated linguistic corpus</div>
               {/*</a> */}
             </td>
             <td>
-              {/*<a href='/explore' target='_blank'> */}
-              <div><a href="/methods/blank"><h3>Retrieval of Fragments</h3></a></div><hr/>
-              <div className='teaser'>Read about how testimonial fragments are retrieced</div>
+              {/*<a href='/essays' target='_blank'> */}
+              <div><a href="/methods/MethodsMiningFragments"><h3>Retrieval of Fragments</h3></a></div><hr/>
+              <div className='teaser'>Read about how testimonial fragments are retrieved</div>
              {/*</a> */}
             </td>
           </tr>
@@ -71,7 +71,7 @@ const Methods = props => (
             </td>
             <td>
                 {/* <a href='/essays' target='_blank'>*/}
-                <div><a href="/methods/blank"><h3>Technical Specification<br/>of This Project</h3></a></div><hr/>
+                <div><a href="/methods/MethodsTechnicalSpecification"><h3>Technical Specification<br/>of This Project</h3></a></div><hr/>
                 <div className='teaser'>Read about the technology empowering this project</div>
               {/* </a> */}
             </td>
