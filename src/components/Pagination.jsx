@@ -28,18 +28,51 @@ const Pagination = props => (
 **/
 
 const getPages = (total, activePage, perPage) => {
+
+  // rewrote this so the logic would be easier to follow
+  // after encountering some inscrutible bug in the previous iteration.
+
+  // compute total number of pages
+  const totalPages = Math.ceil(total / perPage)
   
-  const allPages = Array.from(new Array(Math.ceil(total/perPage)), (i, idx) => idx + 1);
-  const firstPage = activePage <= (maxPages - 1)/2 ? 0 : activePage - 3;
+  // create an array of all pages
+  const allPages = Array(totalPages).fill(0).map((i, idx) => idx + 1)
 
-  // return allPages.slice(firstPage, firstPage + maxPages);
+  // if we don't have more than maxPages, then no windowing is required
+  if (totalPages <= maxPages){ return allPages }
 
-  // BUGFIX - Need to prevent window from sliding past allPages.length;
-  const lastPage = Math.min(allPages.length, firstPage + maxPages);
+  // Determine naively how many pages should be on each side of the 
+  // active page (when there are enough pages)
+  const pagesOnEachSide = Math.floor(maxPages / 2);
+  
+  // Determine our initial window, which may exceed the bounds of
+  // the allPages array. We'll correct that in the next step
+  let firstPage = activePage - pagesOnEachSide;
+  let lastPage = activePage + pagesOnEachSide;
 
-  const range = [lastPage - maxPages, lastPage];
+  // determine if we need to shift left or right to avoid exceeding
+  // the available page array on either end
+  const shiftLeft = Math.max(0, lastPage - (totalPages - 1));
+  const shiftRight = Math.abs(Math.min(0, firstPage));
 
-  return allPages.slice(...range);
+  // shift as needed
+  if (shiftLeft > 0){
+    console.log("Shifting left", [firstPage, lastPage])
+    firstPage -= shiftLeft; 
+    lastPage -= shiftLeft;
+    console.log("Shifted left", [firstPage, lastPage])
+
+  }
+  if (shiftRight > 0){
+    console.log("Shifting right", [firstPage, lastPage])
+
+    firstPage += shiftRight;
+    lastPage += shiftRight;
+    console.log("Shifted right", [firstPage, lastPage])
+
+  }
+
+  return allPages.slice(firstPage, lastPage + 1)
 
 }
 
