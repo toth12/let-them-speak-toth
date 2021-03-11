@@ -72,6 +72,11 @@ def get_query_pattern(query):
       query = query.strip(i)
     except Exception as e:
       raise Exception("Error stripping char: %s: %s" % (i, e))
+  
+  # Replace colons with %3A
+  #query = query.replace(":", "%3A")
+  if query[0] == "<" and query[-1] == ">":
+    return query[1:-1]#.replace(":", "%3A")
 
   parens = ['[', ']', '(', ')']
   cql_suffixes = ['+']
