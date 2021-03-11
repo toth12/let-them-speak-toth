@@ -1,4 +1,4 @@
-# Testimonies of the USC Shoah Foundation
+# Testimonies of the USC Shoah Foundation Visual History Archive
 
 [todo: change data repo links once finalized]
 Cite as: Gabor M. Toth, <i>In Search of the Drowned, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.

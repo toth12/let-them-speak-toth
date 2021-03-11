@@ -570,7 +570,7 @@ const Instructions = (props) => (
 
       <p>
       <code>
-      &lt;s/&gt;containing ([word="why"] []&#123;1,&#125; [word="I"] []&#123;0,10&#125; [word="?"] )
+      &lt;s/&gt;containing ([word="why"] []&#123;1,3&#125; [word="I"] []&#123;0,10&#125; [word="?"] )
       </code>
       </p>
 

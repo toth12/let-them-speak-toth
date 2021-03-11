@@ -18,7 +18,7 @@ The retrieval of textual contexts that describe similar experiences is a text mi
 
 Given that today there is no out-of-box algorithmic solution to retrieve sentences expressing similar physical or emotional experiences in textual data, I have designed a specific pipeline; this involved both algorithmic and human supervised stages. The diagram below summarizes the pipeline.
 
-<img src="ImagesMethodsMiningFragments/pipeline.png" style="width:400px;height:300px;">
+<img src="ImagesMethodsMiningFragments/pipeline.png" style="width:500px;height:400px;">
 
 
 
@@ -36,7 +36,7 @@ The first step of the pipeline produced a 60 million word corpus. You can search
 
 As a second step, I computed the document frequency of all verbs, including multi-word expressions; I labelled verbs with document frequency above the median as “recurrent.” To identify those verbs that express either physical or emotional experience, I examined all verbs (including multi-word expressions) that were labelled as recurrent. Next, with an embedded word model, I also identified their synonyms. This allowed me to work with synonym sets describing emotional, mental, and physical experiences in the testimony corpus.
 
-As a third step, I applied the technique of Latent Dirichlet allocation (LDA, also known as topic modeling). From the occurrences of a given synonym set I created a document collection. By occurrence, I mean all sentences (including the preceding and the following sentences) in which a member of a synonym set occurs. Next, I trained a TF-IDF based LDA model from all occurrences of a given synset. This produced groups of words, also known as topic words, that tend to co-occur. For instance, the following group of words was extracted from the document collection constructed from all occurrences of nakedness and its synonyms:
+As a third step, I applied the technique of Latent Dirichlet allocation (LDA, also known as topic modeling). From the occurrences of a given synonym set I created a document collection. By occurrence, I mean all sentences (including the preceding and the following sentences) in which a member of a synonym set occurs. Next, I trained a TF-IDF based LDA model from all occurrences of a given synonym set. This produced groups of words, also known as topic words, that tend to co-occur. For instance, the following group of words was extracted from the document collection constructed from all occurrences of nakedness and its synonyms:
 
 <i>kill; shoot; grave; dig; make; fight; machine_gun; ditch; show</i>
 
@@ -48,4 +48,4 @@ This group of keywords uncover a recurrent experience often narrated by survivor
 
 The last stage of the pipeline was the supervised analysis of the recovered sets of topic words. In short, I identified the recurrent experience behind each group of topic words and collected testimony contexts exemplifying it. 
 
-Finally, from the testimony contexts identified throughout the previous stage, I created the testimonial fragments as presented in the [Fragments section](/tree).s
+Finally, from the testimony contexts identified throughout the previous stage, I created the testimonial fragments as presented in the [Fragments section](/tree).
