@@ -57,19 +57,12 @@ const getPages = (total, activePage, perPage) => {
 
   // shift as needed
   if (shiftLeft > 0){
-    console.log("Shifting left", [firstPage, lastPage])
     firstPage -= shiftLeft; 
     lastPage -= shiftLeft;
-    console.log("Shifted left", [firstPage, lastPage])
-
   }
   if (shiftRight > 0){
-    console.log("Shifting right", [firstPage, lastPage])
-
     firstPage += shiftRight;
     lastPage += shiftRight;
-    console.log("Shifted right", [firstPage, lastPage])
-
   }
 
   return allPages.slice(firstPage, lastPage + 1)
