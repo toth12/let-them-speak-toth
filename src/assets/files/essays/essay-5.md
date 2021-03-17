@@ -6,6 +6,11 @@ Cite as: Gabor M. Toth, <i>In Search of the Drowned in the Words of the Saved, T
 
 I remember often hearing a story from my mother’s aunt, a survivor of the Budapest ghetto. As a young kid she spent the winter of 1944 and 1945 in a so-called "protected house" in Budapest. The safety of Jews residing in these houses was guaranteed by foreign diplomatic missions in the city. Nevertheless, as she recounted, one day a group of Hungarian lads showed up at her protected house; they started to gather the Jews to take them to the Danube. At that moment, she faced the prospect of something that often happened in Budapest during the winter of 1944 and early 1945. Another survivor of the Budapest ghetto described this in the following words.
 
+<audio controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.462.0031.03.05.mp3#t=707,755">  
+  Your browser does not support the video tag.
+</audio>
+
 ><i>We had a Jewish orphanage with 200 orphans. And Christmas night—it was a very bitter, cold, snowy night—the Arrow Cross people went into the orphanage to celebrate Christ’s birth, and took each and every child and every teacher out of that orphanage. The children were in their nighties, and barefooted. They marched them through Budapest in that snowy night, at midnight, to the Danube, to the bank of the Danube, and they shot each and every one, killing them into the Danube. They froze in there. By that time the Danube was not the Blue or Brown Danube, it was a Red Danube, because of Jewish blood.</i> [[1](#fn-1)]
 
 At the last moment, she was saved. As she related, the Christian husband of the housekeeper intervened and somehow managed to send the boys away. Nevertheless, the sheer <i>possibility</i> of being taken to the Danube and shot over the river was burned into her memory. She kept retelling this never realized possibility, which for her was as important as what actually happened.
@@ -20,15 +25,27 @@ Maximilian K., who was born in Vienna in 1925, recalled the following episode.
 
 Gunther Katz, a German survivor, tells how the <i>possibility</i> of antisemitic insults impacted him as a young child.
 
+<iframe src="https://www.youtube.com/embed/vhJ9bE1qGhU?start=1003&end=1134" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
+
 ><i>There were-- there was one boy in particular who lived in our neighborhood, whom I was a good friend with until I was about six and a half years old. At that point-- we were the same age-- he joined the Hitler Youth and, overnight, became my enemy. He would never talk to me anymore. And any time I walked past his house-- which was all the time, because he lived on the way to the bakery-- he would taunt me and throw things at me, even that early. This was in 1936 and 1937. And [PAUSES FOR 3 SECONDS] on our way to school, all the children in our neighborhood would walk together so that we could protect each other from the taunting and the rock-throwing and whatever else that would go on, which was fairly constant. There would be days when nothing would happen. Then other days, a whole batch of them would come at us. And the-- the bad thing was that right down the street from where we lived was a public school that I should have gone to, and then directly across the back alley from where our synagogue was was another public school. So they would gang up on us there. And we would have to walk past the other one to go to school. So there were two places where we had to pass where we would be recognized. Oh, the Jews are coming, the Jews are coming. So it was not an easy thing. And you always watched your back. Always. [PAUSES FOR 4 SECONDS] I don't think I ever really got attacked. But I think the fear of the possibility, and the rocks and the words, were just as difficult for a six or seven-year-old as if they would have actually grabbed me and hit me.</i> [[3](#fn-3)]
 
+
 Finally, Barbara Bregman, a Polish survivor described the experience of constantly facing the possibility of death.
+
+<iframe src="https://www.youtube.com/embed/FGrsG76oWSE?start=561&end=619" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
+
 
 ><i>And yes, I had a very-- I wanted to live. But at the same time, I accepted the fact that I could die at any moment. It, it was just one of those things which, which happened. There was no security or certainty of survival. Just one of those things. So I think we're also immune to feeling in terms of death. I've seen so many. You know, one death is one thing. But as I said, I saw people dead in the ghetto. I saw people shot. It just happened. It could happen to me. It could happen to, to anybody else.</i> [[4](#fn-4)]
 
 <div class="divider">* * *</div>
 
 As the examples above show, collective experience defined as set of possibilities is not an abstract idea. Life in a very specific world of possibilities was actually the heart of persecutions from the victims' perspective. A Polish survivor, Charlene Schiff, put this into words.
+
+<audio controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.233.0120.01.01.mp3#t=2820,2880">  
+  Your browser does not support the video tag.
+</audio>
+
 
 ><i>Indiscriminantly, babies, little kids, old people, anybody. They would just grab them, put them in the truck. And you never heard from them again. Dr. Grossfeld disappeared in one of those actions where they would come and just grab people indiscriminately. That’s why there was also such a demoralizing feeling. One never knew, I never knew if I would see my mother and my sister again because these actions could occur during work or after work or before work or anytime. And that uncertainty too was very, very difficult.</i> [[5](#fn-5)]
 

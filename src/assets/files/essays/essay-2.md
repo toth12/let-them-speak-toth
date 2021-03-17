@@ -13,20 +13,31 @@ V. was one of those many victims who asked to be remembered. In their testimonie
 
 In 1981 Suzanne Claire Holzer-Wester, a Polish survivor of Auschwitz, gave a testimony to her daughter. In her testimony she recalled the last wish of those who were destined to perish.
 
-<iframe src="https://oralhistory-assets.ushmm.org/RG-50.061.0010.02.03.mp3#t=538,566" height="400" width="1200" style="width: 100%;" allow="fullscreen" autostart="false"></iframe>
+<audio controls height="400" width="1200" style="width: 100%;">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.061.0010.02.03.mp3#t=538,566">
+  Your browser does not support the video tag.
+</audio>
+
+
 
 ><i>... when we went there, they took us to unload like some wood, coal or corpses, whatever they transported, and people were sitting  on at the train, on the trains that we passed on the way, and they were already dead those people, they couldn't walk, couldn't talk, kept on saying we should say Kaddish for them, we should remember them.</i> [[2](#fn-2)]
 
 
 A memory fragment by Leo Bretholz, an Austrian-born survivor, also perpetuates a last message from the Voiceless, as well as the perpetrators’ effort to silence it.
 
-<iframe src="https://oralhistory-assets.ushmm.org/RG-50.030.0038.03.05.mp4#t=975,1033" height="400" width="1200" style="width: 100%;" allow="fullscreen" autostart="0"></iframe>
+<video controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.030.0038.03.05.mp4#t=975,1039">
+  Your browser does not support the video tag.
+</video>
+
 
 ><i>One time the train stopped at a station, and the people there, seeing it, wanted to reach me. We shouted "Water!" The -- they didn't let them get close because these people were aware of three transports going by there every week. Some of the people were aware of that, and sometimes that awareness helped communicate simply because some of us. And I didn't do it, because I didn't leave family and friends. But some of them, husbands or wives or children, whoever had left families behind in Drancy or hiding out somewhere, they would drop envelopes, and the people would pick them up and would put stamps on them and mail them. Or just notes: "We are going away. We are going away. Don't forget us." Cryptic notes like this, you see. But they didn't let them approach.</i> [[3](#fn-3)]
 
 Others were trying to leave their last wish by engraving it into walls and objects. In his testimony, Leizer Hoffer recalled inscriptions he found in a town in Moldova.
 
-<iframe src="https://www.youtube.com/embed/4VdPn-BRrG8?start=140&end=234" height="400" width="1200" style="width: 100%;" allow="fullscreen" autostart="false"></iframe>
+
+
+<iframe src="https://www.youtube.com/embed/4VdPn-BRrG8?start=140&end=234" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
 
 
 
