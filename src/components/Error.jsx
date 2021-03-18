@@ -11,7 +11,7 @@ const Err = (props) => {
     <div className={"center-text " + props.className || ""}>
       <div className="error">
         <span>Sorry, an error occurred. Try reformatting your search.</span>
-        <span>Please contact an administrator: dhlab@yale.edu</span>
+        <span>For further assistance please contact an administrator: gabor.toth@aya.yale.edu</span>
       </div>
     </div>
   );
