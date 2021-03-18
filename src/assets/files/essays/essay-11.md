@@ -12,14 +12,31 @@ The impossibility of giving explanation of what and why it happened is a leitmot
 
 Fani Birnberg Ross, a Polish survivor, finished her testimony with the following words.
 
+<video controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.030.0196.02.02.mp4#t=3005,3018">  
+  Your browser does not support the video tag.
+</video>
+
+
 ><i>Q: Is there anything else you wish to add? <br/><br/>
 A: I wish there had...I don't know why, why we were persecuted. I don't know why. I'm thinking at night sometimes. I don't know why till today.</i> [[1](#fn-1)]
 
 Other survivors pointed out the impossibility of explanation by repeating phrases such as "for no reason" and "without reason." Zygmund Shipper, a Polish survivor who lived through persecutions as a child, described his grandfather’s humiliation with one of these phrases.
 
+<video controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.030.0526.01.06.mp4#t=998,1048">  
+  Your browser does not support the video tag.
+</video>
+
 ><i>But of course children like my age, you know, we got away with it, we walked. But the thing was, you know, they called a je -- a -- a Jewish man, you know, with the long beard, which they knew he was a Jew, you could recognize the Jewish people that were Orthodox, especially in -- in Lódz. They used to -- first thing they did, you know, took out the beard off and I -- and I asked why are they doing, you know, I didn’t ask the Germans, I asked my grandmother, why do they do that? They said, purely to humiliate him, you know, because they know it’s the most terrible thing to have that beard cut off. And then they made him wash the pavement, for no reason at all, just to degrade him, to humiliate him, to -- and you know, you’re not even 10 years old, you cannot understand why and you keep asking question and there is like always, there’s -- there’s no answers why.</i> [[2](#fn-2)]
 
 Others used words such as "senseless" or "irrational" to describe what happened to them and to their family. George Havas, a Hungarian survivor, described the episodes of his persecution as irrational.
+
+<video controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.030.0378.04.05.mp4#t=580,624">  
+  Your browser does not support the video tag.
+</video>
+
 
 ><i>And I didn't want to go in, I was waiting, again it was odd that they should have taken us that far by train just to kill us now, but at this point there were so many inconsistencies and so many irrational, one thing after another, that I wasn't sure any more about anything and when I saw them coming out I went in and then the shower could hold, I guess maybe 25-30 people, it was not a big room like some places, like Auschwitz had for example, or some others.</i> [[3](#fn-3)]
 

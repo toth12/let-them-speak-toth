@@ -15,9 +15,16 @@ Finding consolation in the shared destiny is a leitmotif in the testimonies of t
 
 Nesse Goding, who lived through persecutions from the age of 13 to 17, recalls this experience in her testimony.
 
-><i>... even my aunt who loved me, who helped me, my cousins that were dear to me, they always said, you suffered enough, don’t talk about it. So who did we, we talk to about it? Survivors to each other! We started to, because we didn’t have families, ... Five, six couples, survivors coming to our house on the Sabbath, having a little lunch, what did we talk about? The Holocaust. Comparing each other’s suffering, telling how it was.</i> [[2](#fn-2)]
+<audio controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.549.01.0009.03.03.mp3#t=60,123">
+  Your browser does not support the video tag.
+</audio>
+
+><i>... even my aunt who loved me, who helped me, my cousins that were dear to me, they always said, you suffered enough, don’t talk about it. So who did we, we talk to about it? Survivors to each other! We started to, because we didn’t have families. ... Five, six couples, survivors coming to our house on the Sabbath, having a little lunch, what did we talk about? The Holocaust. Comparing each other’s suffering, telling how it was, talking about how by miracle we survived this selection and that selection and in a way, I think this was really beneficial to us. Many times we say enough already talking Holocaust but I think that this was good. At least we talked it out, we didn’t keep it inside. </i> [[2](#fn-2)]
 
 Jacob Rosenber, a Polish survivor, tells what motivated survivors to gather and address the collectively endured experience of persecutions.
+
+<iframe src="https://www.youtube.com/embed/H5BGPVuuxbs?start=908&end=938" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
 
 ><i>INT: Did you talk to people a lot about your experiences?
 JR: We constantly talk about the experience, constantly.<br/>
@@ -30,6 +37,11 @@ JR: Mostly to-- to survivors, mostly to survivors, they understand better than a
 
 Beyond the collectively endured experience and the mutual understanding of each other’s pain, there was also something else that held the community of survivors together: the last wish of the Voiceless. Madeline Deutsch, a survivor who was born in former Czechoslovakia, put this into words.
 
+<audio controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.549.01.0027.02.03.mp3#t=3975,4147">
+  Your browser does not support the video tag.
+</audio>
+
 ><i>Well, let's see, when we started with this group, you know, the Holocaust survivors, we got together for two reasons. Number one was for each other and that we can share some of it with each other, those who survived it, who understand it, who, we can just look at one another and we know what the other one means, because there is such communication that it doesn't have to be verbal and in this case, the Holocaust survivors practically don't have to talk about things to understand one another. So this is a communication that is definitely between just survivors. And the other reason that came up a little bit later, because we remembered when some of the people who were killed and they said, their last breath, remember us, don't, not let us, do not let them forget us. And basically, I mean that's not, you know, word for word, that was basically what they kept asking before they went to their deaths. Do not let us, do not let them forget us. So this was a promise that probably all of us that survived made to ourselves, that we will not let the world forget them, because these were all decent human beings and they were just killed because they were Jews, or the other six million who were not Jews, but for various not important reasons, that they were being killed as well. So this was one of the other things that we have promised, that we will not let the world forget what happened and what they did to them. And so, as the war ended, the other thing that besides trying to find our families and trying to make a new life for ourselves, we also wanted to talk about the people that were killed and so when we started this group, the Holocaust survivors, one of our major reasons to getting together was to try to create some kind of a memorial to remember all these six million Jews that were murdered for no other reason that they, that they were Jews.</i> [[5](#fn-5)]
 
 <div class="divider">* * *</div>
@@ -38,11 +50,22 @@ These memory fragments of survivors suggest that the collectively endured experi
 
 Nearly fifty years after the end of the war, a survivor of Auschwitz,  Fritzie Fritzshall, returned to the camp. Her recollection of this journey helps uncover this path.
 
+<audio controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.549.02.0020.02.03.mp3#t=405,446">
+  Your browser does not support the video tag.
+</audio>
+
 > <i>When I went back to -- to Auschwitz several years ago, back then -- ‘93, I believe, there’s a room in Auschwitz where it has all luggage, suitcases. I walked into this room and the first suitcase that stares at me is Weiss, W-e-i-s-s. That was my maiden name. Do I know if it was ours? No. Would I recognize it? No. Could it have been? Yes.</i> [[6](#fn-6)]
 
 Just as the suitcases in the Auschwitz Museum could have belonged to anyone who was deported to the camp, there must be a set of experiences that <i>could have been</i> the experience of any of the six million victims. This set of shared experiences is the collectively endured fate that established the "silent bonds" among survivors.
 
 The Voiceless' individual and their very concrete experience certainly perished with them. Nevertheless, through the collective experience of persecutions we can still approach their fate. This is how a survivor put it into words.
+
+<audio controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.462.0023.02.03.mp3#t=1968,2021">
+  Your browser does not support the video tag.
+</audio>
+
 
 ><i>My father's sister went and her daughter. Her husband, too, had died young, so that was one less to go. My father's sister fought in the battle of Warsaw. She was killed in it. Her daughter, who was, I think 12, was taken away from her to Auschwitz and was gassed—my first cousin who I spent my summers with at my home. I mourn for them. But I mourn really only collectively for my grandmother. And every film I've ever seen about the Holocaust, about the camps, I see only her face. She is the primary face. And when I see children in camps, I think of my playmates.</i> [[7](#fn-7)]
 

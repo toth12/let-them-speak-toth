@@ -25,9 +25,18 @@ The account of Eugene N. contains another sentence that we often hear from survi
 
 Elizabeth Deutsch, another Hungarian survivor, recalls this aspect of forced homogenization.
 
+<iframe src="https://www.youtube.com/embed/8uhZ_6AZGDs?start=737&end=762" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
+
+
 ><i>But we did bear it, with my sister and many other prisoners, as long as we could. Our heads shaven, we stood next to one and another, in a large, large crowd, waiting. We didn't-- we did not recognize each other. They told us we would see our mother again, that she was just sent to take a shower.</i> [[2](#fn-2)]
 
-In testimony given in 1990, the writer, Elie Wiesel, gave a thorough summary of victims’ experience of forced homogenization.  
+In testimony given in 1990, the writer, Elie Wiesel, gave a thorough summary of victims’ experience of forced homogenization.
+
+<audio controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+  <source src="https://oralhistory-assets.ushmm.org/RG-50.165.0133.01.01.mp3#t=594,652">  
+  Your browser does not support the video tag.
+</audio>
+
 
 ><i>Before, the enemy’s purpose really was to see only one, that all the victims looked alike. And therefore these victims were ageless, faceless, nameless, and they had no private individuality. To be an individual there was dangerous. The best way to survive was to plunge into the mass and become anonymous. And not to look at the S.S. men, hoping that if you don’t look at him, he won’t look at you. But it is a childish game of, not to see him, is to be unseen. And just the opposite happened. In spite of everything, every person responded uniquely. That means there was something unique left in every person to survive the war.</i>[[3](#fn-3)]
 

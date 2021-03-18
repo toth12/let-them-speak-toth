@@ -12,9 +12,13 @@ How A. and V. experienced what was happening to them remains unknown. As a <i>ma
 I <i>know</i> what the perpetrators did to those who did not return. By drawing on the testimonies of the survivors, I can also <i>imagine</i> how A. and V. or the Voiceless experienced what was happening to them.
 Based on a testimony by a Hungarian survivor, Freda Weiss, I can, for instance, imagine the moment when they were forced to board the train to Auschwitz.
 
+<iframe src=" https://www.youtube.com/embed/oJJwX_AHsXs?start=26&end=65" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
+
 ><i>FW: And then the-- the Hungarian took us, very rough, by the hands, and threw us on the trains, in those cattle trains. In fact, when they threw my mother, she fell on the steps from the train. And she start screaming. Because her ribs wasn't healed yet, from the fall before. And we went in, in the trains. There was thousands of peoples, children, men, women, old, young, babies, crying in the arms of their mothers.</i> [[2](#fn-2)]
 
 Another testimony by a Polish survivor, Mark Bader, let me imagine what must have happened at the moment when they arrived at Auschwitz.
+
+<iframe src="https://www.youtube.com/embed/qeeS_Zk2lDM?start=715&end=809" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
 
 ><i>The Germans came, the SS troopers, when we arrived in Auschwitz, took these babies and threw them against the train and threw them down on the ground, stepped on their heads with their boots. [PAUSES FOR 3 SECONDS] This was such a chaos. And they were running around. The SS group was hitting people with the butts of their rifle, rifle butts. Dogs were barking and biting. It was like-- [PAUSES FOR 3 SECONDS] seemed like you just arrived in hell. And it was a picture that I will never forget. Mothers crying. They took the babies away from them. They threw them on the floor. They stepped on their heads, threw them against the car. Old people, they kicked and beat and, and hit them constantly with rifle. Blood was all over. [PAUSES FOR 3 SECONDS] And then they-- [PAUSES FOR 4 SECONDS] then they was an officer there who was-- to me, it looked like a little baton, in the faces, right and left, right and left.</i> [[3](#fn-3)]
 
