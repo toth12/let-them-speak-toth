@@ -154,8 +154,9 @@ def parse_response(obj):
       'left': get_match_string(h['left']),
       'match': get_match_string(h['match']),
       'right': get_match_string(h['right']),
-      'testimony_id': get_testimony_meta(h, 'testimony_id', doc_infos),
-      'shelfmark': get_testimony_meta(h, 'shelfmark', doc_infos),
+      'shelfmark': ' '.join(get_testimony_meta(h, 'shelfmark', doc_infos).split(' ')[::len(get_testimony_meta(h, 'shelfmark', doc_infos).split(' '))-1]),
+      #'shelfmark': get_testimony_meta(h, 'shelfmark', doc_infos),
+
       'token_start': h['start'],
       'token_end': h['end']
     })

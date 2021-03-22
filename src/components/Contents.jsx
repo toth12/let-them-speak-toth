@@ -86,7 +86,7 @@ const Table = (props) => (
             {t.provenance ? <span>{t.provenance + ". "}</span> : null}
             {t.collection ? (
               <span>
-                {"Courtesy of the " + (t.collection + " Archive.") || ""}
+                {"Courtesy of the " + (t.collection) || ""}
               </span>
             ) : null}
           </div>

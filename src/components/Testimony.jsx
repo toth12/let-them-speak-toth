@@ -169,7 +169,7 @@ const Media = (props) => {
   // console.log("and url=", url);
 
   // case of Fortunoff collection; return media
-  if (["USHMM", "USC"].includes(props.testimony.collection)) {
+  if (["USHMM", "USC Shoah Foundation"].includes(props.testimony.collection)) {
     if (!url) {
       // console.log("No URL")
       return <NoMedia collection={props.testimony.collection} />;
@@ -239,7 +239,7 @@ const NoMedia = (props) => {
     default:
       return (
         <div className="no-media">
-          Sorry, media is not available for this record.
+          Sorry, media is not available for this records.
         </div>
       );
   }
@@ -256,6 +256,11 @@ const NoMedia = (props) => {
 };
 
 const metaFields = [
+  {
+    label: "Cite as",
+    field: "testimony_title",
+    type: "str",
+  },
   {
     label: "Shelfmark",
     field: "shelfmark",
@@ -328,13 +333,25 @@ const Metadata = (props) => (
       {metaFields.map((f, idx) =>
         props.testimony[f.field] && props.testimony[f.field].length ? (
           <div key={idx}>
+
             <span className="meta-label">{f.label}</span>
+            {f.label == 'Cite as'?
+
+            <span>
+              : "{""}
+              {f.type === "str"
+                ?props.testimony[f.field]
+                : props.testimony[f.field].join(", ")}" in: Gabor M. Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu.
+            {"            "}</span>
+            : 
             <span>
               :{" "}
               {f.type === "str"
                 ? props.testimony[f.field]
                 : props.testimony[f.field].join(", ")}
             </span>
+            }
+
           </div>
         ) : null
       )}
