@@ -1,8 +1,6 @@
 # Mining Testimonial Fragments
 
-
-[todo: change data repo links once finalized]
-Cite as: Gabor M. Toth, <i>In Search of the Drowned, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 To find some (and definitely not all) pieces of the collective experience in thousands of testimonies, I applied text and data mining. As explained throughout my [Essays](/essays), my goal was to retrieve textual fragments from testimonies that describe recurrent physical and mental experiences shared by the Survivor and the Voiceless. I present this computational process in the following publication:
 

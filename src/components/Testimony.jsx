@@ -341,7 +341,7 @@ const Metadata = (props) => (
               : "{""}
               {f.type === "str"
                 ?props.testimony[f.field]
-                : props.testimony[f.field].join(", ")}" in: Gabor M. Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu.
+                : props.testimony[f.field].join(", ")}, {props.testimony.collection}" in: Gabor M. Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu.
             {"            "}</span>
             : 
             <span>

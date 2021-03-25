@@ -2,8 +2,8 @@
 
 
 
- <br/><br/>
-Cite as: Gabor M. Toth, <i>In Search of the Drowned in the Words of the Saved, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<br/><br/>
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 In the farewell messages of A. and V., there is not much about the historical circumstances of their persecutions. Through their last messages, I can learn of only two more concrete things: they were aware of the fate that was awaiting them and they were suffering emotionally. These are the words of V.
 
@@ -34,13 +34,13 @@ Similarly, Ruth (Rita) Harmelin, a Romanian survivor, noted the luck of her gran
 
 ><i>Just like I told you, I remember the tramway. I remember my father crying like a baby in the middle of the street while he was taking me to those people-- and to strangers. And he explained to me-- don't forget, you're Jewish, little girl. We're going to see you again. But you must do that, and you must go away. And we're doing this for your best. Because of course, I couldn't understand. My mother was crying, and only my father could take me. And he explained to me, you've got to go. This is for your [own] good. This is for your [own] good. This is the best for you. So I went out to the tramway with those people. And this was just before my birthday. And the last time I saw my father was on my birthday.</i>[[4](#fn-4)]
 
-We all <i>understand</i> the emotional pain of separation. We can conceive it without understanding the historical context. Understanding when, why, and how this episode took place is not necessary to imagine what must have been going on in the soul of Rachel G. and her father who was "crying like a baby." The reason why we understand it is because human suffering has some degree of universality. The historical and cultural context of suffering (when, why, and how one suffers) vary, but the bulk of human suffering remains familiar to everyone living in any historical time. Suffering is the aspect of the collective experience that connects us with victims in the remote past.
+We all <i>understand</i> the emotional pain of separation. We can conceive it without understanding the historical context. Understanding when, why, and how this episode took place is not necessary to imagine what must have been going on in the soul of Rachel G. and her father who was "crying like a baby." The reason why we understand it is because human suffering has some degree of universality. The historical and cultural context of suffering (when, why, and how one suffers) vary, but the bulk of human suffering remains familiar to everyone living in any historical time. Suffering is the aspect of the collective experience that connects us with victims in the remote past.[[5](#fn-5)]
 
 Suffering is also shared by the survivor and the Voiceless. This is what Gerda Kahan, a German survivor, put into words.
 
 <iframe src="https://www.youtube.com/embed/DInAEwlhd2c?start=1140&end=1177" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
 
-><i>But that long time-- those people are still alive here that have suffered more than anybody can understand. [PAUSES FOR 3 SECONDS] Not only that we suffered-- we suffered also for those that-- that didn't come back. Because they were not killed on the first day of the war. They suffered for years, until they were destroyed. [PAUSES FOR 3 SECONDS] They had the same hopes, like any other child in the world. They had the same ambition.</i> [[5](#fn-5)]
+><i>But that long time-- those people are still alive here that have suffered more than anybody can understand. [PAUSES FOR 3 SECONDS] Not only that we suffered-- we suffered also for those that-- that didn't come back. Because they were not killed on the first day of the war. They suffered for years, until they were destroyed. [PAUSES FOR 3 SECONDS] They had the same hopes, like any other child in the world. They had the same ambition.</i> [[6](#fn-6)]
 
 Of course, our modern understanding of the victims’ suffering is limited. As victims themselves have often noted, complete understanding of their suffering is not possible.
 
@@ -51,13 +51,13 @@ Of course, our modern understanding of the victims’ suffering is limited. As v
 
 
 
-><i>Nobody who is not walking in the shoes can understand fully what has happened. You have to suffer to understand somebody else [is] suffering.</i> [[6](#fn-6)]
+><i>Nobody who is not walking in the shoes can understand fully what has happened. You have to suffer to understand somebody else [is] suffering.</i> [[7](#fn-7)]
 
 For instance, the 'emotional death' often described by victims remains out of our grasp.
 
 <iframe src="https://www.youtube.com/embed/dnR9kc8BWgs?start=373&end=391" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
 
-><i>You get skinny so far, and that's the end of the melody. If you can sustain that, you're all right. If you can't that's too bad. Many people died emotionally because their heart was broken. They were too old. They couldn't sustain it. And you become numb.</i> [[7](#fn-7)]
+><i>You get skinny so far, and that's the end of the melody. If you can sustain that, you're all right. If you can't that's too bad. Many people died emotionally because their heart was broken. They were too old. They couldn't sustain it. And you become numb.</i> [[8](#fn-8)]
 
 Even though the victims’ suffering as a <i>complete whole</i> cannot be grasped; it can be understood <i>piece by piece</i>. We can understand those micro episodes (forced separation, seeing parents beaten up, etc.) that must have paved the way to 'emotional death.'
 
@@ -66,19 +66,24 @@ Understanding human suffering, however, is not a conventional analytical underst
 <iframe src="https://www.youtube.com/embed/MGpNiYqqwf4?start=1197&end=1247" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
 
 
-><i>And the day that they were taking us when there was a selection, and they picked my sister to leave Auschwitz, to go to a camp to work outside of Auschwitz, into Germany. But of course we never knew where we were going. But these manufacturers came and made a selection. And they picked my sister, but they didn't pick me. And I was over at the side crying hysterically. Because we were separated. I tried always not to cry, but separation is something you cannot possibly hold yourself together or keep yourself in-- in control. And [DRINKS] I was crying because now the last person that I had was taken away from me.</i>[[8](#fn-8)]
+><i>And the day that they were taking us when there was a selection, and they picked my sister to leave Auschwitz, to go to a camp to work outside of Auschwitz, into Germany. But of course we never knew where we were going. But these manufacturers came and made a selection. And they picked my sister, but they didn't pick me. And I was over at the side crying hysterically. Because we were separated. I tried always not to cry, but separation is something you cannot possibly hold yourself together or keep yourself in-- in control. And [DRINKS] I was crying because now the last person that I had was taken away from me.</i>[[9](#fn-9)]
 
-This episode can be explained from the perspective of the perpetrator. Around the Auschwitz complex, private companies exploiting the labour of victims were mushrooming. These companies (the "manufacturers" in the episode above) operated sub-camps where the selected victims were transferred to work. But this explanation has little or no relevance from the perspective of the victim. From her perspective, the focal point of the episode is the emotional pain of forced separation and not the historical circumstance; the reason why they picked her sister is secondary. We can understand her very human suffering through empathy and not through analytical reasoning. While the analytical and contextual reasoning anchors her suffering in the remote past and renders her as an <i>other</i>, the empathic understanding of forced separation brings her fate close to the present.
+This episode can be explained from the perspective of the perpetrator. Around the Auschwitz complex, private companies exploiting the labour of victims were mushrooming. These companies (the "manufacturers" in the episode above) operated sub-camps where the selected victims were transferred to work. But this explanation has little or no relevance from the perspective of the victim. From her perspective, the focal point of the episode is the emotional pain of forced separation and not the historical circumstance; the reason why they picked her sister is secondary. We can understand her very human suffering through empathy and not through analytical reasoning. While the analytical and contextual reasoning anchors her suffering in the remote past and renders her as an <i>other</i>, the empathic understanding of forced separation brings her fate close to the present.[[10](#fn-10)]
 
 Building an empathetic understanding of the Voiceless victims’ suffering is crucial now when the last survivors are dying. Until now the survivors could remember them as humans. Following their death the Voiceless will become a number ("the six million") without a human face. Through collective suffering, not only can we bridge the gap between the present and the remote, we can also memorialize the Voiceless as humans.
 
 Next, we will see how the pieces of collective suffering can be rendered in a tangible format.
 
+## <a href="essay-8">Click here to continue</a>
+
 <p id="fn-1" class="footnote">1. The Personal Archive of Gabor M. Toth, Budapest, F. Fam. Ser. Son. 3.</p>
 <p id="fn-2" class="footnote">2. USC Shoah Foundation, 10588, Oral history interview with Itka Zygmuntowicz.</p>
 <p id="fn-3" class="footnote">3. USHMM, RG-50.462*0039, Oral history interview with Ruth (Rita) Harmelin.</p>
 <p id="fn-4" class="footnote">4. Fortunoff, HVT-139, Rachel G. Holocaust testimony.</p>
-<p id="fn-5" class="footnote">5. USC Shoah Foundation, 12051, Oral history interview with Gerda Kahan.</p>
-<p id="fn-6" class="footnote">6. USHMM, RG-50.549.02*0057, Oral history interview with Blanka Rothschild.</p>
-<p id="fn-7" class="footnote">7. USC Shoah Foundation, 740, Oral history interview with Louis Posner.</p>
-<p id="fn-8" class="footnote">8. USC Shoah Foundation, 8423, Oral history interview with Aranka Siegal.</p>
+<p id="fn-5" class="footnote">5. Scholars have often argued that traumatic experience is the ultimate limit of representation; traumatic episodes are experiences that cannot be told, represented, and understood. While I acknowledge that traumatic experience cannot be understood with the help of analytical reasoning, I think it can be represented piece-by-piece. See problems related to representation of trauma in Cathy Caruth, ed., “Introduction,” in <i>Trauma: Explorations in Memory</i>(Baltimore and London, The John Hopkins University Press, 1995), pp. 3 - 13. See positions supporting representation of trauma in Kaplan, E. Ann, and Ban Wang, <i>Trauma and cinema: cross-cultural explorations</i> (Hong Kong: Hong Kong University Press, 2008). </p>
+<p id="fn-6" class="footnote">6. USC Shoah Foundation, 12051, Oral history interview with Gerda Kahan.</p>
+<p id="fn-7" class="footnote">7. USHMM, RG-50.549.02*0057, Oral history interview with Blanka Rothschild.</p>
+<p id="fn-8" class="footnote">8. USC Shoah Foundation, 740, Oral history interview with Louis Posner.</p>
+<p id="fn-9" class="footnote">9. USC Shoah Foundation, 8423, Oral history interview with Aranka Siegal.</p>
+<p id="fn-10" class="footnote">10. Dominick LaCapra writes, "I think historiography involves an element of objectification, and objectification may perhaps be related to the phenomenon of numbing in trauma itself. As a counterforce to numbing, empathy may be understood in terms of attending to, even trying, in limited ways, to recapture the possibility split-off, affective dimensions of the experience of others." Dominick LaCapra, <i>Writing history, writing trauma</i> (Baltimore (Md.): The Johns Hopkins University Press, 2001), p. 39.</p>
+

@@ -1,7 +1,7 @@
 # Testimonial Fragment: Pieces of the Collective Suffering
 
- <br/><br/>
-Cite as: Gabor M. Toth, <i>In Search of the Drowned in the Words of the Saved, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<br/><br/>
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 Throughout the two decades I spent with survivors, I heard many stories about their persecutions. But they kept retelling us the <i>same incomplete</i> episodes of their troubled past. For instance, I remember an episode that I often heard. At some point in 1944 the city where my grandfather and his parents stayed was bombed. The next day, Jewish men, including my grandfather and my great-grandfather, were forced to collect the dead bodies in the city. This episode must have been a deeply traumatic experience for my 16-year-old grandfather, though I do not remember hearing about it in its completeness. We never learned when this happened exactly; they never told us who forced my grandfather and his father to shovel corpses; they never told what happened before and after. This story, as their other stories, was only <i>fragments</i> of the traumatic experiences they went through. The story of their suffering remains incomplete.
 
@@ -34,7 +34,7 @@ AG: Well, it's my grandfather's words, you see, piecing together those scraps of
 
 <i>Fragment</i> is an important metaphor in survivors’ narrations. It expresses the <i>incompleteness</i> of their traumatic past. With the help of the fragment metaphor, they describe the pieces of past -- emotional, physical, and mental -- realities in which they were forced to live. By the same token, as survivors used the fragment metaphor to describe the pieces of their past, fragment, understood as textual fragment, can render pieces of the collective suffering. 
 
-In the context of collective suffering, however, <i>fragment</i> refers to pieces of past -- emotional, physical, and mental -- realities that <i>any victim</i> was likely to face. To differentiate a personal memory fragment by a survivor from a fragment expressing a piece of the collective suffering, I call the latter <i>testimonial fragments</i> and former a <i>memory fragment</i>.
+In the context of collective suffering, however, <i>fragment</i> refers to pieces of past -- emotional, physical, and mental -- realities that <i>any victim</i> was likely to face. To differentiate a personal memory fragment by a survivor from a fragment expressing a piece of the collective suffering, I call the latter <i>testimonial fragments</i> and former a <i>memory fragment</i>.[[3](#fn-3)]
 
 While a <i>memory fragment</i> recurs in a survivor’s narrations of what happened to him or her, a <i>testimonial fragment</i> recurs in the narration of many survivors. Consider the following <i>memory fragments</i> by individual survivors who described the same piece of the collective suffering:
 
@@ -51,8 +51,12 @@ To sum up, a <i>testimonial fragment</i> is a form that acknowledges the necessa
 
 Nevertheless, testimonial fragments lead to an important contradiction. Groups of decontextualized memory fragments, i.e., <i>testimonial fragments</i>, express the incompleteness of the collective suffering and the fact that they might have belonged to any victim; however, lacking any real voices and real persons, they are just impersonal descriptions of past emotional realities. While they express pieces of the collective suffering they also homogenize and schematize the victims’ suffering. As we shall see next, in light of the victims’ experience, this is troublesome because it resonates with the deeds of their perpetrators.
 
+## <a href="essay-9">Click here to continue</a>
+
 
 
 <p id="fn-1" class="footnote">1. USC Shoah Foundation, 422, Oral history interview with Rose Minsky.</p>
 <p id="fn-2" class="footnote">2. USC Shoah Foundation, 18470, Oral history interview with Alfred Gottschalk.</p>
+<p id="fn-3" class="footnote">3. Testimonial fragment as a representation format was inspired by Kirk, G. S., J. E. Raven, and Malcolm, <i>The presocratic philosophers: a critical history with a selection of texts</i> (Cambridge: Cambridge University Press, 2010).
+</p>
 

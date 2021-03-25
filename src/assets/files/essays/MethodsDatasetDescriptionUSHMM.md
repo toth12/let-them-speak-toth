@@ -1,7 +1,6 @@
 # Testimonies of the United States Holocaust Memorial Museum
 
-[todo: change data repo links once finalized]
-Cite as: Gabor M. Toth, <i>In Search of the Drowned, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 The United States Holocaust Memorial Museum provided 1514 testimonies to this project. Here you can get more information about these testimonies. First I summarize the history of the testimonies in the collection; second, after giving a short overview of the interview methodology underlying the testimonies, I am offering a quantitative description of the data set.[[1](#fn-1)]
 

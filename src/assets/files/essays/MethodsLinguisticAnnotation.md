@@ -1,8 +1,6 @@
 # Linguistic Annotation
 
-
-[todo: change data repo links once finalized]
-Cite as: Gabor M. Toth, <i>In Search of the Drowned, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 The Holocaust testimonies published in this edition have been annotated linguistically. In this section, first I explain what linguistic annotation means. Second, I present the computing tool, the Stanford Parser, I used to annotate testimony transcripts. Third, I discuss the limits of linguistic annotation, as well as the problems it involves, through some tangible examples. The computational process applied to annotate testimony transcripts is available in this <a href="https://github.com/YaleDHLab/shoah-foundation-data.git" target="_blank">data repository</a>.
 

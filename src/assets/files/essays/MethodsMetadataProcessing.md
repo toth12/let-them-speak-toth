@@ -1,8 +1,7 @@
 # Metadata Processing
 
 
-[todo: change data repo links once finalized]
-Cite as: Gabor M. Toth, <i>In Search of the Drowned, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 The Holocaust testimonies published in this edition were recorded  by a number of different testimony projects (see more about them in the description of each data set in the [Methodology](/methods) section); today these interviews are preserved in three different institutions that have shared the goal of cataloguing them as accurately as possible and making them searchable. To enhance searchability, they enriched their catalogue records with information such as for instance the name of the camp where an interviewee was deported to. Even though the types of information they added to their catalogue records largely overlap (information in catalogue records is named metadata by specialists), the data format they used to record them features differences. This makes the cross-searchability of different testimony collections challenging. 
 

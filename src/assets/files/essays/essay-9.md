@@ -42,7 +42,7 @@ In testimony given in 1990, the writer, Elie Wiesel, gave a thorough summary of 
 
 <div class="divider">* * *</div>
 
-The victims’ words above are a warning; any representation of their collective suffering cannot lead to the homogenization or schematization of their traumatic past; neither can it efface the voice of the real individual. On the contrary, the representation of collective suffering has to be informed by duality: it has to bring forward <i>both</i> the individual and the collective. This necessary duality is an ethical imperative that translates into a concrete task; in rendering pieces of the collective suffering in the form of testimonial fragments, both the collective and the individual nature of memory fragments have to be included.
+The victims’ words above are a warning; any representation of their collective suffering cannot lead to the homogenization or schematization of their traumatic past; neither can it efface the voice of the real individual. On the contrary, the representation of collective suffering has to be informed by duality: it has to bring forward <i>both</i> the individual and the collective.[[4](#fn-4)] This necessary duality is an ethical imperative that translates into a concrete task; in rendering pieces of the collective suffering in the form of testimonial fragments, both the collective and the individual nature of memory fragments have to be included.
 
 In practice, the ethical imperative of dual representation means that decontextualized memory fragments representing the pieces of the collective suffering have to be told by the victims themselves. As the reader can see, this is accomplished with the help of modern technology in this edition of testimonies. In the [Fragments](/tree) section, upon clicking on a fragment, you can read the testimonial fragment in its original textual context. More importantly, you can also hear the voice of the survivor and watch the testimony section in which a given piece of the collective suffering is recounted.
 
@@ -52,10 +52,13 @@ At the same time, the necessary dual representation of collective suffering is a
 
 The ethically informed representation explained above, however, does not  answer the last question I will address here: what can words, voices, and video images recorded well after the fact say about emotional realities from the remote past?
 
+## <a href="essay-10">Click here to continue</a>
+
 
 <p id="fn-1" class="footnote">1. Fortunoff Archive, HVT-178,  Eugene N. Holocaust testimony.</p>
 <p id="fn-2" class="footnote">2. USC Shoah Foundation, 949, Oral history interview with Elizabeth Deutsch.</p>
 <p id="fn-3" class="footnote">3. USHMM, RG-50.165*0133, Oral history interview with Elie Wiesel.</p>
+<p id="fn-4" class="footnote">4. The difficulty of writing about millions without homogenizing their experience is an old challenge of history, as Garbarini writes, "An examination of Jews’ values and perceptions must wrestle with an issue familiar to historians of the Holocaust in particular and to social and cultural historians in general: how to depict mass experience without effacing individual differences." <i>Numbered days</i>p. 5.</p>
 
 
 

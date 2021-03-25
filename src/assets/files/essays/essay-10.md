@@ -1,7 +1,7 @@
 # Testimonial Fragments: a Window to Emotional Realities from the Remote Past
 
- <br/><br/>
-Cite as: Gabor M. Toth, <i>In Search of the Drowned in the Words of the Saved, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<br/><br/>
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 Survivors in my family have often invoked the memory of the so-called "ghetto march," which was a frequent episode of persecutions. In the early spring of 1944 my grandfather and his family were forced to leave their home and to move to a place (the "ghetto") where all the Jews of their home town had to stay before their deportation to camps. When moving to the "ghetto" they were forced to march through the streets of their town. Since I cannot recall how they recalled their memories of the ghetto march, I am quoting the words of another survivor who went through the same procedure in another town.
 
@@ -94,6 +94,8 @@ Even most importantly, focusing on parallels between our normal world and the vi
 The challenge described by the survivor (the need to avoid desensitization and "mummification" of the Voiceless) can be only addressed by reproducing and preserving the emotional history of the Holocaust as experienced by the victims themselves. 
 
 Survivors have preserved and transmitted the pieces of their suffering to us through a vivid oral tradition which also kept alive the emotional reality of persecutions. With the death of the last survivors, this living memory is also dying. To preserve the emotional reality for future generations, we need new representation formats, such as testimonial fragments of the collective suffering presented here, that can connect victims’ fundamentally different experience with the so-called "normal" world in which we live.
+
+## <a href="essay-11">Click here to continue</a>
 
 
 

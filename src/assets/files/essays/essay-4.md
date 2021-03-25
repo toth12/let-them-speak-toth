@@ -1,8 +1,9 @@
 # The Voice of the Voiceless and the Collectively Endured Experience: the "Suitcase Analogy"
 
 
- <br/><br/>
-Cite as: Gabor M. Toth, <i>In Search of the Drowned in the Words of the Saved, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<br/><br/>
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
+
 
 The disappearance of A. and V. was a great sorrow for those who survived them. Sometime after 1945 my great-grandmother, the daughter of A., sent a letter to her brother. To console him, she closed her letter with the following words.
 
@@ -46,7 +47,7 @@ Beyond the collectively endured experience and the mutual understanding of each 
 
 <div class="divider">* * *</div>
 
-These memory fragments of survivors suggest that the collectively endured experience and the voice of the Voiceless are bound together.  The path to voice of the Voiceless must lead through the collective experience of persecutions.
+These memory fragments of survivors suggest that the collectively endured experience and the voice of the Voiceless are bound together. The path to the voice of the Voiceless must lead through the collective experience of persecutions.
 
 Nearly fifty years after the end of the war, a survivor of Auschwitz,  Fritzie Fritzshall, returned to the camp. Her recollection of this journey helps uncover this path.
 
@@ -71,11 +72,11 @@ The Voiceless' individual and their very concrete experience certainly perished 
 
 Collective experience understood as a <i>set</i> incorporating what <i>could have been</i> the experience of <i>any</i> victim again takes us back to Schrodinger’s cat. 
 
-Based on the suitcase analogy, we can define collective experience as a set of possibilities. What the Voiceless experienced as a matter of fact cannot be reconstructed; what they were <i>likely</i> to experience can be reconstructed, however, through the collective experience. But collective experience defined as a certain <i>world of possibilities</i> is not meaningful for history. The concept world of possibilities is absurd for a discipline that can recognize <i>only</i> true or false facts as valid backbones of knowledge. 
+Based on the suitcase analogy, we can define collective experience as a set of possibilities. What the Voiceless experienced as a matter of fact cannot be reconstructed; what they were <i>likely</i> to experience can be reconstructed, however, through the collective experience. But collective experience defined as a certain <i>world of possibilities</i> is not a meaningful historical category; yet it is absurd since its backbone is probability (or likelihood) and not true or false facts. I believe, a key element of the epistemological turn we need to hear the voice of the Voiceless is the acknowledgement of <i>world of possibilities</i> as a valid form of knowledge.
 
-Schrödinger’s cat pinpointed a very similar problem. From the perspective of traditional physics, the study of physical entities that can be approached only through likelihood was absurd. The epistemological turn we need in order to reconstruct how the Voiceless experienced their persecution is the acceptance of <i>world of possibilities</i> as a valid form of knowledge.
+Next, we will see what <i>world of possibilities</i> meant from the victims’ perspective. This will pave the way to reconstruct collective experience as a set of possibilities from thousands of testimonies.
 
-Next, we will see what <i>world of possibilities</i> meant from the victims’ perspective. This will help outline how we can reconstruct collective experience as a set of possibilities from thousands of testimonies.
+## <a href="essay-5">Click here to continue</a>
 
 
 

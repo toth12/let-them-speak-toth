@@ -14,7 +14,7 @@ const Home = (props) => {
             Gabor Mihaly Toth
             <br />
             <br />
-            In Search of the Drowned in the Words of the Saved: <br />
+            In Search of the Drowned: <br />
             Testimonies and Testimonial Fragments of the Holocaust
             <br />
             <br />

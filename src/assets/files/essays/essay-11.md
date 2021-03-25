@@ -1,8 +1,8 @@
 # Epilogue: Victims’ Irrational Suffering and the Two Histories of the Holocaust
 
 
- <br/><br/>
-Cite as: Gabor M. Toth, <i>In Search of the Drowned in the Words of the Saved, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<br/><br/>
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 I remember asking a survivor in my family whether it is possible to give any explanation of what happened to her and her family. I clearly remember her answer: it was a definite no.
 

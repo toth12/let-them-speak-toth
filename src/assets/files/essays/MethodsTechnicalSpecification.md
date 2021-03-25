@@ -1,8 +1,7 @@
 # Technical Specifications
 
 
-[todo: change data repo links once finalized]
-Cite as: Gabor M. Toth, <i>In Search of the Drowned, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 This project is built upon a purpose-built digital platform developed in collaboration with the Yale Digital Humanities Laboratory and the Yale Fortunoff Video Archive for Holocaust Testimonies. The digital platform is running as a standalone and self-contained application empowered by Docker technology (see, https://www.docker.com/) and the Alpine Linux distribution (see, https://alpinelinux.org/); behind this website there are three dockerized Alpine Linux servers (technically speaking Docker containers) that incorporate all textual content, as well as the pre-compiled and ready-to-use data (testimonial fragments, linguistically annotated transcripts and preprocessed and harmonized metadata). The code to run the docker containers are available in this repository: https://github.com/jakekara/lts-cloud/issues. The digital platform has two backend components and a javascript based frontend.
 

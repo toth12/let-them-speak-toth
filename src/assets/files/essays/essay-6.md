@@ -1,8 +1,8 @@
 # Recurrence: the Way to Discover the Collective Experience of Persecutions
 
 
- <br/><br/>
-Cite as: Gabor M. Toth, <i>In Search of the Drowned in the Words of the Saved, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<br/><br/>
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 Once I asked a survivor in my family, what was the worst experience you had during persecutions? I was staggered to hear her answer. She told me something I had never heard before from her or from other survivors in my family. Since I am unable to convey what she told me, I am citing a Lithuanian survivor, Lily Margules, who went through the same experience in a different camp.
 
@@ -43,17 +43,24 @@ G. Hirschfeld was born in Berlin and went through the same procedure, but his ac
 
 The experience of forced nudity was definitely part of the victims’ collective fate. Millions, both the survivors and the Voiceless, had to undergo this procedure. The sheer fact that it happened often is well-known and well-documented. The same cannot be said about the emotional and mental weight of this episode. This resists any effort of <i>documentation</i>. As a matter of fact, we do not know how and what victims felt at the moment they were forced to undress; any effort to <i>document</i> this intrinsically subjective aspect of the experience would sound absurd.
 
-Nevertheless, as the examples above demonstrate, the emotional and mental weight does <i>recur</i> through the testimonies of the survivors. <i>Sometimes</i> we hear about it, <i>sometimes</i> we do <i>not</i>. We cannot document the emotional aspects, but we can definitely observe its <i>recurrence</i> in the testimonies of the survivors.
+Nevertheless, as the examples above demonstrate, the narration of the emotional and mental weight does <i>recur</i> through the testimonies of the survivors. <i>Sometimes</i> we hear about it, <i>sometimes</i> we do <i>not</i>;we can definitely observe its <i>recurrence</i> in the testimonies of the survivors.
 
-From a quantitative point of view, recurrence is probability. Recurrence describes the probability of observing the same thing again and again.  In the testimonies of the survivors, recurrence of certain episodes and their emotional and mental impact, such as "being forced to undress naked," gives evidence for the possibility that any victim was likely to face this. Recurrence is in fact the key to reconstructing collective experience as a set of possibilities: given a reasonably large corpus of survivors’ testimonies, pieces of the collective experience <i>must recur</i>.
+From a quantitative point of view, recurrence can be approached as probability. Recurrence describes the probability of observing the same thing again and again.  In the testimonies of the survivors, recurrence of certain episodes and their emotional and mental impact gives <i>evidence</i> for the possibility that any victim was likely to face this.
 
-For instance, the emotional impact of forced nakedness occurs in <i>some</i> but not all</i> victims’ accounts. Whether every victim experienced it we do not know; however, given that it recurs in the testimonies of survivors we can definitely <i>know</i> that <i>any victim</i>, including the Voiceless, <i>was likely</i> to experience it. Recurrence also demonstrates that the emotional and mental impact that the excerpts of testimony above address <i>could have been</i> the experience of any victim. We can thus <i>document</i> the emotional and mental impact of forced undressing by drawing on the collective voice reachable through recurrence.
+Recurrence is in fact the key to reconstructing collective experience as a set of possibilities: given a reasonably large corpus of survivors’ testimonies, pieces of the collective experience <i>must recur</i>.
+
+For instance, the emotional impact of forced nakedness occurs in <i>some</i> but <i>not all</i> victims’ accounts. Whether every victim experienced this deep emotional impact we do not know; however, given that it recurs in the testimonies of survivors we can definitely <i>know</i> that <i>any victim</i>, including the Voiceless, <i>was likely</i> to experience it. In other words, 
+the tangible recurrence gives the <i>proof</i> of that the emotional and mental experience that the testimony excerpts above address <i>could have been</i> the experience of any victim. We can thus <i>document</i> forced undressing as an emotional experience by drawing on recurrence.[[5](#fn-5)]
 
 With the help of recurrence, we can also challenge the intrinsic subjectivity of individual memories and break the silence on painful memories. Again, not all discuss the painful experience of forced undressing, but those who do speak up on behalf of others, including the Voiceless.
 
-To sum up, through recurrence we can reconstruct the world of possibilities where the victims were forced to live. The experiences that recur in the narrations of the survivors are part of a shared past. But recurrence itself does not answer another question that the recovery of the collective experience involves: What are the aspects of the collective experience that connect the survivor and the Voiceless with us? 
+To sum up, through recurrence we can reconstruct the world of possibilities where the victims were forced to live. Through recurrence we can also reconstruct the possible mental and emotional experiences of the Voiceless. Finally, through recurrence we can document these experiences. Recurrence as probability is the backbone of the epistemological turn we need to hear the voice of the Voiceless.
 
-The collective experience of the victims is anchored in a remote past that is fundamentally different from our present. To hear the voice of the Voiceless through collective experience we need to find a bridge that can cross the gap between the past and present.  To find this bridge, I again return to my own memory.
+But recurrence itself does not answer another question that the recovery of the collective experience involves: what are the aspects of the collective experience that connect the survivor and the Voiceless with us? 
+
+The collective experience of the victims is anchored in a remote past that is fundamentally different from our present. To hear the voice of the Voiceless through collective experience we need to find a bridge that can cross the gap between the past and present. To find this bridge, I again return to my own memory.
+
+## <a href="essay-7">Click here to continue</a>
 
 
 
@@ -75,6 +82,9 @@ The collective experience of the victims is anchored in a remote past that is fu
 <p id="fn-2" class="footnote">2. USC Shoah Foundation, 5970, Oral history interview with Henia Bryer.</p>
 <p id="fn-3" class="footnote">3. Fortunoff Archive, HVT-66, Shari B. Holocaust testimony.</p>
 <p id="fn-4" class="footnote">4. USHMM, RG-50.150*0015, Oral history interview with G. Hirschfeld.</p>
+<p id="fn-5" class="footnote">5. Geoffrey Hartmann has for instance suggested that the purpose of testimony archives is to record not only individual stories but also to "record and value a collectively endured history." Hartmann, “Learning from Survivors”, p. 137.s</p>
+
+
 
 
 
