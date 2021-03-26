@@ -45,16 +45,16 @@ The experience of forced nudity was definitely part of the victims’ collective
 
 Nevertheless, as the examples above demonstrate, the narration of the emotional and mental weight does <i>recur</i> through the testimonies of the survivors. <i>Sometimes</i> we hear about it, <i>sometimes</i> we do <i>not</i>;we can definitely observe its <i>recurrence</i> in the testimonies of the survivors.
 
-From a quantitative point of view, recurrence can be approached as probability. Recurrence describes the probability of observing the same thing again and again.  In the testimonies of the survivors, recurrence of certain episodes and their emotional and mental impact gives <i>evidence</i> for the possibility that any victim was likely to face this.
+From a quantitative point of view, recurrence can be approached as probability. Recurrence describes the probability of observing the same thing again and again. Recurrence is in fact the key to reconstructing collective experience as a set of possibilities: given a reasonably large corpus of survivors’ testimonies, pieces of the collective experience <i>must recur</i>.
 
-Recurrence is in fact the key to reconstructing collective experience as a set of possibilities: given a reasonably large corpus of survivors’ testimonies, pieces of the collective experience <i>must recur</i>.
+Continuing with the previous example, the emotional impact of forced nakedness occurs in <i>some</i> but <i>not all</i> victims’ accounts. Whether every victim experienced this deep emotional impact we do not know; however, given that it recurs in the testimonies of survivors we can definitely <i>know</i> that <i>any victim</i>, including the Voiceless, <i>was likely</i> to experience it. In other words, 
+the tangible recurrence gives the <i>proof</i> and <i>evidence</i> of that the emotional and mental experience that the testimony excerpts above address <i>could have been</i> the experience of any victim. We can thus <i>document</i> forced undressing as an emotional experience by drawing on recurrence.[[5](#fn-5)]
 
-For instance, the emotional impact of forced nakedness occurs in <i>some</i> but <i>not all</i> victims’ accounts. Whether every victim experienced this deep emotional impact we do not know; however, given that it recurs in the testimonies of survivors we can definitely <i>know</i> that <i>any victim</i>, including the Voiceless, <i>was likely</i> to experience it. In other words, 
-the tangible recurrence gives the <i>proof</i> of that the emotional and mental experience that the testimony excerpts above address <i>could have been</i> the experience of any victim. We can thus <i>document</i> forced undressing as an emotional experience by drawing on recurrence.[[5](#fn-5)]
+With the help of recurrence, we can also break the silence on painful memories. Again, not all discuss the painful experience of forced undressing, but those who do <i>speak up on behalf of others</i>, including the Voiceless.
 
-With the help of recurrence, we can also challenge the intrinsic subjectivity of individual memories and break the silence on painful memories. Again, not all discuss the painful experience of forced undressing, but those who do speak up on behalf of others, including the Voiceless.
+To sum up, through recurrence we can reconstruct the world of possibilities where the victims were forced to live. Through recurrence we can also reconstruct the possible mental and emotional experiences of the Voiceless. Finally, through recurrence we can document these experiences. Recurrence as probability is the backbone of the epistemological turn we need to hear the voice of the Voiceless. 
 
-To sum up, through recurrence we can reconstruct the world of possibilities where the victims were forced to live. Through recurrence we can also reconstruct the possible mental and emotional experiences of the Voiceless. Finally, through recurrence we can document these experiences. Recurrence as probability is the backbone of the epistemological turn we need to hear the voice of the Voiceless.
+In the [Methodology section](/methods) I  outline how text and data mining techniques helped me retrieve recurrent experiences in the 2700 testimonies that this digital publication contains.
 
 But recurrence itself does not answer another question that the recovery of the collective experience involves: what are the aspects of the collective experience that connect the survivor and the Voiceless with us? 
 

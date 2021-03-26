@@ -61,18 +61,18 @@ For instance, the 'emotional death' often described by victims remains out of ou
 
 Even though the victims’ suffering as a <i>complete whole</i> cannot be grasped; it can be understood <i>piece by piece</i>. We can understand those micro episodes (forced separation, seeing parents beaten up, etc.) that must have paved the way to 'emotional death.'
 
-Understanding human suffering, however, is not a conventional analytical understanding of historical events and facts. While perpetrators’ cruelty can be explained, victims’ suffering resists any effort at explanation. Consider the following episode told by a survivor of Auschwitz.
+Understanding human suffering, however, is not a conventional analytical understanding of historical events and facts. While many actions of the perpetrators can be explained, victims’ suffering resists any effort at explanation. Consider the following episode told by a survivor of Auschwitz.
 
 <iframe src="https://www.youtube.com/embed/MGpNiYqqwf4?start=1197&end=1247" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
 
 
 ><i>And the day that they were taking us when there was a selection, and they picked my sister to leave Auschwitz, to go to a camp to work outside of Auschwitz, into Germany. But of course we never knew where we were going. But these manufacturers came and made a selection. And they picked my sister, but they didn't pick me. And I was over at the side crying hysterically. Because we were separated. I tried always not to cry, but separation is something you cannot possibly hold yourself together or keep yourself in-- in control. And [DRINKS] I was crying because now the last person that I had was taken away from me.</i>[[9](#fn-9)]
 
-This episode can be explained from the perspective of the perpetrator. Around the Auschwitz complex, private companies exploiting the labour of victims were mushrooming. These companies (the "manufacturers" in the episode above) operated sub-camps where the selected victims were transferred to work. But this explanation has little or no relevance from the perspective of the victim. From her perspective, the focal point of the episode is the emotional pain of forced separation and not the historical circumstance; the reason why they picked her sister is secondary. We can understand her very human suffering through empathy and not through analytical reasoning. While the analytical and contextual reasoning anchors her suffering in the remote past and renders her as an <i>other</i>, the empathic understanding of forced separation brings her fate close to the present.[[10](#fn-10)]
+This episode can be explained from the perspective of the perpetrator. Around the Auschwitz complex, private companies exploiting the labour of victims were mushrooming.[[10](#fn-10)] These companies (the "manufacturers" in the episode above) operated sub-camps where the selected victims were transferred to work. But this explanation has little or no relevance from the perspective of the victim. From her perspective, the focal point of the episode is the emotional pain of forced separation and not the historical circumstance; the reason ("need for workforce") why they picked her sister is secondary. We can understand her very human suffering through empathy and not through analytical reasoning. While the analytical and contextual reasoning anchors her suffering in the remote past and renders her as an <i>other</i>, the empathic understanding of forced separation brings her fate close to the present.[[11](#fn-11)]
 
 Building an empathetic understanding of the Voiceless victims’ suffering is crucial now when the last survivors are dying. Until now the survivors could remember them as humans. Following their death the Voiceless will become a number ("the six million") without a human face. Through collective suffering, not only can we bridge the gap between the present and the remote, we can also memorialize the Voiceless as humans.
 
-Next, we will see how the pieces of collective suffering can be rendered in a tangible format.
+Next, we will see how the pieces of collective suffering can be rendered in a tangible format; again, memory will help find the adequate representation.
 
 ## <a href="essay-8">Click here to continue</a>
 
@@ -85,5 +85,6 @@ Next, we will see how the pieces of collective suffering can be rendered in a ta
 <p id="fn-7" class="footnote">7. USHMM, RG-50.549.02*0057, Oral history interview with Blanka Rothschild.</p>
 <p id="fn-8" class="footnote">8. USC Shoah Foundation, 740, Oral history interview with Louis Posner.</p>
 <p id="fn-9" class="footnote">9. USC Shoah Foundation, 8423, Oral history interview with Aranka Siegal.</p>
-<p id="fn-10" class="footnote">10. Dominick LaCapra writes, "I think historiography involves an element of objectification, and objectification may perhaps be related to the phenomenon of numbing in trauma itself. As a counterforce to numbing, empathy may be understood in terms of attending to, even trying, in limited ways, to recapture the possibility split-off, affective dimensions of the experience of others." Dominick LaCapra, <i>Writing history, writing trauma</i> (Baltimore (Md.): The Johns Hopkins University Press, 2001), p. 39.</p>
+<p id="fn-10" class="footnote">10. About this, see Peter F. Hayes, <i>Industry and ideology</i> (Cambridge: Cambridge Univ. Press, Hayes, 1989).</p>
+<p id="fn-11" class="footnote">11. Dominick LaCapra writes, "I think historiography involves an element of objectification, and objectification may perhaps be related to the phenomenon of numbing in trauma itself. As a counterforce to numbing, empathy may be understood in terms of attending to, even trying, in limited ways, to recapture the possibility split-off, affective dimensions of the experience of others." Dominick LaCapra, <i>Writing history, writing trauma</i> (Baltimore (Md.): The Johns Hopkins University Press, 2001), p. 39.</p>
 

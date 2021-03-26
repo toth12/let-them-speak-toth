@@ -1,7 +1,7 @@
-# Heterogeneity and Homogeneity: the Need for Dual Representation of Testimonial Fragments
+# Heterogeneity and Homogeneity: the Dual Representation of Testimonial Fragments
 
- <br/><br/>
-Cite as: Gabor M. Toth, <i>In Search of the Drowned in the Words of the Saved, Testimonies and Testimonial Fragments of the Holocaust</i> (Place: Publisher, Year), URL.
+<br/><br/>
+<b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
 I remember one day I heard a survivor in my family talking about her experience of persecutions. Even though her story was her <i>unique</i> and very <i>individual</i> experience, she did not feel it to be so; she finished the narration of her story with the following sentence.
 
@@ -42,15 +42,17 @@ In testimony given in 1990, the writer, Elie Wiesel, gave a thorough summary of 
 
 <div class="divider">* * *</div>
 
-The victims’ words above are a warning; any representation of their collective suffering cannot lead to the homogenization or schematization of their traumatic past; neither can it efface the voice of the real individual. On the contrary, the representation of collective suffering has to be informed by duality: it has to bring forward <i>both</i> the individual and the collective.[[4](#fn-4)] This necessary duality is an ethical imperative that translates into a concrete task; in rendering pieces of the collective suffering in the form of testimonial fragments, both the collective and the individual nature of memory fragments have to be included.
+The victims’ words above are a warning; any representation of their collective suffering cannot lead to the homogenization or schematization of their traumatic past; neither can it efface the voice of the real individual. 
 
-In practice, the ethical imperative of dual representation means that decontextualized memory fragments representing the pieces of the collective suffering have to be told by the victims themselves. As the reader can see, this is accomplished with the help of modern technology in this edition of testimonies. In the [Fragments](/tree) section, upon clicking on a fragment, you can read the testimonial fragment in its original textual context. More importantly, you can also hear the voice of the survivor and watch the testimony section in which a given piece of the collective suffering is recounted.
+On the contrary, the representation of collective suffering has to be informed by duality: it has to bring forward <i>both</i> the individual and the collective.[[4](#fn-4)]
 
-On the one hand, the voice and the face of the person who was there have the authenticity of a subjective and highly traumatic experience. They convey the suffering in the past and offer a palpable representation of an emotional experience from the past to the modern reader. On the other hand, by reading, listening or watching a given piece of the collective experience as part of a person’s narration, you can explore some possible historical contexts in which that piece could take shape. In this way, individual suffering becomes the context of the collective suffering; you can explore when and where a given piece of the collective suffering came about and how a real human felt about it.
+In practice, this means that the pieces of the collective suffering have to be told by the victims themselves. Here, this is accomplished with the help of modern technology. In the [Fragments](/tree) section, upon clicking on a memory fragment, you can read that fragment in its original textual context. More importantly, you can also hear the voice of the survivor.
 
-At the same time, the necessary dual representation of collective suffering is also attained by another measure taken in this publication. This is the rendering of <i>multiple</i> memory fragments that together form a piece of the collective suffering. The multiplicity of similar fragments makes recurrence tangible and expresses the fact that they could have been the experience of any victim, including the Voiceless. The multiplicity of similar fragments concurrently documents the certainty of subjective mental and emotional experiences and highlights their heterogeneity.
+On the one hand, the voice and the face of the person <i>who was there</i> have the authenticity of a subjective and highly traumatic experience. They convey the suffering in the past and offer a palpable representation of an emotional experience.     
 
-The ethically informed representation explained above, however, does not  answer the last question I will address here: what can words, voices, and video images recorded well after the fact say about emotional realities from the remote past?
+On the other hand, by reading, listening or watching a given piece of the collective experience as part of a person’s narration, you can explore some possible historical contexts in which that piece could take shape. In this way, individual suffering becomes the context of the collective suffering; you can explore when and where a given piece of the collective suffering came about and how a real human felt about it.
+
+But what can words, voices, and video images recorded well after the Holocaust say about emotional realities from the remote past? This is the last question I will address.
 
 ## <a href="essay-10">Click here to continue</a>
 

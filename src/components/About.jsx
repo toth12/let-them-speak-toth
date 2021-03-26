@@ -14,77 +14,23 @@ const About = (props) => {
           <i>Let them Speak</i>
         </blockquote>
         <p>
-          <i>Let them Speak</i> is the epigraph of this book and the name of the
+          <i>Let them Speak</i> is the epigraph of this digital monograph and the name of the
           collaborative project between three institutions that gave rise to it.{" "}
           <i>Let them Speak</i> is symbolic; it expresses my intention to give
           voice to millions of murdered Holocaust victims, to the <i>Drowned</i>
           , as Primo Levi, the Italian writer and Holocaust survivor, named
-          them. Today, when the last of the <i>Saved</i>, as Levi called
-          survivors, die, reflecting on how to tell the experience and
-          perspective of the <i>Drowned</i> is becoming a moral obligation for
-          future generations. Until now, symbolically, the <i>Saved</i> could
-          give voice to the <i>Drowned</i>. To realize the impossible, I bring
-          together survivors’ voice, computer science, philosophy, and my own
-          family’s memory.{" "}
-          <i>In Search of the Drowned in the Words of the Saved</i> is a hybrid
-          publication realized with the help of digital technology. On the one
-          hand, it offers scholarship on the silenced experience of the{" "}
-          <i>Drowned</i> and essays on oral history testimony in the digital
-          age. <br />
+          them. <i>In Search of the Drowned</i> is a hybrid publication with various components bringing together survivors’ testimonies, digital history, computer science, philosophy, and personal memory.{" "}
+          <br />
           <br />
         </p>
-        <h2>Scholarship</h2>
-        <table className="image-trio">
-          <tbody>
-            <tr>
-              <td>
-                <a href="/essays">
-                  <div>
-                    <h3>Monograph</h3>
-                  </div>
-                  <hr />
-                  <div className="teaser">
-                    Read my intellectual journey that led to finding of the
-                    Drowned in pieces of collective suffering told by the Saved
-                    and to reflections on victims’ perspective
-                  </div>
-                </a>
-              </td>
-              <td>
-                <a href="/methods">
-                  <div>
-                    <h3>Methodology</h3>
-                  </div>
-                  <hr />
-                  <div className="teaser">
-                    Discover how digital technology helped to find pieces of
-                    collective suffering in thousands of testimonies and to
-                    realize this book
-                  </div>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br />
-        <br />
-        <br />
         <h2>Data Edition</h2>
         <p>
-          On the other hand,{" "}
-          <i>In Search of the Drowned in the Words of the Saved</i> is a data
-          edition of nearly 2700 English language Holocaust testimonies
+          <i>In Search of the Drowned</i> is a data
+          edition of nearly 2700 complete English language Holocaust testimonies
           preserved in three major US collections: Yale Fortunoff Archive, USC
           Shoah Foundation, Visual History Archive, United States Holocaust
-          Memorial Museum. As a data edition, it offers new ways to engage with
-          victims’ experience. To give voice to the <i>Drowned</i>, it renders
-          pieces of collective suffering as <i>testimonial fragments</i>. This
-          opens reading paths along the emotional, physical, and mental
-          suffering of victims and presents the Holocaust from their
-          perspective. To unlock survivors’ testimonies, it makes transcripts
-          available as a linguistic corpus. Finally,{" "}
-          <i>In Search of the Drowned in the Words of the Saved</i> enables the
-          reading, listening, and watching of the 2700 testimonies it features.{" "}
+          Memorial Museum. To give voice to the <i>Drowned</i>, it renders
+          pieces of collective suffering as <i>testimonial fragments</i>. To unlock survivors’ testimonies, it makes transcripts available as a linguistic corpus.
           <br />
           <br />
           <br />
@@ -136,6 +82,44 @@ const About = (props) => {
         <br />
         <br />
         <br />
+
+
+        <h2>Scholarship</h2>
+        <table className="image-trio">
+          <tbody>
+            <tr>
+              <td>
+                <a href="/essays">
+                  <div>
+                    <h3>Monograph</h3>
+                  </div>
+                  <hr />
+                  <div className="teaser">
+                    Read my intellectual journey that led to finding of the
+                    Drowned in pieces of collective suffering
+                  </div>
+                </a>
+              </td>
+              <td>
+                <a href="/methods">
+                  <div>
+                    <h3>Methodology</h3>
+                  </div>
+                  <hr />
+                  <div className="teaser">
+                    Discover how digital technology helped to find pieces of
+                    collective suffering in thousands of testimonies and to
+                    realize this book
+                  </div>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <br />
+        <br />
+        
         <h2>Extended Introduction</h2>
         <div>
           <blockquote className="center-text">
@@ -155,67 +139,32 @@ const About = (props) => {
             Holocaust from the perspective of the survivor and the voiceless
             victim. The overall goal of <i>Let Them Speak</i> as a collaborative
             project is to make victims’ perspective investigable and tangible
-            for future generations. Again, the epigraph,  <i>Let Them Speak</i>,
-            is symbolic. In addition to giving voice to the <i>Drowned</i>, it
-            also refers to my intention to put victims’ experience and
-            perspective at the center of future scholarship on the Holocaust.
+            for future generations and for future scholarship on the Holocaust. 
+            Again, the epigraph,  <i>Let Them Speak</i>, is symbolic. In addition to giving voice to the <i>Drowned</i>, it also expresses this goal.
           </p>
-          <p>
-            Throughout the chapters of the <a href="/essays">Monograph</a>{" "}
-            section I therefore address two core questions:
-            <br />
-            <br />
-            <ul>
-              <li>
-                - Beyond artistic representations, how can we render the
-                silenced experience of the <i>Drowned</i> as authentic
-                historical source?
-              </li>
-              <li>
-                - How can we represent and approach the Holocaust from victims’
-                perspective?
-              </li>
-            </ul>
-            <br />
-            To elaborate answers to these questions, I turn to my own family’s
-            memory. Fragments from family letters and personal memories with
-            survivors guide me through Holocaust experiences told by those who
-            were there. In the spirit of <i>Let them Speak</i>, beyond me as
-            narrator, only victims speak throughout the monograph; abstract
-            ideas that have long undermined any attempt to face the experience
-            of the <i>Drowned</i> are explained and addressed through the voice
-            of victims. I conclude by finding the silenced experience and
-            perspective of the <i>Drowned</i> in pieces of collective suffering
-            to be recovered from the words of the <i>Saved</i>. To approach
-            collective suffering as authentic historical source, I propose the
-            reinterpretation of testimony and the concept of historical fact.
-            Finally, I address the place of victims’ perspective in human
-            history.
-          </p>
+
           <p>
             In 2018, under the initiative of the Fortunoff Video Archive for
             Holocaust Testimonies of Yale University (FVAHT), three leading
             institutions responsible for large collections of Holocaust
             testimonies agreed to make transcripts, and some video material, of
-            a portion of their collection available in this book. The Fortunoff
+            a small portion of their large collection available in this book. The Fortunoff
             Video Archive for Holocaust Testimonies gave access to 180
             transcripts and videos recorded as part of the Holocaust Survivor
             Film Project in the late 1970s and early 1980s. The United States
             Holocaust Memorial Museum (USHMM) contributed 1500 interviews
             recorded between the 1970s and the late 1990s. The Visual Archive of
             the Shoah Foundation at the University of Southern California (USC
-            VA) gave 1000 interview transcripts recorded in the 1990s. (See the
+            VHA) gave 1000 interview transcripts recorded in the 1990s. (See the
             complete description of the data sets this book in the{" "}
             <a href="/methods">Methodology</a> section). With funding from the
             Fortunoff Video Archive, the USC Shoah Foundation, and the USC
-            Viterbi School of Engineering, 
-            <i>In Search of the Drowned in the Words of the Saved</i> was
-            written, edited, and built by me in collaboration with the Yale
+            Viterbi School of Engineering, <i>In Search of the Drowned</i> was written, edited, and built by me in collaboration with the Yale
             Digital Humanities Laboratory, and in consultation with FVAHT, USC
-            VA, and USHMM. This digital book brings together nearly 2700
+            VHA, and USHMM. This digital book brings together nearly 2700
             testimonies from these three collections for the first time, and
             allows for unprecedented forms of access, search and analysis of
-            these survivors’ experiences.
+            victims’ experiences.
           </p>
           <p>
             As a data edition, this publication aims not only to release
@@ -248,21 +197,11 @@ const About = (props) => {
             encourage further cross-institutional cooperation.
           </p>
           <p>
-            The creation of a data edition is not only a technological exercise.
-            It also involves philological work, ethical considerations, as well
-            as the contextualization of testimonies within the current
-            scholarship. My essay on Holocaust testimony in the Digital Age
-            treats these topics, as well as the ethical application of
-            algorithms to study genocides. By the end of the second decade of
-            the second millennium, the last survivors will be gone, and the
-            ability to learn from them first-hand, to record their stories, will
-            end. The responsibility of the coming generations is to keep these
-            interviews alive, to preserve them, to make them accessible, and
-            most importantly to let survivors speak – to <i>tell the world</i>{" "}
-            what happened to them. This responsibility called the Monograph into
-            life. Throughout the chapters of the Monograph, I reflect on how to{" "}
-            <i>tell the world</i> what happened from the perspective of those
-            who never returned.
+          <br />
+          <br />
+          <br />
+          <br />
+          <b>Cover Image</b>: <i>Martyr Monument</i> (designed by Alfred Hajos), Kozma Street Jewish Cemetery, Budapest
           </p>
         </div>
       </div>

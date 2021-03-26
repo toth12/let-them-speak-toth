@@ -91,9 +91,9 @@ Even most importantly, focusing on parallels between our normal world and the vi
 ><i>When my son went to religious school, he was taught about Holocaust, and he got a lot of statistics and he got a lot of ghoulish stories and it turned him completely off. I can understand that, too. It would turn me off, too, because after a while I got desensitized, rather than sensitized to it. After you see so many pictures, even the most horrid pictures, somehow those people become like historical objects, like mummies, and there’s something emotional lost there.</i> [[9](#fn-9)]
 
 
-The challenge described by the survivor (the need to avoid desensitization and "mummification" of the Voiceless) can be only addressed by reproducing and preserving the emotional history of the Holocaust as experienced by the victims themselves. 
+The challenge described by the survivor (the need to avoid desensitization and the "mummification" of the Voiceless) can be only addressed by reproducing and preserving the emotional history of the Holocaust as experienced by the victims themselves. 
 
-Survivors have preserved and transmitted the pieces of their suffering to us through a vivid oral tradition which also kept alive the emotional reality of persecutions. With the death of the last survivors, this living memory is also dying. To preserve the emotional reality for future generations, we need new representation formats, such as testimonial fragments of the collective suffering presented here, that can connect victims’ fundamentally different experience with the so-called "normal" world in which we live.
+Survivors have preserved and transmitted the pieces of their suffering to us through a vivid oral tradition which also kept alive the emotional reality of persecutions. With the death of the last survivors, this living memory is also dying. To preserve the emotional reality for future generations, we need new representation formats, such as testimonial fragments of the collective suffering presented here, that can connect victims’ fundamentally different experience with the "normal" world in which we live.
 
 ## <a href="essay-11">Click here to continue</a>
 

@@ -112,22 +112,22 @@ class Filter extends React.Component {
               }}
             />
           </div>
-          
+          {/*
           <div className="filter-element">
             <label>Interview ID</label>
             <Typeahead
-              selected={overrideSelected.shelfmark}
+              selected={overrideSelected.testimony_id}
               // clearButton
               labelKey="Interview ID"
               multiple={false}
-              options={this.props.options.shelfmarks}
+              options={this.props.options.testimony_ids}
               placeholder="Interview ID"
               onChange={(selected) => {
-                this.props.setFilterValue("shelfmark", selected[0]);
+                this.props.setFilterValue("testimony_id", selected[0]);
               }}
             />
           </div>
-          
+          */}
 
           {yearRange ? (
             <div className="filter-element timeline-filter">
