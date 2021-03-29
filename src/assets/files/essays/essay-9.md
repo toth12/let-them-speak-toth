@@ -19,16 +19,19 @@ Eugene N., a Hungarian survivor, accounts the experience of "we all looked alike
 
 ><i>The short guys got pants this long. The long-- the tall fellows got short pants. The shirts were not clean. Some were from boils and so on. I still had this from home, this-- I was-- I couldn't put it on. But we all looked like comedians. Not like comedians. Like clowns. Like clowns. So my father, from then on, my father said "Never, we should never separate." Let's-- wherever we go, because we couldn't recognize each other. We all looked alike. My father called-- I called my father for the first time by his first name, Naftali.</i> [[1](#fn-1)]
 
-The account of Eugene N. contains another sentence that we often hear from survivors.
+The account of Eugene N. contains another sentence that we often hear from survivors.[[2](#fn-2)]
 
 ><i>We couldn't recognize each other.</i>
 
 Elizabeth Deutsch, another Hungarian survivor, recalls this aspect of forced homogenization.
-
+<br/>
+<br/>
+<br/>
 <iframe src="https://www.youtube.com/embed/8uhZ_6AZGDs?start=737&end=762" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
+<br/>
+<br/>
+<br/>
 
-
-><i>But we did bear it, with my sister and many other prisoners, as long as we could. Our heads shaven, we stood next to one and another, in a large, large crowd, waiting. We didn't-- we did not recognize each other. They told us we would see our mother again, that she was just sent to take a shower.</i> [[2](#fn-2)]
 
 In testimony given in 1990, the writer, Elie Wiesel, gave a thorough summary of victims’ experience of forced homogenization.
 

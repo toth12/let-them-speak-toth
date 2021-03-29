@@ -8,11 +8,15 @@ During the Holocaust millions perished without leaving anything but their names 
 
 ><i>How can we preserve the emotional history of the Holocaust so that future generations can continue to hear the voice of the Voiceless?</i>
 
-Art, literature, and cinematography cannot perpetuate a living memory of their suffering.[[2](#fn-2)] A survivor of Auschwitz has expressed this in the following words:
+Art, literature, and cinematography cannot perpetuate a living memory of their suffering.[[2](#fn-2)] A survivor of Auschwitz has expressed this in the following words[[3](#fn-3)].
+<br/>
+<br/>
+<br/>
 
 <iframe src="https://www.youtube.com/embed/ozD_0c_VhLE?start=677&end=765" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
-
-><i> It's-- it's not possible to hand down the experience to the-- to the exact [PAUSES FOR 3 SECONDS] shape of the way it really was because you simply-- you-- you just had to be there to know what it was like. You know, when we see films and all kinds of plays, we don't hear ourselves talk. Who speaks for us? The most important people in the drama are the prisoners. The most important actors in the drama are the prisoners, who were-- who were-- who can't-- they're the only ones who can pry open the inside of a person who was Hitler's prisoner. Nobody else can speak for them, somehow. Try, they do. And-- and there are eloquent writings, introductions, and everything, but [PAUSES FOR 4 SECONDS] who can lay the soul bare of the person who was the person.</i>[[3](#fn-3)]
+<br/>
+<br/>
+<br/>
 
 
 Neither can history.[[4](#fn-4)]. The Voiceless did not leave any "record" that would enable the historian to <i>reconstruct</i> and <i>document</i> their suffering. The bitter words of the French-Spanish writer and survivor of Buchenwald, Jorge Semprún (1923 - 2011) express this and envision a gloomy future:

@@ -4,40 +4,50 @@
 <br/><br/>
 <b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
-Once I asked a survivor in my family, what was the worst experience you had during persecutions? I was staggered to hear her answer. She told me something I had never heard before from her or from other survivors in my family. Since I am unable to convey what she told me, I am citing a Lithuanian survivor, Lily Margules, who went through the same experience in a different camp.
+Once I asked a survivor in my family, what was the worst experience you had during persecutions? I was staggered to hear her answer. She told me something I had never heard before from her or from other survivors in my family. Since I am unable to convey what she told me, I am citing a Lithuanian survivor, Lily Margules, who went through the same experience in a different camp.</i>[[1](#fn-1)]
 
 
-
- <video controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
+<br/>
+<br/>
+<br/>
+<video controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
   <source src=" https://oralhistory-assets.ushmm.org/RG-50.030.0150.02.02.mp4#t=1202,1261">  
   Your browser does not support the video tag.
 </video>
-
-><i>And they told us right away to line up and to get undressed. Naked! You know, one, you are only a person as soon...as long as you have your clothes on. You can be a professor. You can be a doctor. You can be a scientist. You can be a shoemaker. But as long...as soon as your clothes come up and you stand naked, you are lost. You are not a human being anymore. This is what I cannot...what I cannot forgive the Germans that they...they took off our...systematically take...took away our dignity. But undressing us, many of the girls were young girls. They were virgins. They never saw their parents naked, never saw their mothers naked, but all of a sudden we...we have to go and get undressed.</i>[[1](#fn-1)]
+<br/>
+<br/>
+<br/>
 
 <div class="divider">* * *</div>
 
 The painful experience of being forced to be naked <i>recurs through</i> the testimonies of survivors. While <i>some</i> men and women address the mental and emotional weight that this episode had for them, <i>others</i> are silent about it.
 
-Henia Bryer, a Polish survivor, was deported to Plaszow, a concentration camp close to Cracow. Her words echo what I heard.
+Henia Bryer, a Polish survivor, was deported to Plaszow, a concentration camp close to Cracow. Her words echo what I heard.[[2](#fn-2)]
 
+<br/>
+<br/>
+<br/>
 <iframe src="https://www.youtube.com/embed/ABLo0GXnm4g?start=1427&end=1479" height="400" width="1200" style="width: 100%;" allow="fullscreen"></iframe>
-
-
-><i>And then things-- a lot of things happened all of a sudden, after a few weeks when we were in Plaszow. And also, they had another thing that you had to strip and walk naked in the camp so that they can do these awful selections. Every couple of weeks. It was the most dreadful thing. You can imagine how you feel when you're asked to strip. And I mean, we were brought up in a Jewish home. I wouldn't even strip for my mother in the bathroom. Used to lock the door when I went to have my bath or things like that. And they had to strip naked, whether it was summer or winter, and to walk in the camp for all these Germans to look. They were walking around with riding crops and making remarks, ugly remarks, while we were doing it. So it was pretty awful.</i> [[2](#fn-2)]
+<br/>
+<br/>
+<br/>
 
 Similarly, Shari B., who was deported from the Slovakian town, Kosice, shared the mental impact of forced undressing.
 
 ><i>And so then, I came to Theresienstadt. And I was still like a mad woman. And I remember the next for me terrible thing was that when we came there, there were all kinds of epidemics going on. And they shaved not our hair, but the rest of the hair on our body. And we were lying there naked, sort of exposed. And suddenly, these SS men came to the room. And sort of they were walking around and-- and looking at us. And I remember thinking that this is the most terrible moment, much worse-- I felt totally dehumanized. I hated them so much that they should-- they should see me naked. It was somehow terrible. And so I decided that-- that I don't want to live.</i>[[3](#fn-3)]
 
-G. Hirschfeld was born in Berlin and went through the same procedure, but his account does not address the mental and emotional aspects of forced nakedness.
+G. Hirschfeld was born in Berlin and went through the same procedure, but his account does not address the mental and emotional aspects of forced nakedness.[[4](#fn-4)]
 
+<br/>
+<br/>
+<br/>
 <audio controls height="400" width="1200" style="width: 100%;" allow="fullscreen">
   <source src="https://oralhistory-assets.ushmm.org/RG-50.150.0015.02.04.mp3#t=2560,2600">  
   Your browser does not support the video tag.
 </audio>
-
-><i>A: We were told to strip completely naked at the time. This was the eastern part of Germany and still very, very cold, and I remember we had to strip completely naked and run completely naked from one block, meaning barrack to another barrack and there we were waiting for some instruction or whatnot. I remember waiting. It was very, very cold.</i>[[4](#fn-4)]
+<br/>
+<br/>
+<br/>
 
 <div class="divider">* * *</div>
 
