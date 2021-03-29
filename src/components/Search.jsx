@@ -99,8 +99,8 @@ const Instructions = (props) => (
     <p>
       You can search for a simple word or a sequence of words in the testimony transcripts this edition contains. By inserting <i>you</i> or{" "}
       <i>you went</i> into the search box, you will be given a filterable
-      concordance of their occurrences, and following a click, you can read
-      search results in context, i.e. in the interview transcripts. (listening in context is available; interviews are played
+      concordance of their occurrences; following a click, you can read
+      search results in context, i.e. in the interview transcripts (listening in context is not available; interviews are played
       from the beginning). By means of the box on the left side, search results
       can be also filtered in terms of the following metadata on interviews and
       interviewees:
@@ -112,7 +112,6 @@ const Instructions = (props) => (
         <li>- Ghetto</li>
         <li>- Camp</li>
         <li>- Interviewee Name</li>
-        <li>- Interview Call Number</li>
         <li>- Recording Year</li>
       </ul>
     </p>
@@ -594,7 +593,7 @@ const Instructions = (props) => (
       </p>
 
       <p>
-      CQL language can be used to distinguish <i>like</i> as a verb from <i>like</i> as a preposition. Furtermore, with CQL we can also form a sequence in which <i>like</i> as a prepositions is followed by a noun.
+      CQL language can be used to distinguish <i>like</i> as a verb from <i>like</i> as a preposition. Furthermore, with CQL we can also form a sequence in which <i>like</i> as a prepositions is followed by a noun.
       </p>
 
       <p>
@@ -624,7 +623,7 @@ const Instructions = (props) => (
       </p>
 
       <p>
-      Conditional sentences or if sentences often convey possibilities experienced in the past; through the sequence <i>if</i> and <i>i</i>followed by a verb we can find examples for possibilities from the past.
+      Conditional sentences or if sentences often convey possibilities experienced in the past; through the sequence <i>if</i> and <i>i</i>   followed by a verb we can find examples for possibilities from the past.
       </p>
 
       <p>

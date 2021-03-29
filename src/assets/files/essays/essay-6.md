@@ -82,7 +82,7 @@ The collective experience of the victims is anchored in a remote past that is fu
 <p id="fn-2" class="footnote">2. USC Shoah Foundation, 5970, Oral history interview with Henia Bryer.</p>
 <p id="fn-3" class="footnote">3. Fortunoff Archive, HVT-66, Shari B. Holocaust testimony.</p>
 <p id="fn-4" class="footnote">4. USHMM, RG-50.150*0015, Oral history interview with G. Hirschfeld.</p>
-<p id="fn-5" class="footnote">5. Geoffrey Hartmann has for instance suggested that the purpose of testimony archives is to record not only individual stories but also to "record and value a collectively endured history." Hartmann, “Learning from Survivors”, p. 137.s</p>
+<p id="fn-5" class="footnote">5. Geoffrey Hartmann has for instance suggested that the purpose of testimony archives is to record not only individual stories but also to "record and value a collectively endured history." Hartmann, “Learning from Survivors”, p. 137.</p>
 
 
 

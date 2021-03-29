@@ -13,7 +13,7 @@ Consider the following example that demonstrates the different data formats the 
 
 3.USC Shoah Foundation: "Łódź (Poland : Ghetto)"
 
-Given that one of the main goals of this edition was to make interviews from these three collections cross-searchable, the computerized processing and the unification of certain metadata categories they added to their catalogue records was first necessary.[[1](#fn-1)]  How the preprocessed and harmonized metadata empowers this project and works in the background is described in the section describing the Technical Specifications. [todo:add link]
+Given that one of the main goals of this edition was to make interviews from these three collections cross-searchable, the computerized processing and the unification of certain metadata categories they added to their catalogue records was first necessary.[[1](#fn-1)]  How the preprocessed and harmonized metadata empowers this project and works in the background is described in the section describing the [Technical Specifications](/methods/MethodsTechnicalSpecification). 
 
 As a reader, you can draw on the result of metadata processing and harmonization in the [Testimonies](/explore)  and [Search](/search) sections; there you can browse testimonies and filter them in terms of the following metadata categories:
 
@@ -23,11 +23,11 @@ As a reader, you can draw on the result of metadata processing and harmonization
 
 3.Name of the concentration or death camps where interviewees were deported to
 
-4.Name of the interviewee
+4.Name of the interviewees
 
 5.Year when an interview was recorded
 
-Further metadata provided by the three institutions helped me describe the content of each interview (their summary and title displayed in different sections); metadata is also used to stream the original audio / video recording of each interview from resources existing outside this publication. Finally, information about the historical provenance of certain interviews is displayed with the help of metadata provided by the three institutions. 
+Metadata is also used to stream the original audio / video recording of each interview from resources existing outside this publication.s
 
 In this section I describe the different types of metadata information provided by the three institutions; I also give insights into how original metadata was processed and made compatible with each other, a computerized procedure often called metadata harmonization. 
 
@@ -35,9 +35,9 @@ First, I present the - input -  data format in which each institution provided i
 
 In short, my process of metadata harmonization aimed at making the data shared by the three institutions uniform and cross-searchable; however, it did not aim at improving, correcting or updating the original data that each institution shared with me. The intellectual credit for identifying metadata therefore remains with the staff of each institution, who carefully listened to or watched each interview. Due to the volume of the data, throughout the data processing and the metadata harmonization, I applied only computational approaches, which might have produced sporadic inaccuracies, inconsistencies, and errors. 
 
-Finally, it is important to underline that the computational approach to process and harmonize metadata has its limitations; when these limitations are explicit, I explain them along with the discussion of  the relevant metadata category.
+Finally, it is important to underline that the computational approach to process and harmonize metadata has its limitations; when these limitations are explicit, I explain them along with the discussion of the relevant metadata category.
 
-<h2>1. Metadata provided by each institution</h2>
+<h2>1. Metadata format provided by each institution</h2>
 
 Each institution offered metadata associated with their interviews in different data formats. Since the input data has remained the intellectual property of each institution, it is not downloadable from this website and not available in the repositories archiving the Python code used to process them.
 
@@ -141,7 +141,7 @@ The regularization of different character variants aimed at resolving this type 
 
 <b>C. Inclusion of dash when a camp name is the combination of a city and a suburb
 
-Concentration camps were often located in suburbs of larger cities. The Krakau-Plaszow concentration camp is an example of this. Traditionally, these camps are written with the name of the city, followed first by dash and then by the name of the suburb. However, this pattern is not applied consistently in the metadata shared by the three institutions. For instance, the Krakau-Plaszowconcentration camp is present in three different formats:
+Concentration camps were often located in suburbs of larger cities. The Krakau-Plaszow concentration camp is an example of this. Traditionally, these camps are written with the name of the city, followed first by dash and then by the name of the suburb. However, this pattern is not applied consistently in the metadata shared by the three institutions. For instance, the Krakau-Plaszow concentration camp is present in three different formats:
 
 -with the city name followed by dash and then by the name of the suburb: "Krakau-Plaszow"
 
@@ -201,7 +201,7 @@ If you do not find a given ghetto, you are advised to search for its name in dif
 
 <b>F. Limitation: absence of ghettos and camps from certain records</b>
 
-As mentioned above, not all metadata records shared by the three institutions contain ghetto and camp names. This might indicate that the person was hiding during the war or fled before deportations or the establishment of a ghetto. It might also mean that she or he was forced into forced labour service. Due to the volume and the occasional inconsistencies of the data, it would have been impossible to infer the reason for the absence of camp and ghetto information. However, you can download all interviews where camp and ghetto information were not available:
+As mentioned above, not all metadata records shared by the three institutions contain ghetto and camp names. This might indicate that the person was hiding during the war or fled before deportations or the establishment of a ghetto. It might also mean that she or he was forced into forced labour service. Due to the volume and the occasional inconsistencies of the data, it would have been impossible to infer the reason for the absence of camp and ghetto information. However, you can download all interviews where camp and ghetto information was not available:
 
 Interviews without camp information can be downloaded from <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviews_without_camps.csv" target="_blank">here</a>.
 
@@ -345,11 +345,11 @@ While in some shared records the complete recording date (day, month, and year) 
 
 Marc records describe the provenance in the Marc field  260 / B (information shared by the Fortunoff Archive). 
 
-During the data processing, information in this field was processed and taken over. The provenance of all Fortunoff interviews is the Holocaust Survival Film Project (see further description of this in the [section](/methods) section) presenting the Fortunoff interviews).
+During the data processing, information in this field was processed and taken over. The provenance of all Fortunoff interviews is the Holocaust Survival Film Project (see further description of this in the [Methods](/methods) section presenting the Fortunoff interviews).
 
 <b>B. USHMM</b>
 
-The provenance of the USHMM interviews was taken from the <i>historical_provenance</i> field of the JSON input files. The difference between the USHMM interviews from the two other collections is that the USHMM interviews feature a high number of different provenances. (see further description of this in the [section](/methods) presenting the USHMM interviews).
+The provenance of the USHMM interviews was taken from the <i>historical_provenance</i> field of the JSON input files. The difference between the USHMM interviews from the two other collections is that the USHMM interviews feature a high number of different provenances. (see further description of this in the [Methods section](/methods) presenting the USHMM interviews).
 
 <b>C. USC Shoah Foundation</b>
 
@@ -371,7 +371,7 @@ The title of the USHMM interviews was taken from the <i>title</i> field of the J
 
 The metadata provided by the USC Shoah Foundation included a record containing the testimony title.
 
-<b>9.2. Procedures followed to process and harmonize media content</b>
+<b>9.2. Procedures followed to process and harmonize testimony title</b>
 
 <b>A. Limitation: testimony title harmonization</b>
 

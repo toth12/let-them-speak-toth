@@ -24,7 +24,7 @@ class Nav extends React.Component {
             routes={['/about']}
             activeRoute={this.props.route} />
           <ActiveLink
-            child={<Link to={'/essays'}>MONOGRAPH</Link>}
+            child={<Link to={'/essays'}>ESSAYS</Link>}
             routes={['/essays']}
             activeRoute={this.props.route} />
           <ActiveLink

@@ -10,7 +10,7 @@ The United States Holocaust Memorial Museum was established in 1993; its archive
 
 As a result of many different provenances, the 1514 USHMM testimonies are highly heterogeneous. Most importantly, they were not conducted based on one specific interview methodology. Metadata describing them is also highly heterogeneous, which makes their quantitative description difficult. For instance, information about interviewees’ country of origin, place and date of birth are not available. Similarly, the USHMM catalogue does not contain direct information about where an interview was conducted.
 
-This also means that the USHMM testimonies contain the most errors in the dataset. In some cases the interview transcripts and the original recordings do not match. In some other cases, transcripts are incomplete; sometimes transcripts are just summaries, though they appear in the USHMM catalogue records as transcripts. Due to the size of the data, it was impossible to identify these errors. Readers are asked to assess the information carefully in each case.
+In some cases the interview transcripts and the original recordings do not match. In some other cases, transcripts are incomplete; sometimes transcripts are just summaries, though they appear in the USHMM catalogue records as transcripts. Due to the size of the data, it was impossible to identify these errors. Readers are asked to assess the information carefully in each case.
 
 
 <h2>Gender Distribution</h2>
@@ -29,7 +29,7 @@ The recording years of interviews by the USHMM are wide-spread. The earliest int
 
 <h2>Interview lengths</h2>
 
-The length of interviews also vary a lot in the dataset. For instance, some of the interviewees are extremely short, they contain less than 1000 words.  (It might be that some of these interviews are erroneous for one or another reason). And there are two interviews that are longer than 100.000 words. But most of the interviews are around 15000 words long.
+The length of interviews also vary a lot in the dataset. For instance, some of the interviewees are extremely short, they contain less than 1000 words.  (It might be that some of these interviews are erroneous). And there are two interviews that are longer than 100.000 words. But most of the interviews are around 15000 words long.
 
 ![](ImagesMethodsDatasetDescription/distribution_word_counts_USHMM.png)
 

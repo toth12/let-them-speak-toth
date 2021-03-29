@@ -18,7 +18,7 @@ The testimonies that the Fortunoff Archive shared were all recorded as part of t
 
 <h2>Gender Distribution</h2>
 
-The distribution of men and women is very well balanced; 41 % men and 45% women; the remaining 13% consists of those interviews that are given by multiple interviewees. The presence of multiple interviewees is actually a peculiarity of the Fortunoff data.
+The distribution of men and women is well-balanced; 41 % men and 45% women; the remaining 13% consists of those interviews that are given by multiple interviewees. The presence of multiple interviewees is actually a peculiarity of the Fortunoff data.
 
 ![](ImagesMethodsDatasetDescription/percentage_women_men_Fortunoff.png)
 
@@ -30,7 +30,7 @@ Most of the interviewees were in their late fifties or early sixties when their 
 ![](ImagesMethodsDatasetDescription/year_of_birth_all_frequency_Fortunoff.png)
 
 
-The Fortunoff dataset also contains some interviewees who were already in their eighties when the interviews were recorded. The year of birth of the oldest interviewee is 1892. The age distribution of women and men follow the same pattern. Actually, the majority of both women and men were 58 years old when the interviews were recorded.
+The Fortunoff dataset also contains some interviewees who were already in their eighties when the interviews were recorded. The year of birth of the oldest interviewee is 1892. The age distribution of women and men follow the same pattern. The majority of both women and men were 58 years old when the interviews were recorded.
 
 <h2>Country of Origin of Interviewees</h2>
 

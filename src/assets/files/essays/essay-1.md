@@ -4,7 +4,7 @@
  <br/><br/>
 <b>Cite as</b>: Gabor Mihaly Toth, <i>In Search of Drowned: Testimonies and Testimonial Fragments of the Holocaust</i> (Yale Fortunoff Archive, 2021), lts.fortunoff.library.yale.edu
 
-During the Holocaust millions perished without leaving anything but their names behind; their suffering vanished with them.[[1](#fn-1)] Until recently those who survived could recall only fragments of the meaningless suffering that the Voiceless had to face. Symbolically, the survivors have given voice to the Voiceless; they have perpetuated a <i>living memory</i> of the emotional history of the Holocaust. Today, with the imminent death of the last survivors, the living memory is also fading and slowly disappearing. This inevitable transition has inspired this publication, which attempts to address one key question:
+During the Holocaust millions perished without leaving anything but their names behind; their suffering vanished with them.[[1](#fn-1)] Until recently those who survived could recall only fragments of the meaningless suffering that the Voiceless, as here I will refer to these millions, had to face. Symbolically, the survivors have given voice to the Voiceless; they have perpetuated a <i>living memory</i> of the emotional history of the Holocaust. Today, with the imminent death of the last survivors, the living memory is also fading and slowly disappearing. This inevitable transition has inspired this writing, which attempts to address one key question:
 
 ><i>How can we preserve the emotional history of the Holocaust so that future generations can continue to hear the voice of the Voiceless?</i>
 
@@ -30,7 +30,9 @@ Second, a written piece has to have a beginning and an end; it has to present a 
 
 The approach that I will follow to address these two fundamental difficulties has been inspired by two old and today somewhat outdated traditions of the Western culture: turning to the self and writing in fragments of thoughts and memory.[[6](#fn-6)]
 
-On the one hand, my own and my family’s very subjective memory will guide both my writing and my effort to reconstruct the voice of the Voiceless. I will begin each of the following short essays with a prologue in which I will recall a fragment of personal memory. Next, in the section that follows each prologue, I will expand my own fragment of memory by calling on the voice of survivors. In the second part of each essay, I will thus attempt to include the collective voice. This will lead to the third part of each essay that will include abstract reflections on the voices of the Voiceless, on collective suffering, and on the way modern technology can represent them. With this organization, I hope to address the voice of the Voiceless without being overly impersonal and abstract. This organization will also allow me to keep my own subjective memory separate from my reflections as a scholar. Finally, through the inclusion of the voice of <i>those who were there</i>, I will be able to draw on living memory in my reflections; readers are therefore encouraged to listen and watch the testimony excerpts in the followng essays.
+On the one hand, my own and my family’s very subjective memory will guide both my writing and my effort to reconstruct the voice of the Voiceless. I will begin each of the following short essays with a prologue in which I will recall a fragment of personal memory. Next, in the section that follows each prologue, I will expand my own fragment of memory by calling on the voice of survivors. In the second part of each essay, I will thus attempt to include the collective voice. This will lead to the third part of each essay that will include abstract reflections on the voices of the Voiceless, on collective suffering, and on the way modern technology can represent them. With this organization, I hope to address the voice of the Voiceless without being overly impersonal and abstract. This organization will also allow me to keep my own subjective memory separate from my reflections as a scholar. Finally, through the inclusion of the voice of <i>those who were there</i>, I will be able to draw on living memory in my reflections. 
+
+I am therefore asking you to listen or watch the testimony excerpts in the following essays (complete reading time is approximately 1 hour; transcripts of all excerpts are available in the [Testimonies section](/explore)). My ideas are becoming meaningful only in concert with the memory fragments conveyed in the audio / video recordings.
 
 My short essays will be only loosely connected; each will address a fragment of memory and thought that I believe can best mirror our fragmented understanding of the Voiceless and their experience.
 
@@ -54,7 +56,7 @@ As a whole, this collection of essays is not meant to be a history of the Holoca
 
 <p id="fn-5" class="footnote">5. Jorge Semprún, <i>Le mort qu’il faut (The Required Dead Man)</i> (Paris: Gallimard, 2001). Translated and quoted by
 G. Hartman in “Testimony and Authenticity”, published in G. Hartman, <i>Scars of the Spirit</i> (New York: Palgrave
-Macmillan, 2002). p. 91.</p>
+Macmillan, 2002), p. 91.</p>
 
 
 <p id="fn-6" class="footnote">6. As to turning to the self, see, <i>Confessiones</i> by Augustinus, <i>Secretum</i> by Petrarch, and <i>Discours de la méthode</i> by Descartes. As to writing in fragments, see <i>Zibaldone di pensieri</i> by Leopardi, <i>Pensees</i> by Pascal, and <i>Philosophical Investigations</i> by Wittgenstein.</p>

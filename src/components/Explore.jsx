@@ -57,7 +57,7 @@ const Explore = (props) => {
         <b>4. Interviewees who perhaps come from the same family</b>
         <br />
         Brothers, sisters, wives and husbands sometimes gave interviews; identifying interviewees, who come from the same family is a difficult task, though finding them might be of great interest for the research community. <a href="https://github.com/yale-fortunoff/lts-data/blob/main/data/interviews_sharing_surnames.csv" target="_blank">Here</a>
-        , you can find a list of interviewees who shared the same surname (how their surnames were identified is described in the <a href="/methods">Methodology</a> section)). Of course, sharing surnames (especially very common ones such as Friedman and Cohn) does not necessarily mean family relations. The list is therefore only indicative and definitely not comprehensive.
+        , you can find a list of interviewees who shared the same surname (how their surnames were identified is described in the <a href="/methods">Methodology</a> section). Of course, sharing surnames (especially very common ones such as Friedman and Cohn) does not necessarily mean family relations. The list is therefore only indicative and definitely not comprehensive.
         </p>
 
         <p>

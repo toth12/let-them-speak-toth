@@ -91,7 +91,7 @@ const About = (props) => {
               <td>
                 <a href="/essays">
                   <div>
-                    <h3>Monograph</h3>
+                    <h3>Essays</h3>
                   </div>
                   <hr />
                   <div className="teaser">
@@ -153,10 +153,10 @@ const About = (props) => {
             transcripts and videos recorded as part of the Holocaust Survivor
             Film Project in the late 1970s and early 1980s. The United States
             Holocaust Memorial Museum (USHMM) contributed 1500 interviews
-            recorded between the 1970s and the late 1990s. The Visual Archive of
+            recorded between the 1970s and the late 1990s. The Visual History Archive of
             the Shoah Foundation at the University of Southern California (USC
             VHA) gave 1000 interview transcripts recorded in the 1990s. (See the
-            complete description of the data sets this book in the{" "}
+            complete description of the data sets in the{" "}
             <a href="/methods">Methodology</a> section). With funding from the
             Fortunoff Video Archive, the USC Shoah Foundation, and the USC
             Viterbi School of Engineering, <i>In Search of the Drowned</i> was written, edited, and built by me in collaboration with the Yale

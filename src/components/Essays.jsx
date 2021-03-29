@@ -90,7 +90,7 @@ const essayListPart3 = [
 const essayListPart4 = [
   {
     title: "Epilogue",
-    epigraph: "Victims' Irrational Suffering and the Two Histories of the Holocaust",
+    epigraph: "Two Histories of the Holocaust and the Need for a New Epistemology",
     file: "/essays/essay-11",
   },
 ];

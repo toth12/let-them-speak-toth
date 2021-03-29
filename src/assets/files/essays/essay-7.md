@@ -72,7 +72,7 @@ This episode can be explained from the perspective of the perpetrator. Around th
 
 Building an empathetic understanding of the Voiceless victims’ suffering is crucial now when the last survivors are dying. Until now the survivors could remember them as humans. Following their death the Voiceless will become a number ("the six million") without a human face. Through collective suffering, not only can we bridge the gap between the present and the remote, we can also memorialize the Voiceless as humans.
 
-Next, we will see how the pieces of collective suffering can be rendered in a tangible format; again, memory will help find the adequate representation.
+We have seen how <i>recurrence</i> helps retrieve the pieces of collective suffering. Next, we will see how these pieces can be rendered in a tangible format; again, memory will help find the adequate representation.
 
 ## <a href="essay-8">Click here to continue</a>
 

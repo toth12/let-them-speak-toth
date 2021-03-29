@@ -48,7 +48,7 @@ On the contrary, the representation of collective suffering has to be informed b
 
 In practice, this means that the pieces of the collective suffering have to be told by the victims themselves. Here, this is accomplished with the help of modern technology. In the [Fragments](/tree) section, upon clicking on a memory fragment, you can read that fragment in its original textual context. More importantly, you can also hear the voice of the survivor.
 
-On the one hand, the voice and the face of the person <i>who was there</i> have the authenticity of a subjective and highly traumatic experience. They convey the suffering in the past and offer a palpable representation of an emotional experience.     
+On the one hand, the voice and the face of the person <i>who was there</i> have the authenticity of a subjective and highly traumatic experience. The voice and the face convey the suffering in the past and offer a palpable representation of an emotional experience.     
 
 On the other hand, by reading, listening or watching a given piece of the collective experience as part of a person’s narration, you can explore some possible historical contexts in which that piece could take shape. In this way, individual suffering becomes the context of the collective suffering; you can explore when and where a given piece of the collective suffering came about and how a real human felt about it.
 

@@ -95,6 +95,8 @@ The challenge described by the survivor (the need to avoid desensitization and t
 
 Survivors have preserved and transmitted the pieces of their suffering to us through a vivid oral tradition which also kept alive the emotional reality of persecutions. With the death of the last survivors, this living memory is also dying. To preserve the emotional reality for future generations, we need new representation formats, such as testimonial fragments of the collective suffering presented here, that can connect victims’ fundamentally different experience with the "normal" world in which we live.
 
+In the epilogue I am addressing the relationship between history of persecutions and victims' meaningless suffering.
+
 ## <a href="essay-11">Click here to continue</a>
 
 
