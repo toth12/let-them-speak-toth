@@ -8,11 +8,18 @@ const Tree = (props) => {
     <div className="tree">
       <div className="left background-image">
         <div className="text">
-          <h2>Anthology</h2>
           <div className="welcome">
-            Select a word to explore
             <br />
-            an experience domain
+            <br />
+            Click on a word
+            <br />
+            to explore an experience
+            <br />
+            <br />
+            <br />
+            Click on a fragment
+            <br />
+            to explore the context
           </div>
         </div>
       </div>
