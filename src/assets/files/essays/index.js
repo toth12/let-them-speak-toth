@@ -16,7 +16,7 @@ import markdownMethodsDatasetDescriptionUSHMM from "./MethodsDatasetDescriptionU
 import MethodsMiningFragments from "./MethodsMiningFragments.md";
 import MethodsLinguisticAnnotation from "./MethodsLinguisticAnnotation.md";
 import MethodsTechnicalSpecification from "./MethodsTechnicalSpecification.md";
-
+import how_to_read from "./how_to_read.md";
 
 
 export default {
@@ -91,6 +91,10 @@ export default {
   "essay-11": {
     title: "Essay 11",
     body: markdownEssay11,
+  },
+  "how_to_read": {
+    title: "how_to_read",
+    body: how_to_read,
   },
   default: {
     body:

@@ -23,7 +23,7 @@ const essayListPart0 = [
   {
     title: "The Voice of the Voiceless",
     epigraph: "How Can We Let Them Speak?",
-    file: "/essays/essay-1",
+    file: "/essays/how_to_read",
   },
 ];
 const essayListPart1 = [

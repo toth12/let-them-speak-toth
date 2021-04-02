@@ -19,7 +19,7 @@ Art, literature, and cinematography cannot perpetuate a living memory of their s
 <br/>
 
 
-Neither can history.[[4](#fn-4)]. The Voiceless did not leave any "record" that would enable the historian to <i>reconstruct</i> and <i>document</i> their suffering. The bitter words of the French-Spanish writer and survivor of Buchenwald, Jorge Semprún (1923 - 2011) express this and envision a gloomy future:
+Neither can history.[[4](#fn-4)]. The Voiceless did not leave any "record" that would enable the historian to <i>reconstruct</i> and <i>document</i> their suffering. The bitter words of the French-Spanish writer and survivor, Jorge Semprún (1923 - 2011) express this and envision a gloomy future:
 
 ><i>The best witness, the only true witness in reality, according to the specialists, is one who has not survived, who has gone to the end of experience and is dead. But neither the historians nor the sociologists have so far resolved this contradiction: how to invite these true witnesses, the dead, to their conferences? How can they be made to speak? That is a question, in any case, which the passage of time will settle: soon there won’t be any more embarrassing witnesses to encumber memory.</i>[[5](#fn-5)] 
 
@@ -36,7 +36,7 @@ The approach that I will follow to address these two fundamental difficulties ha
 
 On the one hand, my own and my family’s very subjective memory will guide both my writing and my effort to reconstruct the voice of the Voiceless. I will begin each of the following short essays with a prologue in which I will recall a fragment of personal memory. Next, in the section that follows each prologue, I will expand my own fragment of memory by calling on the voice of survivors. In the second part of each essay, I will thus attempt to include the collective voice. This will lead to the third part of each essay that will include abstract reflections on the voices of the Voiceless, on collective suffering, and on the way modern technology can represent them. With this organization, I hope to address the voice of the Voiceless without being overly impersonal and abstract. This organization will also allow me to keep my own subjective memory separate from my reflections as a scholar. Finally, through the inclusion of the voice of <i>those who were there</i>, I will be able to draw on living memory in my reflections. 
 
-I am therefore asking you to listen or watch the testimony excerpts in the following essays (complete reading time is approximately 1 hour; transcripts of all excerpts are available in the [Testimonies section](/explore)). My ideas are becoming meaningful only in concert with the memory fragments conveyed in the audio / video recordings.
+I am therefore asking you to listen to or watch the testimony excerpts in the following essays (transcripts of all excerpts are available in the [Testimonies section](/explore)). My ideas are becoming meaningful only in concert with the memory fragments conveyed in the audio / video recordings.
 
 My short essays will be only loosely connected; each will address a fragment of memory and thought that I believe can best mirror our fragmented understanding of the Voiceless and their experience.
 
